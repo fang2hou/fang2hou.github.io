@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: true,
+    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":"enable","show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索文章","hits_empty":"无法检索到关于 ${query} 的文章。","hits_stats":"找到了 ${hits} 个结果，耗时 ${time} 毫秒。"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="为什么要折腾这一下现在中国大陆的网站对于海外的访问限制力度非常之大，传统的突破封锁的方法很多都无法奏效。事已至此，还是和国内爱国上网一样，借由 Shadowsocks 回国吧。手上虽然有一台腾讯云的云服务器，但是带宽就 1M，日本连过去的线路还很善变，速度及其不稳定，丢包率奇高无比。上次在 V2EX 问了一些网友，在国内家里用路由器搭建一个 Shadowsocks 服务端却是一个可以价格低廉且稳定">
+<meta name="keywords" content="小米路由器 Mini,Pandavan">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在小米路由器 Mini 上安装 Pandavan 固件">
+<meta property="og:url" content="https://fang2hou.com/install-padavan-on-xiaomi-router-mini/index.html">
+<meta property="og:site_name" content="Fang2hou">
+<meta property="og:description" content="为什么要折腾这一下现在中国大陆的网站对于海外的访问限制力度非常之大，传统的突破封锁的方法很多都无法奏效。事已至此，还是和国内爱国上网一样，借由 Shadowsocks 回国吧。手上虽然有一台腾讯云的云服务器，但是带宽就 1M，日本连过去的线路还很善变，速度及其不稳定，丢包率奇高无比。上次在 V2EX 问了一些网友，在国内家里用路由器搭建一个 Shadowsocks 服务端却是一个可以价格低廉且稳定">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-18T10:38:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在小米路由器 Mini 上安装 Pandavan 固件">
+<meta name="twitter:description" content="为什么要折腾这一下现在中国大陆的网站对于海外的访问限制力度非常之大，传统的突破封锁的方法很多都无法奏效。事已至此，还是和国内爱国上网一样，借由 Shadowsocks 回国吧。手上虽然有一台腾讯云的云服务器，但是带宽就 1M，日本连过去的线路还很善变，速度及其不稳定，丢包率奇高无比。上次在 V2EX 问了一些网友，在国内家里用路由器搭建一个 Shadowsocks 服务端却是一个可以价格低廉且稳定">
+  <link rel="canonical" href="https://fang2hou.com/install-padavan-on-xiaomi-router-mini/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>在小米路由器 Mini 上安装 Pandavan 固件 | Fang2hou</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fang2hou</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">前途路漫漫，我心仍执着</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-文章分类">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>文章分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-程序项目">
+      
+    
+
+    <a href="/projects/" rel="section"><i class="fa fa-fw fa-code-fork"></i>程序项目</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-课程笔记">
+      
+    
+
+    <a href="//github.com/fang2hou/notes" rel="section"><i class="fa fa-fw fa-sticky-note"></i>课程笔记</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-私人网盘">
+      
+    
+
+    <a href="//file.fang2hou.com" rel="section"><i class="fa fa-fw fa-cloud-download"></i>私人网盘</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-立命馆相关">
+      
+    
+
+    <a href="/ritsumei/" rel="section"><i class="fa fa-fw fa-registered"></i>立命馆相关</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-关于我">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于我</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fang2hou.com/install-padavan-on-xiaomi-router-mini/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhou Fang">
+      <meta itemprop="description" content="分享自己的知识">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fang2hou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">在小米路由器 Mini 上安装 Pandavan 固件
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-12 11:59:44" itemprop="dateCreated datePublished" datetime="2019-02-12T11:59:44+09:00">2019-02-12</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-18 19:38:20" itemprop="dateModified" datetime="2019-02-18T19:38:20+09:00">2019-02-18</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/操作系统/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="为什么要折腾这一下"><a href="#为什么要折腾这一下" class="headerlink" title="为什么要折腾这一下"></a>为什么要折腾这一下</h1><p>现在中国大陆的网站对于海外的访问限制力度非常之大，传统的突破封锁的方法很多都无法奏效。事已至此，还是和国内爱国上网一样，借由 Shadowsocks 回国吧。手上虽然有一台腾讯云的云服务器，但是带宽就 1M，日本连过去的线路还很善变，速度及其不稳定，丢包率奇高无比。上次在 V2EX 问了一些网友，在国内家里用路由器搭建一个 Shadowsocks 服务端却是一个可以价格低廉且稳定的方案。<br>想配置家里这个路由器已经第 3 年了，每次回国都忘记，今天总算被我想了起来。</p>
+<p><strong>更新</strong>：忘了现在国内 IPv4 地址不够了，Shadowsocks 服务端开不了了。只能等以后 IPv6 地址有了之后再弄了。但是总体来说，可以给家中长辈添加视频去广告，以及根据 gfwlist 爱国上网等等功能也是很不错的。</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>查了下资料，我房间内的这个小米路由器 Mini 是比较容易把玩的一个路由器型号。在二手市场的价格也已经接近谷底（40 包邮），如果手上没有的话，也很推荐去淘宝买一个。</p>
+<ul>
+<li>小米路由器 × 1</li>
+<li>小米网络账户 × 1</li>
+<li>U 盘 × 1 （16M 空余空间就行）</li>
+<li>网线 × 1</li>
+<li>手机 × 1</li>
+<li>用网线上网的设备 × 1<a id="more"></a>
+
+</li>
+</ul>
+<h1 id="操作顺序"><a href="#操作顺序" class="headerlink" title="操作顺序"></a>操作顺序</h1><h2 id="开启开发权限"><a href="#开启开发权限" class="headerlink" title="开启开发权限"></a>开启开发权限</h2><ol>
+<li><p>下载小米路由器官方的开发版固件。<span class="exturl" data-url="aHR0cDovL3d3dzEubWl3aWZpLmNvbS9taXdpZmlfZG93bmxvYWQuaHRtbA==" title="http://www1.miwifi.com/miwifi_download.html">下载链接<i class="fa fa-external-link"></i></span><br> 小米为路由器本身就提供了开发版，便于爱好者折腾，从这点来说，我觉得非常棒！</p>
+ 
+</li>
+<li><p>刷入小米路由器官方的开发版固件。<br> 登陆到路由器后台，一般来说连入小米路由器之后直接访问 <code>miwifi.com</code> 就行。<br> 选择路由器控制面板内的手动升级功能来完成开发版固件刷入工作。</p>
+ 
+</li>
+<li><p>用手机 App 「小米WiFi」设定路由器到正常上网状态，并绑定这个路由器到你的小米账户上。</p>
+ 
+</li>
+<li><p>安装 SSH 工具包。<br> 在 <span class="exturl" data-url="aHR0cHM6Ly9kLm1pd2lmaS5jb20vcm9tL3NzaA==" title="https://d.miwifi.com/rom/ssh">这里<i class="fa fa-external-link"></i></span> 可以直接下载到 SSH 工具包和对应的 root 密码。</p>
+ 
+</li>
+<li><p>按照官方操作指导 U 盘刷入 SSH 工具包。<br> ① 将下载的工具包 bin 文件复制到U盘（FAT/FAT32 格式）的根目录下，保证文件名为 <code>miwifi_ssh.bin</code><br> ② 断开小米路由器的电源，将U盘插入 USB 接口；<br> ③ 按住 <code>reset</code> 按钮之后重新接入电源，指示灯变为黄色闪烁状态即可松开 <code>reset</code> 键；<br> ④ 等待3-5秒后安装完成之后，小米路由器会自动重启。</p>
+</li>
+<li><p>用 ssh 登入路由器的 Linux 系统。<br> 小米路由器的默认网络别名是 <code>xiaoqiang</code>，默认 SSH 端口为 22。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@xiaoqiang</span><br></pre></td></tr></table></figure>
+
+<p> 看到「ARE U OK」就算是成功进入了。</p>
+ 
+
+</li>
+</ol>
+<h2 id="备份官方固件"><a href="#备份官方固件" class="headerlink" title="备份官方固件"></a>备份官方固件</h2><ol>
+<li><p>首先，通过 SSH 连接到小米路由器之后，就可以用 <code>cat /proc/mtd</code> 查看当前固件的信息了。</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@XiaoQiang:~# cat /proc/mtd</span><br><span class="line">dev:    size   erasesize  name</span><br><span class="line">mtd0: 01000000 00010000 "ALL"</span><br><span class="line">mtd1: 00030000 00010000 "Bootloader"</span><br><span class="line">mtd2: 00010000 00010000 "Config"</span><br><span class="line">mtd3: 00010000 00010000 "Factory"</span><br><span class="line">mtd4: 00c80000 00010000 "OS1"</span><br><span class="line">mtd5: 00b178a7 00010000 "rootfs"</span><br><span class="line">mtd6: 00200000 00010000 "OS2"</span><br><span class="line">mtd7: 00100000 00010000 "overlay"</span><br><span class="line">mtd8: 00010000 00010000 "crash"</span><br><span class="line">mtd9: 00010000 00010000 "reserved"</span><br><span class="line">mtd10: 00010000 00010000 "Bdata"</span><br></pre></td></tr></table></figure>
+
+<p> 看好列表后，马上就依次备份现有的文件。</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cd /tmp</span><br><span class="line">mkdir rom</span><br><span class="line">dd if=/dev/mtd0 of=/tmp/rom/ALL.bin</span><br><span class="line">dd if=/dev/mtd1 of=/tmp/rom/Bootloader.bin</span><br><span class="line">dd if=/dev/mtd2 of=/tmp/rom/Config.bin</span><br><span class="line">dd if=/dev/mtd3 of=/tmp/rom/Factory.bin</span><br><span class="line">dd if=/dev/mtd4 of=/tmp/rom/OS1.bin</span><br><span class="line">dd if=/dev/mtd5 of=/tmp/rom/rootfs.bin</span><br><span class="line">dd if=/dev/mtd6 of=/tmp/rom/OS2.bin</span><br><span class="line">dd if=/dev/mtd7 of=/tmp/rom/overlay.bin</span><br><span class="line">dd if=/dev/mtd8 of=/tmp/rom/crash.bin</span><br><span class="line">dd if=/dev/mtd9 of=/tmp/rom/reserved.bin</span><br><span class="line">dd if=/dev/mtd10 of=/tmp/rom/Bdata.bin</span><br></pre></td></tr></table></figure>
+
+<p> 你可以直接用上面的代码一行行进去执行，也可以存成 <code>sh</code> 文件，用 <code>chmod +x &lt;文件名&gt; &amp;&amp; ./&lt;文件名&gt;</code> 的格式可以更加方便的运行。</p>
+</li>
+<li><p>把备份文件拖回本地<br> 用 <code>exit</code> 退出小米路由器的 shell 环境。<br> 在本地执行下面的代码即可下载全部的文件。</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r root@xiaoqiang:/tmp/rom/ &lt;备份目录&gt;</span><br></pre></td></tr></table></figure>
+
+ 
+<p> 我这样操作后，<code>Backups</code> 文件夹中就会多出一个 <code>rom</code> 目录，里面存放了全部备份文件。</p>
+</li>
+<li><p>备用恢复命令<br> 如果日后想要恢复现在的文件，那么就可以用下面的语句上传我们的包到路由器的临时目录里。</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r &lt;备份目录&gt; root@xiaoqiang:/tmp/</span><br></pre></td></tr></table></figure>
+
+<p> 这个地方备份目录要以 <code>/rom/</code> 结尾，这样 scp 复制到服务器上的 <code>tmp</code> 目录中 就会有一个 <code>rom</code> 文件夹。<br> 在确认所有备份已经上传至小米路由器的 <code>/tmp/rom</code> 中之后，即可使用下面的命令恢复了。</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mtd write /tmp/rom/Bootloader.bin Bootloader</span><br><span class="line">mtd write /tmp/rom/Config.bin Config</span><br><span class="line">mtd write /tmp/rom/Factory.bin Factory</span><br><span class="line">mtd write /tmp/rom/OS1.bin OS1</span><br><span class="line">mtd write /tmp/rom/rootfs.bin rootfs</span><br><span class="line">mtd write /tmp/rom/OS2.bin OS2</span><br><span class="line">mtd write /tmp/rom/overlay.bin overlay</span><br><span class="line">mtd write /tmp/rom/crash.bin crash</span><br><span class="line">mtd write /tmp/rom/reserved.bin reserved</span><br><span class="line">mtd write /tmp/rom/Bdata.bin Bdata</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="刷入国产-Breed"><a href="#刷入国产-Breed" class="headerlink" title="刷入国产 Breed"></a>刷入国产 Breed</h2><p>Breed，一款出自国内著名路由器技术社区——恩山论坛的一款 BootLoader。主要特点还是便于刷机，其支持 Web 页面提交刷机包完成刷机，很受国内玩家追捧。下面，我就来安装 Breed 到小米路由器上。</p>
+<ol>
+<li><p>下载最新版本的 Breed。<br> 作者 Hackpascal 将其制作的 Breed 放于个人服务器供大家分享使用，虽是不开源产品，但是基本上覆盖了市面上大部分热门机型，小米路由器 Mini 自然也不例外。<br> 打开 <span class="exturl" data-url="aHR0cHM6Ly9icmVlZC5oYWNrcGFzY2FsLm5ldA==" title="https://breed.hackpascal.net">Breed 下载站<i class="fa fa-external-link"></i></span>，找到 <code>breed-mt7620-xiaomi-mini.bin</code> 右键复制其下载链接。<br> 用 SSH 连接上小米路由器，使用 <code>curl</code> 来下载 Breed 到临时目录 <code>/tmp</code> 中。</p>
+ 
+</li>
+<li><p>覆盖写入 Breed 到 BootLoader。<br> 在 <code>/tmp</code> 目录下执行下面的代码即可刷入 Breed。</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mtd -r write breed-mt7620-xiaomi-mini.bin Bootloader</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刷入后，机器会重新启动，指示灯变蓝。<br> 这个过程比较耗时，约 20 分钟，请一定要等到指示灯变蓝。</p>
+</li>
+<li><p>将电脑设定为自动获取 IP 地址，且是用物理网线连上路由器。</p>
+</li>
+<li><p>进入 Web 刷机模式<br> 先断开小米路由器的电源，用牙签等尖锐物按下路由器 <code>reset</code> 按钮后重新接入电源。<br> 等到路由器的蓝色灯开始闪烁时即表明进入 Web 刷机模式，松开 <code>reset</code> 键。<br> 此时，使用浏览器登入 <code>192.168.1.1</code>，即可进入 Breed 的控制台。</p>
+</li>
+</ol>
+<h2 id="上传并刷入-Padavan"><a href="#上传并刷入-Padavan" class="headerlink" title="上传并刷入 Padavan"></a>上传并刷入 Padavan</h2><p>终于到了最后一步，刷入 Padavan。<br>Padavan 是由恩山无线论坛的 hiboyhiboyhiboy 出品的一款开源路由器固件改版，调整了很多符合国人习惯的设定，开箱即用，备有非常多的常用软件。可以说，在易用性上远超市面上其他所有固件。<br><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC0xNjEzMjQtMS0xLmh0bWw=" title="https://www.right.com.cn/forum/thread-161324-1-1.html">Padavan 发布原帖<i class="fa fa-external-link"></i></span> | <span class="exturl" data-url="aHR0cDovL3QubWUvcGRjbjE=" title="http://t.me/pdcn1">Padavan 官方信息发布 TG 群<i class="fa fa-external-link"></i></span>| <span class="exturl" data-url="aHR0cDovL29wdC5jbjJxcS5jb20vcGFkYXZhbi8=" title="http://opt.cn2qq.com/padavan/">Padavan 固件下载列表<i class="fa fa-external-link"></i></span></p>
+<ol>
+<li>登入 Breed 的 Web 刷机控制台。<br> 地址栏输入 <code>192.168.1.1</code> 即可。</li>
+<li>选择左侧的「固件升级」，选择固件为刚刚下载的 <code>trx</code> 文件。 </li>
+<li>开始刷入，等待刷机结束。</li>
+</ol>
+<h2 id="进入-Padavan-控制台"><a href="#进入-Padavan-控制台" class="headerlink" title="进入 Padavan 控制台"></a>进入 Padavan 控制台</h2><p>默认登陆地址为 <code>http://my.router</code>，默认账户和密码都是 <code>admin</code>，可以自行修改。</p>
+
+<p>关于具体设置的话，由于 Padavan 做的实在是完善，在 WebUI 的指引下就可以轻松设定好一切。更多的用法请各位自己去探索吧！</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><span class="exturl" data-url="aHR0cDovL2Jicy54aWFvbWkuY24vdC0zMjkzOTIzOA==" title="http://bbs.xiaomi.cn/t-32939238">【开学季】宿舍神器小米路由mini刷Padavan（带锐捷认证）<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9iMjg0OWM5Mjg2MWI=" title="https://www.jianshu.com/p/b2849c92861b">scp从服务器下载文件到本地或从本地上传文件到服务器<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9icmVlZC5oYWNrcGFzY2FsLm5ldA==" title="https://breed.hackpascal.net">Boot and Recovery Environment for Embedded Devices (BREED)<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly91bml4LnN0YWNrZXhjaGFuZ2UuY29tL3F1ZXN0aW9ucy82MDc1MC9kb2VzLWN1cmwtaGF2ZS1hLW5vLWNoZWNrLWNlcnRpZmljYXRlLW9wdGlvbi1saWtlLXdnZXQ=" title="https://unix.stackexchange.com/questions/60750/does-curl-have-a-no-check-certificate-option-like-wget">Does curl have a –no-check-certificate option like wget?<i class="fa fa-external-link"></i></span></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhou Fang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fang2hou.com/install-padavan-on-xiaomi-router-mini/" title="在小米路由器 Mini 上安装 Pandavan 固件">https://fang2hou.com/install-padavan-on-xiaomi-router-mini/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC</span> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/小米路由器-Mini/" rel="tag"><i class="fa fa-tag"></i> 小米路由器 Mini</a>
+            
+              <a href="/tags/Pandavan/" rel="tag"><i class="fa fa-tag"></i> Pandavan</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/raspberry-pi-guide-02/" rel="next" title="树莓派搞机日记（二）">
+                  <i class="fa fa-chevron-left"></i> 树莓派搞机日记（二）
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/use-tpu-to-train-cnn/" rel="prev" title="使用 Google Colab 提供的免费 TPU 进行训练">
+                  使用 Google Colab 提供的免费 TPU 进行训练 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要折腾这一下"><span class="nav-number">1.</span> <span class="nav-text">为什么要折腾这一下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作顺序"><span class="nav-number">3.</span> <span class="nav-text">操作顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开启开发权限"><span class="nav-number">3.1.</span> <span class="nav-text">开启开发权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备份官方固件"><span class="nav-number">3.2.</span> <span class="nav-text">备份官方固件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刷入国产-Breed"><span class="nav-number">3.3.</span> <span class="nav-text">刷入国产 Breed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传并刷入-Padavan"><span class="nav-number">3.4.</span> <span class="nav-text">上传并刷入 Padavan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入-Padavan-控制台"><span class="nav-number">3.5.</span> <span class="nav-text">进入 Padavan 控制台</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Zhou Fang">
+  <p class="site-author-name" itemprop="name">Zhou Fang</p>
+  <div class="site-description" itemprop="description">分享自己的知识</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9mYW5nMmhvdQ==" title="Twitter &rarr; https://twitter.com/fang2hou"><i class="fa fa-fw fa-twitter"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhbmcyaG91" title="GitHub &rarr; https://github.com/fang2hou"><i class="fa fa-fw fa-github"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="bWFpbHRvOmlzMDM4NXJ4QGVkLnJpdHN1bWVpLmFjLmpw" title="E-Mail &rarr; mailto:is0385rx@ed.ritsumei.ac.jp"><i class="fa fa-fw fa-envelope"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cDovL3d3dy5saW5rZWRpbi5jb20vaW4vemhvdS1mYW5nLWNu" title="Linkedin &rarr; http://www.linkedin.com/in/zhou-fang-cn"><i class="fa fa-fw fa-linkedin"></i></span>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><img src="/images/cc-by-nc.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhou Fang</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

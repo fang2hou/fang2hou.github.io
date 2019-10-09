@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: true,
+    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":"enable","show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索文章","hits_empty":"无法检索到关于 ${query} 的文章。","hits_stats":"找到了 ${hits} 个结果，耗时 ${time} 毫秒。"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="更新：  修正量勺单位小数点错误。 修正甜度部分说明。  日本生活多年，忘不了国内维他柠檬茶的同学相信有不少。但是无论是国内转运还是人肉带货价格都非常的高昂，所以就萌生了自己冲调的想法。这周算是fork了许同学的冲调法，自己进行了冲调比例的多次尝试，以求尽量接近维他的口感。">
+<meta name="keywords" content="维他柠檬茶,饮料调制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在日生活之维他柠檬茶冲调攻略">
+<meta property="og:url" content="https://fang2hou.com/diy-vita-lemon-tea-in-japan/index.html">
+<meta property="og:site_name" content="Fang2hou">
+<meta property="og:description" content="更新：  修正量勺单位小数点错误。 修正甜度部分说明。  日本生活多年，忘不了国内维他柠檬茶的同学相信有不少。但是无论是国内转运还是人肉带货价格都非常的高昂，所以就萌生了自己冲调的想法。这周算是fork了许同学的冲调法，自己进行了冲调比例的多次尝试，以求尽量接近维他的口感。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-25T06:27:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在日生活之维他柠檬茶冲调攻略">
+<meta name="twitter:description" content="更新：  修正量勺单位小数点错误。 修正甜度部分说明。  日本生活多年，忘不了国内维他柠檬茶的同学相信有不少。但是无论是国内转运还是人肉带货价格都非常的高昂，所以就萌生了自己冲调的想法。这周算是fork了许同学的冲调法，自己进行了冲调比例的多次尝试，以求尽量接近维他的口感。">
+  <link rel="canonical" href="https://fang2hou.com/diy-vita-lemon-tea-in-japan/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>在日生活之维他柠檬茶冲调攻略 | Fang2hou</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fang2hou</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">前途路漫漫，我心仍执着</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-文章分类">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>文章分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-程序项目">
+      
+    
+
+    <a href="/projects/" rel="section"><i class="fa fa-fw fa-code-fork"></i>程序项目</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-课程笔记">
+      
+    
+
+    <a href="//github.com/fang2hou/notes" rel="section"><i class="fa fa-fw fa-sticky-note"></i>课程笔记</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-私人网盘">
+      
+    
+
+    <a href="//file.fang2hou.com" rel="section"><i class="fa fa-fw fa-cloud-download"></i>私人网盘</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-立命馆相关">
+      
+    
+
+    <a href="/ritsumei/" rel="section"><i class="fa fa-fw fa-registered"></i>立命馆相关</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-关于我">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于我</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fang2hou.com/diy-vita-lemon-tea-in-japan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhou Fang">
+      <meta itemprop="description" content="分享自己的知识">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fang2hou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">在日生活之维他柠檬茶冲调攻略
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-24 03:06:54" itemprop="dateCreated datePublished" datetime="2018-06-24T03:06:54+09:00">2018-06-24</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-07-25 15:27:42" itemprop="dateModified" datetime="2018-07-25T15:27:42+09:00">2018-07-25</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/料理生活/" itemprop="url" rel="index"><span itemprop="name">料理生活</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>更新：</p>
+<ul>
+<li>修正量勺单位小数点错误。</li>
+<li>修正甜度部分说明。</li>
+</ul>
+<p>日本生活多年，忘不了国内维他柠檬茶的同学相信有不少。<br>但是无论是国内转运还是人肉带货价格都非常的高昂，所以就萌生了自己冲调的想法。<br>这周算是fork了许同学的冲调法，自己进行了冲调比例的多次尝试，以求尽量接近维他的口感。</p>
+<a id="more"></a>
+<h1 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h1><ol>
+<li>1L以上瓶体容器<br>一般的水壶都可以，顺便一提我是从亚马逊购入的，壶口开闭很方便。<br><span class="exturl" data-url="aHR0cDovL2Ftem4uYXNpYS83TlpQaGhB" title="http://amzn.asia/7NZPhhA">HARIO 1400ml 水壶<i class="fa fa-external-link"></i></span></li>
+<li>量勺<br>我是从 FLET’s 百元店购入的，15ml 和 5ml 两只装。</li>
+</ol>
+<h1 id="材料准备"><a href="#材料准备" class="headerlink" title="材料准备"></a>材料准备</h1><ol>
+<li><p>立顿柠檬茶粉（リプトン さわやかレモンティー）</p>
+
+<p>各大超市，业务超市都有售。<br>在线购买：<br><span class="exturl" data-url="aHR0cHM6Ly9pdGVtLnJha3V0ZW4uY28uanAvbGlwdG9uLWJyb29rZS8xMDAwMTI4Ni8=" title="https://item.rakuten.co.jp/lipton-brooke/10001286/">日本立顿官方商店<i class="fa fa-external-link"></i></span> | <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL3MvZmllbGQta2V5d29yZHM944Oq44OX44OI44Oz44GV44KP44KE44GL44Os44Oi44Oz44OG44Kj44O8" title="https://www.amazon.co.jp/s/field-keywords=リプトンさわやかレモンティー">亚马逊<i class="fa fa-external-link"></i></span><br>价格：513元 / 500g（税后）</p>
+</li>
+<li><p>大正制药液态果糖（パルスイート カロリーゼロ）</p>
+
+<p>各大超市都有售。<br>在线购买：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL3MvcmVmPW5iX3NiX25vc3M/X19ta19qYV9KUD3jgqvjgr/jgqvjg4omIzAzODt1cmw9c2VhcmNoLWFsaWFzJTNEYXBzJiMwMzg7ZmllbGQta2V5d29yZHM944OR44Or44K544Kk44O844OIK+OCq+ODreODquODvOOCvOODrSvmtrLkvZM=" title="https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=カタカナ&#038;url=search-alias%3Daps&#038;field-keywords=パルスイート+カロリーゼロ+液体">亚马逊<i class="fa fa-external-link"></i></span><br>价格：631元 / 500g（税后）<br>只要是液态果糖都可以，不一定要一个牌子的，只是用量上需要自己把握。</p>
+</li>
+<li><p>Pokka柠檬汁（ポッカレモン100）</p>
+
+<p>各大超市，业务超市都有售。<br>在线购买：<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL3MvZmllbGQta2V5d29yZHM944Od44OD44Kr44Os44Oi44OzMTAw" title="https://www.amazon.co.jp/s/field-keywords=ポッカレモン100">亚马逊<i class="fa fa-external-link"></i></span><br>价格：70ml塑料小瓶装 1000元 / 500ml（税后）| 450ml玻璃大瓶装 480元 / 500ml（税后） </p></li></ol> <p></p>
+
+
+<h1 id="冲调方法"><a href="#冲调方法" class="headerlink" title="冲调方法"></a>冲调方法</h1><ol>
+<li>直接加入冷水 1L 于壶中。<br>建议使用「KIRIN アルカリイオンの水」，不贵，使用后无任何杂味。<br>当然，自来水 / 开水也是可以的。</li>
+<li>添加 <strong>15ml</strong> x 7勺 的柠檬茶粉<br>柠檬茶粉的多少取决你对涩味的敏感度。<br>建议第一次照做，之后可酌量减少或者增加。</li>
+<li>混合均匀<br>如果你觉得比较难搅匀，可以先用其他容器先接出一半，然后大力摇晃搅匀。<br>如果有摇壶的话建议直接分两次调匀后放入瓶中。</li>
+<li>添加 <strong>5ml</strong> x 6.5勺 的果糖<br>该甜度大概为国内奶茶10分糖的甜度，可以酌量减少。<br>维他的甜度大概需要加入 5.5 勺。</li>
+<li>混合均匀<br>稍微摇一下，使用液态果糖的主要理由就是为了快速混合。</li>
+<li>添加柠檬汁<br>这一步其实是非常主观的，主要是如何为柠檬茶添加适量的酸味。<br>建议每 5ml 搅匀先自己尝一下再决定是否继续添加。我一般是加入 25ml。</li>
+<li>放入冰箱静置半小时以上</li>
+</ol>
+
+<p>在炎炎夏日，喝着冰镇的柠檬茶，真是爽的不行。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhou Fang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fang2hou.com/diy-vita-lemon-tea-in-japan/" title="在日生活之维他柠檬茶冲调攻略">https://fang2hou.com/diy-vita-lemon-tea-in-japan/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC</span> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/维他柠檬茶/" rel="tag"><i class="fa fa-tag"></i> 维他柠檬茶</a>
+            
+              <a href="/tags/饮料调制/" rel="tag"><i class="fa fa-tag"></i> 饮料调制</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/install-raspberry-pi-3-ubuntu-mate-on-mac/" rel="next" title="在 macOS 上为树莓派安装 Ubuntu Mate">
+                  <i class="fa fa-chevron-left"></i> 在 macOS 上为树莓派安装 Ubuntu Mate
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/reasons-why-i-use-golang/" rel="prev" title="我选择使用 Go 语言的几大理由">
+                  我选择使用 Go 语言的几大理由 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工具准备"><span class="nav-number">1.</span> <span class="nav-text">工具准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#材料准备"><span class="nav-number">2.</span> <span class="nav-text">材料准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#冲调方法"><span class="nav-number">3.</span> <span class="nav-text">冲调方法</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Zhou Fang">
+  <p class="site-author-name" itemprop="name">Zhou Fang</p>
+  <div class="site-description" itemprop="description">分享自己的知识</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9mYW5nMmhvdQ==" title="Twitter &rarr; https://twitter.com/fang2hou"><i class="fa fa-fw fa-twitter"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhbmcyaG91" title="GitHub &rarr; https://github.com/fang2hou"><i class="fa fa-fw fa-github"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="bWFpbHRvOmlzMDM4NXJ4QGVkLnJpdHN1bWVpLmFjLmpw" title="E-Mail &rarr; mailto:is0385rx@ed.ritsumei.ac.jp"><i class="fa fa-fw fa-envelope"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cDovL3d3dy5saW5rZWRpbi5jb20vaW4vemhvdS1mYW5nLWNu" title="Linkedin &rarr; http://www.linkedin.com/in/zhou-fang-cn"><i class="fa fa-fw fa-linkedin"></i></span>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><img src="/images/cc-by-nc.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhou Fang</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

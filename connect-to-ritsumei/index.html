@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: true,
+    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":"enable","show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索文章","hits_empty":"无法检索到关于 ${query} 的文章。","hits_stats":"找到了 ${hits} 个结果，耗时 ${time} 毫秒。"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="背景很多人都喜欢在家里写作业，但是碍于部分开发环境的配置过于繁琐，大家都想通过校内的 Rainbow 环境下的预配置 CentOS 来完成。同时，身处日本国外时，若想利用学校的证书去访问付费论文数据库，也需要利用到立命馆提供的网络服务。在这里，就从立命馆 VPN，RAINBOW Linux，校内文件传输三个方面来介绍一下立命馆的网络服务。 立命馆服务管理考虑到安全性，立命馆所有高级网络功能均要求手">
+<meta name="keywords" content="Rainbow,立命馆,SSH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从校外快速连接到立命馆">
+<meta property="og:url" content="https://fang2hou.com/connect-to-ritsumei/index.html">
+<meta property="og:site_name" content="Fang2hou">
+<meta property="og:description" content="背景很多人都喜欢在家里写作业，但是碍于部分开发环境的配置过于繁琐，大家都想通过校内的 Rainbow 环境下的预配置 CentOS 来完成。同时，身处日本国外时，若想利用学校的证书去访问付费论文数据库，也需要利用到立命馆提供的网络服务。在这里，就从立命馆 VPN，RAINBOW Linux，校内文件传输三个方面来介绍一下立命馆的网络服务。 立命馆服务管理考虑到安全性，立命馆所有高级网络功能均要求手">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-12T10:15:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从校外快速连接到立命馆">
+<meta name="twitter:description" content="背景很多人都喜欢在家里写作业，但是碍于部分开发环境的配置过于繁琐，大家都想通过校内的 Rainbow 环境下的预配置 CentOS 来完成。同时，身处日本国外时，若想利用学校的证书去访问付费论文数据库，也需要利用到立命馆提供的网络服务。在这里，就从立命馆 VPN，RAINBOW Linux，校内文件传输三个方面来介绍一下立命馆的网络服务。 立命馆服务管理考虑到安全性，立命馆所有高级网络功能均要求手">
+  <link rel="canonical" href="https://fang2hou.com/connect-to-ritsumei/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>从校外快速连接到立命馆 | Fang2hou</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fang2hou</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">前途路漫漫，我心仍执着</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-文章分类">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>文章分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-程序项目">
+      
+    
+
+    <a href="/projects/" rel="section"><i class="fa fa-fw fa-code-fork"></i>程序项目</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-课程笔记">
+      
+    
+
+    <a href="//github.com/fang2hou/notes" rel="section"><i class="fa fa-fw fa-sticky-note"></i>课程笔记</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-私人网盘">
+      
+    
+
+    <a href="//file.fang2hou.com" rel="section"><i class="fa fa-fw fa-cloud-download"></i>私人网盘</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-立命馆相关">
+      
+    
+
+    <a href="/ritsumei/" rel="section"><i class="fa fa-fw fa-registered"></i>立命馆相关</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-关于我">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于我</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fang2hou.com/connect-to-ritsumei/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhou Fang">
+      <meta itemprop="description" content="分享自己的知识">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fang2hou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">从校外快速连接到立命馆
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-15 01:38:25" itemprop="dateCreated datePublished" datetime="2017-12-15T01:38:25+09:00">2017-12-15</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-11-12 19:15:36" itemprop="dateModified" datetime="2018-11-12T19:15:36+09:00">2018-11-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件心得/" itemprop="url" rel="index"><span itemprop="name">软件心得</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>很多人都喜欢在家里写作业，但是碍于部分开发环境的配置过于繁琐，大家都想通过校内的 Rainbow 环境下的预配置 CentOS 来完成。同时，身处日本国外时，若想利用学校的证书去访问付费论文数据库，也需要利用到立命馆提供的网络服务。<br>在这里，就从<strong>立命馆 VPN</strong>，<strong>RAINBOW Linux</strong>，<strong>校内文件传输</strong>三个方面来介绍一下立命馆的网络服务。</p>
+<h1 id="立命馆服务管理"><a href="#立命馆服务管理" class="headerlink" title="立命馆服务管理"></a>立命馆服务管理</h1><p>考虑到安全性，立命馆所有高级网络功能均要求手动开启。<br>请登入学校的 <span class="exturl" data-url="aHR0cHM6Ly9pZG1pbmZvLnJpdHN1bWVpLmFjLmpwL3dlYm10bi9zc28tam9pbnQ=" title="https://idminfo.ritsumei.ac.jp/webmtn/sso-joint">服务管理页面<i class="fa fa-external-link"></i></span> 开启 SSH 及 VPN 服务。</p>
+<p><strong>小提示</strong> 点击左侧「ユーザ設定(User Settings)」即可切换到服务开关页面。</p>
+<a id="more"></a>
+
+<h1 id="立命馆VPN"><a href="#立命馆VPN" class="headerlink" title="立命馆VPN"></a>立命馆VPN</h1><p>一个采用 Cisco AnyConnect 技术的 VPN。个人是非常推荐使用的，客户端跨越全平台。同时由于该技术广泛应用于跨国企业和高等院校，就算回国也能正常使用，不会被封锁。</p>
+<h2 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h2><p>Windows / macOS: <span class="exturl" data-url="aHR0cHM6Ly9zc2x2cG4ucml0c3VtZWkuYWMuanAv" title="https://sslvpn.ritsumei.ac.jp/">通过立命馆下载<i class="fa fa-external-link"></i></span>（Download栏目中有个蓝色链接）<br>iOS：<span class="exturl" data-url="aHR0cHM6Ly9pdHVuZXMuYXBwbGUuY29tL2pwL2FwcC9jaXNjby1hbnljb25uZWN0L2lkMTEzNTA2NDY5MA==" title="https://itunes.apple.com/jp/app/cisco-anyconnect/id1135064690">日本 AppStore<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9pdHVuZXMuYXBwbGUuY29tL2NuL2FwcC9jaXNjby1hbnljb25uZWN0L2lkMTEzNTA2NDY5MA==" title="https://itunes.apple.com/cn/app/cisco-anyconnect/id1135064690">中国 AppStore<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9pdHVuZXMuYXBwbGUuY29tL3VzL2FwcC9jaXNjby1hbnljb25uZWN0L2lkMTEzNTA2NDY5MA==" title="https://itunes.apple.com/us/app/cisco-anyconnect/id1135064690">美国 AppStore<i class="fa fa-external-link"></i></span><br>Android: <span class="exturl" data-url="aHR0cHM6Ly9wbGF5Lmdvb2dsZS5jb20vc3RvcmUvYXBwcy9kZXRhaWxzP2lkPWNvbS5jaXNjby5hbnljb25uZWN0LnZwbi5hbmRyb2lkLmF2ZiZobD16aC1jbg==" title="https://play.google.com/store/apps/details?id=com.cisco.anyconnect.vpn.android.avf&hl=zh-cn">Play 商店<i class="fa fa-external-link"></i></span></p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><ol>
+<li>设定连接地址为「sslvpn.ritsumei.ac.jp」</li>
+<li>点击 <strong>连接</strong></li>
+<li>用 Rainbow 账号密码验证</li>
+</ol>
+<h1 id="远程使用-CentOS"><a href="#远程使用-CentOS" class="headerlink" title="远程使用 CentOS"></a>远程使用 CentOS</h1><blockquote><p>Secure Shell（安全外壳协议，简称SSH）是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。SSH通过在网络中建立安全隧道来实现SSH客户端与服务器之间的连接。虽然任何网络服务都可以通过SSH实现安全传输，SSH最常见的用途是远程登录系统，人们通常利用SSH来传输命令行界面和远程执行命令。</p>
+<footer><strong>维基百科，自由的百科全书</strong><cite><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvU2VjdXJlX1NoZWxs" title="https://zh.wikipedia.org/wiki/Secure_Shell">Secure Shell<i class="fa fa-external-link"></i></span></cite></footer></blockquote>
+
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>对于 macOS 和 Linux 用户来说，SSH 属于内置功能，不需要额外配置。</p>
+<p>Windows 10 最新版本也已经支持了 OpenSSH，直接可以使用。也可以通过子系统访问。Windows 10 子系统的安装可以参考我的另外一篇文章『<a href="/use-linux-subsystem-on-windows/" title="在 Windows 中使用 Linux 子系统">在 Windows 中使用 Linux 子系统</a>』。</p>
+<p>如果你是旧版本的 Windows 用户，你需要自行安装 Win32-OpenSSH 来使用 SSH，在此不再赘述。</p>
+<h2 id="SSH-使用注意点"><a href="#SSH-使用注意点" class="headerlink" title="SSH 使用注意点"></a>SSH 使用注意点</h2><p>在初次连接 SSH 时会询问「要添加证书么」，输入「y」 或「yes」来表示同意并继续即可。<br>请记住，用 SSH 的时候请务必带上你的用户名！</p>
+<p>连接上去之后，是没有GUI（图形用户界面）的，一切都要靠命令行来操作。<br>你可以在本地把代码写完，然后通过后面提到的方式同步到你的 CentOS 内执行。<br>不过还是建议在使用前查阅 vi 或者是 emacs 这一类运行在命令行上的编辑器的指令后再登陆使用。</p>
+<h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><p>首先介绍一种较为简单的纯命令行方式。</p>
+<ol>
+<li><p>跨过校内ssh防火墙，以我的学号 <code>is0385rx</code> 为例</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh is0385rx@sshgate.ritsumei.ac.jp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>连接到 CentOS 环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect remote.ritsumei.ac.jp</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+
+<h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><ol>
+<li>用前面提到的 Cisco AnyConnect 连接前文提到的立命馆VPN。</li>
+<li>连接到 CentOS。（以我的学号 <code>is0385rx</code> 为例）<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh is0385rx@remote.ritsumei.ac.jp</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+
+<h1 id="取得校内机器上的文件"><a href="#取得校内机器上的文件" class="headerlink" title="取得校内机器上的文件"></a>取得校内机器上的文件</h1><p>恭喜！你已经连接到了校内 Linux 环境之中。如果你熟悉命令行操作的话，现在应该已经可以开始大展拳脚了。但是如果想获取到校内 Linux 上文件的话，CLI 还是非常的难以使用，这时候就需要文件管理工具来帮助我们。</p>
+<h2 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h2><p>下载安装免费好用还全平台支持的传输软件 <span class="exturl" data-url="aHR0cHM6Ly9maWxlemlsbGEtcHJvamVjdC5vcmcvZG93bmxvYWQucGhwP3R5cGU9Y2xpZW50" title="https://filezilla-project.org/download.php?type=client">Filezilla<i class="fa fa-external-link"></i></span>。<br><strong>不需要 Pro 版本</strong>，普通版本就足够强大。<strong>在安装过程中可能会安装2个广告软件，请取消勾选。</strong></p>
+<h2 id="连接-1"><a href="#连接-1" class="headerlink" title="连接"></a>连接</h2><ol>
+<li>连接前文提到的立命馆 VPN。<br>如果已经连接到校内Wi-Fi的话不需要</li>
+<li>打开 Filezilla 的 站点管理器</li>
+<li>添加数据如下</li>
+<li>第四步，连接<br>在第一次连接时和 SSH 命令连接一样，都会有添加证书的一步，点击「yes」即可。
+
+</li>
+</ol>
+<p>大功告成，现在你已经可以随意操作到学校的 Rainbow 环境了。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhou Fang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fang2hou.com/connect-to-ritsumei/" title="从校外快速连接到立命馆">https://fang2hou.com/connect-to-ritsumei/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC</span> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Rainbow/" rel="tag"><i class="fa fa-tag"></i> Rainbow</a>
+            
+              <a href="/tags/立命馆/" rel="tag"><i class="fa fa-tag"></i> 立命馆</a>
+            
+              <a href="/tags/SSH/" rel="tag"><i class="fa fa-tag"></i> SSH</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/use-linux-subsystem-on-windows/" rel="next" title="在 Windows 中使用 Linux 子系统">
+                  <i class="fa fa-chevron-left"></i> 在 Windows 中使用 Linux 子系统
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/japanese-latex-with-sublime-text-on-windows/" rel="prev" title="LaTeX + Sublime Text 日文环境配置 Windows 篇">
+                  LaTeX + Sublime Text 日文环境配置 Windows 篇 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#立命馆服务管理"><span class="nav-number">2.</span> <span class="nav-text">立命馆服务管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#立命馆VPN"><span class="nav-number">3.</span> <span class="nav-text">立命馆VPN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端下载"><span class="nav-number">3.1.</span> <span class="nav-text">客户端下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-number">3.2.</span> <span class="nav-text">连接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程使用-CentOS"><span class="nav-number">4.</span> <span class="nav-text">远程使用 CentOS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">4.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-使用注意点"><span class="nav-number">4.2.</span> <span class="nav-text">SSH 使用注意点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方式一"><span class="nav-number">4.3.</span> <span class="nav-text">方式一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方式二"><span class="nav-number">4.4.</span> <span class="nav-text">方式二</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#取得校内机器上的文件"><span class="nav-number">5.</span> <span class="nav-text">取得校内机器上的文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作-1"><span class="nav-number">5.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接-1"><span class="nav-number">5.2.</span> <span class="nav-text">连接</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Zhou Fang">
+  <p class="site-author-name" itemprop="name">Zhou Fang</p>
+  <div class="site-description" itemprop="description">分享自己的知识</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9mYW5nMmhvdQ==" title="Twitter &rarr; https://twitter.com/fang2hou"><i class="fa fa-fw fa-twitter"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhbmcyaG91" title="GitHub &rarr; https://github.com/fang2hou"><i class="fa fa-fw fa-github"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="bWFpbHRvOmlzMDM4NXJ4QGVkLnJpdHN1bWVpLmFjLmpw" title="E-Mail &rarr; mailto:is0385rx@ed.ritsumei.ac.jp"><i class="fa fa-fw fa-envelope"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cDovL3d3dy5saW5rZWRpbi5jb20vaW4vemhvdS1mYW5nLWNu" title="Linkedin &rarr; http://www.linkedin.com/in/zhou-fang-cn"><i class="fa fa-fw fa-linkedin"></i></span>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><img src="/images/cc-by-nc.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhou Fang</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

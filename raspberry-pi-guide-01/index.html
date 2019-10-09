@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: true,
+    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":"enable","show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索文章","hits_empty":"无法检索到关于 ${query} 的文章。","hits_stats":"找到了 ${hits} 个结果，耗时 ${time} 毫秒。"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="关于搞机日记今天开始，我将在这里更新我对于树莓派应用的一些心得。既是我的一个备忘，也希望能成为看到本文的朋友的一个参考手册。 至于阅读难度，我想应该不会很高的。我本身对物理并不是特别的擅长，对于每个部件也仅仅是知道大概的原理，如果让我详细解释部件内部构成，我是一定说不出来的。搞机日记将主要从涵盖部件的选择，硬件连接，软件控制方面来展开，侧重于应用。 硬件选择虽然搞机日记是针对树莓派撰写的，但还是想">
+<meta name="keywords" content="Raspberry Pi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派搞机日记（一）">
+<meta property="og:url" content="https://fang2hou.com/raspberry-pi-guide-01/index.html">
+<meta property="og:site_name" content="Fang2hou">
+<meta property="og:description" content="关于搞机日记今天开始，我将在这里更新我对于树莓派应用的一些心得。既是我的一个备忘，也希望能成为看到本文的朋友的一个参考手册。 至于阅读难度，我想应该不会很高的。我本身对物理并不是特别的擅长，对于每个部件也仅仅是知道大概的原理，如果让我详细解释部件内部构成，我是一定说不出来的。搞机日记将主要从涵盖部件的选择，硬件连接，软件控制方面来展开，侧重于应用。 硬件选择虽然搞机日记是针对树莓派撰写的，但还是想">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-10T06:21:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树莓派搞机日记（一）">
+<meta name="twitter:description" content="关于搞机日记今天开始，我将在这里更新我对于树莓派应用的一些心得。既是我的一个备忘，也希望能成为看到本文的朋友的一个参考手册。 至于阅读难度，我想应该不会很高的。我本身对物理并不是特别的擅长，对于每个部件也仅仅是知道大概的原理，如果让我详细解释部件内部构成，我是一定说不出来的。搞机日记将主要从涵盖部件的选择，硬件连接，软件控制方面来展开，侧重于应用。 硬件选择虽然搞机日记是针对树莓派撰写的，但还是想">
+  <link rel="canonical" href="https://fang2hou.com/raspberry-pi-guide-01/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>树莓派搞机日记（一） | Fang2hou</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fang2hou</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">前途路漫漫，我心仍执着</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-文章分类">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>文章分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-程序项目">
+      
+    
+
+    <a href="/projects/" rel="section"><i class="fa fa-fw fa-code-fork"></i>程序项目</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-课程笔记">
+      
+    
+
+    <a href="//github.com/fang2hou/notes" rel="section"><i class="fa fa-fw fa-sticky-note"></i>课程笔记</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-私人网盘">
+      
+    
+
+    <a href="//file.fang2hou.com" rel="section"><i class="fa fa-fw fa-cloud-download"></i>私人网盘</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-立命馆相关">
+      
+    
+
+    <a href="/ritsumei/" rel="section"><i class="fa fa-fw fa-registered"></i>立命馆相关</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-关于我">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于我</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fang2hou.com/raspberry-pi-guide-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhou Fang">
+      <meta itemprop="description" content="分享自己的知识">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fang2hou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">树莓派搞机日记（一）
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-10 14:05:49 / 修改时间：15:21:52" itemprop="dateCreated datePublished" datetime="2019-02-10T14:05:49+09:00">2019-02-10</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/树莓派/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="关于搞机日记"><a href="#关于搞机日记" class="headerlink" title="关于搞机日记"></a>关于搞机日记</h1><p>今天开始，我将在这里更新我对于树莓派应用的一些心得。既是我的一个备忘，也希望能成为看到本文的朋友的一个参考手册。</p>
+<p>至于阅读难度，我想应该不会很高的。我本身对物理并不是特别的擅长，对于每个部件也仅仅是知道大概的原理，如果让我详细解释部件内部构成，我是一定说不出来的。搞机日记将主要从涵盖部件的选择，硬件连接，软件控制方面来展开，侧重于应用。</p>
+<h1 id="硬件选择"><a href="#硬件选择" class="headerlink" title="硬件选择"></a>硬件选择</h1><p>虽然搞机日记是针对树莓派撰写的，但还是想在这里给有兴趣的朋友讲一些开发板的选择。树莓派（Raspberry Pi）是一款用于学习的开发板，现在社会上已经有非常多面向少儿的兴趣班就是用树莓派进行教学。我在树莓派 3B 型号刚出的时候在日亚购入过一块，作为微型服务器使用，主要特点还是功耗较低。此外，其他厂商也有树莓派的兼容开发板，如华硕的 <code>Tinker</code>，但基本上就是简单的硬件堆叠，入门的话简单便宜的板子更好。</p>
+<a id="more"></a>
+<p>我在本科三年的下学期修了 Arduino 开发的入门课程，可谓是打开了我 IoT 设备研究开发的大门。如果刚开始研究 IoT 设备入门，或是自己想结合一些部件来搭建自己的硬件平台，很多人就会在树莓派及 Arduino 这两款主流设备间踱步。诚然，两款设备都是非常适合初学者入门的，下面我将列举一些不同点供大家参考选择自己最适合的硬件。</p>
+<h2 id="Arduino-的特点"><a href="#Arduino-的特点" class="headerlink" title="Arduino 的特点"></a>Arduino 的特点</h2><ul>
+<li>价格亲民，非常适合第一次尝试硬件开发的同学试水。</li>
+<li>基于 C++ 加强的 Arduino 语言，官方提供多平台的 IDE。</li>
+<li>运行速度很快，有比较多的安全保证措施防止烧坏。</li>
+<li>官网提供完善的文档及范例，且一直更新基于 Arduino 优秀项目。</li>
+</ul>
+<h2 id="树莓派的特点"><a href="#树莓派的特点" class="headerlink" title="树莓派的特点"></a>树莓派的特点</h2><ul>
+<li>可以安装完整的 Linux 于树莓派上，强大的软件环境支持。</li>
+<li>提供更加简单的 Python GPIO 库，让开发时间大大缩短。</li>
+<li>不需要在别的机器上对程序进行预编译。</li>
+<li>在复杂环境下可运行更大规模的程序。</li>
+<li>自带了 USB 借口，网线接口，蓝牙，WiFi 模块，耳机接口。</li>
+<li>支持 HDMI 直接输出。</li>
+</ul>
+<p>树莓派带来的是更大的空间，更加完善的环境，但是对于无 Linux 基础的朋友来说，选择从 Arduino 上手可能更好。</p>
+<h1 id="树莓派开发环境的配置"><a href="#树莓派开发环境的配置" class="headerlink" title="树莓派开发环境的配置"></a>树莓派开发环境的配置</h1><h2 id="基础配件"><a href="#基础配件" class="headerlink" title="基础配件"></a>基础配件</h2><ol>
+<li>树莓派 × 1</li>
+<li>电源线 × 1</li>
+<li>microSD 卡 × 1</li>
+<li>一个有 WiFi 的环境，或者网线接入。</li>
+</ol>
+<p><strong>选购建议</strong></p>
+<ul>
+<li>开发学习的话，数据卡 16GB 非常够用了。</li>
+<li>如果只是通过插在电脑的 USB 口供电的话，在大功率使用的时候可能会不太行。</li>
+</ul>
+<h2 id="系统安装"><a href="#系统安装" class="headerlink" title="系统安装"></a>系统安装</h2><p>前文也已经提过了，树莓派内安装的是一个完整的 Linux（当然了 Windows 10 IoT 也可以），之后的日记将基于树莓派的官方 Linux 发行版 <code>Raspbian</code> 展开。你可以通过我的 <a href="/install-raspberry-pi-3-raspbian/" title="另外一篇文章">另外一篇文章</a> 来了解如何安装。</p>
+<h2 id="远程开发"><a href="#远程开发" class="headerlink" title="远程开发"></a>远程开发</h2><h3 id="远程执行编辑器"><a href="#远程执行编辑器" class="headerlink" title="远程执行编辑器"></a>远程执行编辑器</h3><p>按照上一步的教学，现在已经可以通过 <code>ssh</code> 连接到树莓派了。你可以直接通过在树莓派上直接运行 <code>vim</code> 或是 <code>emacs</code> 来高效的书写代码。这是最佳方案，但并不是适合每个人的。后文的方法虽然在配置上需要一点时间，但会大大方便我们之后的开发。</p>
+<h3 id="PyCharm-专业版"><a href="#PyCharm-专业版" class="headerlink" title="PyCharm 专业版"></a>PyCharm 专业版</h3><p>古语有云，工欲善其事，必先利其器。学习树莓派也是一样的，PyCharm 就是我们的利器。PyCharm 是 JetBrains 公司开发的一款 IDE，分为社区版本和专业版本，需要注意的是<strong>社区版本无法远程调试</strong>。不过有幸的是，专业版本可以通过在校学生邮箱免费索取使用授权。<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuamV0YnJhaW5zLmNvbS9weWNoYXJtL2Rvd25sb2FkLw==" title="https://www.jetbrains.com/pycharm/download/">PyCharm 下载地址<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly93d3cuamV0YnJhaW5zLmNvbS9zdHVkZW50Lw==" title="https://www.jetbrains.com/student/">JetBrains 学生<i class="fa fa-external-link"></i></span></p>
+<hr>
+<ol>
+<li><p>在确认树莓派已经开启 SSH 功能的情况下，在 PyCharm 创建一个项目。</p>
+</li>
+<li><p>待 PyCharm 项目创建好之后，点击菜单栏中的 <code>Tools</code> - <code>Delopyment</code> - <code>Configuration...</code>。</p>
+
+</li>
+<li><p>添加一个 <code>SFTP</code> 类型的设置，填写好树莓派地址，端口，账户，密码信息后，测试连接一下。</p>
+
+</li>
+<li><p>打开 Pycharm 的 Preferences，可从屏幕左上角 PyCharm 下拉菜单开启。Windows 和 Linux 下叫做 Setting，在菜单栏的 <code>File</code> 中。<br>进入项目专用的 <code>Python Interpreter</code> 设置，通过窗口右上角的小齿轮 <code>Add...</code> 添加一个新的远程解释器。</p>
+
+</li>
+<li><p>选择 <code>SSH Interpreter</code>，由于刚才已经做好了部署设定，现在可以直接选择。<br>注意，此处可能有询问是复制一份还是用 IDE 的设定，其实差别不大，我习惯直接用 IDE 设定。</p>
+
+</li>
+<li><p>如果打算用 Python 3 作为解释器，这里要稍微改动一下路径，如果打算用 Python 2，则直接下一步。</p>
+
+</li>
+<li><p>确认一下已安装的 Python 软件包。<br><code>RPi.GPIO</code> 库是树莓派控制电子端口的库，如果没有的话，可以通过列表下方的 + 号安装之。<br>你也可以导入其他的常用库。</p>
+
+</li>
+<li><p>最后，通过执行代码确认是否现在真的由树莓派的 Python 在编译。<br>在项目中新建一个 Python 文件，并导入以下代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">print(sys.version)</span><br><span class="line">print(sys.platform)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>从菜单栏中 <code>Run</code>，或是用左下的绿色小箭头运行看一下结果，如果如下，说明环境配置好了。</p>
+
+
+<p><strong>至此，PyCharm 将可直接调用树莓派上的 Python 来进行编译运行，大大方便了我们的学习。</strong></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhou Fang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fang2hou.com/raspberry-pi-guide-01/" title="树莓派搞机日记（一）">https://fang2hou.com/raspberry-pi-guide-01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC</span> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Raspberry-Pi/" rel="tag"><i class="fa fa-tag"></i> Raspberry Pi</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/review-of-fushenliuji/" rel="next" title="简评『浮生六记』">
+                  <i class="fa fa-chevron-left"></i> 简评『浮生六记』
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/raspberry-pi-guide-02/" rel="prev" title="树莓派搞机日记（二）">
+                  树莓派搞机日记（二） <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于搞机日记"><span class="nav-number">1.</span> <span class="nav-text">关于搞机日记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#硬件选择"><span class="nav-number">2.</span> <span class="nav-text">硬件选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Arduino-的特点"><span class="nav-number">2.1.</span> <span class="nav-text">Arduino 的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树莓派的特点"><span class="nav-number">2.2.</span> <span class="nav-text">树莓派的特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树莓派开发环境的配置"><span class="nav-number">3.</span> <span class="nav-text">树莓派开发环境的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础配件"><span class="nav-number">3.1.</span> <span class="nav-text">基础配件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统安装"><span class="nav-number">3.2.</span> <span class="nav-text">系统安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程开发"><span class="nav-number">3.3.</span> <span class="nav-text">远程开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#远程执行编辑器"><span class="nav-number">3.3.1.</span> <span class="nav-text">远程执行编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PyCharm-专业版"><span class="nav-number">3.3.2.</span> <span class="nav-text">PyCharm 专业版</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Zhou Fang">
+  <p class="site-author-name" itemprop="name">Zhou Fang</p>
+  <div class="site-description" itemprop="description">分享自己的知识</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9mYW5nMmhvdQ==" title="Twitter &rarr; https://twitter.com/fang2hou"><i class="fa fa-fw fa-twitter"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhbmcyaG91" title="GitHub &rarr; https://github.com/fang2hou"><i class="fa fa-fw fa-github"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="bWFpbHRvOmlzMDM4NXJ4QGVkLnJpdHN1bWVpLmFjLmpw" title="E-Mail &rarr; mailto:is0385rx@ed.ritsumei.ac.jp"><i class="fa fa-fw fa-envelope"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cDovL3d3dy5saW5rZWRpbi5jb20vaW4vemhvdS1mYW5nLWNu" title="Linkedin &rarr; http://www.linkedin.com/in/zhou-fang-cn"><i class="fa fa-fw fa-linkedin"></i></span>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><img src="/images/cc-by-nc.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhou Fang</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

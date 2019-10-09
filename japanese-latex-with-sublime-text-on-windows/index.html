@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: true,
+    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":"enable","show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索文章","hits_empty":"无法检索到关于 ${query} 的文章。","hits_stats":"找到了 ${hits} 个结果，耗时 ${time} 毫秒。"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『LaTeX + Sublime Text 日文环境配置 macOS 篇』。 前言LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考虑到">
+<meta name="keywords" content="LaTeX,platex,日语论文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTeX + Sublime Text 日文环境配置 Windows 篇">
+<meta property="og:url" content="https://fang2hou.com/japanese-latex-with-sublime-text-on-windows/index.html">
+<meta property="og:site_name" content="Fang2hou">
+<meta property="og:description" content="本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『LaTeX + Sublime Text 日文环境配置 macOS 篇』。 前言LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考虑到">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-15T13:29:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LaTeX + Sublime Text 日文环境配置 Windows 篇">
+<meta name="twitter:description" content="本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『LaTeX + Sublime Text 日文环境配置 macOS 篇』。 前言LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考虑到">
+  <link rel="canonical" href="https://fang2hou.com/japanese-latex-with-sublime-text-on-windows/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>LaTeX + Sublime Text 日文环境配置 Windows 篇 | Fang2hou</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fang2hou</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">前途路漫漫，我心仍执着</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-文章分类">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>文章分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-程序项目">
+      
+    
+
+    <a href="/projects/" rel="section"><i class="fa fa-fw fa-code-fork"></i>程序项目</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-课程笔记">
+      
+    
+
+    <a href="//github.com/fang2hou/notes" rel="section"><i class="fa fa-fw fa-sticky-note"></i>课程笔记</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-私人网盘">
+      
+    
+
+    <a href="//file.fang2hou.com" rel="section"><i class="fa fa-fw fa-cloud-download"></i>私人网盘</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-立命馆相关">
+      
+    
+
+    <a href="/ritsumei/" rel="section"><i class="fa fa-fw fa-registered"></i>立命馆相关</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-关于我">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于我</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fang2hou.com/japanese-latex-with-sublime-text-on-windows/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhou Fang">
+      <meta itemprop="description" content="分享自己的知识">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fang2hou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">LaTeX + Sublime Text 日文环境配置 Windows 篇
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-25 01:18:23" itemprop="dateCreated datePublished" datetime="2017-12-25T01:18:23+09:00">2017-12-25</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-07-15 22:29:14" itemprop="dateModified" datetime="2018-07-15T22:29:14+09:00">2018-07-15</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件心得/" itemprop="url" rel="index"><span itemprop="name">软件心得</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        
+
+<p>本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『<a href="/japanese-latex-with-sublime-text-on-macos/" title="LaTeX + Sublime Text 日文环境配置 macOS 篇">LaTeX + Sublime Text 日文环境配置 macOS 篇</a>』。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考虑到 Windows 用户的基数庞大，就借此文向大家介绍一下在 Windows 系统下快速配置 LaTeX 的心得。<br>本文旨在帮助无电脑基础的读者在 Windows 上快速建立起日文 LaTeX 书写环境，并和 Sublime Text 3 及 Sumatra PDF 阅读器进行配合，进一步提升书写的舒适度。</p>
+<a id="more"></a>
+
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><div class="note info">
+            <p><strong>ST3</strong>：Sublime Text 3 （一款非常好用的文本编辑器，免费）。</p>
+          </div>
+
+<p>注：后文图片较多，可点击查看大图。<br>在安装及配置之前，我们需要先准备好一些文件。其中部分文件较大，建议先行下载。<br>下载部分软件时，可自由选择32位或是64位，无影响。本文采用的均为64位版本。</p>
+<ol>
+<li>前往 <span class="exturl" data-url="aHR0cHM6Ly93d3cuc3VibGltZXRleHQuY29tLzM=" title="https://www.sublimetext.com/3">Sublime Text 官方网站<i class="fa fa-external-link"></i></span>，下载最新版本的 Sublime Text 3。<br>Sublime Text 3 有安装版本也有绿色版本（Portable）。可以根据自己的需要来选择。</li>
+<li>前往 <span class="exturl" data-url="aHR0cHM6Ly93d3cuc3VtYXRyYXBkZnJlYWRlci5vcmcvZG93bmxvYWQtZnJlZS1wZGYtdmlld2VyLmh0bWw=" title="https://www.sumatrapdfreader.org/download-free-pdf-viewer.html">Sumatra 官方网站<i class="fa fa-external-link"></i></span>，下载最新版本的 Sumatra PDF 阅读器。</li>
+</ol>
+<h1 id="安装-TeX-Live"><a href="#安装-TeX-Live" class="headerlink" title="安装 TeX Live"></a>安装 TeX Live</h1><p>下面介绍两种方式来安装 TeX Live。<br>网络安装器适用于网络较为稳定的用户，而虚拟光碟安装适用于想用迅雷等工具快速下载整个包的用户。</p>
+<div class="note danger">
+            <p>两个方法二选其一</p>
+          </div>
+<h2 id="方法一：网络安装器"><a href="#方法一：网络安装器" class="headerlink" title="方法一：网络安装器"></a>方法一：网络安装器</h2><h3 id="准备-1"><a href="#准备-1" class="headerlink" title="准备"></a>准备</h3><p>下载 <span class="exturl" data-url="aHR0cDovL21pcnJvci5jdGFuLm9yZy9zeXN0ZW1zL3RleGxpdmUvdGxuZXQvaW5zdGFsbC10bC13aW5kb3dzLmV4ZQ==" title="http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe">Windows 发行版用 TeX Live 网络安装器<i class="fa fa-external-link"></i></span></p>
+<div class="note warning">
+            <p>请一定要用管理员权限运行</p>
+          </div>
+<p>在 Windows 10 中，下载网络安装器之后，可能会被系统提醒。如果弹出了窗口，请选择「仍要运行」。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>如果你对 LaTeX 较为了解，可以选择自定义，否则，还是选择简单安装。</p>
+
+<p>点击「安装（Install）」来进行下一步详细的安装设置。</p>
+
+<p>勾选「更换默认源（Change default repository）」。</p>
+
+<p>选择 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamFpc3QuYWMuanAvaW5kZXguaHRtbA==" title="https://www.jaist.ac.jp/index.html">北陸先端科学技術大学院大学<i class="fa fa-external-link"></i></span> 提供的下载源。</p>
+
+<p>接着，可以选择安装的位置，请记下这个地址，等下要使用。</p>
+
+<p>「TexWorks」这个软件可以按照自己需求去安装，见仁见智。</p>
+
+<p>等待网络安装器自动安装。时间较长，建议放在一边，先去喝杯咖啡。</p>
+
+
+<h2 id="方法二：镜像文件安装"><a href="#方法二：镜像文件安装" class="headerlink" title="方法二：镜像文件安装"></a>方法二：镜像文件安装</h2><h3 id="准备-2"><a href="#准备-2" class="headerlink" title="准备"></a>准备</h3><p>下载 <span class="exturl" data-url="aHR0cDovL21pcnJvci5jdGFuLm9yZy9zeXN0ZW1zL3RleGxpdmUvSW1hZ2VzLw==" title="http://mirror.ctan.org/systems/texlive/Images/">ISO镜像<i class="fa fa-external-link"></i></span><br>一般来说，文件名会有几种形式，如「texlive.iso」，「texlive2017.iso」，「texlive2017-20170524.iso」。<br>但这些都不影响，因为后续都是通过更新来保持程序的最新版。<br>随意下载一个，大小为 3 ~ 4 GB 即可。<br>你可以下载到安装镜像。在 Windows 8 以上的版本之中，系统已经集成了虚拟光驱的挂载功能，只需要右键 ISO 文件，选择挂载（Mount）即可。</p>
+<div class="note warning">
+            <p>请一定要用管理员权限运行安装盘中的「install-tl-windows.bat」</p>
+          </div>
+
+<p>等待一小会，安装程序会自动弹出。</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3>
+<p>接着，可以选择安装的位置，请记下这个地址，等下要使用。</p>
+
+<p>「TexWorks」这个软件可以按照自己需求去安装，见仁见智。</p>
+
+<p>等待网络安装器自动安装。时间较长，建议放在一边，先去喝杯咖啡。</p>
+
+
+<h1 id="安装其他部分"><a href="#安装其他部分" class="headerlink" title="安装其他部分"></a>安装其他部分</h1><div class="note info">
+            <p>安装的同时，请把路径记下来，下一步中要使用。</p>
+          </div>
+<p>Sumatra PDF 作为一个绿色软件，通过解压就可以使用。考虑到常用于 LaTeX 编译生成的结果查看，建议放置其到 TeX Live 的文件夹之中。</p>
+
+
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>接下来，对于不熟悉 ST3 的朋友来说，可能较为繁琐，请紧跟步骤，耐心操作。</p>
+<h2 id="安装-LaTeX-插件"><a href="#安装-LaTeX-插件" class="headerlink" title="安装 LaTeX 插件"></a>安装 LaTeX 插件</h2><p>如果之前你没有为 ST3 安装 Package Control（包管理器），请遵从下面的步骤安装，如果你安装过了，请跳过。</p>
+<ol>
+<li>通过 ST3 的菜单栏「View」-「Show Console」打开 ST3 的终端。</li>
+<li>打开<span class="exturl" data-url="aHR0cHM6Ly9wYWNrYWdlY29udHJvbC5pby9pbnN0YWxsYXRpb24=" title="https://packagecontrol.io/installation">Package Control 官网<i class="fa fa-external-link"></i></span>，复制安装代码至 ST3 的终端。</li>
+<li>回车运行，等待数秒后，即安装完毕。<br>现在你可以通过按住 <strong>Ctrl+Shift+P</strong> 组合键来开启 Package Control。在 Package Control 中键入「install」后即可定位到安装包的功能。如果你输入软件包名，Package Control 会自动去库中搜索。在搜索到包之后，按下回车键表示安装。</li>
+<li>通过 Package Control 安装「ConvertToUTF8」，「LaTeXTools」两个包。前者可解决编码问题，后者可用于自动化编译 LaTeX。</li>
+</ol>
+<h2 id="部署-LaTeXTools"><a href="#部署-LaTeXTools" class="headerlink" title="部署 LaTeXTools"></a>部署 LaTeXTools</h2><ol>
+<li>参考下图，打开菜单栏中的 「Preference」-「Package Settings」-「LaTeXTools」-「Setting - User」
+第一次点击的话，会询问是否要拷贝默认配置，在这里你可以随意选择。</li>
+<li>将配置内容全部清空，并复制如下代码。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"windows"</span>: &#123;</span><br><span class="line">    <span class="string">"texpath"</span> : <span class="string">"D:\\Texlive\\bin\\win32;$PATH"</span>,</span><br><span class="line">    <span class="string">"distro"</span> : <span class="string">"texlive"</span>,</span><br><span class="line">    <span class="string">"sumatra"</span>: <span class="string">"D:\\Texlive\\SumatraPDF.exe"</span>,</span><br><span class="line">    <span class="string">"sublime_executable"</span>: <span class="string">"C:\\Program Files\\Sublime Text 3\\sublime_text.exe"</span>,</span><br><span class="line">    <span class="string">"keep_focus_delay"</span>: <span class="number">0.5</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"builder_settings"</span> : &#123;</span><br><span class="line">    <span class="string">"command"</span> : [</span><br><span class="line">      <span class="string">"latexmk"</span>, <span class="string">"-cd"</span>,</span><br><span class="line">      <span class="string">"-e"</span>, <span class="string">"$latex = 'platex %O -no-guess-input-enc -kanji=utf8 -interaction=nonstopmode -synctex=1 %S'"</span>,</span><br><span class="line">      <span class="string">"-e"</span>, <span class="string">"$biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B'"</span>,</span><br><span class="line">      <span class="string">"-e"</span>, <span class="string">"$bibtex = 'pbibtex %O %B -kanji=utf8'"</span>,</span><br><span class="line">      <span class="string">"-e"</span>, <span class="string">"$makeindex = 'upmendex %O -o %D %S'"</span>,</span><br><span class="line">      <span class="string">"-e"</span>, <span class="string">"$dvipdf = 'dvipdfmx %O -o %D %S'"</span>,</span><br><span class="line">      <span class="string">"-f"</span>, <span class="string">"-%E"</span>, <span class="string">"-norc"</span>, <span class="string">"-gg"</span>, <span class="string">"-pdfdvi"</span></span><br><span class="line">    ],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>修改软件位置，注意需要用两个反斜杠（\）来表示层级关系。</li>
+<li>将 texpath 中的字段改为 TeX Live 安装位置。记得要添上「\bin\win32;$PATH」。</li>
+<li>将 sumatra 中的字段改为 Sumatra PDF 的位置。</li>
+<li>将 sublime_executable 中的字段改为 ST3 的位置。</li>
+</ol>
+<p>大功告成，现在你可以用 Sublime Text 3 打开 tex 文件来编辑 LaTeX 了。<br>由于我们已经导入了最新版本的转换功能，可直接在 Tex 文书中插入大部分常见格式的图片而无需转换eps格式。<br>在 Tex 文书写完之后，按住 <strong>Ctrl+B</strong> 组合键即可编译。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhou Fang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fang2hou.com/japanese-latex-with-sublime-text-on-windows/" title="LaTeX + Sublime Text 日文环境配置 Windows 篇">https://fang2hou.com/japanese-latex-with-sublime-text-on-windows/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC</span> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/LaTeX/" rel="tag"><i class="fa fa-tag"></i> LaTeX</a>
+            
+              <a href="/tags/platex/" rel="tag"><i class="fa fa-tag"></i> platex</a>
+            
+              <a href="/tags/日语论文/" rel="tag"><i class="fa fa-tag"></i> 日语论文</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/connect-to-ritsumei/" rel="next" title="从校外快速连接到立命馆">
+                  <i class="fa fa-chevron-left"></i> 从校外快速连接到立命馆
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/read-more-mask-with-css/" rel="prev" title="巧用 CSS 遮罩层暗示点击继续阅读">
+                  巧用 CSS 遮罩层暗示点击继续阅读 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-TeX-Live"><span class="nav-number">3.</span> <span class="nav-text">安装 TeX Live</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：网络安装器"><span class="nav-number">3.1.</span> <span class="nav-text">方法一：网络安装器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">3.1.2.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：镜像文件安装"><span class="nav-number">3.2.</span> <span class="nav-text">方法二：镜像文件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备-2"><span class="nav-number">3.2.1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">安装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装其他部分"><span class="nav-number">4.</span> <span class="nav-text">安装其他部分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">5.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-LaTeX-插件"><span class="nav-number">5.1.</span> <span class="nav-text">安装 LaTeX 插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署-LaTeXTools"><span class="nav-number">5.2.</span> <span class="nav-text">部署 LaTeXTools</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Zhou Fang">
+  <p class="site-author-name" itemprop="name">Zhou Fang</p>
+  <div class="site-description" itemprop="description">分享自己的知识</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9mYW5nMmhvdQ==" title="Twitter &rarr; https://twitter.com/fang2hou"><i class="fa fa-fw fa-twitter"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhbmcyaG91" title="GitHub &rarr; https://github.com/fang2hou"><i class="fa fa-fw fa-github"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="bWFpbHRvOmlzMDM4NXJ4QGVkLnJpdHN1bWVpLmFjLmpw" title="E-Mail &rarr; mailto:is0385rx@ed.ritsumei.ac.jp"><i class="fa fa-fw fa-envelope"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cDovL3d3dy5saW5rZWRpbi5jb20vaW4vemhvdS1mYW5nLWNu" title="Linkedin &rarr; http://www.linkedin.com/in/zhou-fang-cn"><i class="fa fa-fw fa-linkedin"></i></span>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><img src="/images/cc-by-nc.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhou Fang</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

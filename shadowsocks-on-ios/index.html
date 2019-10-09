@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: true,
+    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":"enable","show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索文章","hits_empty":"无法检索到关于 ${query} 的文章。","hits_stats":"找到了 ${hits} 个结果，耗时 ${time} 毫秒。"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="本文更新于 2018 年 2 月 2 日。 写在教程之前本教程是通用的 Shadowsocks 在 iOS 上的使用教程。若您在使用 FzVPN，请在阅读本文前先阅读 FzVPN 的使用帮助。您可以随时通过访问 IP111 来检测您是否成功出国成功。">
+<meta name="keywords" content="iOS,Shadowsocks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 iOS 上使用 Shadowsocks">
+<meta property="og:url" content="https://fang2hou.com/shadowsocks-on-ios/index.html">
+<meta property="og:site_name" content="Fang2hou">
+<meta property="og:description" content="本文更新于 2018 年 2 月 2 日。 写在教程之前本教程是通用的 Shadowsocks 在 iOS 上的使用教程。若您在使用 FzVPN，请在阅读本文前先阅读 FzVPN 的使用帮助。您可以随时通过访问 IP111 来检测您是否成功出国成功。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-15T05:39:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在 iOS 上使用 Shadowsocks">
+<meta name="twitter:description" content="本文更新于 2018 年 2 月 2 日。 写在教程之前本教程是通用的 Shadowsocks 在 iOS 上的使用教程。若您在使用 FzVPN，请在阅读本文前先阅读 FzVPN 的使用帮助。您可以随时通过访问 IP111 来检测您是否成功出国成功。">
+  <link rel="canonical" href="https://fang2hou.com/shadowsocks-on-ios/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>在 iOS 上使用 Shadowsocks | Fang2hou</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fang2hou</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">前途路漫漫，我心仍执着</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-文章分类">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>文章分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-程序项目">
+      
+    
+
+    <a href="/projects/" rel="section"><i class="fa fa-fw fa-code-fork"></i>程序项目</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-课程笔记">
+      
+    
+
+    <a href="//github.com/fang2hou/notes" rel="section"><i class="fa fa-fw fa-sticky-note"></i>课程笔记</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-私人网盘">
+      
+    
+
+    <a href="//file.fang2hou.com" rel="section"><i class="fa fa-fw fa-cloud-download"></i>私人网盘</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-立命馆相关">
+      
+    
+
+    <a href="/ritsumei/" rel="section"><i class="fa fa-fw fa-registered"></i>立命馆相关</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-关于我">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于我</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fang2hou.com/shadowsocks-on-ios/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhou Fang">
+      <meta itemprop="description" content="分享自己的知识">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fang2hou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">在 iOS 上使用 Shadowsocks
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-02-03 21:18:34" itemprop="dateCreated datePublished" datetime="2017-02-03T21:18:34+09:00">2017-02-03</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-07-15 14:39:58" itemprop="dateModified" datetime="2018-07-15T14:39:58+09:00">2018-07-15</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/通信网络/" itemprop="url" rel="index"><span itemprop="name">通信网络</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文更新于 2018 年 2 月 2 日。</p>
+<h1 id="写在教程之前"><a href="#写在教程之前" class="headerlink" title="写在教程之前"></a>写在教程之前</h1><p>本教程是通用的 Shadowsocks 在 iOS 上的使用教程。<br>若您在使用 FzVPN，请在阅读本文前先阅读 FzVPN 的<a href="//vpn.fang2hou.com/help">使用帮助</a>。<br>您可以随时通过访问 <span class="exturl" data-url="aHR0cDovL2lwMTExLmNu" title="http://ip111.cn">IP111<i class="fa fa-external-link"></i></span> 来检测您是否成功出国成功。</p>
+<a id="more"></a>
+
+<h1 id="下载应用"><a href="#下载应用" class="headerlink" title="下载应用"></a>下载应用</h1><h2 id="苹果商店地区为中国"><a href="#苹果商店地区为中国" class="headerlink" title="苹果商店地区为中国"></a>苹果商店地区为中国</h2><p>请通过 App Store 下载「FirstWingy」。<br>实测无法全部流量通过节点发送，仅支持智能模式（即国内网站全部直连，需要翻的时候自动连接节点）<br>不是很影响使用，推荐国区用户用这个版本就够了。</p>
+<h2 id="苹果商店地区为海外"><a href="#苹果商店地区为海外" class="headerlink" title="苹果商店地区为海外"></a>苹果商店地区为海外</h2><ol start="0">
+<li>你可以选择上面提到的这个「FirstWingy」，它是免费的。</li>
+<li>「Wingy」- 曾经的免费客户端王者</li>
+</ol>
+<p><strong>需要注意的是，该软件目前是收费的，但是价格不贵，日区价格为 120 日元（≈ 6.5元）。</strong><br>2. 「Shadowrocket」<br><strong>如果你对网络知识有一定了解</strong>，我非常推荐你使用 Shadowrocket 这款软件，其售价约为 20 元。<br>但是功能更加完善，包括去广告，修改 DNS，自定网络环境等等。</p>
+<h1 id="设定应用"><a href="#设定应用" class="headerlink" title="设定应用"></a>设定应用</h1><p>接下来会介绍3种不同的方式来设定。</p>
+<blockquote><p>难易度由低到高</p>
+</blockquote>
+<h2 id="方法-1：QR-码导入"><a href="#方法-1：QR-码导入" class="headerlink" title="方法 1：QR 码导入"></a>方法 1：QR 码导入</h2><p>用电脑打开后台（<span class="exturl" data-url="aHR0cHM6Ly92cG4uZmFuZzJob3UuY29tL3VzZXIvYT4=" title="https://vpn.fang2hou.com/user/a>">FzVPN 后台<i class="fa fa-external-link"></i></span>）<br>打开想要连接的节点详细信息。</p>
+
+<p>打开「FirstWingy」点击图标进行扫描。（其他客户端也有扫描按钮，请自行寻找）</p>
+
+<p>扫描后会自动生成配置并连接。<br>推荐将各个节点都扫描进软件生成配置，如果连接速度不理想可以换用其他节点。</p>
+<h2 id="方法-2：链接导入"><a href="#方法-2：链接导入" class="headerlink" title="方法 2：链接导入"></a>方法 2：链接导入</h2><blockquote><p>在操作前，请保证您已经正确安装「Wingy」或是「Shadowrocket」应用。</p>
+</blockquote>
+<p>用「Safari」登录 <span class="exturl" data-url="aHR0cHM6Ly92cG4uZmFuZzJob3UuY29tL3VzZXIvYT4=" title="https://vpn.fang2hou.com/user/a>">FzVPN 后台<i class="fa fa-external-link"></i></span></p>
+
+<p>点击左上的「三」字形按钮找到节点列表，并进入欲连接节点的详细信息页面。<br>在下方「专属地址」的右侧有一个蓝色按钮，按下即可自动导入。</p>
+
+
+<h2 id="方法-3：手动填配置"><a href="#方法-3：手动填配置" class="headerlink" title="方法 3：手动填配置"></a>方法 3：手动填配置</h2><p>「FirstWingy」直接点击界面右上角的 + 号。<br>「Wingy」选择「Shadowsocks(R)」这个选项。<br>填入节点列表上的信息，注意加密方式的选择。</p>
+<table>
+<thead>
+<tr>
+<th>设置项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>server</td>
+<td>服务器地址</td>
+</tr>
+<tr>
+<td>server_port.hash</td>
+<td>端口</td>
+</tr>
+<tr>
+<td>password</td>
+<td>密码</td>
+</tr>
+<tr>
+<td>method</td>
+<td>加密方式</td>
+</tr>
+</tbody></table>
+<p>下面是一个示例👇</p>
+
+
+<h1 id="进阶操作"><a href="#进阶操作" class="headerlink" title="进阶操作"></a>进阶操作</h1><p>只要导入了配置，连接外网已经不成问题了。<br>如果你购买了「Shadowrocket」这个款软件，可以继续下面的进阶操作。<br>操作就不赘述了，自己花点心思研究下，这软件的网络环境相关功能是真的够用了。</p>
+<p>科学上网+去广告全自动：</p>
+<div style="text-align: text-align_center">
+  <div class="github-card" data-user="h2y" data-repo="Shadowrocket-ADBlock-Rules" data-height="200" data-width="100%" data-theme="default" data-target data-client-id data-client-secret></div>
+</div>
+<script src="/github-card-lib/githubcard.js"></script>
+
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhou Fang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fang2hou.com/shadowsocks-on-ios/" title="在 iOS 上使用 Shadowsocks">https://fang2hou.com/shadowsocks-on-ios/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC</span> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+            
+              <a href="/tags/Shadowsocks/" rel="tag"><i class="fa fa-tag"></i> Shadowsocks</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/set-ssh-port/" rel="next" title="自定义 SSH 的服务端口">
+                  <i class="fa fa-chevron-left"></i> 自定义 SSH 的服务端口
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/shadowsocks-on-macos/" rel="prev" title="在 macOS 上使用 Shadowsocks">
+                  在 macOS 上使用 Shadowsocks <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在教程之前"><span class="nav-number">1.</span> <span class="nav-text">写在教程之前</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下载应用"><span class="nav-number">2.</span> <span class="nav-text">下载应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#苹果商店地区为中国"><span class="nav-number">2.1.</span> <span class="nav-text">苹果商店地区为中国</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#苹果商店地区为海外"><span class="nav-number">2.2.</span> <span class="nav-text">苹果商店地区为海外</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设定应用"><span class="nav-number">3.</span> <span class="nav-text">设定应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1：QR-码导入"><span class="nav-number">3.1.</span> <span class="nav-text">方法 1：QR 码导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-2：链接导入"><span class="nav-number">3.2.</span> <span class="nav-text">方法 2：链接导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-3：手动填配置"><span class="nav-number">3.3.</span> <span class="nav-text">方法 3：手动填配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进阶操作"><span class="nav-number">4.</span> <span class="nav-text">进阶操作</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Zhou Fang">
+  <p class="site-author-name" itemprop="name">Zhou Fang</p>
+  <div class="site-description" itemprop="description">分享自己的知识</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9mYW5nMmhvdQ==" title="Twitter &rarr; https://twitter.com/fang2hou"><i class="fa fa-fw fa-twitter"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhbmcyaG91" title="GitHub &rarr; https://github.com/fang2hou"><i class="fa fa-fw fa-github"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="bWFpbHRvOmlzMDM4NXJ4QGVkLnJpdHN1bWVpLmFjLmpw" title="E-Mail &rarr; mailto:is0385rx@ed.ritsumei.ac.jp"><i class="fa fa-fw fa-envelope"></i></span>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <span class="exturl" data-url="aHR0cDovL3d3dy5saW5rZWRpbi5jb20vaW4vemhvdS1mYW5nLWNu" title="Linkedin &rarr; http://www.linkedin.com/in/zhou-fang-cn"><i class="fa fa-fw fa-linkedin"></i></span>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><img src="/images/cc-by-nc.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhou Fang</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>
