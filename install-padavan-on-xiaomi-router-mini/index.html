@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -339,6 +339,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -364,16 +372,16 @@
 </ul>
 <h1 id="操作顺序"><a href="#操作顺序" class="headerlink" title="操作顺序"></a>操作顺序</h1><h2 id="开启开发权限"><a href="#开启开发权限" class="headerlink" title="开启开发权限"></a>开启开发权限</h2><ol>
 <li><p>下载小米路由器官方的开发版固件。<span class="exturl" data-url="aHR0cDovL3d3dzEubWl3aWZpLmNvbS9taXdpZmlfZG93bmxvYWQuaHRtbA==" title="http://www1.miwifi.com/miwifi_download.html">下载链接<i class="fa fa-external-link"></i></span><br> 小米为路由器本身就提供了开发版，便于爱好者折腾，从这点来说，我觉得非常棒！</p>
- 
+ <img title="选择相应型号的开发版本" data-src="/install-padavan-on-xiaomi-router-mini/mi_download.png">
 </li>
 <li><p>刷入小米路由器官方的开发版固件。<br> 登陆到路由器后台，一般来说连入小米路由器之后直接访问 <code>miwifi.com</code> 就行。<br> 选择路由器控制面板内的手动升级功能来完成开发版固件刷入工作。</p>
- 
+ <img title="选择相应型号的开发版本" data-src="/install-padavan-on-xiaomi-router-mini/mi_upload_dev.png">
 </li>
 <li><p>用手机 App 「小米WiFi」设定路由器到正常上网状态，并绑定这个路由器到你的小米账户上。</p>
- 
+ <img title="绑定路由器" data-src="/install-padavan-on-xiaomi-router-mini/mi_app.png">
 </li>
 <li><p>安装 SSH 工具包。<br> 在 <span class="exturl" data-url="aHR0cHM6Ly9kLm1pd2lmaS5jb20vcm9tL3NzaA==" title="https://d.miwifi.com/rom/ssh">这里<i class="fa fa-external-link"></i></span> 可以直接下载到 SSH 工具包和对应的 root 密码。</p>
- 
+ <img title="下载 SSH 工具包" data-src="/install-padavan-on-xiaomi-router-mini/mi_ssh.png">
 </li>
 <li><p>按照官方操作指导 U 盘刷入 SSH 工具包。<br> ① 将下载的工具包 bin 文件复制到U盘（FAT/FAT32 格式）的根目录下，保证文件名为 <code>miwifi_ssh.bin</code><br> ② 断开小米路由器的电源，将U盘插入 USB 接口；<br> ③ 按住 <code>reset</code> 按钮之后重新接入电源，指示灯变为黄色闪烁状态即可松开 <code>reset</code> 键；<br> ④ 等待3-5秒后安装完成之后，小米路由器会自动重启。</p>
 </li>
@@ -381,7 +389,7 @@
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@xiaoqiang</span><br></pre></td></tr></table></figure>
 
 <p> 看到「ARE U OK」就算是成功进入了。</p>
- 
+ <img title="SSH 登陆小米路由器" data-src="/install-padavan-on-xiaomi-router-mini/ssh.png">
 
 </li>
 </ol>
@@ -397,7 +405,7 @@
 <li><p>把备份文件拖回本地<br> 用 <code>exit</code> 退出小米路由器的 shell 环境。<br> 在本地执行下面的代码即可下载全部的文件。</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r root@xiaoqiang:/tmp/rom/ &lt;备份目录&gt;</span><br></pre></td></tr></table></figure>
 
- 
+ <img title="下载备份" data-src="/install-padavan-on-xiaomi-router-mini/backup.png">
 <p> 我这样操作后，<code>Backups</code> 文件夹中就会多出一个 <code>rom</code> 目录，里面存放了全部备份文件。</p>
 </li>
 <li><p>备用恢复命令<br> 如果日后想要恢复现在的文件，那么就可以用下面的语句上传我们的包到路由器的临时目录里。</p>
@@ -411,7 +419,7 @@
 <h2 id="刷入国产-Breed"><a href="#刷入国产-Breed" class="headerlink" title="刷入国产 Breed"></a>刷入国产 Breed</h2><p>Breed，一款出自国内著名路由器技术社区——恩山论坛的一款 BootLoader。主要特点还是便于刷机，其支持 Web 页面提交刷机包完成刷机，很受国内玩家追捧。下面，我就来安装 Breed 到小米路由器上。</p>
 <ol>
 <li><p>下载最新版本的 Breed。<br> 作者 Hackpascal 将其制作的 Breed 放于个人服务器供大家分享使用，虽是不开源产品，但是基本上覆盖了市面上大部分热门机型，小米路由器 Mini 自然也不例外。<br> 打开 <span class="exturl" data-url="aHR0cHM6Ly9icmVlZC5oYWNrcGFzY2FsLm5ldA==" title="https://breed.hackpascal.net">Breed 下载站<i class="fa fa-external-link"></i></span>，找到 <code>breed-mt7620-xiaomi-mini.bin</code> 右键复制其下载链接。<br> 用 SSH 连接上小米路由器，使用 <code>curl</code> 来下载 Breed 到临时目录 <code>/tmp</code> 中。</p>
- 
+ <img title="下载备份" data-src="/install-padavan-on-xiaomi-router-mini/breed_download.png">
 </li>
 <li><p>覆盖写入 Breed 到 BootLoader。<br> 在 <code>/tmp</code> 目录下执行下面的代码即可刷入 Breed。</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mtd -r write breed-mt7620-xiaomi-mini.bin Bootloader</span><br></pre></td></tr></table></figure>
@@ -426,11 +434,11 @@
 <h2 id="上传并刷入-Padavan"><a href="#上传并刷入-Padavan" class="headerlink" title="上传并刷入 Padavan"></a>上传并刷入 Padavan</h2><p>终于到了最后一步，刷入 Padavan。<br>Padavan 是由恩山无线论坛的 hiboyhiboyhiboy 出品的一款开源路由器固件改版，调整了很多符合国人习惯的设定，开箱即用，备有非常多的常用软件。可以说，在易用性上远超市面上其他所有固件。<br><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC0xNjEzMjQtMS0xLmh0bWw=" title="https://www.right.com.cn/forum/thread-161324-1-1.html">Padavan 发布原帖<i class="fa fa-external-link"></i></span> | <span class="exturl" data-url="aHR0cDovL3QubWUvcGRjbjE=" title="http://t.me/pdcn1">Padavan 官方信息发布 TG 群<i class="fa fa-external-link"></i></span>| <span class="exturl" data-url="aHR0cDovL29wdC5jbjJxcS5jb20vcGFkYXZhbi8=" title="http://opt.cn2qq.com/padavan/">Padavan 固件下载列表<i class="fa fa-external-link"></i></span></p>
 <ol>
 <li>登入 Breed 的 Web 刷机控制台。<br> 地址栏输入 <code>192.168.1.1</code> 即可。</li>
-<li>选择左侧的「固件升级」，选择固件为刚刚下载的 <code>trx</code> 文件。 </li>
+<li>选择左侧的「固件升级」，选择固件为刚刚下载的 <code>trx</code> 文件。 <img title="上传固件" data-src="/install-padavan-on-xiaomi-router-mini/breed_upload.png"></li>
 <li>开始刷入，等待刷机结束。</li>
 </ol>
 <h2 id="进入-Padavan-控制台"><a href="#进入-Padavan-控制台" class="headerlink" title="进入 Padavan 控制台"></a>进入 Padavan 控制台</h2><p>默认登陆地址为 <code>http://my.router</code>，默认账户和密码都是 <code>admin</code>，可以自行修改。</p>
-
+<img title="Padavan 固件系统" data-src="/install-padavan-on-xiaomi-router-mini/padavan.png">
 <p>关于具体设置的话，由于 Padavan 做的实在是完善，在 WebUI 的指引下就可以轻松设定好一切。更多的用法请各位自己去探索吧！</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><span class="exturl" data-url="aHR0cDovL2Jicy54aWFvbWkuY24vdC0zMjkzOTIzOA==" title="http://bbs.xiaomi.cn/t-32939238">【开学季】宿舍神器小米路由mini刷Padavan（带锐捷认证）<i class="fa fa-external-link"></i></span></li>
@@ -662,6 +670,78 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 

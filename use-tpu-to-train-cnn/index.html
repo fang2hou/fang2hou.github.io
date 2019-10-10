@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Fang2hou">
 <meta property="og:description" content="前言比起深度学习最初的 CPU 计算，现在普遍使用 GPU 来进行训练，效率提升已然是相当明显。但是像是 Google 和阿里巴巴这些科技巨头还是不满足这些，直接让日常使用介入芯片研发，Google 提出 TPU 方案，阿里也成立了平头哥独立品牌来发布新品。官方说法是对于目前顶尖 GPU 都有 20 倍以上的算力提升。阿里和 Google 的芯片技术都已经实装运用在了自家的云服务上，不过有幸的是，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-09T12:04:04.973Z">
+<meta property="og:updated_time" content="2019-10-10T03:25:12.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Google Colab 提供的免费 TPU 进行训练">
 <meta name="twitter:description" content="前言比起深度学习最初的 CPU 计算，现在普遍使用 GPU 来进行训练，效率提升已然是相当明显。但是像是 Google 和阿里巴巴这些科技巨头还是不满足这些，直接让日常使用介入芯片研发，Google 提出 TPU 方案，阿里也成立了平头哥独立品牌来发布新品。官方说法是对于目前顶尖 GPU 都有 20 倍以上的算力提升。阿里和 Google 的芯片技术都已经实装运用在了自家的云服务上，不过有幸的是，">
@@ -309,11 +309,19 @@
                 
               
 
-              <time title="创建时间：2019-10-09 20:28:51 / 修改时间：21:04:04" itemprop="dateCreated datePublished" datetime="2019-10-09T20:28:51+09:00">2019-10-09</time>
+              <time title="创建时间：2019-10-09 20:28:51" itemprop="dateCreated datePublished" datetime="2019-10-09T20:28:51+09:00">2019-10-09</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-10 12:25:12" itemprop="dateModified" datetime="2019-10-10T12:25:12+09:00">2019-10-10</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -331,6 +339,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -344,7 +360,7 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>比起深度学习最初的 CPU 计算，现在普遍使用 GPU 来进行训练，效率提升已然是相当明显。但是像是 Google 和阿里巴巴这些科技巨头还是不满足这些，直接让日常使用介入芯片研发，Google 提出 TPU 方案，阿里也成立了平头哥独立品牌来发布新品。官方说法是对于目前顶尖 GPU 都有 20 倍以上的算力提升。<br>阿里和 Google 的芯片技术都已经实装运用在了自家的云服务上，不过有幸的是，Google 在自家推出的 Colab 机器学习平台之中提供了免费试用 TPU 的机会。这篇文章将会介绍一下当下，快速使用 Keras 进行训练的一个实例。<br>在看下面的文字的之前，最好回忆一下简单的 CNN 构造。如果你有一些 Keras 或是 TensorFlow 相关的使用经验，那么应该能够非常快速的理解。</p>
 <a id="more"></a>
 <h1 id="配置-Colab-环境"><a href="#配置-Colab-环境" class="headerlink" title="配置 Colab 环境"></a>配置 Colab 环境</h1><p>打开 <span class="exturl" data-url="aHR0cHM6Ly9jb2xhYi5yZXNlYXJjaC5nb29nbGUuY29t" title="https://colab.research.google.com">https://colab.research.google.com<i class="fa fa-external-link"></i></span>，登陆谷歌账户就可以直接启动一个全新的运行实例。<br>由于是要使用 TPU，所以还要在菜单栏中的 <code>Runtime</code> -&gt; <code>Change runtime type</code> 手动设定环境为 Python 3，硬件加速为 TPU。</p>
-
+<img title="手动修改环境" data-src="/use-tpu-to-train-cnn/change_runtime.png">
 
 <p>Colab 不但可以承担 Jupyter Notebook 的工作，其实 Google 还为你准备了一个虚拟机。</p>
 <p>在撰写本文时，TensorFlow 的正式版本为 1.14，但是我们需要执行的 Keras 支持训练命令(<code>model.fit_generator</code>)目前只适配到 1.13，所以先进行降级。<br>在第一个 Code cell 里填入下面的代码来实现降级，由于要先卸载掉 1.14，得稍微等待一下。</p>
@@ -609,6 +625,78 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 

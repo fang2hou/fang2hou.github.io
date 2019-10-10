@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -331,6 +331,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -342,7 +350,7 @@
 
       
         <h1 id="初识树莓派"><a href="#初识树莓派" class="headerlink" title="初识树莓派"></a>初识树莓派</h1><p>树莓派的元件都在表面，没有什么好特殊介绍的，自己上手翻着看一会应该就能对它熟悉了。这里想花点笔墨说下树莓派的针脚。<br>树莓派的针脚排布是有点混乱的，要辨识针脚，首先，请你按照下图的方向可以举起你手中的树莓派。</p>
-
+<img title="USB 向下放置树莓派" data-src="/raspberry-pi-guide-02/pi.png">
 <a id="more"></a>
 <p>然后我们打开 <span class="exturl" data-url="aHR0cHM6Ly9waW5vdXQueHl6" title="https://pinout.xyz">Raspberry Pi Pinout<i class="fa fa-external-link"></i></span>，在这个页面上，你可以清晰的看到各个针脚代表的编码。<br>而树莓派有 3 种不同的模式来约束针脚的使用：</p>
 <ol>
@@ -359,7 +367,7 @@
 
 <p><code>WiringPi</code> 的 Python 使用者应该读一下 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dpcmluZ1BpL1dpcmluZ1BpLVB5dGhvbg==" title="https://github.com/WiringPi/WiringPi-Python">项目的 Github 主页<i class="fa fa-external-link"></i></span>。<br>其实不光是针脚的使用方式了，就连函数调用都和 Arduino 非常相似。<del>高仿</del></p>
 <p>如果像我一样比较懒，可以去购买一块带有标识板子，插在面包板上也方便连接。</p>
-
+<img title="懒人面包板" data-src="/raspberry-pi-guide-02/myboard.png">
 
 <h1 id="推荐库"><a href="#推荐库" class="headerlink" title="推荐库"></a>推荐库</h1><p><strong>GPIO Zero</strong>，一个 GPIO 增强库，包含了非常多的预设功能，如 LED，按钮，电机控制等等。<br>在带有桌面环境的 <code>Raspbian</code> 已经自带，如果是使用命令行版本的用户，可以通过下面命令安装。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install gpiozero</span><br></pre></td></tr></table></figure>
@@ -367,7 +375,7 @@
 <p>安装后在命令行输入 <code>pinout</code>，你就会发现一个命令行版本的针脚图。<br>关于此库更多的功能我将会在之后的搞机日记中展开。</p>
 <h1 id="双色-LED-实验"><a href="#双色-LED-实验" class="headerlink" title="双色 LED 实验"></a>双色 LED 实验</h1><h2 id="元件介绍"><a href="#元件介绍" class="headerlink" title="元件介绍"></a>元件介绍</h2><p>LED 是非常简单的电子元件，适合我们用于第一次进行正式的树莓派学习。</p>
 <p>首先，我先介绍一下我的双色 LED 元件，支持发出红色和绿色光。</p>
-
+<img title="双色 LED 元件" data-src="/raspberry-pi-guide-02/rg.png">
 
 <p>从图中可以看到，该元件有三个针脚。最接近 <code>-</code> 的针脚代表该针脚接地。右边两个针脚分别对应 R，G，属于 Singal 针脚，缩写为 <code>S</code>。</p>
 <h2 id="连接方式："><a href="#连接方式：" class="headerlink" title="连接方式："></a>连接方式：</h2><p>采用比较简单的连接方式：</p>
@@ -376,7 +384,7 @@
 <li>绿色线代表 <code>G</code> 针脚，接入 <code>BCM 18</code></li>
 <li>白色线代表 <code>GND</code> 针脚， 接入 <code>GND</code></li>
 </ol>
-
+<img title="双色 LED 连接" data-src="/raspberry-pi-guide-02/rg_connection.png">
 
 <h2 id="范例代码-01"><a href="#范例代码-01" class="headerlink" title="范例代码 01"></a>范例代码 01</h2><p>首先我们得让我们的 LED 亮起来，原理非常简单，只要给相应针脚一个高电压即可。<br>这是第一次代码范例，注释会尽量详细一点。如果对 Python 不熟悉的话，通过下面的代码注释应该有一些启发，只要能理解这次的流程，那么后面就不是很难了。毕竟，Python 封装了非常多的实用库，主要还是流程细节的设计。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入 GPIO 库</span></span><br><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义用于 LED 的针脚 BCM 编号</span></span><br><span class="line">LED_R = <span class="number">17</span></span><br><span class="line">LED_G = <span class="number">18</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设定针脚编号为 BCM 模式</span></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设定 LED 针脚可用于输出</span></span><br><span class="line">GPIO.setup(LED_R, GPIO.OUT)</span><br><span class="line">GPIO.setup(LED_G, GPIO.OUT)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关于 __name__ == "__main__"：</span></span><br><span class="line"><span class="comment"># 如果是直接运行本代码，而不是其他 Python 代码调用本文件的话，则会执行</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="comment"># 给两个针脚电压</span></span><br><span class="line">            GPIO.output(LED_R, GPIO.HIGH)</span><br><span class="line">            GPIO.output(LED_G, GPIO.HIGH)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="comment"># 检测到中断信号后，关闭 GPIO 通道以供下次使用</span></span><br><span class="line">        GPIO.cleanup()</span><br><span class="line">        <span class="comment"># 退出返回状态代码 6</span></span><br><span class="line">        exit(<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
@@ -384,7 +392,7 @@
 <h2 id="范例代码-02"><a href="#范例代码-02" class="headerlink" title="范例代码 02"></a>范例代码 02</h2><p>通过上一节，我们已经可以通过常规的方式进行点灯了，但如果只是这样的话太单调了，接下来我们尝试让双色 LED 进行颜色渐变。<br>这里，我打算用 <code>PWM</code>（脉宽调制，Pulse Width Modulation）方法来控制两个 LED 的明暗。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">LED_R = <span class="number">17</span></span><br><span class="line">LED_G = <span class="number">18</span></span><br><span class="line"></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br><span class="line"></span><br><span class="line">GPIO.setup(LED_R, GPIO.OUT)</span><br><span class="line">GPIO.setup(LED_G, GPIO.OUT)</span><br><span class="line"></span><br><span class="line">pwm_r = GPIO.PWM(LED_R, <span class="number">2000</span>)</span><br><span class="line">pwm_g = GPIO.PWM(LED_G, <span class="number">2000</span>)</span><br><span class="line"></span><br><span class="line">GPIO.output(LED_R, GPIO.LOW)</span><br><span class="line">GPIO.output(LED_G, GPIO.LOW)</span><br><span class="line"></span><br><span class="line">pwm_r.start(<span class="number">0</span>)</span><br><span class="line">pwm_g.start(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">                pwm_r.ChangeDutyCycle(i)</span><br><span class="line">                pwm_g.ChangeDutyCycle(<span class="number">100</span> - i)</span><br><span class="line">                time.sleep(<span class="number">.25</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">                pwm_r.ChangeDutyCycle(<span class="number">100</span> - i)</span><br><span class="line">                pwm_g.ChangeDutyCycle(i)</span><br><span class="line">                time.sleep(<span class="number">.25</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        pwm_r.stop()</span><br><span class="line">        pwm_g.stop()</span><br><span class="line">        GPIO.cleanup()</span><br><span class="line">        exit(<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><img title="双色 LED 实际效果" data-src="/raspberry-pi-guide-02/rg_led.png">
 
 <p>通过运行代码实例不难看出，双色 LED 在混色上效果其实并不好，但是纯红色或是纯绿色的表现很好，这也是这类双色 LED 多用作状态指示灯的原因之一。关于混色，其实还得靠 RGB 三色 LED 来实现。关于 RGB 三色 LED 的简单实验，我将在下一篇日记之中继续介绍。</p>
 
@@ -611,6 +619,78 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 

@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -339,6 +339,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -362,15 +370,15 @@
 </ol>
 <h1 id="材料准备"><a href="#材料准备" class="headerlink" title="材料准备"></a>材料准备</h1><ol>
 <li><p>立顿柠檬茶粉（リプトン さわやかレモンティー）</p>
-
+<img title="リプトン さわやかレモンティー" data-src="/diy-vita-lemon-tea-in-japan/lemontea.png">
 <p>各大超市，业务超市都有售。<br>在线购买：<br><span class="exturl" data-url="aHR0cHM6Ly9pdGVtLnJha3V0ZW4uY28uanAvbGlwdG9uLWJyb29rZS8xMDAwMTI4Ni8=" title="https://item.rakuten.co.jp/lipton-brooke/10001286/">日本立顿官方商店<i class="fa fa-external-link"></i></span> | <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL3MvZmllbGQta2V5d29yZHM944Oq44OX44OI44Oz44GV44KP44KE44GL44Os44Oi44Oz44OG44Kj44O8" title="https://www.amazon.co.jp/s/field-keywords=リプトンさわやかレモンティー">亚马逊<i class="fa fa-external-link"></i></span><br>价格：513元 / 500g（税后）</p>
 </li>
 <li><p>大正制药液态果糖（パルスイート カロリーゼロ）</p>
-
+<img title="パルスイート カロリーゼロ" data-src="/diy-vita-lemon-tea-in-japan/sugar.jpg">
 <p>各大超市都有售。<br>在线购买：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL3MvcmVmPW5iX3NiX25vc3M/X19ta19qYV9KUD3jgqvjgr/jgqvjg4omIzAzODt1cmw9c2VhcmNoLWFsaWFzJTNEYXBzJiMwMzg7ZmllbGQta2V5d29yZHM944OR44Or44K544Kk44O844OIK+OCq+ODreODquODvOOCvOODrSvmtrLkvZM=" title="https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=カタカナ&#038;url=search-alias%3Daps&#038;field-keywords=パルスイート+カロリーゼロ+液体">亚马逊<i class="fa fa-external-link"></i></span><br>价格：631元 / 500g（税后）<br>只要是液态果糖都可以，不一定要一个牌子的，只是用量上需要自己把握。</p>
 </li>
 <li><p>Pokka柠檬汁（ポッカレモン100）</p>
-
+<img title="ポッカレモン100" data-src="/diy-vita-lemon-tea-in-japan/lemonjuice.jpg">
 <p>各大超市，业务超市都有售。<br>在线购买：<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL3MvZmllbGQta2V5d29yZHM944Od44OD44Kr44Os44Oi44OzMTAw" title="https://www.amazon.co.jp/s/field-keywords=ポッカレモン100">亚马逊<i class="fa fa-external-link"></i></span><br>价格：70ml塑料小瓶装 1000元 / 500ml（税后）| 450ml玻璃大瓶装 480元 / 500ml（税后） </p></li></ol> <p></p>
 
 
@@ -383,7 +391,7 @@
 <li>添加柠檬汁<br>这一步其实是非常主观的，主要是如何为柠檬茶添加适量的酸味。<br>建议每 5ml 搅匀先自己尝一下再决定是否继续添加。我一般是加入 25ml。</li>
 <li>放入冰箱静置半小时以上</li>
 </ol>
-
+<img data-src="/diy-vita-lemon-tea-in-japan/final.jpg">
 <p>在炎炎夏日，喝着冰镇的柠檬茶，真是爽的不行。</p>
 
     </div>
@@ -609,6 +617,78 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 

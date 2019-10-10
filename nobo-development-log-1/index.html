@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -339,6 +339,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -355,9 +363,9 @@
 
 <h1 id="分析登陆逻辑"><a href="#分析登陆逻辑" class="headerlink" title="分析登陆逻辑"></a>分析登陆逻辑</h1><p>这一次，我打算从登陆逻辑分析开始，先想方设法获取到个人的一些数据。<br>立命馆大学的网络服务大概是这样：<br>统一认证系统 RAINBOW ID<br>┣━ Asahi manaba<br>┣━ Ritsumeikan Univ. Campus Web (2018)<br>┣━ Ritsumeikan Univ. Syllabus<br>┣━ Microsoft Office 365<br>┣━ Cisco AnyConnect<br>┗━ Windows/CentOS Auth</p>
 <p>由于前三个都是通过一个域名，即 idp.ritsumei.ac.jp 跳转进行验证。<br>且登陆一个服务后，切换到其他服务时，并不需要进行再次认证。<br>故可猜测：登陆后产生了一个跨域的 Cookies。<br>通过 Chrome 自带的开发者工具进行查看，果真如此。</p>
-
+<img title="用 Chrome 的开发者工具查看 Cookies 作用域" data-src="/nobo-development-log-1/nobo-devtool.png">
 <p>接着，用 Fidder 进行 HTTPS 抓包分析。</p>
-
+<img title="Fidder 中找到了一些规律" data-src="/nobo-development-log-1/nobo-fidder.png">
 <p>所以，只要写一个 Python 爬虫，应该就能在获取一次 Cookie 的情况下获取到全部信息。</p>
 <h1 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h1><script src="//gist.github.com/fang2hou/271142f718e91b4ac41b0f7fcb9f4630.js"></script>
 <p>如果你想了解这是如何和其他功能一起运作的，可以点击下面继续查看其他部分的代码。</p>
@@ -591,6 +599,78 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 

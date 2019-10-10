@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -339,6 +339,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -379,7 +387,7 @@
 
 </li>
 </ol>
-
+<img title="方式一 实际操作例" data-src="/connect-to-ritsumei/plan1-ritsumei-ssh.png">
 
 <h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><ol>
 <li>用前面提到的 Cisco AnyConnect 连接前文提到的立命馆VPN。</li>
@@ -387,15 +395,15 @@
 
 </li>
 </ol>
-
+<img title="方式二 实际操作例" data-src="/connect-to-ritsumei/plan2-ritsumei-ssh.png">
 
 <h1 id="取得校内机器上的文件"><a href="#取得校内机器上的文件" class="headerlink" title="取得校内机器上的文件"></a>取得校内机器上的文件</h1><p>恭喜！你已经连接到了校内 Linux 环境之中。如果你熟悉命令行操作的话，现在应该已经可以开始大展拳脚了。但是如果想获取到校内 Linux 上文件的话，CLI 还是非常的难以使用，这时候就需要文件管理工具来帮助我们。</p>
 <h2 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h2><p>下载安装免费好用还全平台支持的传输软件 <span class="exturl" data-url="aHR0cHM6Ly9maWxlemlsbGEtcHJvamVjdC5vcmcvZG93bmxvYWQucGhwP3R5cGU9Y2xpZW50" title="https://filezilla-project.org/download.php?type=client">Filezilla<i class="fa fa-external-link"></i></span>。<br><strong>不需要 Pro 版本</strong>，普通版本就足够强大。<strong>在安装过程中可能会安装2个广告软件，请取消勾选。</strong></p>
 <h2 id="连接-1"><a href="#连接-1" class="headerlink" title="连接"></a>连接</h2><ol>
 <li>连接前文提到的立命馆 VPN。<br>如果已经连接到校内Wi-Fi的话不需要</li>
-<li>打开 Filezilla 的 站点管理器</li>
-<li>添加数据如下</li>
-<li>第四步，连接<br>在第一次连接时和 SSH 命令连接一样，都会有添加证书的一步，点击「yes」即可。
+<li>打开 Filezilla 的 站点管理器<img title="Windows 系统使用 Filezilla" data-src="/connect-to-ritsumei/file1.png"></li>
+<li>添加数据如下<img data-src="/connect-to-ritsumei/file2.png"></li>
+<li>第四步，连接<br>在第一次连接时和 SSH 命令连接一样，都会有添加证书的一步，点击「yes」即可。<img data-src="/connect-to-ritsumei/file3.png">
 
 </li>
 </ol>
@@ -626,6 +634,78 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 

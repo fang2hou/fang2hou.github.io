@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -339,6 +339,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -363,7 +371,7 @@
 <blockquote><p>难易度由低到高</p>
 </blockquote>
 <h2 id="方法-1：QR-码导入"><a href="#方法-1：QR-码导入" class="headerlink" title="方法 1：QR 码导入"></a>方法 1：QR 码导入</h2><p>用电脑打开后台（<span class="exturl" data-url="aHR0cHM6Ly92cG4uZmFuZzJob3UuY29tL3VzZXIvYT4=" title="https://vpn.fang2hou.com/user/a>">FzVPN 后台<i class="fa fa-external-link"></i></span>）<br>打开想要连接的节点详细信息。</p>
-
+<img data-src="/shadowsocks-on-ios/ss-ios-1.png">
 <p>打开「FirstWingy」点击图标进行扫描。（其他客户端也有扫描按钮，请自行寻找）</p>
 
 <p>扫描后会自动生成配置并连接。<br>推荐将各个节点都扫描进软件生成配置，如果连接速度不理想可以换用其他节点。</p>
@@ -372,7 +380,7 @@
 <p>用「Safari」登录 <span class="exturl" data-url="aHR0cHM6Ly92cG4uZmFuZzJob3UuY29tL3VzZXIvYT4=" title="https://vpn.fang2hou.com/user/a>">FzVPN 后台<i class="fa fa-external-link"></i></span></p>
 
 <p>点击左上的「三」字形按钮找到节点列表，并进入欲连接节点的详细信息页面。<br>在下方「专属地址」的右侧有一个蓝色按钮，按下即可自动导入。</p>
-
+<img data-src="/shadowsocks-on-ios/ss-ios-4.png">
 
 <h2 id="方法-3：手动填配置"><a href="#方法-3：手动填配置" class="headerlink" title="方法 3：手动填配置"></a>方法 3：手动填配置</h2><p>「FirstWingy」直接点击界面右上角的 + 号。<br>「Wingy」选择「Shadowsocks(R)」这个选项。<br>填入节点列表上的信息，注意加密方式的选择。</p>
 <table>
@@ -400,7 +408,7 @@
 </tr>
 </tbody></table>
 <p>下面是一个示例👇</p>
-
+<img data-src="/shadowsocks-on-ios/ss-ios-5.png">
 
 <h1 id="进阶操作"><a href="#进阶操作" class="headerlink" title="进阶操作"></a>进阶操作</h1><p>只要导入了配置，连接外网已经不成问题了。<br>如果你购买了「Shadowrocket」这个款软件，可以继续下面的进阶操作。<br>操作就不赘述了，自己花点心思研究下，这软件的网络环境相关功能是真的够用了。</p>
 <p>科学上网+去广告全自动：</p>
@@ -632,6 +640,78 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 

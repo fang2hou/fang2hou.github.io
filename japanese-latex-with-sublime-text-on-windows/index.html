@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『LaTeX + Sublime Text 日文环境配置 macOS 篇』。 前言LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考虑到">
+  <meta name="description" content="本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『LaTeX + Sublime Text 日文环境配置 macOS 篇』。 前言LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考">
 <meta name="keywords" content="LaTeX,platex,日语论文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LaTeX + Sublime Text 日文环境配置 Windows 篇">
 <meta property="og:url" content="https://fang2hou.com/japanese-latex-with-sublime-text-on-windows/index.html">
 <meta property="og:site_name" content="Fang2hou">
-<meta property="og:description" content="本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『LaTeX + Sublime Text 日文环境配置 macOS 篇』。 前言LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考虑到">
+<meta property="og:description" content="本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『LaTeX + Sublime Text 日文环境配置 macOS 篇』。 前言LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-07-15T13:29:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LaTeX + Sublime Text 日文环境配置 Windows 篇">
-<meta name="twitter:description" content="本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『LaTeX + Sublime Text 日文环境配置 macOS 篇』。 前言LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考虑到">
+<meta name="twitter:description" content="本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『LaTeX + Sublime Text 日文环境配置 macOS 篇』。 前言LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考">
   <link rel="canonical" href="https://fang2hou.com/japanese-latex-with-sublime-text-on-windows/">
 
 
@@ -339,6 +339,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -349,7 +357,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex.png">
 
 <p>本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『<a href="/japanese-latex-with-sublime-text-on-macos/" title="LaTeX + Sublime Text 日文环境配置 macOS 篇">LaTeX + Sublime Text 日文环境配置 macOS 篇</a>』。</p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考虑到 Windows 用户的基数庞大，就借此文向大家介绍一下在 Windows 系统下快速配置 LaTeX 的心得。<br>本文旨在帮助无电脑基础的读者在 Windows 上快速建立起日文 LaTeX 书写环境，并和 Sublime Text 3 及 Sumatra PDF 阅读器进行配合，进一步提升书写的舒适度。</p>
@@ -374,50 +382,50 @@
           </div>
 <p>在 Windows 10 中，下载网络安装器之后，可能会被系统提醒。如果弹出了窗口，请选择「仍要运行」。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>如果你对 LaTeX 较为了解，可以选择自定义，否则，还是选择简单安装。</p>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-installer1.png">
 <p>点击「安装（Install）」来进行下一步详细的安装设置。</p>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-installer2.png">
 <p>勾选「更换默认源（Change default repository）」。</p>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-installer3.png">
 <p>选择 <span class="exturl" data-url="aHR0cHM6Ly93d3cuamFpc3QuYWMuanAvaW5kZXguaHRtbA==" title="https://www.jaist.ac.jp/index.html">北陸先端科学技術大学院大学<i class="fa fa-external-link"></i></span> 提供的下载源。</p>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-installer4.png">
 <p>接着，可以选择安装的位置，请记下这个地址，等下要使用。</p>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-installer5.png">
 <p>「TexWorks」这个软件可以按照自己需求去安装，见仁见智。</p>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-installer6.png">
 <p>等待网络安装器自动安装。时间较长，建议放在一边，先去喝杯咖啡。</p>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-installer7.png">
 
 <h2 id="方法二：镜像文件安装"><a href="#方法二：镜像文件安装" class="headerlink" title="方法二：镜像文件安装"></a>方法二：镜像文件安装</h2><h3 id="准备-2"><a href="#准备-2" class="headerlink" title="准备"></a>准备</h3><p>下载 <span class="exturl" data-url="aHR0cDovL21pcnJvci5jdGFuLm9yZy9zeXN0ZW1zL3RleGxpdmUvSW1hZ2VzLw==" title="http://mirror.ctan.org/systems/texlive/Images/">ISO镜像<i class="fa fa-external-link"></i></span><br>一般来说，文件名会有几种形式，如「texlive.iso」，「texlive2017.iso」，「texlive2017-20170524.iso」。<br>但这些都不影响，因为后续都是通过更新来保持程序的最新版。<br>随意下载一个，大小为 3 ~ 4 GB 即可。<br>你可以下载到安装镜像。在 Windows 8 以上的版本之中，系统已经集成了虚拟光驱的挂载功能，只需要右键 ISO 文件，选择挂载（Mount）即可。</p>
 <div class="note warning">
             <p>请一定要用管理员权限运行安装盘中的「install-tl-windows.bat」</p>
           </div>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-open-iso.png">
 <p>等待一小会，安装程序会自动弹出。</p>
-<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-iso-ins1.png">
 <p>接着，可以选择安装的位置，请记下这个地址，等下要使用。</p>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-installer5.png">
 <p>「TexWorks」这个软件可以按照自己需求去安装，见仁见智。</p>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-installer6.png">
 <p>等待网络安装器自动安装。时间较长，建议放在一边，先去喝杯咖啡。</p>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-installer7.png">
 
 <h1 id="安装其他部分"><a href="#安装其他部分" class="headerlink" title="安装其他部分"></a>安装其他部分</h1><div class="note info">
             <p>安装的同时，请把路径记下来，下一步中要使用。</p>
           </div>
 <p>Sumatra PDF 作为一个绿色软件，通过解压就可以使用。考虑到常用于 LaTeX 编译生成的结果查看，建议放置其到 TeX Live 的文件夹之中。</p>
-
+<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-st3-location.png">
 
 <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>接下来，对于不熟悉 ST3 的朋友来说，可能较为繁琐，请紧跟步骤，耐心操作。</p>
 <h2 id="安装-LaTeX-插件"><a href="#安装-LaTeX-插件" class="headerlink" title="安装 LaTeX 插件"></a>安装 LaTeX 插件</h2><p>如果之前你没有为 ST3 安装 Package Control（包管理器），请遵从下面的步骤安装，如果你安装过了，请跳过。</p>
 <ol>
 <li>通过 ST3 的菜单栏「View」-「Show Console」打开 ST3 的终端。</li>
 <li>打开<span class="exturl" data-url="aHR0cHM6Ly9wYWNrYWdlY29udHJvbC5pby9pbnN0YWxsYXRpb24=" title="https://packagecontrol.io/installation">Package Control 官网<i class="fa fa-external-link"></i></span>，复制安装代码至 ST3 的终端。</li>
-<li>回车运行，等待数秒后，即安装完毕。<br>现在你可以通过按住 <strong>Ctrl+Shift+P</strong> 组合键来开启 Package Control。在 Package Control 中键入「install」后即可定位到安装包的功能。如果你输入软件包名，Package Control 会自动去库中搜索。在搜索到包之后，按下回车键表示安装。</li>
+<li>回车运行，等待数秒后，即安装完毕。<br>现在你可以通过按住 <strong>Ctrl+Shift+P</strong> 组合键来开启 Package Control。在 Package Control 中键入「install」后即可定位到安装包的功能。如果你输入软件包名，Package Control 会自动去库中搜索。在搜索到包之后，按下回车键表示安装。<img data-src="/japanese-latex-with-sublime-text-on-windows/stinstall.png"></li>
 <li>通过 Package Control 安装「ConvertToUTF8」，「LaTeXTools」两个包。前者可解决编码问题，后者可用于自动化编译 LaTeX。</li>
 </ol>
 <h2 id="部署-LaTeXTools"><a href="#部署-LaTeXTools" class="headerlink" title="部署 LaTeXTools"></a>部署 LaTeXTools</h2><ol>
-<li>参考下图，打开菜单栏中的 「Preference」-「Package Settings」-「LaTeXTools」-「Setting - User」
+<li>参考下图，打开菜单栏中的 「Preference」-「Package Settings」-「LaTeXTools」-「Setting - User」<img data-src="/japanese-latex-with-sublime-text-on-windows/windows-latex-usersetting.png">
 第一次点击的话，会询问是否要拷贝默认配置，在这里你可以随意选择。</li>
 <li>将配置内容全部清空，并复制如下代码。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"windows"</span>: &#123;</span><br><span class="line">    <span class="string">"texpath"</span> : <span class="string">"D:\\Texlive\\bin\\win32;$PATH"</span>,</span><br><span class="line">    <span class="string">"distro"</span> : <span class="string">"texlive"</span>,</span><br><span class="line">    <span class="string">"sumatra"</span>: <span class="string">"D:\\Texlive\\SumatraPDF.exe"</span>,</span><br><span class="line">    <span class="string">"sublime_executable"</span>: <span class="string">"C:\\Program Files\\Sublime Text 3\\sublime_text.exe"</span>,</span><br><span class="line">    <span class="string">"keep_focus_delay"</span>: <span class="number">0.5</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"builder_settings"</span> : &#123;</span><br><span class="line">    <span class="string">"command"</span> : [</span><br><span class="line">      <span class="string">"latexmk"</span>, <span class="string">"-cd"</span>,</span><br><span class="line">      <span class="string">"-e"</span>, <span class="string">"$latex = 'platex %O -no-guess-input-enc -kanji=utf8 -interaction=nonstopmode -synctex=1 %S'"</span>,</span><br><span class="line">      <span class="string">"-e"</span>, <span class="string">"$biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B'"</span>,</span><br><span class="line">      <span class="string">"-e"</span>, <span class="string">"$bibtex = 'pbibtex %O %B -kanji=utf8'"</span>,</span><br><span class="line">      <span class="string">"-e"</span>, <span class="string">"$makeindex = 'upmendex %O -o %D %S'"</span>,</span><br><span class="line">      <span class="string">"-e"</span>, <span class="string">"$dvipdf = 'dvipdfmx %O -o %D %S'"</span>,</span><br><span class="line">      <span class="string">"-f"</span>, <span class="string">"-%E"</span>, <span class="string">"-norc"</span>, <span class="string">"-gg"</span>, <span class="string">"-pdfdvi"</span></span><br><span class="line">    ],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>修改软件位置，注意需要用两个反斜杠（\）来表示层级关系。</li>
@@ -652,6 +660,78 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 

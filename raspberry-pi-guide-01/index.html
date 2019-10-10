@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -331,6 +331,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -380,22 +388,22 @@
 <li><p>在确认树莓派已经开启 SSH 功能的情况下，在 PyCharm 创建一个项目。</p>
 </li>
 <li><p>待 PyCharm 项目创建好之后，点击菜单栏中的 <code>Tools</code> - <code>Delopyment</code> - <code>Configuration...</code>。</p>
-
+<img title="打开部署设置" data-src="/raspberry-pi-guide-01/pycharm1.png">
 </li>
 <li><p>添加一个 <code>SFTP</code> 类型的设置，填写好树莓派地址，端口，账户，密码信息后，测试连接一下。</p>
-
+<img title="范例设置" data-src="/raspberry-pi-guide-01/pycharm2.png">
 </li>
 <li><p>打开 Pycharm 的 Preferences，可从屏幕左上角 PyCharm 下拉菜单开启。Windows 和 Linux 下叫做 Setting，在菜单栏的 <code>File</code> 中。<br>进入项目专用的 <code>Python Interpreter</code> 设置，通过窗口右上角的小齿轮 <code>Add...</code> 添加一个新的远程解释器。</p>
-
+<img title="新建解释器" data-src="/raspberry-pi-guide-01/pycharm3.png">
 </li>
 <li><p>选择 <code>SSH Interpreter</code>，由于刚才已经做好了部署设定，现在可以直接选择。<br>注意，此处可能有询问是复制一份还是用 IDE 的设定，其实差别不大，我习惯直接用 IDE 设定。</p>
-
+<img title="调用部署设定" data-src="/raspberry-pi-guide-01/pycharm4.png">
 </li>
 <li><p>如果打算用 Python 3 作为解释器，这里要稍微改动一下路径，如果打算用 Python 2，则直接下一步。</p>
-
+<img title="更换为 Python 3 的路径" data-src="/raspberry-pi-guide-01/pycharm5.png">
 </li>
 <li><p>确认一下已安装的 Python 软件包。<br><code>RPi.GPIO</code> 库是树莓派控制电子端口的库，如果没有的话，可以通过列表下方的 + 号安装之。<br>你也可以导入其他的常用库。</p>
-
+<img title="确认树莓派的 Python 环境" data-src="/raspberry-pi-guide-01/pycharm6.png">
 </li>
 <li><p>最后，通过执行代码确认是否现在真的由树莓派的 Python 在编译。<br>在项目中新建一个 Python 文件，并导入以下代码。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">print(sys.version)</span><br><span class="line">print(sys.platform)</span><br></pre></td></tr></table></figure>
@@ -403,7 +411,7 @@
 </li>
 </ol>
 <p>从菜单栏中 <code>Run</code>，或是用左下的绿色小箭头运行看一下结果，如果如下，说明环境配置好了。</p>
-
+<img title="测试调试环境" data-src="/raspberry-pi-guide-01/pycharm7.png">
 
 <p><strong>至此，PyCharm 将可直接调用树莓派上的 Python 来进行编译运行，大大方便了我们的学习。</strong></p>
 
@@ -628,6 +636,78 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 

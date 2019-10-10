@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -339,6 +339,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -359,40 +367,40 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
 
 <h1 id="调整系统设置"><a href="#调整系统设置" class="headerlink" title="调整系统设置"></a>调整系统设置</h1><p>进入「系统偏好设置」</p>
-
+<img data-src="/shadowsocks-on-macos/ss-macos-1.png">
 <p>选择「安全性和隐私」进行设定</p>
-
+<img data-src="/shadowsocks-on-macos/ss-macos-2.png">
 <ol>
 <li>先点击「锁」图标进行解锁</li>
-<li>选择「全部来源」选项
+<li>选择「全部来源」选项<img data-src="/shadowsocks-on-macos/ss-macos-3.png">
 至此，您已经完成所有的准备工作。</li>
 </ol>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>将下载好的 zip 文件解压至合适的位置。（如果你使用「Safari」浏览器的话，应该已经自动解压了。）<br>将「ShadowsocksX-NG.app」放入「应用程序（Applications）」文件夹。</p>
-
+<img data-src="/shadowsocks-on-macos/ss-macos-4.png">
 <p>这样，您就已经将 ShadowsocksX-NG 客户端安装好了。</p>
 <h1 id="配置导入"><a href="#配置导入" class="headerlink" title="配置导入"></a>配置导入</h1><p>在「Launchpad」中找到「ShadowsocksX-NG」的图标并启动之。<br>配图为老版本的「ShadowsocksX-Fz」魔改版本，现在统一使用新版「ShadowsocksX-NG」。</p>
-
+<img data-src="/shadowsocks-on-macos/ss-macos-5.png">
 <p>软件全功能详解</p>
-
+<img data-src="/shadowsocks-on-macos/ss-macos-6.png">
 <p>配置地址都在后台的节点列表-&gt;详细信息中。</p>
-
+<img data-src="/shadowsocks-on-macos/ss-macos-7.png">
 
 <h2 id="链接导入法"><a href="#链接导入法" class="headerlink" title="链接导入法"></a>链接导入法</h2><p>打开FzVPN的节点信息，点击链接旁的按钮即可。</p>
-
+<img data-src="/shadowsocks-on-macos/ss-macos-8.png">
 
 <h2 id="二维码法"><a href="#二维码法" class="headerlink" title="二维码法"></a>二维码法</h2><p>打开节点信息，并进入到二维码页面。<br>用自带功能进行扫描。</p>
-
+<img data-src="/shadowsocks-on-macos/ss-macos-9.png">
 
 <h2 id="手填配置"><a href="#手填配置" class="headerlink" title="手填配置"></a>手填配置</h2><p>在以上方法都失效的时候，手动填写配置也可以连接。<br>从软件打开「服务器」-&gt;「打开服务器偏好设置」。</p>
-
+<img data-src="/shadowsocks-on-macos/ss-macos-10.png">
 
 <p>按照后台的信息填写数据即可。</p>
-
+<img data-src="/shadowsocks-on-macos/ss-macos-11.png">
 
 <h1 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h1><blockquote><p>必须要选择好服务器</p>
 </blockquote>
 
-
+<img data-src="/shadowsocks-on-macos/ss-macos-12.png">
 <p>此时，启动VPN即可连接到服务器。</p>
 
     </div>
@@ -618,6 +626,78 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 

@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="前言众所周知，Linux 在程序开发时是非常易用的环境。特别对于在日的理工科学生来说，自打从学 C 语言起就是在 Linux 中开发。同时，Mac 对于程序员来说是非常易用的，这得益于 macOS 脱胎于 Unix 系统，大部分 Linux 中常用操作都可以在 macOS 中实现。现在，随着 Windows 系统的进一步发展，在 Windows 10 的周年更新版之后，新增了 Linux 子系统功">
+  <meta name="description" content="前言众所周知，Linux 在程序开发时是非常易用的环境。特别对于在日的理工科学生来说，自打从学 C 语言起就是在 Linux 中开发。同时，Mac 对于程序员来说是非常易用的，这得益于 macOS 脱胎于 Unix 系统，大部分 Linux 中常用操作都可以在 macOS 中实现。现在，随着 Windows 系统的进一步发展，在 Windows 10 的周年更新版之后，新增了 Linux 子系统">
 <meta name="keywords" content="Linux,Windows,子系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 Windows 中使用 Linux 子系统">
 <meta property="og:url" content="https://fang2hou.com/use-linux-subsystem-on-windows/index.html">
 <meta property="og:site_name" content="Fang2hou">
-<meta property="og:description" content="前言众所周知，Linux 在程序开发时是非常易用的环境。特别对于在日的理工科学生来说，自打从学 C 语言起就是在 Linux 中开发。同时，Mac 对于程序员来说是非常易用的，这得益于 macOS 脱胎于 Unix 系统，大部分 Linux 中常用操作都可以在 macOS 中实现。现在，随着 Windows 系统的进一步发展，在 Windows 10 的周年更新版之后，新增了 Linux 子系统功">
+<meta property="og:description" content="前言众所周知，Linux 在程序开发时是非常易用的环境。特别对于在日的理工科学生来说，自打从学 C 语言起就是在 Linux 中开发。同时，Mac 对于程序员来说是非常易用的，这得益于 macOS 脱胎于 Unix 系统，大部分 Linux 中常用操作都可以在 macOS 中实现。现在，随着 Windows 系统的进一步发展，在 Windows 10 的周年更新版之后，新增了 Linux 子系统">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-19T06:12:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 Windows 中使用 Linux 子系统">
-<meta name="twitter:description" content="前言众所周知，Linux 在程序开发时是非常易用的环境。特别对于在日的理工科学生来说，自打从学 C 语言起就是在 Linux 中开发。同时，Mac 对于程序员来说是非常易用的，这得益于 macOS 脱胎于 Unix 系统，大部分 Linux 中常用操作都可以在 macOS 中实现。现在，随着 Windows 系统的进一步发展，在 Windows 10 的周年更新版之后，新增了 Linux 子系统功">
+<meta name="twitter:description" content="前言众所周知，Linux 在程序开发时是非常易用的环境。特别对于在日的理工科学生来说，自打从学 C 语言起就是在 Linux 中开发。同时，Mac 对于程序员来说是非常易用的，这得益于 macOS 脱胎于 Unix 系统，大部分 Linux 中常用操作都可以在 macOS 中实现。现在，随着 Windows 系统的进一步发展，在 Windows 10 的周年更新版之后，新增了 Linux 子系统">
   <link rel="canonical" href="https://fang2hou.com/use-linux-subsystem-on-windows/">
 
 
@@ -339,6 +339,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -349,14 +357,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <img data-src="/use-linux-subsystem-on-windows/subsystem-on-windows.png">
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，Linux 在程序开发时是非常易用的环境。特别对于在日的理工科学生来说，自打从学 C 语言起就是在 Linux 中开发。同时，Mac 对于程序员来说是非常易用的，这得益于 macOS 脱胎于 Unix 系统，大部分 Linux 中常用操作都可以在 macOS 中实现。现在，随着 Windows 系统的进一步发展，在 Windows 10 的周年更新版之后，新增了 Linux 子系统功能。借助子系统，我们可以快速构建一个开发环境，和 Windows 紧密结合在一起。</p>
 <blockquote><p>注：我的 PC 搭载的是英文版本的 Windows 10，中文翻译可能不是很准确，请尽量参考截图来操作。</p>
 </blockquote>
 <a id="more"></a>
 
 <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><p>按住 <i class="fa fa-windows"></i> + R 来启动运行（英：Run），执行命令「<strong>winver</strong>」，在弹出的窗口中你就可以看到版本号。</p>
-
+<img title="查看版本号" data-src="/use-linux-subsystem-on-windows/winver.png">
 <p>前言中也提到了，子系统的功能特性是在 Windows 10 周年版本后才正式加入的，本文撰写之时，系统已经更新到了16299版本。同时，根据官方的 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vZW4tdXMvd2luZG93cy93c2wvaW5zdGFsbC13aW4xMA==" title="https://docs.microsoft.com/en-us/windows/wsl/install-win10">说明<i class="fa fa-external-link"></i></span> 来看，多子系统开始提供于</p>
 <center>**Windows 10 版本号 >= 16215**</center>
 
@@ -366,16 +374,16 @@
 <p>在开启完后，系统应该会提示让你重新启动，请在重启后回到本页继续阅读。</p>
 <h1 id="安装内核"><a href="#安装内核" class="headerlink" title="安装内核"></a>安装内核</h1><p>如果你已经重启完毕了，我们就可以通过 Windows Store 来安装 Linux 子系统的内核了。</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9ha2EubXMvd3Nsc3RvcmU=" title="https://aka.ms/wslstore">内核的商店页面<i class="fa fa-external-link"></i></span>，建议选择 Ubuntu 内核进行安装，下面也会围绕 Ubuntu 内核进行讲解。<br>在下载完成后，你可以通过商店的<strong>启动</strong>按钮来进行下一步配置。</p>
-  
+<img title="启动 Ubuntu" data-src="/use-linux-subsystem-on-windows/ubuntu-launch.png">  
 <p>在接下来的过程之中，系统会询问你希望建立的用户名及密码，需要注意的是，这是用于 Ubuntu 的独立账号密码，<strong>不是系统的账户密码</strong>。</p>
 <h1 id="配置-Hyper"><a href="#配置-Hyper" class="headerlink" title="配置 Hyper"></a>配置 Hyper</h1><p>Hyper 自带界面虽然说不上丑，但是有更多好看的主题。你可以通过 <span class="exturl" data-url="aHR0cHM6Ly9oeXBlcnRoZW1lcy5tYXR0aGkuY29mZmVlLw==" title="https://hyperthemes.matthi.coffee/">Hyper 主题网站<i class="fa fa-external-link"></i></span> 来预览并安装他们。<br>下面以主题 hyper-snazzy 为例，按照下图操作打开<strong>配置文件</strong>。</p>
-
+<img title="设定 Hyper" data-src="/use-linux-subsystem-on-windows/hypersetting.png">
 <p>在配置文件的尾部可以找到plugins的列表，添加插件名如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins: [<span class="string">"hyper-snazzy"</span>],</span><br></pre></td></tr></table></figure>
 
 <p>保存配置文件，重启 Hyper 即可看到效果。</p>
 <h1 id="进一步配置-Ubuntu"><a href="#进一步配置-Ubuntu" class="headerlink" title="进一步配置 Ubuntu"></a>进一步配置 Ubuntu</h1><p>现在，Ubuntu 子系统已经和我们的 Windows 10 合二为一了。为了更加方便的使用和开发，我们还需要进一步配置 Ubuntu。<br>打开 Hyper，输入「wsl」或是「bash」进入 Ubuntu 子系统。</p>
-
+<img title="进入子系统" data-src="/use-linux-subsystem-on-windows/hyper.png">
 
 <h2 id="切换软件源服务器到日本"><a href="#切换软件源服务器到日本" class="headerlink" title="切换软件源服务器到日本"></a>切换软件源服务器到日本</h2><p>官方的服务器太远了，导致速度非常慢。通过运行以下命令， 你可以将源切换到<span class="exturl" data-url="aHR0cHM6Ly93d3cuamFpc3QuYWMuanAvaW5kZXguaHRtbA==" title="https://www.jaist.ac.jp/index.html">北陸先端科学技術大学院大学<i class="fa fa-external-link"></i></span>提供的高速日本国内服务器。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i.bak -e "s%http://archive.ubuntu.com/ubuntu/%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
@@ -390,7 +398,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential</span><br></pre></td></tr></table></figure>
 
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>试着运行一个简单的 C 程序。</p>
-
+<img title="C 程序运行结果" data-src="/use-linux-subsystem-on-windows/testc.png">
 
 <p><strong>恭喜，至此常规的配置已经全部完成！</strong></p>
 <h1 id="额外的配置"><a href="#额外的配置" class="headerlink" title="额外的配置"></a>额外的配置</h1><h2 id="Oh-my-zsh"><a href="#Oh-my-zsh" class="headerlink" title="Oh-my-zsh"></a>Oh-my-zsh</h2><center>用过的人都说好！</center>
@@ -402,7 +410,7 @@ Oh-my-zsh 是一个对 zsh 设置大幅简化的工具。而 zsh 则相较于传
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</span><br></pre></td></tr></table></figure>
 
 <p>出现 Oh-my-zsh 的字符画或者出现了箭头提示，即为安装成功。</p>
-
+<img title="Oh-my-zsh 安装成功" data-src="/use-linux-subsystem-on-windows/success-oh-my-zsh.png">
 
 <p>如果你在安装时用了中文输入法，权限认证可能会出错，你可以通过下面的命令来删除，然后重新用上面的安装命令试一次。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~/.oh-my-zsh</span><br></pre></td></tr></table></figure>
@@ -652,6 +660,78 @@ Oh-my-zsh 是一个对 zsh 设置大幅简化的工具。而 zsh 则相较于传
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 

@@ -30,7 +30,7 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -339,6 +339,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -357,49 +365,49 @@
 <p>你可以通过下面两种方式来进行下载：<br>适用于大陆用户：<span class="exturl" data-url="aHR0cHM6Ly92cG4uZmFuZzJob3UuY29tL3N1cHBvcnRmaWxlcy93aW4uemlw" title="https://vpn.fang2hou.com/supportfiles/win.zip">FzVPN 官网下载<i class="fa fa-external-link"></i></span><br>适用于海外用户：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3NoYWRvd3NvY2tzLXdpbmRvd3MvcmVsZWFzZXM=" title="https://github.com/shadowsocks/shadowsocks-windows/releases">项目主页下载<i class="fa fa-external-link"></i></span></p>
 <p>你下载到的应该是一个 zip 压缩文件，请解压到一个目录中使用。初次使用时，软件会在自己的目录下建立相关配置文件。推荐建立一个文件夹，比如叫「Shadowsocks」，然后将程序放在其中执行。</p>
 <h2 id="设定权限"><a href="#设定权限" class="headerlink" title="设定权限"></a>设定权限</h2><p>右键程序，选择「属性」设定。<strong>将软件设定为默认管理员权限启动。</strong><br>设定完成后，点击「确定」以退出。</p>
-
-
+<img data-src="/shadowsocks-on-windows/ss-windows-1.png">
+<img data-src="/shadowsocks-on-windows/ss-windows-2.png">
 
 <h2 id="导入配置"><a href="#导入配置" class="headerlink" title="导入配置"></a>导入配置</h2><p>相关配置信息都在后台的节点列表中。<br>通过选择节点，可查看该节点您的连接信息。</p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-3.png">
 
 <h3 id="QR码法"><a href="#QR码法" class="headerlink" title="QR码法"></a>QR码法</h3><p>右键<strong>托盘图标</strong>，在弹出的菜单中选择「服务器」- 「从屏幕扫描QR码」。<br>约 2 秒钟后，配置将自动生成并加入客户端。</p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-4.png">
 
 <h3 id="手填配置"><a href="#手填配置" class="headerlink" title="手填配置"></a>手填配置</h3><p>在 QR 码方法失效的时候，手动填写配置也可以连接。<br>从软件打开「服务器」-&gt;「编辑服务器」。</p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-5.png">
 <p>按照后台的信息填写数据即可。</p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-6.png">
 
 <h2 id="连接VPN"><a href="#连接VPN" class="headerlink" title="连接VPN"></a>连接VPN</h2><p><strong>必须要选择好节点</strong></p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-7.png">
 <p>此时，启动VPN即可连接到服务器。<br>点击托盘菜单的第一项，即可开启VPN。</p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-8.png">
 
 <p>PAC模式：国内不通过服务器，直连。<br>Global模式：全部流量都走服务器，访问国内网站时速度可能变慢。</p>
 <p>到这里，你的代理网络已经建立成功了，但是由于浏览器的设置，你可能需要继续阅读本文。</p>
 <h1 id="浏览器设定"><a href="#浏览器设定" class="headerlink" title="浏览器设定"></a>浏览器设定</h1><h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><p>市面上有非常多的浏览器，我没法一一讲解，但是对于目前国内市场流行的浏览器而言，都是基于谷歌的 Chromium 项目修改而来，故都能安装代理插件。</p>
 <p>如果你无法访问谷歌商店进行正常安装，你可以点击 <span class="exturl" data-url="aHR0cHM6Ly92cG4uZmFuZzJob3UuY29tL3N1cHBvcnRmaWxlcy9Td2l0Y2h5T21lZ2EuY3J4" title="https://vpn.fang2hou.com/supportfiles/SwitchyOmega.crx">FzVPN 官网渠道<i class="fa fa-external-link"></i></span> 下载 SwitchyOmega 插件。</p>
 <p>下载完成后，打开「扩展程序」，将文件拖入安装即可。</p>
-
-
+<img data-src="/shadowsocks-on-windows/ss-windows-14.png">
+<img data-src="/shadowsocks-on-windows/ss-windows-15.png">
 
 <h2 id="代理配置"><a href="#代理配置" class="headerlink" title="代理配置"></a>代理配置</h2><p>点击地址栏附近的插件图标，选择 <strong>Option 选项</strong>。</p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-9.png">
 <p>在插件设置的左侧面板中，选择 <strong>New profile 新配置文件</strong>。</p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-10.png">
 
 <p>随便取个配置名。</p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-11.png">
 
 <p>依照下图填写相关信息。</p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-12.png">
 
 <p>点击左侧面板中的 <strong>Apply changes 保存修改</strong>。</p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-16.png">
 
 <p>点击地址栏右侧的插件按钮切换配置。</p>
-
+<img data-src="/shadowsocks-on-windows/ss-windows-13.png">
 
 <p>大功告成，恭喜你，终于又可以自由遨游于互联网。</p>
 
@@ -626,6 +634,78 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      projectId: 'calcium-anagram-255411'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script pjax>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 
