@@ -19,7 +19,6 @@
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
@@ -35,7 +34,7 @@
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: true,
+    fancybox: false,
     mediumzoom: true,
     lazyload: true,
     pangu: false,
@@ -371,7 +370,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo diskutil eraseDisk &lt;文件系统&gt; &lt;磁盘名&gt; &lt;磁盘&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>执行命令，来卸载磁盘用于后续烧录。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> sudo diskutil unmountDisk &lt;磁盘&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> sudo diskutil unmountDisk &lt;磁盘&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>执行命令，烧录镜像。建议在镜像所在的文件夹执行，比较方便。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd bs=1m if=&lt;.img 镜像文件&gt; of=&lt;磁盘路径&gt; conv=sync</span><br></pre></td></tr></table></figure>
@@ -379,7 +378,7 @@
 </li>
 </ol>
 <p><strong>小知识</strong><br>因为 <code>dd</code> 命令不是随机读取的，所以在采用 <code>dd</code> 命令写入的时候可以用 <code>rdisk</code> 替代 <code>disk</code> ，如 <code>/dev/disk2</code> 就用 <code>/dev/rdisk2</code> 就可以更快写入。</p>
-<h1 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 验证</span><br><span class="line">shasum -a 256 ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz</span><br><span class="line"><span class="meta">#</span> 解压</span><br><span class="line">unxz ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz</span><br><span class="line"><span class="meta">#</span> 查看磁盘列表</span><br><span class="line">diskutil list</span><br><span class="line"><span class="meta">#</span> 格式化磁盘</span><br><span class="line">sudo diskutil eraseDisk FAT32 RPIBOOT /dev/disk2</span><br><span class="line"><span class="meta">#</span> 卸载磁盘</span><br><span class="line">sudo diskutil unmountDisk /dev/disk2</span><br><span class="line"><span class="meta">#</span> 写入</span><br><span class="line">sudo dd bs=1m if=ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img of=/dev/rdisk2 conv=sync</span><br></pre></td></tr></table></figure>
+<h1 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line">shasum -a 256 ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压</span></span><br><span class="line">unxz ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看磁盘列表</span></span><br><span class="line">diskutil list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 格式化磁盘</span></span><br><span class="line">sudo diskutil eraseDisk FAT32 RPIBOOT /dev/disk2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 卸载磁盘</span></span><br><span class="line">sudo diskutil unmountDisk /dev/disk2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 写入</span></span><br><span class="line">sudo dd bs=1m if=ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img of=/dev/rdisk2 conv=sync</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -617,8 +616,6 @@
   
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>

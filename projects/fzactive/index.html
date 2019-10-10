@@ -19,7 +19,6 @@
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
@@ -35,7 +34,7 @@
     copycode: {"enable":"enable","show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: true,
+    fancybox: false,
     mediumzoom: true,
     lazyload: true,
     pangu: false,
@@ -66,7 +65,7 @@
 <meta property="og:site_name" content="Fang2hou">
 <meta property="og:description" content="FzActive是一个用来免费试激活软件的研究项目。无法保证100%的服务在线率，同时对非法使用也不负任何责任。请您使用正版！            支持的软件列表JetBrains全系列在学的大学生是可以免费申请到证书的。服务器: active.fang2hou.com:8888 使用方式 将激活方式修改为「License Server」。 设定「active.fang">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-17T13:09:24.000Z">
+<meta property="og:updated_time" content="2019-10-09T12:18:01.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FzActive">
 <meta name="twitter:description" content="FzActive是一个用来免费试激活软件的研究项目。无法保证100%的服务在线率，同时对非法使用也不负任何责任。请您使用正版！            支持的软件列表JetBrains全系列在学的大学生是可以免费申请到证书的。服务器: active.fang2hou.com:8888 使用方式 将激活方式修改为「License Server」。 设定「active.fang">
@@ -368,12 +367,13 @@
             <p>请务必使用管理员权限打开命令提示符！</p>
           </div>
 
-<p>你可以经由以下命令来将KMS服务器切换到 <code>active.fang2hou.com</code>。</p>
+<p>你可以经由以下命令来将 KMS 服务器切换到 <code>active.fang2hou.com</code>。</p>
 <figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr.vbs -skms active.fang2hou.com</span><br></pre></td></tr></table></figure>
 
-<p>这是从头开始激活Windows10专业版的步骤。</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">slmgr.vbs -ipk W269N-WFGWX-YVC9B-<span class="number">4</span>J6C9-T83GX</span><br><span class="line">slmgr.vbs -skms active.fang2hou.com</span><br><span class="line">slmgr.vbs -ato</span><br><span class="line">slmgr.vbs -dlv</span><br><span class="line">slmgr.vbs -upk</span><br></pre></td></tr></table></figure>
+<p>这是从头开始激活 Windows 10 专业版的步骤。</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">slmgr.vbs -ipk W269N-WFGWX-YVC9B-<span class="number">4</span>J6C9-T83GX</span><br><span class="line">slmgr.vbs -skms active.fang2hou.com</span><br><span class="line">slmgr.vbs -ato</span><br></pre></td></tr></table></figure>
 
+<p>Office 365 Pro Plus 也可以被支持哦！<br>可以通过 Office Tools 来安装并设定 KMS 服务器。</p>
 <h3 id="特别感谢-1"><a href="#特别感谢-1" class="headerlink" title="特别感谢"></a>特别感谢</h3><p>服务器端开发者：<span class="exturl" data-url="aHR0cHM6Ly9mb3J1bXMubXlkaWdpdGFsbGlmZS5pbmZvL3RocmVhZHMvNTAyMzQtRW11bGF0ZWQtS01TLVNlcnZlcnMtb24tbm9uLVdpbmRvd3MtcGxhdGZvcm1z" title="https://forums.mydigitallife.info/threads/50234-Emulated-KMS-Servers-on-non-Windows-platforms">Hotbird64<i class="fa fa-external-link"></i></span></p>
 
         
@@ -584,8 +584,6 @@
   
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
