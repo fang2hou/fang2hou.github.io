@@ -1,0 +1,1646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>2017年2月书单</title>
+    <url>/book-lists-2017-2/</url>
+    <content><![CDATA[<h1 id="本月看的书"><a href="#本月看的书" class="headerlink" title="本月看的书"></a>本月看的书</h1><ol>
+<li><strong>『自控力』</strong>
+
+</li>
+</ol>
+<p>一本很实用的书，这本书彻底改了我一个多年的坏习惯。并且，现在在面对各种诱惑时，自我感觉能够更加科学的去自控了。<br>作者用了很多科学研究的结论，从多方面来分析失控的原因，对于自控这件事，确实是有极大的帮助的。比如「道德许可」及「那有如何」心理现象，深有感触。书中甚至对于商业上的心理失控也有触及。由于引用了非常多的实例，读起来也算饶有趣味。</p>
+<a id="more"></a>
+
+<ol start="2">
+<li><strong>『资本论』</strong>
+
+</li>
+</ol>
+<p>就如马克思在文中所说，经济学如今已经不是一门新科学了，早已融入生活之中。看资本论就像小时候父母解释钱的价值一般，虽然有时候有点难理解，但还是很有意思的。</p>
+<h1 id="本月购置的书籍"><a href="#本月购置的书籍" class="headerlink" title="本月购置的书籍"></a>本月购置的书籍</h1><ol>
+<li>『栢木先生の基本情報技術者教室』<a href="http://amzn.asia/5bE08mh">Amazon Japan</a>
+也不知道好不好，备考「基本情報技術者」资格认定的书。</li>
+<li>『ノンデザイナーズ・デザインブック』<a href="http://amzn.asia/07SOjt7">Amazon Japan</a>
+英文名：The Non-Designer’s Design Book彩页比较多，覆盖了各个方面的设计，就当是业余设计入门的书来看吧。</li>
+<li>『Merriam-Webster‘s Vocabulary Builder』<a href="http://amzn.asia/9y6kCTC">Amazon Japan</a>
+高中时候挺多人买的，可那时候对英语不上心。现在乘着假期，买回来慢慢学习。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>阅读时光</category>
+      </categories>
+      <tags>
+        <tag>书单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>chattr 命令</title>
+    <url>/chattr-command/</url>
+    <content><![CDATA[<h1 id="一个经常被忽视的命令"><a href="#一个经常被忽视的命令" class="headerlink" title="一个经常被忽视的命令"></a>一个经常被忽视的命令</h1><p>对于我个人来说，这个命令其实也不是特意去找来用的。<br>前段日子，在尝试使用 ss-panel 来搭建 FzVPN 的前端的时候，发现在用<code>mv</code>命令将 git clone 的文件夹文件转移到 vhost 文件夹的时候，总是没法将配置文件转移。<br>这让我觉得很奇怪，而且还无法通过<code>rm -rf</code>来删除。即使处于 root 权限之下，也会提示操作权限不够的错误。经过几番查找，最后尝试使用 chattr 命令去除了 i 属性成功转移。学习命令的同时，将查到的一些资料写下来备忘。</p>
+<a id="more"></a>
+
+<h1 id="命令详解"><a href="#命令详解" class="headerlink" title="命令详解"></a>命令详解</h1><h2 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chattr [ -RVf ] [ -v version ] [ mode ] files</span><br></pre></td></tr></table></figure>
+<p>个人记忆方式：change-attribute</p>
+<h2 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h2><table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>让文件或目录仅供附加用途</td>
+</tr>
+<tr>
+<td>A</td>
+<td>锁定文件或目录的Access Time</td>
+</tr>
+<tr>
+<td>b</td>
+<td>不更新文件或目录的最后存取时间</td>
+</tr>
+<tr>
+<td>c</td>
+<td>将文件或目录压缩后存放</td>
+</tr>
+<tr>
+<td>d</td>
+<td>将文件或目录排除在倾倒操作之外</td>
+</tr>
+<tr>
+<td>i</td>
+<td>不得任意更动文件或目录</td>
+</tr>
+<tr>
+<td>j</td>
+<td>文件在写入时会先被记录</td>
+</tr>
+<tr>
+<td>s</td>
+<td>保密性删除文件或目录</td>
+</tr>
+<tr>
+<td>S</td>
+<td>即时更新文件或目录</td>
+</tr>
+<tr>
+<td>u</td>
+<td>预防意外删除</td>
+</tr>
+</tbody></table>
+<h2 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-R</td>
+<td>递归处理，将指令目录下的所有文件及子目录一并处理</td>
+</tr>
+<tr>
+<td>-v&lt;版本编号&gt;</td>
+<td>设置文件或目录版本</td>
+</tr>
+<tr>
+<td>-V</td>
+<td>显示指令执行过程</td>
+</tr>
+<tr>
+<td>+&lt;属性&gt;</td>
+<td>开启文件或目录的该项属性</td>
+</tr>
+<tr>
+<td>-&lt;属性&gt;</td>
+<td>关闭文件或目录的该项属性</td>
+</tr>
+<tr>
+<td>=&lt;属性&gt;</td>
+<td>指定文件或目录的该项属性</td>
+</tr>
+</tbody></table>
+<h2 id="常见使用"><a href="#常见使用" class="headerlink" title="常见使用"></a>常见使用</h2><p>假设有一个文件为「.env」，采用 root 权限删除时提示权限不足，那么基本上就是要解除权限。<br>我们可以通过<code>lsattr</code>命令（List-attribute）来查看文件的 attr 信息从而来决定下一步操作。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsattr .env</span><br></pre></td></tr></table></figure>
+<p>在确认文件具有i属性的情况下，我们用 chattr 来去除i属性以达到随意操作该文件的目的。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chattr -i .env</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>Linux 命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从校外快速连接到立命馆</title>
+    <url>/connect-to-ritsumei/</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>很多人都喜欢在家里写作业，但是碍于部分开发环境的配置过于繁琐，大家都想通过校内的 Rainbow 环境下的预配置 CentOS 来完成。同时，身处日本国外时，若想利用学校的证书去访问付费论文数据库，也需要利用到立命馆提供的网络服务。<br>在这里，就从<strong>立命馆 VPN</strong>，<strong>RAINBOW Linux</strong>，<strong>校内文件传输</strong>三个方面来介绍一下立命馆的网络服务。</p>
+<h1 id="立命馆服务管理"><a href="#立命馆服务管理" class="headerlink" title="立命馆服务管理"></a>立命馆服务管理</h1><p>考虑到安全性，立命馆所有高级网络功能均要求手动开启。<br>请登入学校的 <a href="https://idminfo.ritsumei.ac.jp/webmtn/sso-joint">服务管理页面</a> 开启 SSH 及 VPN 服务。</p>
+<p><strong>小提示</strong> 点击左侧「ユーザ設定(User Settings)」即可切换到服务开关页面。</p>
+<a id="more"></a>
+
+<h1 id="立命馆VPN"><a href="#立命馆VPN" class="headerlink" title="立命馆VPN"></a>立命馆VPN</h1><p>一个采用 Cisco AnyConnect 技术的 VPN。个人是非常推荐使用的，客户端跨越全平台。同时由于该技术广泛应用于跨国企业和高等院校，就算回国也能正常使用，不会被封锁。</p>
+<h2 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h2><p>Windows / macOS: <a href="https://sslvpn.ritsumei.ac.jp/">通过立命馆下载</a>（Download栏目中有个蓝色链接）<br>iOS：<a href="https://itunes.apple.com/jp/app/cisco-anyconnect/id1135064690">日本 AppStore</a> <a href="https://itunes.apple.com/cn/app/cisco-anyconnect/id1135064690">中国 AppStore</a> <a href="https://itunes.apple.com/us/app/cisco-anyconnect/id1135064690">美国 AppStore</a><br>Android: <a href="https://play.google.com/store/apps/details?id=com.cisco.anyconnect.vpn.android.avf&hl=zh-cn">Play 商店</a></p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><ol>
+<li>设定连接地址为「sslvpn.ritsumei.ac.jp」</li>
+<li>点击 <strong>连接</strong></li>
+<li>用 Rainbow 账号密码验证</li>
+</ol>
+<h1 id="远程使用-CentOS"><a href="#远程使用-CentOS" class="headerlink" title="远程使用 CentOS"></a>远程使用 CentOS</h1><blockquote><p>Secure Shell（安全外壳协议，简称SSH）是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。SSH通过在网络中建立安全隧道来实现SSH客户端与服务器之间的连接。虽然任何网络服务都可以通过SSH实现安全传输，SSH最常见的用途是远程登录系统，人们通常利用SSH来传输命令行界面和远程执行命令。</p>
+<footer><strong>维基百科，自由的百科全书</strong><cite><a href="https://zh.wikipedia.org/wiki/Secure_Shell">Secure Shell</a></cite></footer></blockquote>
+
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>对于 macOS 和 Linux 用户来说，SSH 属于内置功能，不需要额外配置。</p>
+<p>Windows 10 最新版本也已经支持了 OpenSSH，直接可以使用。也可以通过子系统访问。Windows 10 子系统的安装可以参考我的另外一篇文章『<a href="/use-linux-subsystem-on-windows/" title="在 Windows 中使用 Linux 子系统">在 Windows 中使用 Linux 子系统</a>』。</p>
+<p>如果你是旧版本的 Windows 用户，你需要自行安装 Win32-OpenSSH 来使用 SSH，在此不再赘述。</p>
+<h2 id="SSH-使用注意点"><a href="#SSH-使用注意点" class="headerlink" title="SSH 使用注意点"></a>SSH 使用注意点</h2><p>在初次连接 SSH 时会询问「要添加证书么」，输入「y」 或「yes」来表示同意并继续即可。<br>请记住，用 SSH 的时候请务必带上你的用户名！</p>
+<p>连接上去之后，是没有GUI（图形用户界面）的，一切都要靠命令行来操作。<br>你可以在本地把代码写完，然后通过后面提到的方式同步到你的 CentOS 内执行。<br>不过还是建议在使用前查阅 vi 或者是 emacs 这一类运行在命令行上的编辑器的指令后再登陆使用。</p>
+<h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><p>首先介绍一种较为简单的纯命令行方式。</p>
+<ol>
+<li>跨过校内ssh防火墙，以我的学号 <code>is0385rx</code> 为例<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh is0385rx@sshgate.ritsumei.ac.jp</span><br></pre></td></tr></table></figure></li>
+<li>连接到 CentOS 环境<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">connect remote.ritsumei.ac.jp</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><ol>
+<li>用前面提到的 Cisco AnyConnect 连接前文提到的立命馆VPN。</li>
+<li>连接到 CentOS。（以我的学号 <code>is0385rx</code> 为例）<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh is0385rx@remote.ritsumei.ac.jp</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+
+<h1 id="取得校内机器上的文件"><a href="#取得校内机器上的文件" class="headerlink" title="取得校内机器上的文件"></a>取得校内机器上的文件</h1><p>恭喜！你已经连接到了校内 Linux 环境之中。如果你熟悉命令行操作的话，现在应该已经可以开始大展拳脚了。但是如果想获取到校内 Linux 上文件的话，CLI 还是非常的难以使用，这时候就需要文件管理工具来帮助我们。</p>
+<h2 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h2><p>下载安装免费好用还全平台支持的传输软件 <a href="https://filezilla-project.org/download.php?type=client">Filezilla</a>。<br><strong>不需要 Pro 版本</strong>，普通版本就足够强大。<strong>在安装过程中可能会安装2个广告软件，请取消勾选。</strong></p>
+<h2 id="连接-1"><a href="#连接-1" class="headerlink" title="连接"></a>连接</h2><ol>
+<li>连接前文提到的立命馆 VPN。<br>如果已经连接到校内Wi-Fi的话不需要</li>
+<li>打开 Filezilla 的 站点管理器</li>
+<li>添加数据如下</li>
+<li>第四步，连接<br>在第一次连接时和 SSH 命令连接一样，都会有添加证书的一步，点击「yes」即可。
+
+</li>
+</ol>
+<p>大功告成，现在你已经可以随意操作到学校的 Rainbow 环境了。</p>
+]]></content>
+      <categories>
+        <category>软件心得</category>
+      </categories>
+      <tags>
+        <tag>Rainbow</tag>
+        <tag>立命馆</tag>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用 GAE 搭建简易 API</title>
+    <url>/deploy-api-with-gae/</url>
+    <content><![CDATA[<h1 id="注册-Google-Cloud-Platform"><a href="#注册-Google-Cloud-Platform" class="headerlink" title="注册 Google Cloud Platform"></a>注册 Google Cloud Platform</h1><p>Google Cloud Platform，即<strong>谷歌云平台</strong>，提供了大量的云服务以及为期一年的 300 美金体验费用。<br>Google App Engine 是云平台上的一种服务，其实在很早以前就有了。但是随着基于这个服务的某个代理项目成熟，中国大陆对其进行了屏蔽。<br>不过也有好处，GAE 现在的使用门槛提高后，GAE 的滥用情况减少了很多。绑定自己的域名后还是可以解决大陆的访问问题。</p>
+<blockquote>
+<p><a href="https://console.cloud.google.com/">Google Cloud Platform 主页</a></p>
+</blockquote>
+<p>注册 GCP 需要你拥有一张信用卡 / 借记卡（JCB, 银联不可以），一个谷歌账户，和一个能上谷歌的网络环境。</p>
+<a id="more"></a>
+
+<h1 id="安装-Google-Cloud-SDK"><a href="#安装-Google-Cloud-SDK" class="headerlink" title="安装 Google Cloud SDK"></a>安装 Google Cloud SDK</h1><p>Google Cloud SDK，这是一个客户端，能够帮助我们快速管理 GCP 上的项目。<br>在这里，我用 macOS 做演示，其实是都差不多的。</p>
+<ol>
+<li>打开官方的 <a href="https://cloud.google.com/sdk/docs/quickstart-macos">macOS 支持页面</a>，下载对应的文件包。  </li>
+<li>解压之</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Downloads</span><br><span class="line">tar xzvf google-cloud-sdk-188.0.1-darwin-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>移动文件夹到你常用的地方。（下面路径是个例子，注意替换）</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mv google-cloud-sdk ~/Applications/gcsdk</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>执行安装文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Applications/gcsdk</span><br><span class="line">./install.sh</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>像我的话是使用 zsh 的，所以为了方便使用，添加文件到我的 zsh 配置文件中。<br>PS：zsh 对应 .zshrc，bash 对应 .bashrc 别加错文件了。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;source ~/Applications/gcsdk/path.zsh.inc&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="创建一个-Flex-的-Python-App-Engine"><a href="#创建一个-Flex-的-Python-App-Engine" class="headerlink" title="创建一个 Flex 的 Python App Engine"></a>创建一个 Flex 的 Python App Engine</h1><p>Standard 对应 Python 2.7 （一直以来支持的版本）<br>Flexible 对应 Python 2.7 &amp; 3.6（随着 Python 3 的流行，谷歌也提供了新的环境）<br>先登录认证一下自己的谷歌账户。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcloud auth login&lt;</span><br></pre></td></tr></table></figure>
+
+<p>在网页面板上创建一个 Python 的 App Engine，请注意，请一定要参加一下官方教程。<br>经过教程，你应该能很快掌握 GAE 的部署。</p>
+<h1 id="用-Flask-写出简单的-API"><a href="#用-Flask-写出简单的-API" class="headerlink" title="用 Flask 写出简单的 API"></a>用 Flask 写出简单的 API</h1><p>其实参考 Hello World 程序的代码，就算没有用过 Flask 的人，也能够在 1 小时内迅速的将 API 上线。<br>当然，前提是你已经将 API 所用到的各个方法已经封装好了。</p>
+<h1 id="部署到云端"><a href="#部署到云端" class="headerlink" title="部署到云端"></a>部署到云端</h1><p>谷歌已经帮你做了大部分工作，你只需要通过下面的代码即可一键部署。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcloud app deploy --project &lt;项目名&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="有一个坑，如果你遇到了可以参考"><a href="#有一个坑，如果你遇到了可以参考" class="headerlink" title="有一个坑，如果你遇到了可以参考"></a>有一个坑，如果你遇到了可以参考</h1><p>谷歌好像不会自动把服务账号的邮箱添加进有权限的用户组，我们可以手动在面板上操作解决。<br>IAM 和管理 -&gt; IAM -&gt; 添加服务账号 -&gt; 设置服务账号权限为编辑者</p>
+]]></content>
+      <categories>
+        <category>网站建设</category>
+      </categories>
+      <tags>
+        <tag>GAE</tag>
+        <tag>Flask</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在日生活之维他柠檬茶冲调攻略</title>
+    <url>/diy-vita-lemon-tea-in-japan/</url>
+    <content><![CDATA[<p>更新：</p>
+<ul>
+<li>修正量勺单位小数点错误。</li>
+<li>修正甜度部分说明。</li>
+</ul>
+<p>日本生活多年，忘不了国内维他柠檬茶的同学相信有不少。<br>但是无论是国内转运还是人肉带货价格都非常的高昂，所以就萌生了自己冲调的想法。<br>这周算是fork了许同学的冲调法，自己进行了冲调比例的多次尝试，以求尽量接近维他的口感。</p>
+<a id="more"></a>
+<h1 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h1><ol>
+<li>1L以上瓶体容器<br>一般的水壶都可以，顺便一提我是从亚马逊购入的，壶口开闭很方便。<br><a href="http://amzn.asia/7NZPhhA">HARIO 1400ml 水壶</a></li>
+<li>量勺<br>我是从 FLET’s 百元店购入的，15ml 和 5ml 两只装。</li>
+</ol>
+<h1 id="材料准备"><a href="#材料准备" class="headerlink" title="材料准备"></a>材料准备</h1><ol>
+<li><p>立顿柠檬茶粉（リプトン さわやかレモンティー）</p>
+
+<p>各大超市，业务超市都有售。<br>在线购买：<br><a href="https://item.rakuten.co.jp/lipton-brooke/10001286/">日本立顿官方商店</a> | <a href="https://www.amazon.co.jp/s/field-keywords=%E3%83%AA%E3%83%97%E3%83%88%E3%83%B3%E3%81%95%E3%82%8F%E3%82%84%E3%81%8B%E3%83%AC%E3%83%A2%E3%83%B3%E3%83%86%E3%82%A3%E3%83%BC">亚马逊</a><br>价格：513元 / 500g（税后）</p>
+</li>
+<li><p>大正制药液态果糖（パルスイート カロリーゼロ）</p>
+
+<p>各大超市都有售。<br>在线购买：<a href="https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&#038;url=search-alias%3Daps&#038;field-keywords=%E3%83%91%E3%83%AB%E3%82%B9%E3%82%A4%E3%83%BC%E3%83%88+%E3%82%AB%E3%83%AD%E3%83%AA%E3%83%BC%E3%82%BC%E3%83%AD+%E6%B6%B2%E4%BD%93">亚马逊</a><br>价格：631元 / 500g（税后）<br>只要是液态果糖都可以，不一定要一个牌子的，只是用量上需要自己把握。</p>
+</li>
+<li><p>Pokka柠檬汁（ポッカレモン100）</p>
+
+<p>各大超市，业务超市都有售。<br>在线购买：<br><a href="https://www.amazon.co.jp/s/field-keywords=%E3%83%9D%E3%83%83%E3%82%AB%E3%83%AC%E3%83%A2%E3%83%B3100">亚马逊</a><br>价格：70ml塑料小瓶装 1000元 / 500ml（税后）| 450ml玻璃大瓶装 480元 / 500ml（税后） </ol> </p>
+</li>
+</ol>
+<h1 id="冲调方法"><a href="#冲调方法" class="headerlink" title="冲调方法"></a>冲调方法</h1><ol>
+<li>直接加入冷水 1L 于壶中。<br>建议使用「KIRIN アルカリイオンの水」，不贵，使用后无任何杂味。<br>当然，自来水 / 开水也是可以的。</li>
+<li>添加 <strong>15ml</strong> x 7勺 的柠檬茶粉<br>柠檬茶粉的多少取决你对涩味的敏感度。<br>建议第一次照做，之后可酌量减少或者增加。</li>
+<li>混合均匀<br>如果你觉得比较难搅匀，可以先用其他容器先接出一半，然后大力摇晃搅匀。<br>如果有摇壶的话建议直接分两次调匀后放入瓶中。</li>
+<li>添加 <strong>5ml</strong> x 6.5勺 的果糖<br>该甜度大概为国内奶茶10分糖的甜度，可以酌量减少。<br>维他的甜度大概需要加入 5.5 勺。</li>
+<li>混合均匀<br>稍微摇一下，使用液态果糖的主要理由就是为了快速混合。</li>
+<li>添加柠檬汁<br>这一步其实是非常主观的，主要是如何为柠檬茶添加适量的酸味。<br>建议每 5ml 搅匀先自己尝一下再决定是否继续添加。我一般是加入 25ml。</li>
+<li>放入冰箱静置半小时以上</li>
+</ol>
+
+<p>在炎炎夏日，喝着冰镇的柠檬茶，真是爽的不行。</p>
+]]></content>
+      <categories>
+        <category>料理生活</category>
+      </categories>
+      <tags>
+        <tag>维他柠檬茶</tag>
+        <tag>饮料调制</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何整理自己的手机桌面</title>
+    <url>/how-to-place-app/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>随着手机硬件的不断发展，现在在手机上几乎能完成原先在电脑上全部的工作了。我自己也经常通过手机的终端应用连接到学校的云上，非常方便。<br>同时，像支付宝，滴滴打车这样的工具应用的普及，原先鲜有人使用的手机 App 从新鲜事物逐渐演变成了生活的必需品。可是，App数量的爆炸也带来了很多问题。如常用和不常用的软件的界定，摆放的位置等等。<br>关于如何让自己更加高效地使用手机，是我一直在研究的问题，借着此文，分享一下我对手机桌面整理的心得。</p>
+<a id="more"></a>
+
+<h1 id="放进文件夹"><a href="#放进文件夹" class="headerlink" title="放进文件夹"></a>放进文件夹</h1><h2 id="维度1：生活目标"><a href="#维度1：生活目标" class="headerlink" title="维度1：生活目标"></a>维度1：生活目标</h2><p>在讲这个维度之前，先讲一个我学设计的朋友的的新想法。</p>
+<ul>
+<li>当你的房屋构造为「卧室-厕所-厨房」，你在起床后自然会先去厕所，然后再去厨房热牛奶。</li>
+<li>可以当你的房屋构造改为「卧室-厨房-厕所」之后，在尿不是很急的时候，你有很大几率会前往厨房先热牛奶，然后乘着这个时间去厕所。</li>
+</ul>
+<blockquote><p><strong>外界的结构有时候会影响到你的选择，手机App的摆放亦是同理。</strong></p>
+</blockquote>
+
+<p>举个例子，最近要期末考试了，但小明还是每天花很多时间在游戏中。那么为了减少游戏的时间，将游戏存放于一个复杂文件夹的第N页，就人为的提高了打开游戏的难度。<br>这样做就会减少两个来源的打开次数：</p>
+<ol>
+<li><strong>在用其他应用。</strong> 在首页瞥到一眼游戏，然后打开来玩。</li>
+<li><strong>想玩</strong>。但是感觉打开过程繁琐。<br>很多人质疑上述的2是否真的有成效。但我认为，至少对于打不打开游戏这件事，你会比平常直接点开多了2~3秒的思考时间，还是非常关键的。<br>在撰文时，这本是最后一个考虑因素，不过我觉得还是提到前面讲可能比较好一点。</li>
+</ol>
+<h2 id="维度2：使用频度"><a href="#维度2：使用频度" class="headerlink" title="维度2：使用频度"></a>维度2：使用频度</h2><p>对于物品分类，我可能是有强迫症的那种。<br>比如我的代码，论文的文件夹在存放时，为了多年后的自己能轻松找到想要的文件，构建了比较详细的按内容分类的目录结构。</p>
+<blockquote><p><strong>但是对于手机App，什么都要分类的，或者说全部应用按照一个模式来进行分类并不是一个好的选择。</strong></p>
+</blockquote>
+
+<p>为什么这样说呢，由于手机中存在大量的使用频度不高但在某些时刻重新安装却异常麻烦的应用。比如用来科学上网的「Shadowsocks」，在国外的时候是完全不需要使用的软件，但是有时候急着回国，结果机票酒店软件都和Facebook绑定的话，没科学上网的应用可就麻烦了。<br>所以像这样的应用我们应该给他们一个分类，然后放在一个小角落，平常也不去用，但到了关键时刻，他们总能发挥出很大的作用。</p>
+<h2 id="维度3：软件类型"><a href="#维度3：软件类型" class="headerlink" title="维度3：软件类型"></a>维度3：软件类型</h2><p>然后在分类中需要考虑的可能就是<strong>类型</strong>。比如购物类软件（如「淘宝」，「Amazon」），文档处理类（如「Microsoft Office」）。<br>但是就像前面所提到的，不能一味的按照类型。比如「支付宝」，虽然是购物类的，但是由于其使用频度极高，在付款时每次都要点进一个文件夹的话，非常的耗时，我们可以选择将其单独放在外面。同理，像「微信」，「淘宝」都可以放在外面，方便使用。<br>那么在分类后，如何更加有效率的摆放呢，下面继续来谈，</p>
+<h1 id="摆放位置"><a href="#摆放位置" class="headerlink" title="摆放位置"></a>摆放位置</h1><h2 id="找到最适点位"><a href="#找到最适点位" class="headerlink" title="找到最适点位"></a>找到最适点位</h2><p>摆放位置上，由于每个人的手及手机大小不同，会有比较明显的差异，不好一概而论。<br>但是最佳的位置，对于每个人是固定的。</p>
+<blockquote><p><strong>最佳点在于你正常持握手机时，放松状态的大拇指放着的点。</strong></p>
+</blockquote>
+
+<p>有了最佳点，次佳点自然是在放松状态的大拇指能滑动到的点。<br>对于每个App桌面来说，能够满足次佳点的位置一般也就3-4个，所以一定要将自己使用频度最高的放在这些点位上。</p>
+<h2 id="相关App附近摆放"><a href="#相关App附近摆放" class="headerlink" title="相关App附近摆放"></a>相关App附近摆放</h2><p>在附近摆放相关App，这样有什么好处呢？<br>就以无法脱离的「支付宝」来展开。<br>长时间在固定位开启，久而久之对该类型的软件都会产生一种「好像在这里」的错觉。那么我们将其他支付类或是购物类的软件整理后的文件夹放置在「支付宝」的附近，就能够降低 App 搜寻的时间成本，藉此来提升手机的使用效率。</p>
+]]></content>
+      <categories>
+        <category>智能手机</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在小米路由器 Mini 上安装 Pandavan 固件</title>
+    <url>/install-padavan-on-xiaomi-router-mini/</url>
+    <content><![CDATA[<h1 id="为什么要折腾这一下"><a href="#为什么要折腾这一下" class="headerlink" title="为什么要折腾这一下"></a>为什么要折腾这一下</h1><p>现在中国大陆的网站对于海外的访问限制力度非常之大，传统的突破封锁的方法很多都无法奏效。事已至此，还是和国内爱国上网一样，借由 Shadowsocks 回国吧。手上虽然有一台腾讯云的云服务器，但是带宽就 1M，日本连过去的线路还很善变，速度及其不稳定，丢包率奇高无比。上次在 V2EX 问了一些网友，在国内家里用路由器搭建一个 Shadowsocks 服务端却是一个可以价格低廉且稳定的方案。<br>想配置家里这个路由器已经第 3 年了，每次回国都忘记，今天总算被我想了起来。</p>
+<p><strong>更新</strong>：忘了现在国内 IPv4 地址不够了，Shadowsocks 服务端开不了了。只能等以后 IPv6 地址有了之后再弄了。但是总体来说，可以给家中长辈添加视频去广告，以及根据 gfwlist 爱国上网等等功能也是很不错的。</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>查了下资料，我房间内的这个小米路由器 Mini 是比较容易把玩的一个路由器型号。在二手市场的价格也已经接近谷底（40 包邮），如果手上没有的话，也很推荐去淘宝买一个。</p>
+<ul>
+<li>小米路由器 × 1</li>
+<li>小米网络账户 × 1</li>
+<li>U 盘 × 1 （16M 空余空间就行）</li>
+<li>网线 × 1</li>
+<li>手机 × 1</li>
+<li>用网线上网的设备 × 1<a id="more"></a>
+
+</li>
+</ul>
+<h1 id="操作顺序"><a href="#操作顺序" class="headerlink" title="操作顺序"></a>操作顺序</h1><h2 id="开启开发权限"><a href="#开启开发权限" class="headerlink" title="开启开发权限"></a>开启开发权限</h2><ol>
+<li><p>下载小米路由器官方的开发版固件。<a href="http://www1.miwifi.com/miwifi_download.html">下载链接</a><br> 小米为路由器本身就提供了开发版，便于爱好者折腾，从这点来说，我觉得非常棒！</p>
+ 
+</li>
+<li><p>刷入小米路由器官方的开发版固件。<br> 登陆到路由器后台，一般来说连入小米路由器之后直接访问 <code>miwifi.com</code> 就行。<br> 选择路由器控制面板内的手动升级功能来完成开发版固件刷入工作。</p>
+ 
+</li>
+<li><p>用手机 App 「小米WiFi」设定路由器到正常上网状态，并绑定这个路由器到你的小米账户上。</p>
+ 
+</li>
+<li><p>安装 SSH 工具包。<br> 在 <a href="https://d.miwifi.com/rom/ssh">这里</a> 可以直接下载到 SSH 工具包和对应的 root 密码。</p>
+ 
+</li>
+<li><p>按照官方操作指导 U 盘刷入 SSH 工具包。<br> ① 将下载的工具包 bin 文件复制到U盘（FAT/FAT32 格式）的根目录下，保证文件名为 <code>miwifi_ssh.bin</code><br> ② 断开小米路由器的电源，将U盘插入 USB 接口；<br> ③ 按住 <code>reset</code> 按钮之后重新接入电源，指示灯变为黄色闪烁状态即可松开 <code>reset</code> 键；<br> ④ 等待3-5秒后安装完成之后，小米路由器会自动重启。</p>
+</li>
+<li><p>用 ssh 登入路由器的 Linux 系统。<br> 小米路由器的默认网络别名是 <code>xiaoqiang</code>，默认 SSH 端口为 22。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh root@xiaoqiang</span><br></pre></td></tr></table></figure>
+<p> 看到「ARE U OK」就算是成功进入了。</p>
+ 
+
+</li>
+</ol>
+<h2 id="备份官方固件"><a href="#备份官方固件" class="headerlink" title="备份官方固件"></a>备份官方固件</h2><ol>
+<li><p>首先，通过 SSH 连接到小米路由器之后，就可以用 <code>cat /proc/mtd</code> 查看当前固件的信息了。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@XiaoQiang:~<span class="comment"># cat /proc/mtd</span></span><br><span class="line">dev:    size   erasesize  name</span><br><span class="line">mtd0: 01000000 00010000 <span class="string">&quot;ALL&quot;</span></span><br><span class="line">mtd1: 00030000 00010000 <span class="string">&quot;Bootloader&quot;</span></span><br><span class="line">mtd2: 00010000 00010000 <span class="string">&quot;Config&quot;</span></span><br><span class="line">mtd3: 00010000 00010000 <span class="string">&quot;Factory&quot;</span></span><br><span class="line">mtd4: 00c80000 00010000 <span class="string">&quot;OS1&quot;</span></span><br><span class="line">mtd5: 00b178a7 00010000 <span class="string">&quot;rootfs&quot;</span></span><br><span class="line">mtd6: 00200000 00010000 <span class="string">&quot;OS2&quot;</span></span><br><span class="line">mtd7: 00100000 00010000 <span class="string">&quot;overlay&quot;</span></span><br><span class="line">mtd8: 00010000 00010000 <span class="string">&quot;crash&quot;</span></span><br><span class="line">mtd9: 00010000 00010000 <span class="string">&quot;reserved&quot;</span></span><br><span class="line">mtd10: 00010000 00010000 <span class="string">&quot;Bdata&quot;</span></span><br></pre></td></tr></table></figure>
+<p> 看好列表后，马上就依次备份现有的文件。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line">mkdir rom</span><br><span class="line">dd <span class="keyword">if</span>=/dev/mtd0 of=/tmp/rom/ALL.bin</span><br><span class="line">dd <span class="keyword">if</span>=/dev/mtd1 of=/tmp/rom/Bootloader.bin</span><br><span class="line">dd <span class="keyword">if</span>=/dev/mtd2 of=/tmp/rom/Config.bin</span><br><span class="line">dd <span class="keyword">if</span>=/dev/mtd3 of=/tmp/rom/Factory.bin</span><br><span class="line">dd <span class="keyword">if</span>=/dev/mtd4 of=/tmp/rom/OS1.bin</span><br><span class="line">dd <span class="keyword">if</span>=/dev/mtd5 of=/tmp/rom/rootfs.bin</span><br><span class="line">dd <span class="keyword">if</span>=/dev/mtd6 of=/tmp/rom/OS2.bin</span><br><span class="line">dd <span class="keyword">if</span>=/dev/mtd7 of=/tmp/rom/overlay.bin</span><br><span class="line">dd <span class="keyword">if</span>=/dev/mtd8 of=/tmp/rom/crash.bin</span><br><span class="line">dd <span class="keyword">if</span>=/dev/mtd9 of=/tmp/rom/reserved.bin</span><br><span class="line">dd <span class="keyword">if</span>=/dev/mtd10 of=/tmp/rom/Bdata.bin</span><br></pre></td></tr></table></figure>
+
+<p> 你可以直接用上面的代码一行行进去执行，也可以存成 <code>sh</code> 文件，用 <code>chmod +x &lt;文件名&gt; &amp;&amp; ./&lt;文件名&gt;</code> 的格式可以更加方便的运行。</p>
+</li>
+<li><p>把备份文件拖回本地<br> 用 <code>exit</code> 退出小米路由器的 shell 环境。<br> 在本地执行下面的代码即可下载全部的文件。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r root@xiaoqiang:/tmp/rom/ &lt;备份目录&gt;</span><br></pre></td></tr></table></figure>
+ 
+<p> 我这样操作后，<code>Backups</code> 文件夹中就会多出一个 <code>rom</code> 目录，里面存放了全部备份文件。</p>
+</li>
+<li><p>备用恢复命令<br> 如果日后想要恢复现在的文件，那么就可以用下面的语句上传我们的包到路由器的临时目录里。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r &lt;备份目录&gt; root@xiaoqiang:/tmp/</span><br></pre></td></tr></table></figure>
+<p> 这个地方备份目录要以 <code>/rom/</code> 结尾，这样 scp 复制到服务器上的 <code>tmp</code> 目录中 就会有一个 <code>rom</code> 文件夹。<br> 在确认所有备份已经上传至小米路由器的 <code>/tmp/rom</code> 中之后，即可使用下面的命令恢复了。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mtd write /tmp/rom/Bootloader.bin Bootloader</span><br><span class="line">mtd write /tmp/rom/Config.bin Config</span><br><span class="line">mtd write /tmp/rom/Factory.bin Factory</span><br><span class="line">mtd write /tmp/rom/OS1.bin OS1</span><br><span class="line">mtd write /tmp/rom/rootfs.bin rootfs</span><br><span class="line">mtd write /tmp/rom/OS2.bin OS2</span><br><span class="line">mtd write /tmp/rom/overlay.bin overlay</span><br><span class="line">mtd write /tmp/rom/crash.bin crash</span><br><span class="line">mtd write /tmp/rom/reserved.bin reserved</span><br><span class="line">mtd write /tmp/rom/Bdata.bin Bdata</span><br></pre></td></tr></table></figure>
+<h2 id="刷入国产-Breed"><a href="#刷入国产-Breed" class="headerlink" title="刷入国产 Breed"></a>刷入国产 Breed</h2><p>Breed，一款出自国内著名路由器技术社区——恩山论坛的一款 BootLoader。主要特点还是便于刷机，其支持 Web 页面提交刷机包完成刷机，很受国内玩家追捧。下面，我就来安装 Breed 到小米路由器上。</p>
+</li>
+<li><p>下载最新版本的 Breed。<br> 作者 Hackpascal 将其制作的 Breed 放于个人服务器供大家分享使用，虽是不开源产品，但是基本上覆盖了市面上大部分热门机型，小米路由器 Mini 自然也不例外。<br> 打开 <a href="https://breed.hackpascal.net/">Breed 下载站</a>，找到 <code>breed-mt7620-xiaomi-mini.bin</code> 右键复制其下载链接。<br> 用 SSH 连接上小米路由器，使用 <code>curl</code> 来下载 Breed 到临时目录 <code>/tmp</code> 中。</p>
+ 
+</li>
+<li><p>覆盖写入 Breed 到 BootLoader。<br> 在 <code>/tmp</code> 目录下执行下面的代码即可刷入 Breed。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mtd -r write breed-mt7620-xiaomi-mini.bin Bootloader</span><br></pre></td></tr></table></figure></li>
+<li><p>刷入后，机器会重新启动，指示灯变蓝。<br> 这个过程比较耗时，约 20 分钟，请一定要等到指示灯变蓝。</p>
+</li>
+<li><p>将电脑设定为自动获取 IP 地址，且是用物理网线连上路由器。</p>
+</li>
+<li><p>进入 Web 刷机模式<br> 先断开小米路由器的电源，用牙签等尖锐物按下路由器 <code>reset</code> 按钮后重新接入电源。<br> 等到路由器的蓝色灯开始闪烁时即表明进入 Web 刷机模式，松开 <code>reset</code> 键。<br> 此时，使用浏览器登入 <code>192.168.1.1</code>，即可进入 Breed 的控制台。</p>
+</li>
+</ol>
+<h2 id="上传并刷入-Padavan"><a href="#上传并刷入-Padavan" class="headerlink" title="上传并刷入 Padavan"></a>上传并刷入 Padavan</h2><p>终于到了最后一步，刷入 Padavan。<br>Padavan 是由恩山无线论坛的 hiboyhiboyhiboy 出品的一款开源路由器固件改版，调整了很多符合国人习惯的设定，开箱即用，备有非常多的常用软件。可以说，在易用性上远超市面上其他所有固件。<br><a href="https://www.right.com.cn/forum/thread-161324-1-1.html">Padavan 发布原帖</a> | <a href="http://t.me/pdcn1">Padavan 官方信息发布 TG 群</a>| <a href="http://opt.cn2qq.com/padavan/">Padavan 固件下载列表</a></p>
+<ol>
+<li>登入 Breed 的 Web 刷机控制台。<br> 地址栏输入 <code>192.168.1.1</code> 即可。</li>
+<li>选择左侧的「固件升级」，选择固件为刚刚下载的 <code>trx</code> 文件。 </li>
+<li>开始刷入，等待刷机结束。</li>
+</ol>
+<h2 id="进入-Padavan-控制台"><a href="#进入-Padavan-控制台" class="headerlink" title="进入 Padavan 控制台"></a>进入 Padavan 控制台</h2><p>默认登陆地址为 <code>http://my.router</code>，默认账户和密码都是 <code>admin</code>，可以自行修改。</p>
+
+<p>关于具体设置的话，由于 Padavan 做的实在是完善，在 WebUI 的指引下就可以轻松设定好一切。更多的用法请各位自己去探索吧！</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="http://bbs.xiaomi.cn/t-32939238">【开学季】宿舍神器小米路由mini刷Padavan（带锐捷认证）</a></li>
+<li><a href="https://www.jianshu.com/p/b2849c92861b">scp从服务器下载文件到本地或从本地上传文件到服务器</a></li>
+<li><a href="https://breed.hackpascal.net/">Boot and Recovery Environment for Embedded Devices (BREED)</a></li>
+<li><a href="https://unix.stackexchange.com/questions/60750/does-curl-have-a-no-check-certificate-option-like-wget">Does curl have a –no-check-certificate option like wget?</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>小米路由器 Mini</tag>
+        <tag>Pandavan</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在树莓派上安装配置 Raspbian</title>
+    <url>/install-raspberry-pi-3-raspbian/</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><code>Raspbian</code> —— 一个专门用于树莓派的 Debian 分支，且唯一获得树莓派官方支持的系统。<br>本文将介绍在不同的主流操作系统中安装 <code>Raspbian</code> 的多种方法，你可以选择最适合自己的方式进行安装。</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ol>
+<li>树莓派 (Raspberry Pi)</li>
+<li>SD 卡及读卡器</li>
+<li>控制工具（选一个即可，也可无线）<ul>
+<li>网线</li>
+<li>HDMI 线 + 显示屏 + 键盘</li>
+</ul>
+</li>
+</ol>
+<a id="more"></a>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h2><p>首先，从 <strong><a href="https://www.raspberrypi.org/downloads/raspbian/">官方镜像网站</a></strong> 下载最新的 Raspbian 操作系统。</p>
+<p>其中，</p>
+<ol>
+<li><code>Raspbian Stretch with desktop and recommended software</code> 是自带了 LXDE，我的世界等一系列软件的开箱即用版本。</li>
+<li><code>Raspbian Stretch with desktop</code> 是自带了 LXDE，及必要的开发工具的开箱即用版本。</li>
+<li><code>Raspbian Stretch Lite</code> 是一个精简版本，自带了常用的库，开发工具，但是没有桌面和 GUI 程序。</li>
+</ol>
+<p>个人强烈推荐第三个版本，因为就算想使用桌面也可通过 <code>aptitude</code> 很方便得进行安装，而开箱即用版本中存在的大量软件都是不常用的（如游戏，LibreOffice）。如果不熟悉纯命令行界面，第二个轻量桌面版本也是很推荐的。</p>
+<p>3 个版本核心部分是一样的，所以在版本选择上不要有太大压力。</p>
+<h2 id="烧录"><a href="#烧录" class="headerlink" title="烧录"></a>烧录</h2><p>请根据操作系统来选择性的阅读本节。</p>
+<h3 id="Windows-篇"><a href="#Windows-篇" class="headerlink" title="Windows 篇"></a>Windows 篇</h3><p>Windows 下使用需要使用以下 2 个免费软件：</p>
+<ol>
+<li><a href="https://www.sdcard.org/chs/downloads/formatter_4/eula_windows/index.html">SD 卡格式化工具</a></li>
+<li><a href="https://zh.osdn.net/projects/sfnet_win32diskimager/downloads/Archive/Win32DiskImager-1.0.0-binary.zip/">Win32 Disk Imager</a></li>
+</ol>
+<p>在安装/解压软件后，我们就可以开始实际的烧录工作了。</p>
+<ol>
+<li>解压 Zip 压缩包，得到镜像文件(.img)。</li>
+<li>打开 <code>SD 卡格式化工具</code>，选择打算用作树莓派系统的 SD 卡，点击 <code>格式化</code> 按钮。<br>不需要任何特殊设置，直接格式化即可。</li>
+<li>打开 <code>Win32 Disk Imager</code>，点击蓝色的文件夹图标，选择镜像（.img），点击 <code>Write</code> 按钮开始写入。<br>不需要任何特殊设置，直接写入。如果你比较在意 MD5验证，可根据下载页面上的 MD5 进行验证。</li>
+</ol>
+<h3 id="macOS-篇"><a href="#macOS-篇" class="headerlink" title="macOS 篇"></a>macOS 篇</h3><p>macOS 下不需要安装任何工具即可烧录。</p>
+<ol>
+<li>解压 Zip 压缩包，得到镜像文件(.img)。<br><code>unzip</code> 命令，或是其他解压工具。</li>
+<li>打开 <code>终端</code>，执行命令来获取各磁盘的信息。<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">diskutil list</span><br></pre></td></tr></table></figure></li>
+<li>找到打算用作树莓派系统的 SD 卡，比如我的是 <code>/dev/disk2</code>。</li>
+<li>执行命令，来格式化 SD 卡。<br>语法为 <code>diskutil eraseDisk &lt;文件系统&gt; &lt;新磁盘名&gt; &lt;磁盘&gt;</code><br>下方是我的例子：<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo diskutil eraseDisk FAT32 RPIBOOT /dev/disk2</span><br></pre></td></tr></table></figure></li>
+<li>执行命令，来卸载磁盘用于后续烧录。<br>语法为 <code>diskutil unmountDisk &lt;磁盘&gt;</code><br>下方是我的例子：<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo diskutil unmountDisk /dev/disk2</span><br></pre></td></tr></table></figure></li>
+<li>执行命令，烧录镜像。建议在镜像所在的文件夹执行，比较方便。<br>语法为 <code>dd bs=1m if=&lt;.img 镜像文件&gt; of=&lt;磁盘路径&gt; conv=sync</code><br>下方是我的例子：<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo dd bs=1m if=2018-10-09-raspbian-stretch-lite.img of=/dev/rdisk2 conv=sync</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="SSH-配置"><a href="#SSH-配置" class="headerlink" title="SSH 配置"></a>SSH 配置</h2><p>在烧录完成之后，在 SD 卡根目录下建立一个名为 <code>ssh</code> 的空文件，这样在系统启动的时候，树莓派会自动启用 SSH 功能。</p>
+<h2 id="连接到树莓派"><a href="#连接到树莓派" class="headerlink" title="连接到树莓派"></a>连接到树莓派</h2><p>第一次连接的时候，只有 3 种方式连接到树莓派。</p>
+<ol>
+<li>网线连接到本地网络。</li>
+<li>使用 HDMI 线接入屏幕。</li>
+<li>配置无线网卡连接到本地无线网络。（无头模式）</li>
+</ol>
+<p>下面我就 3 种方式分别来介绍下连入方式。</p>
+<p><strong>切记：Raspbian 默认账户为 <code>pi</code>，对应的密码是 <code>raspberry</code>。</strong></p>
+<h3 id="网线连接篇"><a href="#网线连接篇" class="headerlink" title="网线连接篇"></a>网线连接篇</h3><ol>
+<li>使用网线连接的其实也有很多种，但是不论你是通过路由器连接，还是直接接入电脑，我相信你都可以通过下面的命令来找到你的树莓派网络地址/主机名：<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">arp -a</span><br></pre></td></tr></table></figure></li>
+<li>因为我们刚才已经配置了 SSH 远程连接，所以，我们可以直接用下面的命令来连接到树莓派。<ul>
+<li>Windows<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh pi@respberrypi</span><br></pre></td></tr></table></figure></li>
+<li>macOS<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh pi@respberrypi.lan</span><br></pre></td></tr></table></figure></li>
+<li>如果网络设备名都不能获取到，用 IP 地址连接<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh pi@&lt;树莓派 IP&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>登入 Raspbian 之后，用下面的命令运行树莓派自带的设置工具<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure></li>
+<li>选择 <code>Network Options</code>-<code>Wi-Fi</code>，添加无线网络的 SSID 及密码。</li>
+<li>记得同时设定时区（Timezone）。</li>
+<li>退出树莓派设定工具，用 <code>reboot</code> 重启机器，拔掉网线。</li>
+</ol>
+<h3 id="HDMI-连接篇"><a href="#HDMI-连接篇" class="headerlink" title="HDMI 连接篇"></a>HDMI 连接篇</h3><blockquote><p>如果你是桌面版本的 Raspbian，直接通过左上菜单中的 <code>Menu</code>-<code>Preferences</code>-<code>Raspberry Pi Configuration</code>设定更加简便。</p>
+</blockquote>
+<ol>
+<li>登入 Raspbian 之后，用下面的命令运行树莓派自带的设置工具。<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure></li>
+<li>选择 <code>Network Options</code>-<code>Wi-Fi</code>，添加无线网络的 SSID 及密码。</li>
+<li>记得同时设定时区（Timezone）。</li>
+<li>退出树莓派设定工具，用 <code>reboot</code> 重启机器，拔掉网线。</li>
+</ol>
+<h2 id="无头模式设定树莓派"><a href="#无头模式设定树莓派" class="headerlink" title="无头模式设定树莓派"></a>无头模式设定树莓派</h2><p><strong>如果你无任一连接线，可以选择通过这个方法直接设定 Wifi。</strong></p>
+<ol>
+<li>在 SD 卡根目录下建立一个 <code>wpa_supplicant.conf</code> 文件：<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">country=JP</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line">network=&#123;</span><br><span class="line">    ssid=&quot;&lt;Wi-Fi 名&gt;&quot;</span><br><span class="line">    psk=&quot;&lt;Wi-Fi 密码&gt;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>使用网线连接的其实也有很多种，但是不论你是通过路由器连接，还是直接接入电脑，我相信你都可以通过下面的命令来找到你的树莓派网络地址/主机名：<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">arp -a</span><br></pre></td></tr></table></figure></li>
+<li>因为我们刚才已经配置了 SSH 远程连接，所以，我们可以直接用下面的命令来连接到树莓派。<ul>
+<li>Windows<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh pi@respberrypi</span><br></pre></td></tr></table></figure></li>
+<li>macOS<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh pi@respberrypi.lan</span><br></pre></td></tr></table></figure></li>
+<li>如果网络设备名都不能获取到，用 IP 地址连接<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh pi@&lt;树莓派 IP&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="VNC-配置"><a href="#VNC-配置" class="headerlink" title="VNC 配置"></a>VNC 配置</h2><p>VNC 是一个带图像的远程控制工具，如果你需要使用，可以在树莓派设定工具中启用 VNC 支持，然后下载一个 VNC 客户端连接即可。</p>
+<h1 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h1><h2 id="Python-3"><a href="#Python-3" class="headerlink" title="Python 3"></a>Python 3</h2><p>安装用于 Python3 的 pip，且添加 GPIO 支持。<br>之前有过因为忘记添加 Python 3 的 GPIO 包导致无法控制电机，囧。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br><span class="line">pip3 install RPi.GPIO</span><br></pre></td></tr></table></figure>
+
+<h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><ol>
+<li>下载编译后的 Go 包<br>在 <a href="https://golang.org/dl/">Go 官方下载页面</a> 中找到 ARMv6 平台的 Linux 版本下载地址。<br>更新此文时，适用于ARMv6的 Go 版本号为 1.11.5，我们可以用 <code>wget</code> 快速下载<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dl.google.com/go/go1.11.5.linux-armv6l.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li>解包到 <code>/usr/local</code>。<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -C /usr/local -xzf go1.11.5.linux-armv6l.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li>添加 Go 二进制文件目录到环境变量<br>如果在上一步放置 Go 到了其他地方，别忘了下面命令的目录地址要跟着改。<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &quot;export PATH=$PATH:/usr/local/go/bin&quot; &gt;&gt; ~/.profile</span><br></pre></td></tr></table></figure></li>
+<li>重新读取 Shell 配置<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source .profile</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>Git 版本控制。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><p>非常强大又方便的编辑器。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure>
+
+<h2 id="Zsh"><a href="#Zsh" class="headerlink" title="Zsh"></a>Zsh</h2><p>通过 Aptitude 安装，且添加 <code>Oh-my-zsh</code> 项目</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install zsh git</span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Xfce4"><a href="#Xfce4" class="headerlink" title="Xfce4"></a>Xfce4</h2><p>如果你是 Lite 版本的用户，且同时想要一个桌面，我这里推荐安装 Xfce4，占用低，效果也不错。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install xfce4</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol>
+<li><a href="https://hirazakura.hatenablog.com/entry/raspberrypi/setup/first">Raspberry Pi 3（RASPBIAN JESSIE）OSインストールから初期設定【セットアップ前編 】</a></li>
+<li><a href="https://www.youtube.com/watch?v=kiXotzK5eSQ">2. How to configure Raspberry-Pi using sudo raspi-config - Youtube</a></li>
+<li><a href="https://golang.org/doc/install">Getting Started - The Go Programming Language</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>树莓派</category>
+      </categories>
+      <tags>
+        <tag>Raspberry Pi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 macOS 上为树莓派安装 Ubuntu Mate</title>
+    <url>/install-raspberry-pi-3-ubuntu-mate-on-mac/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>树莓派官方系统 Raspbian 加了一些不必要的东西，作为系统洁癖，肯定还是想搞个比较纯净的环境。我这里推荐 Ubuntu Core 和 Ubuntu Mate。</p>
+<p>鉴于 Ubuntu Mate 官方并没有提供在 macOS 上进行安装的教程。以下是我成功安装的简单步骤。</p>
+<a id="more"></a>
+<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><p>采用了同官方系统安装同样的烧录步骤。</p>
+<ol>
+<li>从 <a href="https://ubuntu-mate.org/download/">官方下载点</a> 下载镜像。</li>
+<li>解压 xz 压缩包，得到镜像文件(.img)。<br><code>unxz</code> 命令，或是其他解压工具。</li>
+<li>验证文件完整性，特别是用下载工具 P2P 下载的话，这真的非常重要。<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">shasum -a 256 &lt;.img 镜像文件&gt;</span><br></pre></td></tr></table></figure></li>
+<li>打开「终端」，执行命令来获取各磁盘的信息。<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">diskutil list</span><br></pre></td></tr></table></figure></li>
+<li>找到打算用作树莓派系统的 SD 卡，比如我的是 <code>/dev/disk2</code> 。</li>
+<li>执行命令，来格式化 SD 卡。<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo diskutil eraseDisk &lt;文件系统&gt; &lt;磁盘名&gt; &lt;磁盘&gt;</span><br></pre></td></tr></table></figure></li>
+<li>执行命令，来卸载磁盘用于后续烧录。<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> sudo diskutil unmountDisk &lt;磁盘&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>执行命令，烧录镜像。建议在镜像所在的文件夹执行，比较方便。<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo dd bs=1m if=&lt;.img 镜像文件&gt; of=&lt;磁盘路径&gt; conv=sync</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><strong>小知识</strong><br>因为 <code>dd</code> 命令不是随机读取的，所以在采用 <code>dd</code> 命令写入的时候可以用 <code>rdisk</code> 替代 <code>disk</code> ，如 <code>/dev/disk2</code> 就用 <code>/dev/rdisk2</code> 就可以更快写入。</p>
+<h1 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line">shasum -a 256 ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压</span></span><br><span class="line">unxz ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看磁盘列表</span></span><br><span class="line">diskutil list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 格式化磁盘</span></span><br><span class="line">sudo diskutil eraseDisk FAT32 RPIBOOT /dev/disk2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 卸载磁盘</span></span><br><span class="line">sudo diskutil unmountDisk /dev/disk2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 写入</span></span><br><span class="line">sudo dd bs=1m if=ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img of=/dev/rdisk2 conv=sync</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>树莓派</category>
+      </categories>
+      <tags>
+        <tag>Raspberry Pi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LaTeX + Sublime Text 日文环境配置 macOS 篇</title>
+    <url>/japanese-latex-with-sublime-text-on-macos/</url>
+    <content><![CDATA[
+
+<p>本文适用于采用 macOS 操作系统的用户，如果你是 Windows 用户，请参考『<a href="/japanese-latex-with-sublime-text-on-windows/" title="LaTeX + Sublime Text 日文环境配置 Windows 篇">LaTeX + Sublime Text 日文环境配置 Windows 篇</a>』。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。随着 MacTeX 的更新，日文环境已经足够完善，但是为了更加快速的书写及编译 LaTeX 文档，我们可以对相关软件进行设置来提升使用体验。<br>本文旨在帮助无电脑基础的读者在 Mac 上快速建立起日文 LaTeX 书写环境，并和 Sublime Text 3 进行配合，进一步提升书写的舒适度。<br>强烈推荐 Skim 阅读器，能够动态读取 PDF 文档，并对刚刚作出修改的地方进行同步标示。</p>
+<a id="more"></a>
+
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><div class="note info"><p><strong>终端</strong>：Terminal，ターミナル<br><strong>ST3</strong>：Sublime Text 3 （一款非常好用的文本编辑器，免费）。<br><strong>Launchpad</strong>：苹果自带的应用启动器，图标为灰底小火箭。</p>
+</div>
+
+<p>在安装及配置之前，我们需要先准备好一些文件。其中部分文件较大，建议先行下载。</p>
+<ol>
+<li>前往 TeX Live 官方网站的 <a href="http://www.tug.org/mactex/mactex-download.html">MacTex 专区</a>下载最新版本的 MacTex 发行版。<div class="note danger"><p>但是请先不要安装</p>
+</div></li>
+<li>前往 <a href="https://www.sublimetext.com/3">Sublime Text 3 官方网站</a>，下载最新版本的 Sublime Text 3。</li>
+<li>前往 <a href="http://skim-app.sourceforge.net/">Skim 官方网站</a>，下载最新版本的 Skim 阅读器。</li>
+</ol>
+<p>打开的你的终端，如果你找不到，可以尝试在屏幕底部的程序栏（Dock）中点开小火箭（Launchpad），直接输入「ter」你应该就能找到。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>像常规 Mac 软件一般，分别安装 Skim 以及 Sublime Text 3。由于不会出现什么特殊的问题，在此就略过不表了。<br>为了提升 TeX 的编译中对图片的转换功能，我们可以采用 Homebrew 来安装所需库。</p>
+<blockquote><p>Homebrew 是一个可以帮助你在 Mac 上快速安装/卸载/升级各种软件包的一个包管理器。</p>
+</blockquote>
+<p>通过下面的命令来安装 Homebrew，在安装时，可能会被询问是否安装，输入 y 确认即可。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>接着，我们就可以借助 Homebrew 来快速安装所需的 Ghostscript 及 ImageMagick。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install imagemagick</span><br><span class="line">brew install ghostscript</span><br></pre></td></tr></table></figure>
+
+<p>在完成 Homebrew 相关的操作之后，我们打开 MacTeX 的安装包进行安装，在安装过程中，请注意有安装时有部分功能可以**自定义(英：Customize, 日：カスタマイズ)**，请去除勾选 Ghostscript 及 Convert-IM，这两个功能已经由我们在上面通过 Homebrew 来安装了。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p><strong>配置部分为此文最为麻烦的部分，请有耐心的进行阅读和操作。</strong></p>
+<h2 id="为-ST3-安装-LaTeX-插件"><a href="#为-ST3-安装-LaTeX-插件" class="headerlink" title="为 ST3 安装 LaTeX 插件"></a>为 ST3 安装 LaTeX 插件</h2><p>如果之前你没有为 ST3 安装 Package Control（包管理器），请遵从下面的步骤安装，如果你安装过了，请跳过。</p>
+<ol>
+<li>通过 ST3 的菜单栏「View」-「Show Console」打开 ST3 的终端。</li>
+<li>打开 <a href="https://packagecontrol.io/installation%22">Package Control 官网</a>，复制安装代码至 ST3 的终端。</li>
+<li>回车运行，等待数秒后，即安装完毕。</li>
+</ol>
+<p>现在你可以通过按住 <strong>Command+Shift+P</strong> 组合键来开启 Package Control。在 Package Control 中键入「install」后即可定位到安装包的功能。</p>
+
+<p>此时，如果你输入软件包名，Package Control会自动去库中搜索。在搜索到包之后，按下回车键表示安装。<br>现在，通过 Package Control安装「ConvertToUTF8」，「LaTeXTools」两个包。前者可解决中日韩文字编码问题，后者可用于自动化编译 LaTeX。</p>
+<h2 id="部署用于日语环境中的-LaTeXTools"><a href="#部署用于日语环境中的-LaTeXTools" class="headerlink" title="部署用于日语环境中的 LaTeXTools"></a>部署用于日语环境中的 LaTeXTools</h2><p>通过总屏幕左上角的 <strong>Sublime Text</strong> ，可以开启 ST3 的菜单选项。<br>选择 Preferences ▸ Package Settings ▸ LaTeXTools ▸ Setting ▸ User 来打开 LaTeXTools 的用户配置文件。</p>
+
+<p>第一次打开，会有提示是否要复制默认配置，随意选择即可。<br>接下来，将配置内容全部清空，并复制如下代码。</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;builder_settings&quot;</span> : &#123;</span><br><span class="line">        <span class="attr">&quot;command&quot;</span> : [</span><br><span class="line">            <span class="string">&quot;latexmk&quot;</span>, <span class="string">&quot;-cd&quot;</span>,</span><br><span class="line">            <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$latex = &#x27;platex -synctex=1 -src-specials -interaction=nonstopmode&#x27;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$biber = &#x27;biber %O --bblencoding=utf8 -u -U --output_safechars %B&#x27;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$bibtex = &#x27;pbibtex %O %B&#x27;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$makeindex = &#x27;makeindex %O -o %D %S&#x27;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$dvipdf = &#x27;dvipdfmx %O -o %D %S&#x27;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$pdf_mode = &#x27;3&#x27;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$pdf_update_method = &#x27;0&#x27;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$pdf_previewer = &#x27;open -a preview.app&#x27;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;-f&quot;</span>, <span class="string">&quot;-norc&quot;</span>, <span class="string">&quot;-gg&quot;</span>, <span class="string">&quot;-pdfdvi&quot;</span></span><br><span class="line">        ],</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按下 Command + S 即可保存（或是点击菜单 File ▸ Save 来保存）。</p>
+<h2 id="配置-Skim"><a href="#配置-Skim" class="headerlink" title="配置 Skim"></a>配置 Skim</h2><p>在配置之前，我们需要将 ST3 绑定至命令「subl」上。打开终端，运行下面的命令，即可完成绑定。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ln -s <span class="string">&quot;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&quot;</span> /usr/<span class="built_in">local</span>/bin/subl</span><br></pre></td></tr></table></figure>
+
+<p>打开 Skim，在左上角苹果系统图标旁可以找到 Skim，点开，找到首选项（Preferences）进入。</p>
+
+
+<p>将 Sync 选项卡中将 Skim 设定为自动重载，且同步于 Sublime Text。</p>
+
+<p>大功告成，现在你可以用 Sublime Text 3 打开 tex 文件来编辑 LaTeX 了。<br>由于我们已经导入了最新版本的转换功能，可直接在 Tex 文书中插入大部分常见格式的图片而无需转换eps格式。<br>在 Tex 文书写完之后，按住 <strong>Command+Shift+B</strong> 组合键即可编译。</p>
+<hr>
+<h1 id="一些小技巧"><a href="#一些小技巧" class="headerlink" title="一些小技巧"></a>一些小技巧</h1><h2 id="图片快速转换"><a href="#图片快速转换" class="headerlink" title="图片快速转换"></a>图片快速转换</h2><p>相信在日常写报告或是论文的时候，经常需要借助图片来展示实验的数据，操作及结果，以提升阅读的体验。然而，五花八门的图片格式往往阻挠了我们快速添加进入LaTeX。<br>诚然，有许多常用的库可以帮助我们在编译时自动转换，但是为了LaTeX图片的一致性（比如我有几门课的老师一定要eps格式），我们可以使用之前通过 Homebrew 所安装的 ImageMagick 来快速转换他们。<br>在终端中输入命令，格式如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">convert &lt;原始文件&gt; &lt;转换后的文件&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>例：</strong><br>假设有张图「my.png」通过下面的语句就可以转换为eps格式。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">convert my.png my.eps</span><br></pre></td></tr></table></figure>
+
+<p>还有更多常见的日语 LaTeX 相关知识会在将来更新。</p>
+<h1 id="偶发问题的解决策"><a href="#偶发问题的解决策" class="headerlink" title="偶发问题的解决策"></a>偶发问题的解决策</h1><p>随着 macOS 系统及 MacTex 的持续更新，字体问题已经能够自动解决，在这里就不做赘述了。如果你遇到了相关问题，可以执行以下脚本于终端（英：Terminal，日：ターミナル）。</p>
+<script src="//gist.github.com/fang2hou/02375e8d2ae62473d66ec00052da7159.js"></script>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li><a href="http://www.moxbit.com/2014/03/mac-tex-st2-latex-2014.html">【2014年版】『MacTex 2013』と『Sublime Text 2』でpLaTeX環境をつくる</a></li>
+<li>MacTex中自带的日语帮助手册</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件心得</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>platex</tag>
+        <tag>日语论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LaTeX + Sublime Text 日文环境配置 Windows 篇</title>
+    <url>/japanese-latex-with-sublime-text-on-windows/</url>
+    <content><![CDATA[
+
+<p>本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『<a href="/japanese-latex-with-sublime-text-on-macos/" title="LaTeX + Sublime Text 日文环境配置 macOS 篇">LaTeX + Sublime Text 日文环境配置 macOS 篇</a>』。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考虑到 Windows 用户的基数庞大，就借此文向大家介绍一下在 Windows 系统下快速配置 LaTeX 的心得。<br>本文旨在帮助无电脑基础的读者在 Windows 上快速建立起日文 LaTeX 书写环境，并和 Sublime Text 3 及 Sumatra PDF 阅读器进行配合，进一步提升书写的舒适度。</p>
+<a id="more"></a>
+
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><div class="note info"><p><strong>ST3</strong>：Sublime Text 3 （一款非常好用的文本编辑器，免费）。</p>
+</div>
+
+<p>注：后文图片较多，可点击查看大图。<br>在安装及配置之前，我们需要先准备好一些文件。其中部分文件较大，建议先行下载。<br>下载部分软件时，可自由选择32位或是64位，无影响。本文采用的均为64位版本。</p>
+<ol>
+<li>前往 <a href="https://www.sublimetext.com/3">Sublime Text 官方网站</a>，下载最新版本的 Sublime Text 3。<br>Sublime Text 3 有安装版本也有绿色版本（Portable）。可以根据自己的需要来选择。</li>
+<li>前往 <a href="https://www.sumatrapdfreader.org/download-free-pdf-viewer.html">Sumatra 官方网站</a>，下载最新版本的 Sumatra PDF 阅读器。</li>
+</ol>
+<h1 id="安装-TeX-Live"><a href="#安装-TeX-Live" class="headerlink" title="安装 TeX Live"></a>安装 TeX Live</h1><p>下面介绍两种方式来安装 TeX Live。<br>网络安装器适用于网络较为稳定的用户，而虚拟光碟安装适用于想用迅雷等工具快速下载整个包的用户。</p>
+<div class="note danger"><p>两个方法二选其一</p>
+</div>
+<h2 id="方法一：网络安装器"><a href="#方法一：网络安装器" class="headerlink" title="方法一：网络安装器"></a>方法一：网络安装器</h2><h3 id="准备-1"><a href="#准备-1" class="headerlink" title="准备"></a>准备</h3><p>下载 <a href="http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe">Windows 发行版用 TeX Live 网络安装器</a></p>
+<div class="note warning"><p>请一定要用管理员权限运行</p>
+</div>
+<p>在 Windows 10 中，下载网络安装器之后，可能会被系统提醒。如果弹出了窗口，请选择「仍要运行」。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>如果你对 LaTeX 较为了解，可以选择自定义，否则，还是选择简单安装。</p>
+
+<p>点击「安装（Install）」来进行下一步详细的安装设置。</p>
+
+<p>勾选「更换默认源（Change default repository）」。</p>
+
+<p>选择 <a href="https://www.jaist.ac.jp/index.html">北陸先端科学技術大学院大学</a> 提供的下载源。</p>
+
+<p>接着，可以选择安装的位置，请记下这个地址，等下要使用。</p>
+
+<p>「TexWorks」这个软件可以按照自己需求去安装，见仁见智。</p>
+
+<p>等待网络安装器自动安装。时间较长，建议放在一边，先去喝杯咖啡。</p>
+
+
+<h2 id="方法二：镜像文件安装"><a href="#方法二：镜像文件安装" class="headerlink" title="方法二：镜像文件安装"></a>方法二：镜像文件安装</h2><h3 id="准备-2"><a href="#准备-2" class="headerlink" title="准备"></a>准备</h3><p>下载 <a href="http://mirror.ctan.org/systems/texlive/Images/">ISO镜像</a><br>一般来说，文件名会有几种形式，如「texlive.iso」，「texlive2017.iso」，「texlive2017-20170524.iso」。<br>但这些都不影响，因为后续都是通过更新来保持程序的最新版。<br>随意下载一个，大小为 3 ~ 4 GB 即可。<br>你可以下载到安装镜像。在 Windows 8 以上的版本之中，系统已经集成了虚拟光驱的挂载功能，只需要右键 ISO 文件，选择挂载（Mount）即可。</p>
+<div class="note warning"><p>请一定要用管理员权限运行安装盘中的「install-tl-windows.bat」</p>
+</div>
+
+<p>等待一小会，安装程序会自动弹出。</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3>
+<p>接着，可以选择安装的位置，请记下这个地址，等下要使用。</p>
+
+<p>「TexWorks」这个软件可以按照自己需求去安装，见仁见智。</p>
+
+<p>等待网络安装器自动安装。时间较长，建议放在一边，先去喝杯咖啡。</p>
+
+
+<h1 id="安装其他部分"><a href="#安装其他部分" class="headerlink" title="安装其他部分"></a>安装其他部分</h1><div class="note info"><p>安装的同时，请把路径记下来，下一步中要使用。</p>
+</div>
+<p>Sumatra PDF 作为一个绿色软件，通过解压就可以使用。考虑到常用于 LaTeX 编译生成的结果查看，建议放置其到 TeX Live 的文件夹之中。</p>
+
+
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>接下来，对于不熟悉 ST3 的朋友来说，可能较为繁琐，请紧跟步骤，耐心操作。</p>
+<h2 id="安装-LaTeX-插件"><a href="#安装-LaTeX-插件" class="headerlink" title="安装 LaTeX 插件"></a>安装 LaTeX 插件</h2><p>如果之前你没有为 ST3 安装 Package Control（包管理器），请遵从下面的步骤安装，如果你安装过了，请跳过。</p>
+<ol>
+<li>通过 ST3 的菜单栏「View」-「Show Console」打开 ST3 的终端。</li>
+<li>打开<a href="https://packagecontrol.io/installation">Package Control 官网</a>，复制安装代码至 ST3 的终端。</li>
+<li>回车运行，等待数秒后，即安装完毕。<br>现在你可以通过按住 <strong>Ctrl+Shift+P</strong> 组合键来开启 Package Control。在 Package Control 中键入「install」后即可定位到安装包的功能。如果你输入软件包名，Package Control 会自动去库中搜索。在搜索到包之后，按下回车键表示安装。</li>
+<li>通过 Package Control 安装「ConvertToUTF8」，「LaTeXTools」两个包。前者可解决编码问题，后者可用于自动化编译 LaTeX。</li>
+</ol>
+<h2 id="部署-LaTeXTools"><a href="#部署-LaTeXTools" class="headerlink" title="部署 LaTeXTools"></a>部署 LaTeXTools</h2><ol>
+<li>参考下图，打开菜单栏中的 「Preference」-「Package Settings」-「LaTeXTools」-「Setting - User」
+第一次点击的话，会询问是否要拷贝默认配置，在这里你可以随意选择。</li>
+<li>将配置内容全部清空，并复制如下代码。<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;windows&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;texpath&quot;</span> : <span class="string">&quot;D:\\Texlive\\bin\\win32;$PATH&quot;</span>,</span><br><span class="line">    <span class="string">&quot;distro&quot;</span> : <span class="string">&quot;texlive&quot;</span>,</span><br><span class="line">    <span class="string">&quot;sumatra&quot;</span>: <span class="string">&quot;D:\\Texlive\\SumatraPDF.exe&quot;</span>,</span><br><span class="line">    <span class="string">&quot;sublime_executable&quot;</span>: <span class="string">&quot;C:\\Program Files\\Sublime Text 3\\sublime_text.exe&quot;</span>,</span><br><span class="line">    <span class="string">&quot;keep_focus_delay&quot;</span>: <span class="number">0.5</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;builder_settings&quot;</span> : &#123;</span><br><span class="line">    <span class="string">&quot;command&quot;</span> : [</span><br><span class="line">      <span class="string">&quot;latexmk&quot;</span>, <span class="string">&quot;-cd&quot;</span>,</span><br><span class="line">      <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$latex = &#x27;platex %O -no-guess-input-enc -kanji=utf8 -interaction=nonstopmode -synctex=1 %S&#x27;&quot;</span>,</span><br><span class="line">      <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$biber = &#x27;biber %O --bblencoding=utf8 -u -U --output_safechars %B&#x27;&quot;</span>,</span><br><span class="line">      <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$bibtex = &#x27;pbibtex %O %B -kanji=utf8&#x27;&quot;</span>,</span><br><span class="line">      <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$makeindex = &#x27;upmendex %O -o %D %S&#x27;&quot;</span>,</span><br><span class="line">      <span class="string">&quot;-e&quot;</span>, <span class="string">&quot;$dvipdf = &#x27;dvipdfmx %O -o %D %S&#x27;&quot;</span>,</span><br><span class="line">      <span class="string">&quot;-f&quot;</span>, <span class="string">&quot;-%E&quot;</span>, <span class="string">&quot;-norc&quot;</span>, <span class="string">&quot;-gg&quot;</span>, <span class="string">&quot;-pdfdvi&quot;</span></span><br><span class="line">    ],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>修改软件位置，注意需要用两个反斜杠（\）来表示层级关系。</li>
+<li>将 texpath 中的字段改为 TeX Live 安装位置。记得要添上「\bin\win32;$PATH」。</li>
+<li>将 sumatra 中的字段改为 Sumatra PDF 的位置。</li>
+<li>将 sublime_executable 中的字段改为 ST3 的位置。</li>
+</ol>
+<p>大功告成，现在你可以用 Sublime Text 3 打开 tex 文件来编辑 LaTeX 了。<br>由于我们已经导入了最新版本的转换功能，可直接在 Tex 文书中插入大部分常见格式的图片而无需转换eps格式。<br>在 Tex 文书写完之后，按住 <strong>Ctrl+B</strong> 组合键即可编译。</p>
+]]></content>
+      <categories>
+        <category>软件心得</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>platex</tag>
+        <tag>日语论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux 及 Mac 上的文件链接</title>
+    <url>/link-on-linux-and-macos/</url>
+    <content><![CDATA[<h1 id="何谓文件链接"><a href="#何谓文件链接" class="headerlink" title="何谓文件链接"></a>何谓文件链接</h1><p>某一个文件或某一个文件夹在另外一个位置存在的一个同步链接。<br>那么文件链接有何优势呢？简单来说，文件链接可以帮助我们更容易的管理一些散落在系统各个层级的文件。<br>在游戏插件，或是库开发的时候极其方便，编译文件夹直接链接到实际调用的地方，程序/游戏就能自动读取开发中的资源了。</p>
+<a id="more"></a>
+<h1 id="文件链接分类"><a href="#文件链接分类" class="headerlink" title="文件链接分类"></a>文件链接分类</h1><h2 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h2><ol>
+<li>软链接，以路径的形式存在。类似于 Windows 操作系统中的 Junction。</li>
+<li>软链接可以做到<strong>跨文件系统</strong>，硬链接不可以。</li>
+<li>软链接可以对一个不存在的文件名进行链接。</li>
+<li>软链接可以对<strong>目录进行链接</strong>。</li>
+</ol>
+<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><ol>
+<li>硬链接，以文件副本的形式存在。<strong>但不占用实际空间</strong>。</li>
+<li>不允许给目录创建硬链接。</li>
+<li>硬链接只有在同一个文件系统中才能创建。</li>
+</ol>
+<h1 id="创建一个文件链接"><a href="#创建一个文件链接" class="headerlink" title="创建一个文件链接"></a>创建一个文件链接</h1><p>在 Linux 以及 macOS 中，我们可以通过「ln」命令来快速创建一个方便的文件链接。</p>
+<h2 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ln [参数][源文件或目录][目标文件或目录]</span><br></pre></td></tr></table></figure>
+
+<h3 id="必要参数"><a href="#必要参数" class="headerlink" title="必要参数"></a>必要参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>对应操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-b</td>
+<td>删除，覆盖以前建立的链接</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>允许超级用户制作目录的硬链接</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>强制执行</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>交互模式，文件存在则提示用户是否覆盖</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>把符号链接视为一般目录</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>软链接(符号链接)</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示详细的处理过程</td>
+</tr>
+</tbody></table>
+<h3 id="选择参数"><a href="#选择参数" class="headerlink" title="选择参数"></a>选择参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-S</td>
+<td>「-S &lt;字尾备份字符串&gt;」或「-suffix=&lt;字尾备份字符串&gt;」</td>
+</tr>
+<tr>
+<td>-V</td>
+<td>「-V &lt;备份方式&gt;」或「-version-control=&lt;备份方式&gt;」</td>
+</tr>
+<tr>
+<td>-help</td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td>-version</td>
+<td>显示版本信息</td>
+</tr>
+</tbody></table>
+<h2 id="实际操作"><a href="#实际操作" class="headerlink" title="实际操作"></a>实际操作</h2><p>本站是基于 Hexo 的，Hexo 程序存放于<br>「<del>/Documents/workspace/blog」之中，那么为了简化我打开终端后的操作，我就在我的「</del>」下创建一个文件链接来链接到我的文件夹。<br><strong>注意</strong> 源文件/源文件夹需要使用绝对路径！</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ln -sn /Users/zhoufang/blog ~/Documents/workspace/blog</span><br></pre></td></tr></table></figure>
+<p>然后我们进入「blog」文件夹查看。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd blog &amp;&amp; ls</span><br><span class="line">_config.yml  node_modules public       source</span><br><span class="line">db.json      package.json scaffolds    themes</span><br></pre></td></tr></table></figure>
+<p>可以发现，我们已经进入了位于「workspace」之下的「blog」。</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>macOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nobo 开发日记（一）</title>
+    <url>/nobo-development-log-1/</url>
+    <content><![CDATA[<h1 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h1><p>立命馆现在能用的校内 App 只有一个用 ionic 开发的版本，速度慢，界面卡，实在是用不下去了。<br>计划中的 RitsFun 是一个适用于立命馆大学的校内 App，作为个人练手项目，将使用 Swift 4.0 开发。<br>在开发过程中，我会将开发的详细步骤和代码放在日记之中，供各位参考。</p>
+<p>而「nobo」则是该软件的后端部分，将负责数据的获取，转储。</p>
+<a id="more"></a>
+
+<h1 id="分析登陆逻辑"><a href="#分析登陆逻辑" class="headerlink" title="分析登陆逻辑"></a>分析登陆逻辑</h1><p>这一次，我打算从登陆逻辑分析开始，先想方设法获取到个人的一些数据。<br>立命馆大学的网络服务大概是这样：<br>统一认证系统 RAINBOW ID<br>┣━ Asahi manaba<br>┣━ Ritsumeikan Univ. Campus Web (2018)<br>┣━ Ritsumeikan Univ. Syllabus<br>┣━ Microsoft Office 365<br>┣━ Cisco AnyConnect<br>┗━ Windows/CentOS Auth</p>
+<p>由于前三个都是通过一个域名，即 idp.ritsumei.ac.jp 跳转进行验证。<br>且登陆一个服务后，切换到其他服务时，并不需要进行再次认证。<br>故可猜测：登陆后产生了一个跨域的 Cookies。<br>通过 Chrome 自带的开发者工具进行查看，果真如此。</p>
+
+<p>接着，用 Fidder 进行 HTTPS 抓包分析。</p>
+
+<p>所以，只要写一个 Python 爬虫，应该就能在获取一次 Cookie 的情况下获取到全部信息。</p>
+<h1 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h1><script src="//gist.github.com/fang2hou/271142f718e91b4ac41b0f7fcb9f4630.js"></script>]]></content>
+      <categories>
+        <category>开发手札</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>nobo</tag>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nobo 开发日记（二）</title>
+    <url>/nobo-development-log-2/</url>
+    <content><![CDATA[<h1 id="关于将爬虫命名为「nobo」"><a href="#关于将爬虫命名为「nobo」" class="headerlink" title="关于将爬虫命名为「nobo」"></a>关于将爬虫命名为「nobo」</h1><p>立命馆大学最近最爱提到的口号就是「Beyond Borders」，<del>在不给学生放假的边缘试探</del><br>而网络服务方面，学校也不提供 API 接口给大家用，那我就做一个「No Borders」的爬虫。<br>然而名字很长，就缩短一点，就叫「nobo」吧！顺便还有「登る」的意思，挺好。</p>
+<a id="more"></a>
+<h1 id="Manaba-课程列表获取"><a href="#Manaba-课程列表获取" class="headerlink" title="Manaba 课程列表获取"></a>Manaba 课程列表获取</h1><p>前天在回杭州的车上把 Manaba 的课程列表爬虫给写了出来。<br>这几天回国，天天吃吃喝喝的，也没做什么正事。<br>今天修修补补，应该是能够正确获取到信息了。</p>
+<h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><script src="//gist.github.com/fang2hou/5d6d7c8c0821d71c4765dd062d7a06c4.js"></script>
+
+<h1 id="大纲功能的开发"><a href="#大纲功能的开发" class="headerlink" title="大纲功能的开发"></a>大纲功能的开发</h1><p>「立命館大学オンラインシラバス」是立命馆提供的大纲查询服务。<br>经过简单的抓包分析，发现和 manaba+R 的验证还是挺像的，且在认证过程中还少跳转了一次页面。<br>所以把 manaba+R 的登录模块拿过来，改动了下，1分钟就完成了大纲服务的模拟登录。<br>然而，这网页上的信息真的太多了，每个表下面还有 Notes 栏目，分析这个 html 结构并编写正则提取花了我整整 1 天时间。<br>最后出来的结构大概是下面这样的。（有很多元素还是列表和字典）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Save as dictionary</span></span><br><span class="line">self.syllabusList = &#123;</span><br><span class="line">	<span class="string">&quot;basic&quot;</span>: basicInfo,</span><br><span class="line">	<span class="string">&quot;time&quot;</span>: courseTime,</span><br><span class="line">	<span class="string">&quot;teacher&quot;</span>: courseTeacher,</span><br><span class="line">	<span class="string">&quot;credit&quot;</span>: credit,</span><br><span class="line">	<span class="string">&quot;outline&quot;</span>: outline,</span><br><span class="line">	<span class="string">&quot;objectives&quot;</span>: objectives,</span><br><span class="line">	<span class="string">&quot;precourse&quot;</span>: precourse,</span><br><span class="line">	<span class="string">&quot;schedule&quot;</span>: scheduleList,</span><br><span class="line">	<span class="string">&quot;recommendation&quot;</span>: recommendation,</span><br><span class="line">	<span class="string">&quot;grade_evluation&quot;</span>: gradeEvaluation,</span><br><span class="line">	<span class="string">&quot;advice&quot;</span>: advice,</span><br><span class="line">	<span class="string">&quot;text_books&quot;</span>: textBooks,</span><br><span class="line">	<span class="string">&quot;ref_books&quot;</span>: refBooks,</span><br><span class="line">	<span class="string">&quot;ref_pages&quot;</span>: refPage,</span><br><span class="line">	<span class="string">&quot;contact_methods&quot;</span>: contactMethods,</span><br><span class="line">	<span class="string">&quot;other_comments&quot;</span>: otherComments,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考代码-1"><a href="#参考代码-1" class="headerlink" title="参考代码"></a>参考代码</h2><script src="//gist.github.com/fang2hou/0683c97193f7f9c3cb34bfe0c7909234.js"></script>
+
+<p>至此，爬虫的基本框架已经出来了，后续可能就是一些功能上的增补。</p>
+<p>下次日记，将会分享基于 GAE 的免费 API 搭建流程。</p>
+]]></content>
+      <categories>
+        <category>开发手札</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>nobo</tag>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>树莓派搞机日记（一）</title>
+    <url>/raspberry-pi-guide-01/</url>
+    <content><![CDATA[<h1 id="关于搞机日记"><a href="#关于搞机日记" class="headerlink" title="关于搞机日记"></a>关于搞机日记</h1><p>今天开始，我将在这里更新我对于树莓派应用的一些心得。既是我的一个备忘，也希望能成为看到本文的朋友的一个参考手册。</p>
+<p>至于阅读难度，我想应该不会很高的。我本身对物理并不是特别的擅长，对于每个部件也仅仅是知道大概的原理，如果让我详细解释部件内部构成，我是一定说不出来的。搞机日记将主要从涵盖部件的选择，硬件连接，软件控制方面来展开，侧重于应用。</p>
+<h1 id="硬件选择"><a href="#硬件选择" class="headerlink" title="硬件选择"></a>硬件选择</h1><p>虽然搞机日记是针对树莓派撰写的，但还是想在这里给有兴趣的朋友讲一些开发板的选择。树莓派（Raspberry Pi）是一款用于学习的开发板，现在社会上已经有非常多面向少儿的兴趣班就是用树莓派进行教学。我在树莓派 3B 型号刚出的时候在日亚购入过一块，作为微型服务器使用，主要特点还是功耗较低。此外，其他厂商也有树莓派的兼容开发板，如华硕的 <code>Tinker</code>，但基本上就是简单的硬件堆叠，入门的话简单便宜的板子更好。</p>
+<a id="more"></a>
+<p>我在本科三年的下学期修了 Arduino 开发的入门课程，可谓是打开了我 IoT 设备研究开发的大门。如果刚开始研究 IoT 设备入门，或是自己想结合一些部件来搭建自己的硬件平台，很多人就会在树莓派及 Arduino 这两款主流设备间踱步。诚然，两款设备都是非常适合初学者入门的，下面我将列举一些不同点供大家参考选择自己最适合的硬件。</p>
+<h2 id="Arduino-的特点"><a href="#Arduino-的特点" class="headerlink" title="Arduino 的特点"></a>Arduino 的特点</h2><ul>
+<li>价格亲民，非常适合第一次尝试硬件开发的同学试水。</li>
+<li>基于 C++ 加强的 Arduino 语言，官方提供多平台的 IDE。</li>
+<li>运行速度很快，有比较多的安全保证措施防止烧坏。</li>
+<li>官网提供完善的文档及范例，且一直更新基于 Arduino 优秀项目。</li>
+</ul>
+<h2 id="树莓派的特点"><a href="#树莓派的特点" class="headerlink" title="树莓派的特点"></a>树莓派的特点</h2><ul>
+<li>可以安装完整的 Linux 于树莓派上，强大的软件环境支持。</li>
+<li>提供更加简单的 Python GPIO 库，让开发时间大大缩短。</li>
+<li>不需要在别的机器上对程序进行预编译。</li>
+<li>在复杂环境下可运行更大规模的程序。</li>
+<li>自带了 USB 借口，网线接口，蓝牙，WiFi 模块，耳机接口。</li>
+<li>支持 HDMI 直接输出。</li>
+</ul>
+<p>树莓派带来的是更大的空间，更加完善的环境，但是对于无 Linux 基础的朋友来说，选择从 Arduino 上手可能更好。</p>
+<h1 id="树莓派开发环境的配置"><a href="#树莓派开发环境的配置" class="headerlink" title="树莓派开发环境的配置"></a>树莓派开发环境的配置</h1><h2 id="基础配件"><a href="#基础配件" class="headerlink" title="基础配件"></a>基础配件</h2><ol>
+<li>树莓派 × 1</li>
+<li>电源线 × 1</li>
+<li>microSD 卡 × 1</li>
+<li>一个有 WiFi 的环境，或者网线接入。</li>
+</ol>
+<p><strong>选购建议</strong></p>
+<ul>
+<li>开发学习的话，数据卡 16GB 非常够用了。</li>
+<li>如果只是通过插在电脑的 USB 口供电的话，在大功率使用的时候可能会不太行。</li>
+</ul>
+<h2 id="系统安装"><a href="#系统安装" class="headerlink" title="系统安装"></a>系统安装</h2><p>前文也已经提过了，树莓派内安装的是一个完整的 Linux（当然了 Windows 10 IoT 也可以），之后的日记将基于树莓派的官方 Linux 发行版 <code>Raspbian</code> 展开。你可以通过我的 <a href="/install-raspberry-pi-3-raspbian/" title="另外一篇文章">另外一篇文章</a> 来了解如何安装。</p>
+<h2 id="远程开发"><a href="#远程开发" class="headerlink" title="远程开发"></a>远程开发</h2><h3 id="远程执行编辑器"><a href="#远程执行编辑器" class="headerlink" title="远程执行编辑器"></a>远程执行编辑器</h3><p>按照上一步的教学，现在已经可以通过 <code>ssh</code> 连接到树莓派了。你可以直接通过在树莓派上直接运行 <code>vim</code> 或是 <code>emacs</code> 来高效的书写代码。这是最佳方案，但并不是适合每个人的。后文的方法虽然在配置上需要一点时间，但会大大方便我们之后的开发。</p>
+<h3 id="PyCharm-专业版"><a href="#PyCharm-专业版" class="headerlink" title="PyCharm 专业版"></a>PyCharm 专业版</h3><p>古语有云，工欲善其事，必先利其器。学习树莓派也是一样的，PyCharm 就是我们的利器。PyCharm 是 JetBrains 公司开发的一款 IDE，分为社区版本和专业版本，需要注意的是<strong>社区版本无法远程调试</strong>。不过有幸的是，专业版本可以通过在校学生邮箱免费索取使用授权。<br><a href="https://www.jetbrains.com/pycharm/download/">PyCharm 下载地址</a> <a href="https://www.jetbrains.com/student/">JetBrains 学生</a></p>
+<hr>
+<ol>
+<li><p>在确认树莓派已经开启 SSH 功能的情况下，在 PyCharm 创建一个项目。</p>
+</li>
+<li><p>待 PyCharm 项目创建好之后，点击菜单栏中的 <code>Tools</code> - <code>Delopyment</code> - <code>Configuration...</code>。</p>
+
+</li>
+<li><p>添加一个 <code>SFTP</code> 类型的设置，填写好树莓派地址，端口，账户，密码信息后，测试连接一下。</p>
+
+</li>
+<li><p>打开 Pycharm 的 Preferences，可从屏幕左上角 PyCharm 下拉菜单开启。Windows 和 Linux 下叫做 Setting，在菜单栏的 <code>File</code> 中。<br>进入项目专用的 <code>Python Interpreter</code> 设置，通过窗口右上角的小齿轮 <code>Add...</code> 添加一个新的远程解释器。</p>
+
+</li>
+<li><p>选择 <code>SSH Interpreter</code>，由于刚才已经做好了部署设定，现在可以直接选择。<br>注意，此处可能有询问是复制一份还是用 IDE 的设定，其实差别不大，我习惯直接用 IDE 设定。</p>
+
+</li>
+<li><p>如果打算用 Python 3 作为解释器，这里要稍微改动一下路径，如果打算用 Python 2，则直接下一步。</p>
+
+</li>
+<li><p>确认一下已安装的 Python 软件包。<br><code>RPi.GPIO</code> 库是树莓派控制电子端口的库，如果没有的话，可以通过列表下方的 + 号安装之。<br>你也可以导入其他的常用库。</p>
+
+</li>
+<li><p>最后，通过执行代码确认是否现在真的由树莓派的 Python 在编译。<br>在项目中新建一个 Python 文件，并导入以下代码。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">print(sys.version)</span><br><span class="line">print(sys.platform)</span><br></pre></td></tr></table></figure>
+<p>从菜单栏中 <code>Run</code>，或是用左下的绿色小箭头运行看一下结果，如果如下，说明环境配置好了。</p>
+
+
+</li>
+</ol>
+<p><strong>至此，PyCharm 将可直接调用树莓派上的 Python 来进行编译运行，大大方便了我们的学习。</strong></p>
+]]></content>
+      <categories>
+        <category>树莓派</category>
+      </categories>
+      <tags>
+        <tag>Raspberry Pi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>树莓派搞机日记（二）</title>
+    <url>/raspberry-pi-guide-02/</url>
+    <content><![CDATA[<h1 id="初识树莓派"><a href="#初识树莓派" class="headerlink" title="初识树莓派"></a>初识树莓派</h1><p>树莓派的元件都在表面，没有什么好特殊介绍的，自己上手翻着看一会应该就能对它熟悉了。这里想花点笔墨说下树莓派的针脚。<br>树莓派的针脚排布是有点混乱的，要辨识针脚，首先，请你按照下图的方向可以举起你手中的树莓派。</p>
+
+<a id="more"></a>
+<p>然后我们打开 <a href="https://pinout.xyz/">Raspberry Pi Pinout</a>，在这个页面上，你可以清晰的看到各个针脚代表的编码。<br>而树莓派有 3 种不同的模式来约束针脚的使用：</p>
+<ol>
+<li><strong>RPi.GPIO.BOARD</strong> 完全按照 <code>1, 2, 3, ...</code> 这样顺序排列的。</li>
+<li><strong>RPi.GPIO.BCM</strong> 针脚图上写着 <code>BCM 1</code>，<code>BCM 2</code> 这样的。</li>
+<li><strong>WiringPi</strong>（类 Arduino）<a href="https://pinout.xyz/pinout/wiringpi">专用针脚图</a></li>
+</ol>
+<p>使用上全凭使用者的喜好，个人喜欢 BCM 一点。</p>
+<p><code>RPi.GPIO</code> 库可以通过下面的命令来安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo pip3 install RPi.GPIO</span><br></pre></td></tr></table></figure>
+
+<p><code>WiringPi</code> 库可以通过下面的命令来安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo pip3 install WiringPi</span><br></pre></td></tr></table></figure>
+<p><code>WiringPi</code> 的 Python 使用者应该读一下 <a href="https://github.com/WiringPi/WiringPi-Python">项目的 Github 主页</a>。<br>其实不光是针脚的使用方式了，就连函数调用都和 Arduino 非常相似。<del>高仿</del></p>
+<p>如果像我一样比较懒，可以去购买一块带有标识板子，插在面包板上也方便连接。</p>
+
+
+<h1 id="推荐库"><a href="#推荐库" class="headerlink" title="推荐库"></a>推荐库</h1><p><strong>GPIO Zero</strong>，一个 GPIO 增强库，包含了非常多的预设功能，如 LED，按钮，电机控制等等。<br>在带有桌面环境的 <code>Raspbian</code> 已经自带，如果是使用命令行版本的用户，可以通过下面命令安装。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo pip3 install gpiozero</span><br></pre></td></tr></table></figure>
+
+<p>安装后在命令行输入 <code>pinout</code>，你就会发现一个命令行版本的针脚图。<br>关于此库更多的功能我将会在之后的搞机日记中展开。</p>
+<h1 id="双色-LED-实验"><a href="#双色-LED-实验" class="headerlink" title="双色 LED 实验"></a>双色 LED 实验</h1><h2 id="元件介绍"><a href="#元件介绍" class="headerlink" title="元件介绍"></a>元件介绍</h2><p>LED 是非常简单的电子元件，适合我们用于第一次进行正式的树莓派学习。</p>
+<p>首先，我先介绍一下我的双色 LED 元件，支持发出红色和绿色光。</p>
+
+
+<p>从图中可以看到，该元件有三个针脚。最接近 <code>-</code> 的针脚代表该针脚接地。右边两个针脚分别对应 R，G，属于 Singal 针脚，缩写为 <code>S</code>。</p>
+<h2 id="连接方式："><a href="#连接方式：" class="headerlink" title="连接方式："></a>连接方式：</h2><p>采用比较简单的连接方式：</p>
+<ol>
+<li>橙色线代表 <code>R</code> 针脚，接入 <code>BCM 17</code></li>
+<li>绿色线代表 <code>G</code> 针脚，接入 <code>BCM 18</code></li>
+<li>白色线代表 <code>GND</code> 针脚， 接入 <code>GND</code></li>
+</ol>
+
+
+<h2 id="范例代码-01"><a href="#范例代码-01" class="headerlink" title="范例代码 01"></a>范例代码 01</h2><p>首先我们得让我们的 LED 亮起来，原理非常简单，只要给相应针脚一个高电压即可。<br>这是第一次代码范例，注释会尽量详细一点。如果对 Python 不熟悉的话，通过下面的代码注释应该有一些启发，只要能理解这次的流程，那么后面就不是很难了。毕竟，Python 封装了非常多的实用库，主要还是流程细节的设计。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 导入 GPIO 库</span></span><br><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义用于 LED 的针脚 BCM 编号</span></span><br><span class="line">LED_R = <span class="number">17</span></span><br><span class="line">LED_G = <span class="number">18</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设定针脚编号为 BCM 模式</span></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设定 LED 针脚可用于输出</span></span><br><span class="line">GPIO.setup(LED_R, GPIO.OUT)</span><br><span class="line">GPIO.setup(LED_G, GPIO.OUT)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关于 __name__ == &quot;__main__&quot;：</span></span><br><span class="line"><span class="comment"># 如果是直接运行本代码，而不是其他 Python 代码调用本文件的话，则会执行</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="comment"># 给两个针脚电压</span></span><br><span class="line">            GPIO.output(LED_R, GPIO.HIGH)</span><br><span class="line">            GPIO.output(LED_G, GPIO.HIGH)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="comment"># 检测到中断信号后，关闭 GPIO 通道以供下次使用</span></span><br><span class="line">        GPIO.cleanup()</span><br><span class="line">        <span class="comment"># 退出返回状态代码 6</span></span><br><span class="line">        exit(<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="范例代码-02"><a href="#范例代码-02" class="headerlink" title="范例代码 02"></a>范例代码 02</h2><p>通过上一节，我们已经可以通过常规的方式进行点灯了，但如果只是这样的话太单调了，接下来我们尝试让双色 LED 进行颜色渐变。<br>这里，我打算用 <code>PWM</code>（脉宽调制，Pulse Width Modulation）方法来控制两个 LED 的明暗。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">LED_R = <span class="number">17</span></span><br><span class="line">LED_G = <span class="number">18</span></span><br><span class="line"></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br><span class="line"></span><br><span class="line">GPIO.setup(LED_R, GPIO.OUT)</span><br><span class="line">GPIO.setup(LED_G, GPIO.OUT)</span><br><span class="line"></span><br><span class="line">pwm_r = GPIO.PWM(LED_R, <span class="number">2000</span>)</span><br><span class="line">pwm_g = GPIO.PWM(LED_G, <span class="number">2000</span>)</span><br><span class="line"></span><br><span class="line">GPIO.output(LED_R, GPIO.LOW)</span><br><span class="line">GPIO.output(LED_G, GPIO.LOW)</span><br><span class="line"></span><br><span class="line">pwm_r.start(<span class="number">0</span>)</span><br><span class="line">pwm_g.start(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">                pwm_r.ChangeDutyCycle(i)</span><br><span class="line">                pwm_g.ChangeDutyCycle(<span class="number">100</span> - i)</span><br><span class="line">                time.sleep(<span class="number">.25</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">                pwm_r.ChangeDutyCycle(<span class="number">100</span> - i)</span><br><span class="line">                pwm_g.ChangeDutyCycle(i)</span><br><span class="line">                time.sleep(<span class="number">.25</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        pwm_r.stop()</span><br><span class="line">        pwm_g.stop()</span><br><span class="line">        GPIO.cleanup()</span><br><span class="line">        exit(<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+
+<p>通过运行代码实例不难看出，双色 LED 在混色上效果其实并不好，但是纯红色或是纯绿色的表现很好，这也是这类双色 LED 多用作状态指示灯的原因之一。关于混色，其实还得靠 RGB 三色 LED 来实现。关于 RGB 三色 LED 的简单实验，我将在下一篇日记之中继续介绍。</p>
+]]></content>
+      <categories>
+        <category>树莓派</category>
+      </categories>
+      <tags>
+        <tag>Raspberry Pi</tag>
+        <tag>LED</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>巧用 CSS 遮罩层暗示点击继续阅读</title>
+    <url>/read-more-mask-with-css/</url>
+    <content><![CDATA[<p><strong>注</strong>: 文章是在之前用 WordPress 作为博客程序的时候写的。</p>
+<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>前几日，当我将博客分享给朋友时，被问道「你的文章怎么都只有一段的啊？」。<br>没错，在设计时尽量缩小了「继续阅读」按钮，就是为了不影响整体版面的美观。但往往，事与愿违，用户真正在阅读网站时可能并不会注意到不起眼的阅读按钮。<br>我这里也就抛砖引玉，提供一个我的思路来提示用户这并不是全文。</p>
+<a id="more"></a>
+
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>总体思路那一定是在文字上做手脚，但是也不能影响到用户的阅读体验。使用轻微渐变的遮罩层是一个不错的选择。<br>随着渐变颜色的加深，字慢慢的变得不再清晰，甚至模糊起来。同时，<del>让用户知道并不是他撸多了</del>，突出旁边清晰的「继续阅读」按钮，吸引其点击之。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>首先必然是在 HTML 文件里建立一个 div 了，一般来说是在文字的下面。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;my-mask&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后我们将这个设定一下 CSS 部分的代码。<br>为了适配主流浏览器，background 需要设定3次。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.my-mask</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">	<span class="attribute">background</span>: <span class="built_in">-moz-linear-gradient</span>(bottom,rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,.<span class="number">1</span>),<span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0</span>));</span><br><span class="line">	<span class="attribute">background</span>: <span class="built_in">-webkit-gradient</span>(linear,<span class="number">0</span> top,<span class="number">0</span> bottom,from(rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0</span>)),<span class="built_in">to</span>(#fff));</span><br><span class="line">	<span class="attribute">background</span>: <span class="built_in">-o-linear-gradient</span>(bottom,rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,.<span class="number">1</span>),<span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0</span>));</span><br><span class="line">	<span class="attribute">width</span>: auto;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">	<span class="attribute">margin-top</span>: -<span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里高度设定了 200 像素，你可以自己调整。当然别忘了，要同时修改 margin-top 把遮罩层给拉上去。<br>效果如下</p>
+]]></content>
+      <categories>
+        <category>网站建设</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>网站优化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我选择使用 Go 语言的几大理由</title>
+    <url>/reasons-why-i-use-golang/</url>
+    <content><![CDATA[<p>自暑假彻底宅在家中，就没在更新博客了。倒不是变懒了，只是生活平淡的和老年人一般，是真没什么值得写出来让大家看的。最近家里灯坏了，一到晚上 6 点就已然漆黑一片。这种黑夜时间变长的感觉，只属于秋冬。时间可过得真快，我还没从暑假缓过神来，这就又遇到了秋天。</p>
+<p>从当初高二拿了一个 10 吋上网本窝在宿舍里学写一些简单的 Python 小代码，到现在维护几个库。今年，已经是我使用 Python 也已经第 6 个年头了。其实也没有这么喜欢 Python，当初使用的契机也仅仅是上手简单，能够快速实现自己的想法罢了。Python 的出现让大家缩短了开发周期，就我逛 V2EX 的感觉来说，写 Python 的同学自由时间好像可以比别人多一倍。</p>
+<a id="more"></a>
+<p>但是，这些年用下来，我感觉 Python 执行效率是真的不太行，而且 Python 的代码量一多就感觉好难管理。我虽然还没有到天天优化代码效率的地步，但是运行一些代码的时候往往需要等待较长时间，等到泡完咖啡再回头看结果，思路往往已被迫中断，记不起之前的一些特别的想法了。</p>
+<p>与 Go 语言的相遇其实没什么偶然，因为最近几个月我常逛的几个技术社区里 Go 的文章都多了起来，同时我也想学习一门新的语言，Go 自然成了我的首选。在试用过 Go 语言一周之后，我突然产生了一种相见恨晚的感觉。</p>
+<p>于我而言，虽说 Java，JavaScript，Swift 等也有涉猎，但 Python 和 C++ 无疑是我最熟悉也是用最多的两门语言。Go 语言的设计风格上是非常融合的，这也让我看到了设计工程师的心血以及强烈的个人风格（“强迫症”）。</p>
+<h1 id="我切换到-Go-理由"><a href="#我切换到-Go-理由" class="headerlink" title="我切换到 Go 理由"></a>我切换到 Go 理由</h1><p>Go 已经成为了我的主力语言。当然了，在数据挖掘和算法学习上依旧使用 Python 为主力语言。下面介绍下我觉得不错的 Go 特性。</p>
+<h2 id="理由-1"><a href="#理由-1" class="headerlink" title="理由 1"></a>理由 1</h2><p>非常容易并发。</p>
+<p>这条我放在第一，主要是我对并发编程其实熟悉程度非常低，但是 Go 语言能够快速的通过<code>go function</code>这样的方式建立 goroutine。我在使用 Go 开发的第一个进化算法项目中就使用了，效率提升非常之卓越。</p>
+<h2 id="理由-2"><a href="#理由-2" class="headerlink" title="理由 2"></a>理由 2</h2><p>对 C 的兼容。</p>
+<p>时至如今，C 的经典和运行速度都还是令人津津乐道的。对 C 的兼容也在很多时候能够让我能更快的找到一个替代方案来完善程序，而不是像别的语言，在没有时间的情况下还得花费大量的时间查询文档。</p>
+<h2 id="理由-3"><a href="#理由-3" class="headerlink" title="理由 3"></a>理由 3</h2><p>代码风格非常统一。</p>
+<p>与其说是设计者的强迫症，其实代码风格我个人也是有强迫症的。自带的 fmt 工具全自动的统一风格，让我在阅读别人代码的时候也非常的舒适。同时自动纠错，未使用库的清除等等，非常的强迫症，但是让 Go 所带来的严谨，非常不错。</p>
+<h2 id="理由-4"><a href="#理由-4" class="headerlink" title="理由 4"></a>理由 4</h2><p>可以方便的交叉编译+单文件运行。</p>
+<p>单文件运行的便利，经常在服务器上写一些服务的人应该深有同感。以往写程序都是本地写完，服务器端环境得配置一遍，然后上传，再运行。可现在用 Go，本地写完，上传运行，就没事了。</p>
+<p>交叉编译不用说，方便的爆炸。在给别人分享一些小程序的时候都很方便。</p>
+<h2 id="理由-5"><a href="#理由-5" class="headerlink" title="理由 5"></a>理由 5</h2><p>执行效率足够快。</p>
+<p>虽然还是比 C，Rust 慢。但是比起 Python 的话，比喻成开车和步行也不为过。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Go 在云计算领域现在已经运用相当广泛了，本身也脱离了 C 编译，自举了。Go 的设计目标是新时代的 C，而这点，我真的在使用中感受到了。几乎所有的 C 的使用痛点，在 Go 中都得到了大幅的改善。随之而来的也有些新的问题，网上有非常多的讨论，但是一方面，我对编程语言目前没有那么高的要求，另一方面我对 Go 有信心，随着语言版本的革新，问题点一定会逐步改善。</p>
+<p>如果你觉得想改变下自己的语言，又有 C 的基础在，我真的真的很推荐你去尝试一下 Go。</p>
+<p>附上我学习 Go 语言看的第一本书：</p>
+<ul>
+<li><a href="https://go.fdos.me/">Go 入门指南</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>开发手札</category>
+      </categories>
+      <tags>
+        <tag>golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>快速删除 Xcode 中的 Components</title>
+    <url>/remove-xcode-components/</url>
+    <content><![CDATA[<h1 id="更人性化的-Xcode"><a href="#更人性化的-Xcode" class="headerlink" title="更人性化的 Xcode"></a>更人性化的 Xcode</h1><p>在 Xcode 中，有时候会特意下载一些 Component 比如 iOS 9.2 的 SDK 来测试是否能在不同系统版本上面运行。<br>但是，随着系统版本的不断更新，一些旧版本已经无需测试，但是 Apple 并没有提供一个删除的按钮。<br>好在 Xcode 在更新到最新版本之后，Components 保存地址十分的固定且打包程度极高。</p>
+<a id="more"></a>
+
+<h1 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作"></a>简单操作</h1><p>用 Finder 打开存放文件夹。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">open /Library/Developer/CoreSimulator/Profiles/Runtimes</span><br></pre></td></tr></table></figure>
+
+<p>就可以看到已经安装的 Component，我们直接删除就行了（需要 root 权限）。</p>
+]]></content>
+      <categories>
+        <category>开发手札</category>
+      </categories>
+      <tags>
+        <tag>Xcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>手动去除有道词典7的广告</title>
+    <url>/remove-youdao-dict-ads/</url>
+    <content><![CDATA[<h1 id="有道的优势"><a href="#有道的优势" class="headerlink" title="有道的优势"></a>有道的优势</h1><p>有道词典发布也已多年，还记得初中的时候，有道几乎是班上同学必装的学习软件之一。<br>虽然这篇文章是要对有道下手了，但还是先看看有道的优点吧。</p>
+<ol>
+<li>收录了朗文，柯林斯及21世纪大英汉3部权威词典。</li>
+<li>在线查词速度非常之快，国内国外都挺快。</li>
+<li>支持了比较多的语言，非常适合多外语学习者。</li>
+<li>客户端非常小巧，且界面都可以自己编辑成喜欢的样式。<a id="more"></a>
+
+</li>
+</ol>
+<p>作为免费软件，有道还是在软件内嵌入了广告。<br>作为商业公司，这自然是无可厚非。只是从使用的角度出发，实在是用得难受。<br>像有道这样的常用软件，说实话比起广告，我宁愿付费使用。</p>
+<h1 id="去除广告的步骤"><a href="#去除广告的步骤" class="headerlink" title="去除广告的步骤"></a>去除广告的步骤</h1><p><strong>建议手动操作，如果实在是有难度可以在本文最下方下载到我修改的文件，但是随着版本更新变动可能不一定能够完美使用。</strong></p>
+<ol>
+<li>找到有道的安装地址<br>这一步其实没什么技术含量，但是默认安装在「AppData」里可能导致很多人找不到。<br>比较简单的方法就是右键「有道词典」的快捷方式，查看属性。<br>在属性中，是有一个直接打开安装目录的按钮的。</li>
+<li>进入对于版本号的文件目录<br>每个版本的版本号不一样所以目录也是不一样的，本文之方法仅适用于7以上的有道词典版本。</li>
+<li>编辑 resultui 内的2个文件<br>先编辑「index.js」文件，这个文件控制了主界面的广告。<br>打开后，按下<code>Ctrl+F</code>搜索「广告」二字，找到代码段，再观察前后文，会发现这是一个包含在单引号（’）内的语句，将单引号内的代码全部删除即可。</li>
+</ol>
+<p><strong>单引号建议别删除。</strong><br>同理，我们进入「dict」文件夹，修改「result.js」，方法同上。</p>
+<h1 id="成品文件下载"><a href="#成品文件下载" class="headerlink" title="成品文件下载"></a>成品文件下载</h1><blockquote><p><strong>请一定要注意，2个文件是不在一个文件夹下的。</strong></p>
+</blockquote>
+<p>已经打包以上步骤产生的「index.js」以及「result.js」文件，手动替换即可。<br>撰文时的版本号为<code>7.0.1.0214</code><br><a href="https://github.com/houshuu/Scripts/blob/master/YoudaoNoAd.zip?raw=true">下载地址</a></p>
+]]></content>
+      <categories>
+        <category>软件心得</category>
+      </categories>
+      <tags>
+        <tag>去广告</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>简评『浮生六记』</title>
+    <url>/review-of-fushenliuji/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>从来我就对文言的小品文比较抵触，感觉自己无法融到古人的生活中，很难理解他们的情趣。最近看到很多『浮生六记』相关的书评和推荐，其中不乏夸其细致文笔的，就打算有空的时候再试着看看。正巧表姐和朋友前几日来了关西，约定今日到大阪陪她们游玩。这一来一回乘坐列车有几个小时的空暇，我便在 Kindle 放了『浮生六记』作消遣之用。</p>
+<a id="more"></a>
+
+<h1 id="浮生六记"><a href="#浮生六记" class="headerlink" title="浮生六记"></a>浮生六记</h1><p>沈复的文笔在古代文人中当真算不上华丽，但是全书行文流畅，没有废话，但描写琐事之时关键信息详实，让人很容易联想出具体的场景。读书就像在看古装剧一般，可谓是引人入胜。</p>
+<p>开篇第一句话，沈复就交代了自己身世家境——衣食无忧，也算是为之后的风流才子生活打下了基础。只是父亲也算是个热心肠，经常用钱财助朋友渡过难关，导致家庭环境慢慢变差。等沈复真因为种种离了家族，由于对幕内事物不上心，也就只能卖画为生。而画的质量呢，文中有提到他三日才赚得一日所用，从这一点上来看，晚年生活算是有点凄惨了。</p>
+<p>陈芸是沈复的妻子，在全文中占了相当大的比重。从结婚到妻子死亡，再到丧子之时的绝望，字里行间看得到沈复心中的不甘，相当催泪。虽然沈复写了很多夫妻浪漫小故事，但他总是喜欢将某一些事情称为不能与妻子白头偕老的预兆，甚至到最后写道「话云『恩爱夫妻不到头』，如余者，可作前车之鉴也。」，着实令人心疼不已。</p>
+<p>总而言之，『浮生六记』是一本非常有趣的古书，沈复作为一位无所作为的古代风流才子，将文人生活的很多方面生动地描写了出来。但正是由于基于男性化视角，现代的女性读者能否体会到其中乐趣，我倒是无法确定。</p>
+<h1 id="后语"><a href="#后语" class="headerlink" title="后语"></a>后语</h1><p>此前就有在博客中发过书单，我本意是将阅读到的有意思的书推荐给阅读我博客的有缘人，但书单中唯有书名，现在想来也未免太过单薄了。</p>
+<p>之后，遇到有意思的书，我都会写写书籍的简评，一方面可任由各位判断是否有需要阅读的必要，一方面又可以保留自己初读此书之时的感受。</p>
+]]></content>
+      <categories>
+        <category>阅读时光</category>
+      </categories>
+      <tags>
+        <tag>简评</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用锐速提速 Shadowsocks</title>
+    <url>/serverspeeder-on-shadowsocks/</url>
+    <content><![CDATA[<h1 id="何谓锐速"><a href="#何谓锐速" class="headerlink" title="何谓锐速"></a>何谓锐速</h1><p>本文适用于 CentOS。<br>锐速（ServerSpeeder）加速软件是一种基于 ZETATCP 加速引擎的软件，可以起到显著加速效果的 TCP 加速技术。<br><strong>锐速已经停止服务，但是之前的和谐版依旧可以使用。</strong><br><a href="https://github.com/91yun/serverspeeder">锐速和谐版 github 托管地址</a></p>
+<a id="more"></a>
+
+<h1 id="准备安装"><a href="#准备安装" class="headerlink" title="准备安装"></a>准备安装</h1><p>首先要说明的是，锐速不支持 OpenVZ。</p>
+<h2 id="检测你的-VPS-类型"><a href="#检测你的-VPS-类型" class="headerlink" title="检测你的 VPS 类型"></a>检测你的 VPS 类型</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/houshuu/Scripts/master/vm_check.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="确认内核版本"><a href="#确认内核版本" class="headerlink" title="确认内核版本"></a>确认内核版本</h2><p><strong>锐速只能加速匹配过的内核</strong></p>
+<p>使用命令 <code>rpm -qa | grep kernel</code> 查看列表中是否存在支持的内核。<br>如果你采用了高版本内核，那么锐速安装将不会继续。破解版本的作者提供了非常详尽的内核支持列表</p>
+<blockquote><p>CentOS-6.8：2.6.32-642.el7.x86_64<br>CentOS-7.2：3.10.0-327.el7.x86_64<br>CentOS：4.4.0-x86_64-linode63<br>Ubuntu14.04：4.2.0-35-generic<br>Debian 8：3.16.0-4-amd64</p>
+</blockquote>
+
+<h3 id="降级"><a href="#降级" class="headerlink" title="降级"></a>降级</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rpm -ivh 以.rpm结尾的内核文件地址 --force</span><br></pre></td></tr></table></figure>
+<p>使用命令 <code>reboot</code> 重启机器，再用 <code>uname -r</code> 确认一下。</p>
+<h1 id="安装锐速"><a href="#安装锐速" class="headerlink" title="安装锐速"></a>安装锐速</h1><p>这是锐速破解版作者提供的一个自动安装脚本：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/serverspeeder/master/serverspeeder-all.sh &amp;&amp; bash serverspeeder-all.sh</span><br></pre></td></tr></table></figure>
+<p>运行后即可安装完毕。</p>
+<h1 id="卸载锐速"><a href="#卸载锐速" class="headerlink" title="卸载锐速"></a>卸载锐速</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chattr -i /serverspeeder/etc/apx* &amp;&amp; /serverspeeder/bin/serverSpeeder.sh uninstall -f</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>通信网络</category>
+      </categories>
+      <tags>
+        <tag>Shadowsocks</tag>
+        <tag>锐速</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自定义 SSH 的服务端口</title>
+    <url>/set-ssh-port/</url>
+    <content><![CDATA[<h2 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h2><p>每次在维护服务器的时候，总会在登录时收到许多其他 IP 尝试登陆 SSH 的失败信息。为了提高服务器的安全性，修改 SSH 默认的 <code>22</code> 端口可能会帮助屏蔽一些恶意扫描。</p>
+<a id="more"></a>
+<h2 id="修改方法"><a href="#修改方法" class="headerlink" title="修改方法"></a>修改方法</h2><p>在撰写本文时，我较为常使用 CentOS 7。实际上，所有的 Linux 系统在这个设定上都大同小异，下面讲的方式是通用的。<br>SSH 端口的配置是存放在下面的路径 <code>/etc/ssh/sshd_config</code> 之中。<br>使用vim打开它</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<p>在文档中应该已经有这么一行：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">Port 22</span></span><br></pre></td></tr></table></figure>
+<p>就在该行下方另起一行，假设我们想修改到 10000 端口上，就可以输入</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Port 10000</span><br></pre></td></tr></table></figure>
+<p>在添加/修改操作完毕后，保存设定。<br>接着重启服务，即可使修改生效。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+<p>此时，你的SSH连接端口就转移到了 10000 端口。<br>今后在 Terminal 中使用 SSH 时，不要忘了加入端口信息</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -p 10000 Username@XXX.XXX.XXX.XXX</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>通信网络</category>
+      </categories>
+      <tags>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 iOS 上使用 Shadowsocks</title>
+    <url>/shadowsocks-on-ios/</url>
+    <content><![CDATA[<p>本文更新于 2018 年 2 月 2 日。</p>
+<h1 id="写在教程之前"><a href="#写在教程之前" class="headerlink" title="写在教程之前"></a>写在教程之前</h1><p>本教程是通用的 Shadowsocks 在 iOS 上的使用教程。<br>若您在使用 FzVPN，请在阅读本文前先阅读 FzVPN 的<a href="//vpn.fang2hou.com/help">使用帮助</a>。<br>您可以随时通过访问 <a href="http://ip111.cn/">IP111</a> 来检测您是否成功出国成功。</p>
+<a id="more"></a>
+
+<h1 id="下载应用"><a href="#下载应用" class="headerlink" title="下载应用"></a>下载应用</h1><h2 id="苹果商店地区为中国"><a href="#苹果商店地区为中国" class="headerlink" title="苹果商店地区为中国"></a>苹果商店地区为中国</h2><p>请通过 App Store 下载「FirstWingy」。<br>实测无法全部流量通过节点发送，仅支持智能模式（即国内网站全部直连，需要翻的时候自动连接节点）<br>不是很影响使用，推荐国区用户用这个版本就够了。</p>
+<h2 id="苹果商店地区为海外"><a href="#苹果商店地区为海外" class="headerlink" title="苹果商店地区为海外"></a>苹果商店地区为海外</h2><ol start="0">
+<li>你可以选择上面提到的这个「FirstWingy」，它是免费的。</li>
+<li>「Wingy」- 曾经的免费客户端王者</li>
+</ol>
+<p><strong>需要注意的是，该软件目前是收费的，但是价格不贵，日区价格为 120 日元（≈ 6.5元）。</strong><br>2. 「Shadowrocket」<br><strong>如果你对网络知识有一定了解</strong>，我非常推荐你使用 Shadowrocket 这款软件，其售价约为 20 元。<br>但是功能更加完善，包括去广告，修改 DNS，自定网络环境等等。</p>
+<h1 id="设定应用"><a href="#设定应用" class="headerlink" title="设定应用"></a>设定应用</h1><p>接下来会介绍3种不同的方式来设定。</p>
+<blockquote><p>难易度由低到高</p>
+</blockquote>
+<h2 id="方法-1：QR-码导入"><a href="#方法-1：QR-码导入" class="headerlink" title="方法 1：QR 码导入"></a>方法 1：QR 码导入</h2><p>用电脑打开后台（<a href="https://vpn.fang2hou.com/user/a%3E">FzVPN 后台</a>）<br>打开想要连接的节点详细信息。</p>
+
+<p>打开「FirstWingy」点击图标进行扫描。（其他客户端也有扫描按钮，请自行寻找）</p>
+
+<p>扫描后会自动生成配置并连接。<br>推荐将各个节点都扫描进软件生成配置，如果连接速度不理想可以换用其他节点。</p>
+<h2 id="方法-2：链接导入"><a href="#方法-2：链接导入" class="headerlink" title="方法 2：链接导入"></a>方法 2：链接导入</h2><blockquote><p>在操作前，请保证您已经正确安装「Wingy」或是「Shadowrocket」应用。</p>
+</blockquote>
+<p>用「Safari」登录 <a href="https://vpn.fang2hou.com/user/a%3E">FzVPN 后台</a></p>
+
+<p>点击左上的「三」字形按钮找到节点列表，并进入欲连接节点的详细信息页面。<br>在下方「专属地址」的右侧有一个蓝色按钮，按下即可自动导入。</p>
+
+
+<h2 id="方法-3：手动填配置"><a href="#方法-3：手动填配置" class="headerlink" title="方法 3：手动填配置"></a>方法 3：手动填配置</h3></h2><p>「FirstWingy」直接点击界面右上角的 + 号。<br>「Wingy」选择「Shadowsocks(R)」这个选项。<br>填入节点列表上的信息，注意加密方式的选择。</p>
+<table>
+<thead>
+<tr>
+<th>设置项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>server</td>
+<td>服务器地址</td>
+</tr>
+<tr>
+<td>server_port.hash</td>
+<td>端口</td>
+</tr>
+<tr>
+<td>password</td>
+<td>密码</td>
+</tr>
+<tr>
+<td>method</td>
+<td>加密方式</td>
+</tr>
+</tbody></table>
+<p>下面是一个示例👇</p>
+
+
+<h1 id="进阶操作"><a href="#进阶操作" class="headerlink" title="进阶操作"></a>进阶操作</h1><p>只要导入了配置，连接外网已经不成问题了。<br>如果你购买了「Shadowrocket」这个款软件，可以继续下面的进阶操作。<br>操作就不赘述了，自己花点心思研究下，这软件的网络环境相关功能是真的够用了。</p>
+]]></content>
+      <categories>
+        <category>通信网络</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>Shadowsocks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 macOS 上使用 Shadowsocks</title>
+    <url>/shadowsocks-on-macos/</url>
+    <content><![CDATA[<p>本文更新于 2018 年 2 月 4 日。</p>
+<h1 id="写在教程之前"><a href="#写在教程之前" class="headerlink" title="写在教程之前"></a>写在教程之前</h1><p>本教程是通用的 Shadowsocks 在 macOS 上的使用教程。<br>若您在使用 FzVPN，请在阅读本文前先阅读 FzVPN 的<a href="//vpn.fang2hou.com/help">使用帮助</a>。</p>
+<a id="more"></a>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="下载客户端"><a href="#下载客户端" class="headerlink" title="下载客户端"></a>下载客户端</h2><p>Shadowsocks 在 macOS 上的常用客户端为 「ShadowsocksX-NG」。<br>你可以通过下面两种方式来进行下载：<br>适用于大陆用户：<a href="https://vpn.fang2hou.com/supportfiles/macos.zip">FzVPN 官网下载</a><br>适用于海外用户：<a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases/">项目主页下载</a></p>
+<h1 id="macOS-设定"><a href="#macOS-设定" class="headerlink" title="macOS 设定"></a>macOS 设定</h1><p>如果您的Mac系统低于10.12(macOS Sierra)，那么就可以跳过此部分。<br>查看系统版本可以通过点击 Mac 屏幕左上的<i class="fa fa-apple"></i>苹果图标，然后选择「关于」选项来查看。<br>macOS Sierra 及之后的版本之中，苹果关闭了第三方应用的「任何来源」选项。为了使用 Shadowsocks 客户端，我们需要手动开启之。</p>
+<p><strong>该操作会略微降低系统的安全性，但这是必要操作。</strong></p>
+<p>在「终端」（英文即「Terminal」）应用中，输入以下命令。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
+
+<h1 id="调整系统设置"><a href="#调整系统设置" class="headerlink" title="调整系统设置"></a>调整系统设置</h1><p>进入「系统偏好设置」</p>
+
+<p>选择「安全性和隐私」进行设定</p>
+
+<ol>
+<li>先点击「锁」图标进行解锁</li>
+<li>选择「全部来源」选项
+至此，您已经完成所有的准备工作。</li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>将下载好的 zip 文件解压至合适的位置。（如果你使用「Safari」浏览器的话，应该已经自动解压了。）<br>将「ShadowsocksX-NG.app」放入「应用程序（Applications）」文件夹。</p>
+
+<p>这样，您就已经将 ShadowsocksX-NG 客户端安装好了。</p>
+<h1 id="配置导入"><a href="#配置导入" class="headerlink" title="配置导入"></a>配置导入</h1><p>在「Launchpad」中找到「ShadowsocksX-NG」的图标并启动之。<br>配图为老版本的「ShadowsocksX-Fz」魔改版本，现在统一使用新版「ShadowsocksX-NG」。</p>
+
+<p>软件全功能详解</p>
+
+<p>配置地址都在后台的节点列表-&gt;详细信息中。</p>
+
+
+<h2 id="链接导入法"><a href="#链接导入法" class="headerlink" title="链接导入法"></a>链接导入法</h2><p>打开FzVPN的节点信息，点击链接旁的按钮即可。</p>
+
+
+<h2 id="二维码法"><a href="#二维码法" class="headerlink" title="二维码法"></a>二维码法</h2><p>打开节点信息，并进入到二维码页面。<br>用自带功能进行扫描。</p>
+
+
+<h2 id="手填配置"><a href="#手填配置" class="headerlink" title="手填配置"></a>手填配置</h2><p>在以上方法都失效的时候，手动填写配置也可以连接。<br>从软件打开「服务器」-&gt;「打开服务器偏好设置」。</p>
+
+
+<p>按照后台的信息填写数据即可。</p>
+
+
+<h1 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h1><blockquote><p>必须要选择好服务器</p>
+</blockquote>
+
+
+<p>此时，启动VPN即可连接到服务器。</p>
+]]></content>
+      <categories>
+        <category>通信网络</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+        <tag>Shadowsocks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 Windows 上使用 Shadowsocks</title>
+    <url>/shadowsocks-on-windows/</url>
+    <content><![CDATA[<p>本文更新于 2018 年 2 月 1 日。</p>
+<h1 id="写在教程之前"><a href="#写在教程之前" class="headerlink" title="写在教程之前"></a>写在教程之前</h1><p>本教程是通用的 Shadowsocks 在 Windows 上的使用教程。<br>若您在使用 FzVPN，请在阅读本文前先阅读 FzVPN 的<a href="//vpn.fang2hou.com/help">使用帮助</a>。<br><strong>下文图片可以点击放大的！</strong></p>
+<a id="more"></a>
+
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="下载客户端"><a href="#下载客户端" class="headerlink" title="下载客户端"></a>下载客户端</h2><p>Shadowsocks 在 Windows 上的常用客户端为 「Shadowsocks for Windows」。</p>
+<p>你可以通过下面两种方式来进行下载：<br>适用于大陆用户：<a href="https://vpn.fang2hou.com/supportfiles/win.zip">FzVPN 官网下载</a><br>适用于海外用户：<a href="https://github.com/shadowsocks/shadowsocks-windows/releases">项目主页下载</a></p>
+<p>你下载到的应该是一个 zip 压缩文件，请解压到一个目录中使用。初次使用时，软件会在自己的目录下建立相关配置文件。推荐建立一个文件夹，比如叫「Shadowsocks」，然后将程序放在其中执行。</p>
+<h2 id="设定权限"><a href="#设定权限" class="headerlink" title="设定权限"></a>设定权限</h2><p>右键程序，选择「属性」设定。<strong>将软件设定为默认管理员权限启动。</strong><br>设定完成后，点击「确定」以退出。</p>
+
+
+
+<h2 id="导入配置"><a href="#导入配置" class="headerlink" title="导入配置"></a>导入配置</h2><p>相关配置信息都在后台的节点列表中。<br>通过选择节点，可查看该节点您的连接信息。</p>
+
+
+<h3 id="QR码法"><a href="#QR码法" class="headerlink" title="QR码法"></a>QR码法</h3><p>右键<strong>托盘图标</strong>，在弹出的菜单中选择「服务器」- 「从屏幕扫描QR码」。<br>约 2 秒钟后，配置将自动生成并加入客户端。</p>
+
+
+<h3 id="手填配置"><a href="#手填配置" class="headerlink" title="手填配置"></a>手填配置</h3><p>在 QR 码方法失效的时候，手动填写配置也可以连接。<br>从软件打开「服务器」-&gt;「编辑服务器」。</p>
+
+<p>按照后台的信息填写数据即可。</p>
+
+
+<h2 id="连接VPN"><a href="#连接VPN" class="headerlink" title="连接VPN"></a>连接VPN</h2><p><strong>必须要选择好节点</strong></p>
+
+<p>此时，启动VPN即可连接到服务器。<br>点击托盘菜单的第一项，即可开启VPN。</p>
+
+
+<p>PAC模式：国内不通过服务器，直连。<br>Global模式：全部流量都走服务器，访问国内网站时速度可能变慢。</p>
+<p>到这里，你的代理网络已经建立成功了，但是由于浏览器的设置，你可能需要继续阅读本文。</p>
+<h1 id="浏览器设定"><a href="#浏览器设定" class="headerlink" title="浏览器设定"></a>浏览器设定</h1><h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><p>市面上有非常多的浏览器，我没法一一讲解，但是对于目前国内市场流行的浏览器而言，都是基于谷歌的 Chromium 项目修改而来，故都能安装代理插件。</p>
+<p>如果你无法访问谷歌商店进行正常安装，你可以点击 <a href="https://vpn.fang2hou.com/supportfiles/SwitchyOmega.crx">FzVPN 官网渠道</a> 下载 SwitchyOmega 插件。</p>
+<p>下载完成后，打开「扩展程序」，将文件拖入安装即可。</p>
+
+
+
+<h2 id="代理配置"><a href="#代理配置" class="headerlink" title="代理配置"></a>代理配置</h2><p>点击地址栏附近的插件图标，选择 <strong>Option 选项</strong>。</p>
+
+<p>在插件设置的左侧面板中，选择 <strong>New profile 新配置文件</strong>。</p>
+
+
+<p>随便取个配置名。</p>
+
+
+<p>依照下图填写相关信息。</p>
+
+
+<p>点击左侧面板中的 <strong>Apply changes 保存修改</strong>。</p>
+
+
+<p>点击地址栏右侧的插件按钮切换配置。</p>
+
+
+<p>大功告成，恭喜你，终于又可以自由遨游于互联网。</p>
+]]></content>
+      <categories>
+        <category>通信网络</category>
+      </categories>
+      <tags>
+        <tag>Shadowsocks</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OwnCloud 报 502 错误的处理</title>
+    <url>/solution-for-owncloud-502-error/</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>出于偷懒的目的，我总是采用 LNMP 一键安装包来部署 Nginx，MySQL 及 PHP。<br>但是在 OwnCloud 安装后，进入后台会报 502 错误，网上许多使用者都在这上面栽了一头。OwnCloud 对 Apache 的支持很不错，Nginx 仅仅提供了一个Rewrite文件。经过一段时间的摸索，其实也是有很简单的解决方案的。</p>
+<a id="more"></a>
+
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="检查-pathinfo-组件是否启用"><a href="#检查-pathinfo-组件是否启用" class="headerlink" title="检查 pathinfo 组件是否启用"></a>检查 <code>pathinfo</code> 组件是否启用</h2><p>OwnCloud 是要求 pathinfo 启用的，在 PHP 5.3 以上版本中，pathinfo 已经是默认安装的部分了，我们仅需在Nginx虚拟空间对应的 conf 文件中加入以下语句即可。</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">include</span> pathinfo.conf;</span><br></pre></td></tr></table></figure>
+<p>这样，我们就可以启用 pathinfo。</p>
+<h2 id="监听位置修改"><a href="#监听位置修改" class="headerlink" title="监听位置修改"></a>监听位置修改</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">upstream php-handler &#123;</span><br><span class="line">    server 127.0.0.1:9000;</span><br><span class="line">    #server unix:/var/run/php5-fpm.sock;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面是官方提供的监听规则，而使用 LNMP 一键安装包的情况下，设置的默认位置与其不同。<br>所以，我们只要监听 <code>/tmp/php-cgi.sock</code> 即可修正该设定。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">upstream php-handler &#123;</span><br><span class="line">    server unix:/tmp/php-cgi.sock;</span><br><span class="line">    #server 127.0.0.1:9000;</span><br><span class="line">    #server unix:/var/run/php5-fpm.sock;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>网站建设</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+        <tag>OwnCloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网址操作及页面转向的几种方式</title>
+    <url>/url-operation/</url>
+    <content><![CDATA[<h1 id="浅谈页面转向"><a href="#浅谈页面转向" class="headerlink" title="浅谈页面转向"></a>浅谈页面转向</h1><p>先来讲讲页面转向的问题。<br>「页面转向」常规来讲是一种对网址重写的过程。<br>所以，Ngnix及Apache的Rewrite规则是非常常用的手段。</p>
+<a id="more"></a>
+
+<h1 id="Ngnix的页面转向"><a href="#Ngnix的页面转向" class="headerlink" title="Ngnix的页面转向"></a>Ngnix的页面转向</h1><p>Ngnix需要自行修改对应空间的Ngnix conf文件。</p>
+<h2 id="方法-A"><a href="#方法-A" class="headerlink" title="方法 A"></a>方法 A</h2><p>通过<code>$host</code>获取域名信息来判断。</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">if</span> (<span class="variable">$host</span> != <span class="string">&#x27;www.fang2hou.com&#x27;</span> ) &#123;</span><br><span class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^/(.*)$</span> http://www.fang2hou.com/<span class="variable">$1</span> <span class="literal">permanent</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此转向方式为301转向。<br>意为「非指定域名均转向指定域名且保留后面的path」。</p>
+<h2 id="方法-B"><a href="#方法-B" class="headerlink" title="方法 B"></a>方法 B</h2><p>通过80端口传入的网址直接进行rewrite转向。</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line">server</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> test.com;</span><br><span class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^/(.*)$</span> http://www.test.com/<span class="variable">$1</span> <span class="literal">permanent</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此转向方式为301转向。<br>意为「从匹配地址的80端口传入后，转发到指定地址且保留后面的path」。<br>比较麻烦的是，该方法需要自己建一个独立的vhost来完成操作。</p>
+<h1 id="Apache的页面转向"><a href="#Apache的页面转向" class="headerlink" title="Apache的页面转向"></a>Apache的页面转向</h1><p>Apache需要自行修改对应空间的http.conf文件。<br>开启Apache的Rewrite模块。（默认<strong>关闭</strong>）</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute"><span class="nomarkup">LoadModule</span></span> rewrite_module modules/mod_rewrite.so</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>添加</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute"><span class="nomarkup">RewriteEngine</span></span> <span class="literal">on</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">RewriteCond</span></span> <span class="variable">%&#123;HTTP_HOST&#125;</span> ^fang<span class="number">2</span>hou.com<span class="meta"> [NC]</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">RewriteRule</span></span> ^(.*)$ http://www.fang<span class="number">2</span>hou.com/$<span class="number">1</span><span class="meta"> [L,R=301]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="标签法"><a href="#标签法" class="headerlink" title=" 标签法"></a><meta> 标签法</h1><p>在<code>&lt;head&gt;</code>标签中，我们只要添加如下代码即可完成转向。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;refresh&quot;</span> <span class="attr">content</span>=<span class="string">&quot;0;url=https://www.google.co.jp&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样，网页就会自动转向到谷歌。</p>
+<h1 id="JavaScript-操作网址"><a href="#JavaScript-操作网址" class="headerlink" title="JavaScript 操作网址"></a>JavaScript 操作网址</h1><p>网址操作是基于Javascript的，非常的简便，快捷。<br>为了更加容易解释，我将采用下面的这个网址：</p>
+<center>`http://fang2hou.com/index.html#section-1`</center>
+
+<h2 id="网络协议（protocol）实际操作"><a href="#网络协议（protocol）实际操作" class="headerlink" title="网络协议（protocol）实际操作"></a>网络协议（protocol）实际操作</h2><p>首先我们可以剥离网址中的<strong>网络协议</strong>部分。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> siteprot = <span class="string">&quot;&quot;</span>;</span><br><span class="line">siteprot = <span class="built_in">window</span>.location.protocol;</span><br></pre></td></tr></table></figure>
+<p>此时，我们将网页窗口的网址的网络协议部分放到了<code>siteprot</code>变量中。<br><strong>注意： <code>siteprot</code>现在是「http:」而不是「http」。冒号是获取到的数据的一部分。</strong><br>自然，我们也可以像下方一样来改变网络协议。<strong>不需要加冒号。</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.protocol = <span class="string">&quot;https&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>与上方类似，各个属性都能够被操作。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Location</td>
+<td>浏览器的实例对象</td>
+</tr>
+<tr>
+<td>Location.hash</td>
+<td>分隔符（如#及〜）</td>
+</tr>
+<tr>
+<td>Location.host</td>
+<td>域名及端口信息</td>
+</tr>
+<tr>
+<td>Location.hostname</td>
+<td>域名信息</td>
+</tr>
+<tr>
+<td>Location.href</td>
+<td>完整网址信息</td>
+</tr>
+<tr>
+<td>Location.pathname</td>
+<td>域名信息</td>
+</tr>
+<tr>
+<td>Location.port</td>
+<td>端口信息</td>
+</tr>
+<tr>
+<td>Location.protocol</td>
+<td>网络协议</td>
+</tr>
+<tr>
+<td>Location.search</td>
+<td>查询部分（「?」之后的部分）</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>网站建设</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+        <tag>Apache</tag>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 Javascript 来做多语言页面的转向</title>
+    <url>/use-javascript-to-redirect-multi-languages-page/</url>
+    <content><![CDATA[<h1 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h1><p>今天，我的一个项目更新了多语言的说明文档，为了更快的帮助用户，我觉得有必要做一个自动的语言转向功能。<br>经过一番查询，当前很多浏览器对「navigator.language」变量有很好的支持。<br>藉此，我们可以使用 Javascript 来做一个语言识别并转向。</p>
+<a id="more"></a>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在 3s 后跳转</span></span><br><span class="line">    <span class="comment">// 修改 URL</span></span><br><span class="line">    <span class="keyword">var</span> siteHref = <span class="built_in">window</span>.location.href;</span><br><span class="line">    <span class="keyword">var</span> siteDir = siteHref.split(<span class="string">&#x27;/index&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (siteDir[<span class="number">1</span>]) &#123;siteDir[<span class="number">0</span>] += <span class="string">&#x27;/&#x27;</span>;&#125;;</span><br><span class="line">    <span class="comment">// 获取浏览器语言</span></span><br><span class="line">    <span class="keyword">var</span> navlang = navigator.language;</span><br><span class="line">    <span class="comment">// 设定英语为默认语言</span></span><br><span class="line">    <span class="keyword">var</span> langpage = <span class="string">&#x27;en&#x27;</span>;</span><br><span class="line">    navlang = navlang.split(<span class="string">&#x27;-&#x27;</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">// 确认转向目标</span></span><br><span class="line">    <span class="keyword">if</span> (navlang == <span class="string">&#x27;zh&#x27;</span>)&#123;langpage = <span class="string">&#x27;zh&#x27;</span>;&#125;;</span><br><span class="line">    <span class="keyword">if</span> (navlang == <span class="string">&#x27;ja&#x27;</span>)&#123;langpage = <span class="string">&#x27;ja&#x27;</span>;&#125;;</span><br><span class="line">    <span class="comment">// 修改 URL</span></span><br><span class="line">    <span class="built_in">window</span>.location.href = siteDir[<span class="number">0</span>] + langpage;</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="简单分析"><a href="#简单分析" class="headerlink" title="简单分析"></a>简单分析</h1><ul>
+<li>首先这是一个通过<code>setTimeout</code>来延时3s后的转向。</li>
+<li>正如代码中分段注释的那样，首先，我们要对当前的URL做一个处理。简单的来讲，就是提取出最纯粹的当前网站目录。（不带有默认 index 文件）</li>
+<li>关于网址的操作，在之前的文章『<a href="/url-operation/" title="网址操作及页面转向的几种方式">网址操作及页面转向的几种方式</a>』中可以找到。</li>
+<li>最后，我们先设定默认语言为英语，以帮助非支持语言的阅读者。接着，通过「navigator.language」来获取浏览器语言，并且用字符串分割功能去除国家信息，将相应语言的值写在默认语言中。</li>
+<li>根据URL规则将新的网址覆盖到用户的浏览器。</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这是一个比较小的功能，但在某些情况下却非常实用。<br>特别是像我这样采用 Hexo 的网站，不像PHP这样能有比较简便的方法，对于 HTML 来说，采用 Javascript 做一些功能，真的是特别方便。</p>
+]]></content>
+      <categories>
+        <category>网站建设</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 Windows 中使用 Linux 子系统</title>
+    <url>/use-linux-subsystem-on-windows/</url>
+    <content><![CDATA[
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，Linux 在程序开发时是非常易用的环境。特别对于在日的理工科学生来说，自打从学 C 语言起就是在 Linux 中开发。同时，Mac 对于程序员来说是非常易用的，这得益于 macOS 脱胎于 Unix 系统，大部分 Linux 中常用操作都可以在 macOS 中实现。现在，随着 Windows 系统的进一步发展，在 Windows 10 的周年更新版之后，新增了 Linux 子系统功能。借助子系统，我们可以快速构建一个开发环境，和 Windows 紧密结合在一起。</p>
+<blockquote><p>注：我的 PC 搭载的是英文版本的 Windows 10，中文翻译可能不是很准确，请尽量参考截图来操作。</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><p>按住 <i class="fa fa-windows"></i> + R 来启动运行（英：Run），执行命令「<strong>winver</strong>」，在弹出的窗口中你就可以看到版本号。</p>
+
+<p>前言中也提到了，子系统的功能特性是在 Windows 10 周年版本后才正式加入的，本文撰写之时，系统已经更新到了16299版本。同时，根据官方的 <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10%22">说明</a> 来看，多子系统开始提供于</p>
+<center>**Windows 10 版本号 >= 16215**</center>
+
+<h2 id="下载并安装-Hyper"><a href="#下载并安装-Hyper" class="headerlink" title="下载并安装 Hyper"></a>下载并安装 Hyper</h2><p>Hyper 是一个通过 Web 技术构建的新终端，十分的简洁美观，通过 JSON 形式的配置文件可实现自定义。<br>你可以通过他们的<a href="https://hyper.is/#installation" target="_blank" rel="noopener">官方网站</a>来下载并安装。</p>
+<h1 id="开启WSL（Windows-Subsystem-for-Linux）功能"><a href="#开启WSL（Windows-Subsystem-for-Linux）功能" class="headerlink" title="开启WSL（Windows Subsystem for Linux）功能"></a>开启WSL（Windows Subsystem for Linux）功能</h1><p>子系统虽然已经被内嵌在了系统之中，但还是需要我们手动去开启的。开启步骤如下图所示。</p>
+
+<p>在开启完后，系统应该会提示让你重新启动，请在重启后回到本页继续阅读。</p>
+<h1 id="安装内核"><a href="#安装内核" class="headerlink" title="安装内核"></a>安装内核</h1><p>如果你已经重启完毕了，我们就可以通过 Windows Store 来安装 Linux 子系统的内核了。</p>
+<p><a href="https://aka.ms/wslstore">内核的商店页面</a>，建议选择 Ubuntu 内核进行安装，下面也会围绕 Ubuntu 内核进行讲解。<br>在下载完成后，你可以通过商店的<strong>启动</strong>按钮来进行下一步配置。</p>
+  
+<p>在接下来的过程之中，系统会询问你希望建立的用户名及密码，需要注意的是，这是用于 Ubuntu 的独立账号密码，<strong>不是系统的账户密码</strong>。</p>
+<h1 id="配置-Hyper"><a href="#配置-Hyper" class="headerlink" title="配置 Hyper"></a>配置 Hyper</h1><p>Hyper 自带界面虽然说不上丑，但是有更多好看的主题。你可以通过 <a href="https://hyperthemes.matthi.coffee/%22">Hyper 主题网站</a> 来预览并安装他们。<br>下面以主题 hyper-snazzy 为例，按照下图操作打开<strong>配置文件</strong>。</p>
+
+<p>在配置文件的尾部可以找到plugins的列表，添加插件名如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">plugins: [<span class="string">&quot;hyper-snazzy&quot;</span>],</span><br></pre></td></tr></table></figure>
+<p>保存配置文件，重启 Hyper 即可看到效果。</p>
+<h1 id="进一步配置-Ubuntu"><a href="#进一步配置-Ubuntu" class="headerlink" title="进一步配置 Ubuntu"></a>进一步配置 Ubuntu</h1><p>现在，Ubuntu 子系统已经和我们的 Windows 10 合二为一了。为了更加方便的使用和开发，我们还需要进一步配置 Ubuntu。<br>打开 Hyper，输入「wsl」或是「bash」进入 Ubuntu 子系统。</p>
+
+
+<h2 id="切换软件源服务器到日本"><a href="#切换软件源服务器到日本" class="headerlink" title="切换软件源服务器到日本"></a>切换软件源服务器到日本</h2><p>官方的服务器太远了，导致速度非常慢。通过运行以下命令， 你可以将源切换到<a href="https://www.jaist.ac.jp/index.html">北陸先端科学技術大学院大学</a>提供的高速日本国内服务器。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sed -i.bak -e &quot;s%http://archive.ubuntu.com/ubuntu/%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g&quot; /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<p>然后我们执行软件源更新。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<p>接着，将现有软件包全部更新一下。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+<p>最后，导入常用的一些开发软件（如gcc）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install build-essential</span><br></pre></td></tr></table></figure>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>试着运行一个简单的 C 程序。</p>
+
+
+<p><strong>恭喜，至此常规的配置已经全部完成！</strong></p>
+<h1 id="额外的配置"><a href="#额外的配置" class="headerlink" title="额外的配置"></a>额外的配置</h1><h2 id="Oh-my-zsh"><a href="#Oh-my-zsh" class="headerlink" title="Oh-my-zsh"></a>Oh-my-zsh</h2><center>用过的人都说好！</center>
+Oh-my-zsh 是一个对 zsh 设置大幅简化的工具。而 zsh 则相较于传统的 bash 提供了一个更加易于使用的终端。
+在安装 Oh-my-zsh 前，我们先把 zsh 给安装一下。
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
+然后就可以执行下面的命令来安装 Oh-my-zsh
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+出现 Oh-my-zsh 的字符画或者出现了箭头提示，即为安装成功。
+
+
+<p>如果你在安装时用了中文输入法，权限认证可能会出错，你可以通过下面的命令来删除，然后重新用上面的安装命令试一次。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf ~/.oh-my-zsh</span><br></pre></td></tr></table></figure>
+<p>在顺利安装完 oh-my-zsh 后，输入以下命令，将默认终端从 bash 修改至 zsh。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chsh -s $(which zsh)</span><br></pre></td></tr></table></figure>
+<p>现在开始你可以在常规的命令行中通过运行 <strong>wsl</strong> 命令来打开子系统，并采用 zsh 作为首选。<br><strong>bash</strong> 命令依旧可以使用，你甚至可以通过下面的命令来快速运行一些程序（举个例子：vim）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash -c vim</span><br></pre></td></tr></table></figure>
+<p>如果你发现你的终端使用 zsh 有字符错位现象，可以通过更换主题来修正。<br>用 vim 或是 nano 打开 zsh 的配置文件。为了照顾更多初学者，这里举例为较为简单的nano。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nano ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>修改主题为 kolo，按下 Ctrl + X 退出，记得输入 Y 确认更改。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ZSH_THEME=&quot;kolo&quot;</span><br></pre></td></tr></table></figure>
+<p>再次进入 zsh 时，主题会发生改变，从而解决 zsh 错位问题。</p>
+<h1 id="一些使用技巧"><a href="#一些使用技巧" class="headerlink" title="一些使用技巧"></a>一些使用技巧</h1><h2 id="关闭烦人的哔哔声"><a href="#关闭烦人的哔哔声" class="headerlink" title="关闭烦人的哔哔声"></a>关闭烦人的哔哔声</h2><p>如果一直用 Windows 命令行的话，想必对这个哔哔声早已深恶痛绝，通过下面的设置，可以让子系统 Linux 不再打扰我们。</p>
+<h3 id="Bash-用户"><a href="#Bash-用户" class="headerlink" title="Bash 用户"></a>Bash 用户</h3><p>如果你的终端为 bash，那么请使用文本编辑器，如 <code>vim</code>，<code>nano</code>，<code>emacs</code> 或是 GUI 文本编辑器打开 <code>/etc/inputrc</code>。<strong>一定要用 Root 权限</strong>，以 <code>nano</code> 举例如下。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/inputrc</span><br></pre></td></tr></table></figure>
+
+<p>将 <code># set bell-style none</code> 之前的 <code>#</code> 删除，使铃声设置为空。</p>
+<h3 id="Zsh-用户"><a href="#Zsh-用户" class="headerlink" title="Zsh 用户"></a>Zsh 用户</h3><p>如果你看了我之前的部分，安装了 zsh 终端，那么只需要在 zsh 中执行下面的代码即可。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">unsetopt beep</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Windows</tag>
+        <tag>子系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 Google Colab 提供的免费 TPU 进行训练</title>
+    <url>/use-tpu-to-train-cnn/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>比起深度学习最初的 CPU 计算，现在普遍使用 GPU 来进行训练，效率提升已然是相当明显。但是像是 Google 和阿里巴巴这些科技巨头还是不满足这些，直接让日常使用介入芯片研发，Google 提出 TPU 方案，阿里也成立了平头哥独立品牌来发布新品。官方说法是对于目前顶尖 GPU 都有 20 倍以上的算力提升。<br>阿里和 Google 的芯片技术都已经实装运用在了自家的云服务上，不过有幸的是，Google 在自家推出的 Colab 机器学习平台之中提供了免费试用 TPU 的机会。这篇文章将会介绍一下当下，快速使用 Keras 进行训练的一个实例。<br>在看下面的文字的之前，最好回忆一下简单的 CNN 构造。如果你有一些 Keras 或是 TensorFlow 相关的使用经验，那么应该能够非常快速的理解。</p>
+<a id="more"></a>
+<h1 id="配置-Colab-环境"><a href="#配置-Colab-环境" class="headerlink" title="配置 Colab 环境"></a>配置 Colab 环境</h1><p>打开 <a href="https://colab.research.google.com/">https://colab.research.google.com</a>，登陆谷歌账户就可以直接启动一个全新的运行实例。<br>由于是要使用 TPU，所以还要在菜单栏中的 <code>Runtime</code> -&gt; <code>Change runtime type</code> 手动设定环境为 Python 3，硬件加速为 TPU。</p>
+
+
+<p>Colab 不但可以承担 Jupyter Notebook 的工作，其实 Google 还为你准备了一个虚拟机。</p>
+<p>在撰写本文时，TensorFlow 的正式版本为 1.14，但是我们需要执行的 Keras 支持训练命令(<code>model.fit_generator</code>)目前只适配到 1.13，所以先进行降级。<br>在第一个 Code cell 里填入下面的代码来实现降级，由于要先卸载掉 1.14，得稍微等待一下。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Downgrade tf to 1.13.1</span></span><br><span class="line">!pip install tensorflow==1.13.1</span><br></pre></td></tr></table></figure>
+<p>在降级成功后，Colab 会在输出之中会提示让你进行一次运行实例重启，点击 <code>RESTART RUNTIME</code> 即可。<br>有时候没有提示的话，就通过 <code>Runtime</code> -&gt; <code>Restart runtime...</code> 重启。</p>
+<h1 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h1><p>在第二个 Code cell 里填入下面的代码来下载公开的测试数据集（猫狗大战，猫狗各 4000 训练集 + 1000 测试集）。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Download and unzip dataset</span></span><br><span class="line">!wget https://sds-platform-private.s3-us-east-2.amazonaws.com/uploads/P16-Convolutional-Neural-Networks.zip</span><br><span class="line">!unzip -qq P16-Convolutional-Neural-Networks.zip <span class="string">&quot;Convolutional_Neural_Networks/dataset/*&quot;</span></span><br><span class="line">!mv Convolutional_Neural_Networks/dataset dataset</span><br><span class="line">!rm -rf Convolutional_Neural_Networks</span><br></pre></td></tr></table></figure>
+
+<h1 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h1><p>这里导入 <code>os</code> 库用于 TPU 支持相关语句。<br><strong>注意：虽然我们是写 Keras 代码，但这里不能直接使用 <code>keras</code> 库中的模型，而是要使用 <code>tensorflow.keras</code>。</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.contrib.tpu.python.tpu <span class="keyword">import</span> keras_support</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Conv2D, MaxPooling2D, Flatten, Dense, Dropout</span><br><span class="line"><span class="keyword">from</span> keras.preprocessing.image <span class="keyword">import</span> ImageDataGenerator</span><br></pre></td></tr></table></figure>
+
+<h1 id="数据集预处理"><a href="#数据集预处理" class="headerlink" title="数据集预处理"></a>数据集预处理</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Image processing</span></span><br><span class="line">train_datagen = ImageDataGenerator(rescale=<span class="number">1.</span> /<span class="number">255</span>,</span><br><span class="line">                                   shear_range=<span class="number">0.2</span>,</span><br><span class="line">                                   zoom_range=<span class="number">0.2</span>,</span><br><span class="line">                                   horizontal_flip=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">test_datagen = ImageDataGenerator(rescale=<span class="number">1.</span> / <span class="number">255</span>)</span><br><span class="line"></span><br><span class="line">train_data = train_datagen.flow_from_directory(<span class="string">&#x27;dataset/training_set&#x27;</span>,</span><br><span class="line">                                               target_size=(<span class="number">128</span>, <span class="number">128</span>),</span><br><span class="line">                                               batch_size=<span class="number">32</span>,</span><br><span class="line">                                               class_mode=<span class="string">&#x27;binary&#x27;</span>)</span><br><span class="line"></span><br><span class="line">validation_data = test_datagen.flow_from_directory(<span class="string">&#x27;dataset/test_set&#x27;</span>,</span><br><span class="line">                                                   target_size=(<span class="number">128</span>, <span class="number">128</span>),</span><br><span class="line">                                                   batch_size=<span class="number">32</span>,</span><br><span class="line">                                                   class_mode=<span class="string">&#x27;binary&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>很容易理解吧，这里的代码主要来自于 Keras 的官方文档。<br>我打算采用 (128, 128, 3) 的格式输入学习数据，每批个数为 32。你可以根据自己的想法进行调整。<br>如果一切顺利，你可以看到下面的输出。</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">Found <span class="number">8000</span> images belonging to <span class="number">2</span> classes.</span><br><span class="line">Found <span class="number">2000</span> images belonging to <span class="number">2</span> classes.</span><br></pre></td></tr></table></figure>
+
+<h1 id="构建网络"><a href="#构建网络" class="headerlink" title="构建网络"></a>构建网络</h1><p>一个简单的卷积网络<br>3 个卷积层，每次都进行池化，全连接层习惯性用2个。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_nn</span>():</span></span><br><span class="line">    <span class="comment"># Build the CNN</span></span><br><span class="line">    model = Sequential()</span><br><span class="line"></span><br><span class="line">    model.add(Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&#x27;same&#x27;</span>, activation=<span class="string">&#x27;relu&#x27;</span>, kernel_initializer=<span class="string">&#x27;he_uniform&#x27;</span>, input_shape=(<span class="number">128</span>, <span class="number">128</span>, <span class="number">3</span>)))</span><br><span class="line">    model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">    model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&#x27;same&#x27;</span>, activation=<span class="string">&#x27;relu&#x27;</span>, kernel_initializer=<span class="string">&#x27;he_uniform&#x27;</span>))</span><br><span class="line">    model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">    model.add(Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&#x27;same&#x27;</span>, activation=<span class="string">&#x27;relu&#x27;</span>, kernel_initializer=<span class="string">&#x27;he_uniform&#x27;</span>))</span><br><span class="line">    model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">    model.add(Flatten())</span><br><span class="line"></span><br><span class="line">    model.add(Dense(<span class="number">256</span>, activation=<span class="string">&#x27;relu&#x27;</span>))</span><br><span class="line">    model.add(Dropout(<span class="number">0.2</span>))</span><br><span class="line"></span><br><span class="line">    model.add(Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>))</span><br><span class="line">    model.add(Dropout(<span class="number">0.2</span>))</span><br><span class="line"></span><br><span class="line">    model.add(Dense(<span class="number">1</span>, activation=<span class="string">&#x27;sigmoid&#x27;</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
+
+<h1 id="初始化-TPU-环境"><a href="#初始化-TPU-环境" class="headerlink" title="初始化 TPU 环境"></a>初始化 TPU 环境</h1><p>先取得 TPU 的位置，这套用法基本上是固定的，每次要用的时候 copy-paste 就行。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Initialize TPU</span></span><br><span class="line">tpu_grpc_url = <span class="string">&quot;grpc://&quot;</span>+os.environ[<span class="string">&quot;COLAB_TPU_ADDR&quot;</span>]</span><br><span class="line">tpu_cluster_resolver = tf.contrib.cluster_resolver.TPUClusterResolver(tpu_grpc_url)</span><br><span class="line">strategy = keras_support.TPUDistributionStrategy(tpu_cluster_resolver)</span><br></pre></td></tr></table></figure>
+
+<p>成功运行的话，可以看到，显示返回到了地址，然后从地址去获取设备信息，1 Worker 8 Core 的 TPU。注意这个数字，因为这意味之后测试集需要组成 batch 为 8 的倍数才能传入。</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>Querying Tensorflow master (<span class="attr">grpc:</span><span class="comment">//10.110.24.138:8470) for TPU system metadata.</span></span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>Found TPU <span class="attr">system:</span></span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Num TPU <span class="attr">Cores:</span> <span class="number">8</span></span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Num TPU <span class="attr">Workers:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Num TPU Cores Per <span class="attr">Worker:</span> <span class="number">8</span></span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">CPU:</span><span class="number">0</span>, CPU, <span class="number">-1</span>, <span class="number">14991867850935745303</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">XLA_CPU:</span><span class="number">0</span>, XLA_CPU, <span class="number">17179869184</span>, <span class="number">4977701856257024240</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">0</span>, TPU, <span class="number">17179869184</span>, <span class="number">799391477980569210</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">1</span>, TPU, <span class="number">17179869184</span>, <span class="number">7413645770321013063</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">2</span>, TPU, <span class="number">17179869184</span>, <span class="number">12127959108352401067</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">3</span>, TPU, <span class="number">17179869184</span>, <span class="number">9301267841357501458</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">4</span>, TPU, <span class="number">17179869184</span>, <span class="number">2329118821990200537</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">5</span>, TPU, <span class="number">17179869184</span>, <span class="number">6102181154716035854</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">6</span>, TPU, <span class="number">17179869184</span>, <span class="number">6202014608559033004</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">7</span>, TPU, <span class="number">17179869184</span>, <span class="number">7250002334323814010</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU_SYSTEM:</span><span class="number">0</span>, TPU_SYSTEM, <span class="number">8589934592</span>, <span class="number">16188795321964965491</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="训练前的准备"><a href="#训练前的准备" class="headerlink" title="训练前的准备"></a>训练前的准备</h1><p>终于到了要训练的时候，不过注意，TPU 的模型不同于 GPU 和 CPU 的模型关系，TPU 模型需要特殊的转换才能跑，而且模型也会损失掉部分方法，之前我们降级实际上就是为了使用在 1.14 中目前不支持的函数。相信之后 TPU 的时候会越来越方便，毕竟现在还处于发展初期。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Convert cpu model to tpu model</span></span><br><span class="line">myOptimizer = tf.keras.optimizers.SGD(lr=<span class="number">0.01</span>, momentum=<span class="number">0.7</span>)</span><br><span class="line">my_cnn = build_nn()</span><br><span class="line">my_cnn.compile(optimizer=myOptimizer, loss=<span class="string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line">my_cnn = tf.contrib.tpu.keras_to_tpu_model(my_cnn, strategy=strategy)</span><br></pre></td></tr></table></figure>
+
+<p>这段代码中有个非常容易被忽视的点，那就是optimizer必须使用到 TensorFlow 的，而不是 Keras 的，否则就会报错哦！我这里使用的是 <code>Adam</code> 算法，这里特别说下，常用的随机梯度下降（SGD）目前在 TensorFlow 中映射到 keras 支持模块，不能直接拿来用。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Convert CPU model to TPU model</span></span><br><span class="line">myOptimizer = tf.train.AdamOptimizer()</span><br><span class="line">my_cnn = build_nn()</span><br><span class="line">my_cnn.compile(optimizer=myOptimizer, loss=<span class="string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line">my_cnn = tf.contrib.tpu.keras_to_tpu_model(my_cnn, strategy=strategy)</span><br></pre></td></tr></table></figure>
+
+<p>执行成功的话就会看到下面的文字：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">WARNING</span><span class="selector-pseudo">:tensorflow</span><span class="selector-pseudo">:tpu_model</span> (<span class="selector-tag">from</span> <span class="selector-tag">tensorflow</span><span class="selector-class">.contrib</span><span class="selector-class">.tpu</span><span class="selector-class">.python</span><span class="selector-class">.tpu</span><span class="selector-class">.keras_support</span>) <span class="selector-tag">is</span> <span class="selector-tag">experimental</span> <span class="selector-tag">and</span> <span class="selector-tag">may</span> <span class="selector-tag">change</span> <span class="selector-tag">or</span> <span class="selector-tag">be</span> <span class="selector-tag">removed</span> <span class="selector-tag">at</span> <span class="selector-tag">any</span> <span class="selector-tag">time</span>, <span class="selector-tag">and</span> <span class="selector-tag">without</span> <span class="selector-tag">warning</span>.</span><br></pre></td></tr></table></figure>
+
+<h1 id="训练，咖啡时间"><a href="#训练，咖啡时间" class="headerlink" title="训练，咖啡时间"></a>训练，咖啡时间</h1><p><code>epoch</code> 要多少自己看着设定，第一轮训练其实是较慢的，第二次开始时，速度比起传统 GPU 训练可以说是非常之快速了。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Train!</span></span><br><span class="line">my_cnn.fit_generator(train_data,</span><br><span class="line">                     steps_per_epoch=<span class="number">8000</span>,</span><br><span class="line">                     epochs=<span class="number">10</span>,</span><br><span class="line">                     validation_data=validation_data,</span><br><span class="line">                     validation_steps=<span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="保存权重"><a href="#保存权重" class="headerlink" title="保存权重"></a>保存权重</h1><p>尽量不要直接使用保存全网络的函数，保存权重即可。<br>测试可以在本地构建一个 CPU 模型导入权重来进行测试。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">classifier.save_weights(<span class="string">&#x27;weights.h5&#x27;</span>, overwrite=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>专用硬件训练网络体验真的很棒！只是现在外部软件支持还没有做的很好，但是足以让人期待之后的表现的。<br>深度学习从几年前的实装困难，到现在简单几句就能开始训练，确确实实从学术界普及到了日常生活之中。很多初学者手上没有足够的硬件导致学习效率低下，相信随着芯片技术的发展，这个问题将不复存在。</p>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>CNN</tag>
+        <tag>Deep Learning</tag>
+        <tag>TPU</tag>
+      </tags>
+  </entry>
+</search>

@@ -1,92 +1,58 @@
 <!DOCTYPE html>
-
-
-
-
-
-<html lang="zh-CN">
+<html lang="zh-CN,en,ja,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.4.1',
-    exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
-    copycode: {"enable":"enable","show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: true,
-    lazyload: true,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"搜索文章","hits_empty":"无法检索到关于 ${query} 的文章。","hits_stats":"找到了 ${hits} 个结果，耗时 ${time} 毫秒。"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fang2hou.com","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":14},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
+  </script>
 
   <meta name="description" content="前言比起深度学习最初的 CPU 计算，现在普遍使用 GPU 来进行训练，效率提升已然是相当明显。但是像是 Google 和阿里巴巴这些科技巨头还是不满足这些，直接让日常使用介入芯片研发，Google 提出 TPU 方案，阿里也成立了平头哥独立品牌来发布新品。官方说法是对于目前顶尖 GPU 都有 20 倍以上的算力提升。阿里和 Google 的芯片技术都已经实装运用在了自家的云服务上，不过有幸的是，">
-<meta name="keywords" content="CNN,Deep Learning,TPU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 Google Colab 提供的免费 TPU 进行训练">
 <meta property="og:url" content="https://fang2hou.com/use-tpu-to-train-cnn/index.html">
-<meta property="og:site_name" content="Fang2hou">
+<meta property="og:site_name" content="fang2hou">
 <meta property="og:description" content="前言比起深度学习最初的 CPU 计算，现在普遍使用 GPU 来进行训练，效率提升已然是相当明显。但是像是 Google 和阿里巴巴这些科技巨头还是不满足这些，直接让日常使用介入芯片研发，Google 提出 TPU 方案，阿里也成立了平头哥独立品牌来发布新品。官方说法是对于目前顶尖 GPU 都有 20 倍以上的算力提升。阿里和 Google 的芯片技术都已经实装运用在了自家的云服务上，不过有幸的是，">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-10T03:25:12.294Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-09T11:28:51.000Z">
+<meta property="article:modified_time" content="2019-10-10T03:25:14.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="CNN">
+<meta property="article:tag" content="Deep Learning">
+<meta property="article:tag" content="TPU">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 Google Colab 提供的免费 TPU 进行训练">
-<meta name="twitter:description" content="前言比起深度学习最初的 CPU 计算，现在普遍使用 GPU 来进行训练，效率提升已然是相当明显。但是像是 Google 和阿里巴巴这些科技巨头还是不满足这些，直接让日常使用介入芯片研发，Google 提出 TPU 方案，阿里也成立了平头哥独立品牌来发布新品。官方说法是对于目前顶尖 GPU 都有 20 倍以上的算力提升。阿里和 Google 的芯片技术都已经实装运用在了自家的云服务上，不过有幸的是，">
-  <link rel="canonical" href="https://fang2hou.com/use-tpu-to-train-cnn/">
 
 
-<script id="page-configurations">
+<link rel="canonical" href="https://fang2hou.com/use-tpu-to-train-cnn/">
+
+
+<script data-pjax class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-  <title>使用 Google Colab 提供的免费 TPU 进行训练 | Fang2hou</title>
+  <title>使用 Google Colab 提供的免费 TPU 进行训练 | fang2hou</title>
   
-
-
 
 
 
@@ -95,403 +61,147 @@
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
 
-  .use-motion .logo,
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Fang2hou</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <h1 class="site-subtitle" itemprop="description">前途路漫漫，我心仍执着</h1>
-      
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">fang2hou</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">千里之行，始于足下</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-文章分类">
-      
-    
+        <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>文章分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-程序项目">
-      
-    
+        <li class="menu-item menu-item-projects">
 
-    <a href="/projects/" rel="section"><i class="fa fa-fw fa-code-fork"></i>程序项目</a>
+    <a href="/projects/" rel="section"><i class="fa fa-code-branch fa-fw"></i>项目</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-课程笔记">
-      
-    
+        <li class="menu-item menu-item-notes">
 
-    <a href="//github.com/fang2hou/notes" rel="section"><i class="fa fa-fw fa-sticky-note"></i>课程笔记</a>
+    <a target="_blank" href="//github.com/fang2hou/notes" rel="section noopener"><i class="fa fa-sticky-note fa-fw"></i>笔记</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-私人网盘">
-      
-    
+        <li class="menu-item menu-item-about">
 
-    <a href="//file.fang2hou.com" rel="section"><i class="fa fa-fw fa-cloud-download"></i>私人网盘</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-立命馆相关">
-      
-    
-
-    <a href="/ritsumei/" rel="section"><i class="fa fa-fw fa-registered"></i>立命馆相关</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-关于我">
-      
-    
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于我</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>搜索</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-            
-
-          <div id="content" class="content">
-            
-
-  <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://fang2hou.com/use-tpu-to-train-cnn/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhou Fang">
-      <meta itemprop="description" content="分享自己的知识">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fang2hou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">使用 Google Colab 提供的免费 TPU 进行训练
-
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-09 20:28:51" itemprop="dateCreated datePublished" datetime="2019-10-09T20:28:51+09:00">2019-10-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-10 12:25:12" itemprop="dateModified" datetime="2019-10-10T12:25:12+09:00">2019-10-10</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            <span class="post-meta-item" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-users"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="firestore-visitors-count"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>比起深度学习最初的 CPU 计算，现在普遍使用 GPU 来进行训练，效率提升已然是相当明显。但是像是 Google 和阿里巴巴这些科技巨头还是不满足这些，直接让日常使用介入芯片研发，Google 提出 TPU 方案，阿里也成立了平头哥独立品牌来发布新品。官方说法是对于目前顶尖 GPU 都有 20 倍以上的算力提升。<br>阿里和 Google 的芯片技术都已经实装运用在了自家的云服务上，不过有幸的是，Google 在自家推出的 Colab 机器学习平台之中提供了免费试用 TPU 的机会。这篇文章将会介绍一下当下，快速使用 Keras 进行训练的一个实例。<br>在看下面的文字的之前，最好回忆一下简单的 CNN 构造。如果你有一些 Keras 或是 TensorFlow 相关的使用经验，那么应该能够非常快速的理解。</p>
-<a id="more"></a>
-<h1 id="配置-Colab-环境"><a href="#配置-Colab-环境" class="headerlink" title="配置 Colab 环境"></a>配置 Colab 环境</h1><p>打开 <span class="exturl" data-url="aHR0cHM6Ly9jb2xhYi5yZXNlYXJjaC5nb29nbGUuY29t" title="https://colab.research.google.com">https://colab.research.google.com<i class="fa fa-external-link"></i></span>，登陆谷歌账户就可以直接启动一个全新的运行实例。<br>由于是要使用 TPU，所以还要在菜单栏中的 <code>Runtime</code> -&gt; <code>Change runtime type</code> 手动设定环境为 Python 3，硬件加速为 TPU。</p>
-<img title="手动修改环境" data-src="/use-tpu-to-train-cnn/change_runtime.png">
-
-<p>Colab 不但可以承担 Jupyter Notebook 的工作，其实 Google 还为你准备了一个虚拟机。</p>
-<p>在撰写本文时，TensorFlow 的正式版本为 1.14，但是我们需要执行的 Keras 支持训练命令(<code>model.fit_generator</code>)目前只适配到 1.13，所以先进行降级。<br>在第一个 Code cell 里填入下面的代码来实现降级，由于要先卸载掉 1.14，得稍微等待一下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Downgrade tf to 1.13.1</span></span><br><span class="line">!pip install tensorflow==1.13.1</span><br></pre></td></tr></table></figure>
-
-<p>在降级成功后，Colab 会在输出之中会提示让你进行一次运行实例重启，点击 <code>RESTART RUNTIME</code> 即可。<br>有时候没有提示的话，就通过 <code>Runtime</code> -&gt; <code>Restart runtime...</code> 重启。</p>
-<h1 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h1><p>在第二个 Code cell 里填入下面的代码来下载公开的测试数据集（猫狗大战，猫狗各 4000 训练集 + 1000 测试集）。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Download and unzip dataset</span></span><br><span class="line">!wget https://sds-platform-private.s3-us-east-2.amazonaws.com/uploads/P16-Convolutional-Neural-Networks.zip</span><br><span class="line">!unzip -qq P16-Convolutional-Neural-Networks.zip <span class="string">"Convolutional_Neural_Networks/dataset/*"</span></span><br><span class="line">!mv Convolutional_Neural_Networks/dataset dataset</span><br><span class="line">!rm -rf Convolutional_Neural_Networks</span><br></pre></td></tr></table></figure>
-
-<h1 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h1><p>这里导入 <code>os</code> 库用于 TPU 支持相关语句。<br><strong>注意：虽然我们是写 Keras 代码，但这里不能直接使用 <code>keras</code> 库中的模型，而是要使用 <code>tensorflow.keras</code>。</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.contrib.tpu.python.tpu <span class="keyword">import</span> keras_support</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Conv2D, MaxPooling2D, Flatten, Dense, Dropout</span><br><span class="line"><span class="keyword">from</span> keras.preprocessing.image <span class="keyword">import</span> ImageDataGenerator</span><br></pre></td></tr></table></figure>
-
-<h1 id="数据集预处理"><a href="#数据集预处理" class="headerlink" title="数据集预处理"></a>数据集预处理</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Image processing</span></span><br><span class="line">train_datagen = ImageDataGenerator(rescale=<span class="number">1.</span> /<span class="number">255</span>,</span><br><span class="line">                                   shear_range=<span class="number">0.2</span>,</span><br><span class="line">                                   zoom_range=<span class="number">0.2</span>,</span><br><span class="line">                                   horizontal_flip=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">test_datagen = ImageDataGenerator(rescale=<span class="number">1.</span> / <span class="number">255</span>)</span><br><span class="line"></span><br><span class="line">train_data = train_datagen.flow_from_directory(<span class="string">'dataset/training_set'</span>,</span><br><span class="line">                                               target_size=(<span class="number">128</span>, <span class="number">128</span>),</span><br><span class="line">                                               batch_size=<span class="number">32</span>,</span><br><span class="line">                                               class_mode=<span class="string">'binary'</span>)</span><br><span class="line"></span><br><span class="line">validation_data = test_datagen.flow_from_directory(<span class="string">'dataset/test_set'</span>,</span><br><span class="line">                                                   target_size=(<span class="number">128</span>, <span class="number">128</span>),</span><br><span class="line">                                                   batch_size=<span class="number">32</span>,</span><br><span class="line">                                                   class_mode=<span class="string">'binary'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>很容易理解吧，这里的代码主要来自于 Keras 的官方文档。<br>我打算采用 (128, 128, 3) 的格式输入学习数据，每批个数为 32。你可以根据自己的想法进行调整。<br>如果一切顺利，你可以看到下面的输出。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Found 8000 images belonging to 2 classes.</span><br><span class="line">Found 2000 images belonging to 2 classes.</span><br></pre></td></tr></table></figure>
-
-<h1 id="构建网络"><a href="#构建网络" class="headerlink" title="构建网络"></a>构建网络</h1><p>一个简单的卷积网络<br>3 个卷积层，每次都进行池化，全连接层习惯性用2个。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_nn</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># Build the CNN</span></span><br><span class="line">    model = Sequential()</span><br><span class="line"></span><br><span class="line">    model.add(Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'same'</span>, activation=<span class="string">'relu'</span>, kernel_initializer=<span class="string">'he_uniform'</span>, input_shape=(<span class="number">128</span>, <span class="number">128</span>, <span class="number">3</span>)))</span><br><span class="line">    model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">    model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'same'</span>, activation=<span class="string">'relu'</span>, kernel_initializer=<span class="string">'he_uniform'</span>))</span><br><span class="line">    model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">    model.add(Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'same'</span>, activation=<span class="string">'relu'</span>, kernel_initializer=<span class="string">'he_uniform'</span>))</span><br><span class="line">    model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">    model.add(Flatten())</span><br><span class="line"></span><br><span class="line">    model.add(Dense(<span class="number">256</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">    model.add(Dropout(<span class="number">0.2</span>))</span><br><span class="line"></span><br><span class="line">    model.add(Dense(<span class="number">128</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">    model.add(Dropout(<span class="number">0.2</span>))</span><br><span class="line"></span><br><span class="line">    model.add(Dense(<span class="number">1</span>, activation=<span class="string">'sigmoid'</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
-
-<h1 id="初始化-TPU-环境"><a href="#初始化-TPU-环境" class="headerlink" title="初始化 TPU 环境"></a>初始化 TPU 环境</h1><p>先取得 TPU 的位置，这套用法基本上是固定的，每次要用的时候 copy-paste 就行。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Initialize TPU</span></span><br><span class="line">tpu_grpc_url = <span class="string">"grpc://"</span>+os.environ[<span class="string">"COLAB_TPU_ADDR"</span>]</span><br><span class="line">tpu_cluster_resolver = tf.contrib.cluster_resolver.TPUClusterResolver(tpu_grpc_url)</span><br><span class="line">strategy = keras_support.TPUDistributionStrategy(tpu_cluster_resolver)</span><br></pre></td></tr></table></figure>
-
-<p>成功运行的话，可以看到，显示返回到了地址，然后从地址去获取设备信息，1 Worker 8 Core 的 TPU。注意这个数字，因为这意味之后测试集需要组成 batch 为 8 的倍数才能传入。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">INFO:tensorflow:Querying Tensorflow master (grpc://10.110.24.138:8470) for TPU system metadata.</span><br><span class="line">INFO:tensorflow:Found TPU system:</span><br><span class="line">INFO:tensorflow:*** Num TPU Cores: 8</span><br><span class="line">INFO:tensorflow:*** Num TPU Workers: 1</span><br><span class="line">INFO:tensorflow:*** Num TPU Cores Per Worker: 8</span><br><span class="line">INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:worker/replica:0/task:0/device:CPU:0, CPU, -1, 14991867850935745303)</span><br><span class="line">INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:worker/replica:0/task:0/device:XLA_CPU:0, XLA_CPU, 17179869184, 4977701856257024240)</span><br><span class="line">INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:worker/replica:0/task:0/device:TPU:0, TPU, 17179869184, 799391477980569210)</span><br><span class="line">INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:worker/replica:0/task:0/device:TPU:1, TPU, 17179869184, 7413645770321013063)</span><br><span class="line">INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:worker/replica:0/task:0/device:TPU:2, TPU, 17179869184, 12127959108352401067)</span><br><span class="line">INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:worker/replica:0/task:0/device:TPU:3, TPU, 17179869184, 9301267841357501458)</span><br><span class="line">INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:worker/replica:0/task:0/device:TPU:4, TPU, 17179869184, 2329118821990200537)</span><br><span class="line">INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:worker/replica:0/task:0/device:TPU:5, TPU, 17179869184, 6102181154716035854)</span><br><span class="line">INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:worker/replica:0/task:0/device:TPU:6, TPU, 17179869184, 6202014608559033004)</span><br><span class="line">INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:worker/replica:0/task:0/device:TPU:7, TPU, 17179869184, 7250002334323814010)</span><br><span class="line">INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:worker/replica:0/task:0/device:TPU_SYSTEM:0, TPU_SYSTEM, 8589934592, 16188795321964965491)</span><br></pre></td></tr></table></figure>
-
-<h1 id="训练前的准备"><a href="#训练前的准备" class="headerlink" title="训练前的准备"></a>训练前的准备</h1><p>终于到了要训练的时候，不过注意，TPU 的模型不同于 GPU 和 CPU 的模型关系，TPU 模型需要特殊的转换才能跑，而且模型也会损失掉部分方法，之前我们降级实际上就是为了使用在 1.14 中目前不支持的函数。相信之后 TPU 的时候会越来越方便，毕竟现在还处于发展初期。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Convert cpu model to tpu model</span></span><br><span class="line">myOptimizer = tf.keras.optimizers.SGD(lr=<span class="number">0.01</span>, momentum=<span class="number">0.7</span>)</span><br><span class="line">my_cnn = build_nn()</span><br><span class="line">my_cnn.compile(optimizer=myOptimizer, loss=<span class="string">'binary_crossentropy'</span>, metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line">my_cnn = tf.contrib.tpu.keras_to_tpu_model(my_cnn, strategy=strategy)</span><br></pre></td></tr></table></figure>
-
-<p>这段代码中有个非常容易被忽视的点，那就是optimizer必须使用到 TensorFlow 的，而不是 Keras 的，否则就会报错哦！我这里使用的是 <code>Adam</code> 算法，这里特别说下，常用的随机梯度下降（SGD）目前在 TensorFlow 中映射到 keras 支持模块，不能直接拿来用。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Convert CPU model to TPU model</span></span><br><span class="line">myOptimizer = tf.train.AdamOptimizer()</span><br><span class="line">my_cnn = build_nn()</span><br><span class="line">my_cnn.compile(optimizer=myOptimizer, loss=<span class="string">'binary_crossentropy'</span>, metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line">my_cnn = tf.contrib.tpu.keras_to_tpu_model(my_cnn, strategy=strategy)</span><br></pre></td></tr></table></figure>
-
-<p>执行成功的话就会看到下面的文字：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WARNING:tensorflow:tpu_model (from tensorflow.contrib.tpu.python.tpu.keras_support) is experimental and may change or be removed at any time, and without warning.</span><br></pre></td></tr></table></figure>
-
-<h1 id="训练，咖啡时间"><a href="#训练，咖啡时间" class="headerlink" title="训练，咖啡时间"></a>训练，咖啡时间</h1><p><code>epoch</code> 要多少自己看着设定，第一轮训练其实是较慢的，第二次开始时，速度比起传统 GPU 训练可以说是非常之快速了。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Train!</span></span><br><span class="line">my_cnn.fit_generator(train_data,</span><br><span class="line">                     steps_per_epoch=<span class="number">8000</span>,</span><br><span class="line">                     epochs=<span class="number">10</span>,</span><br><span class="line">                     validation_data=validation_data,</span><br><span class="line">                     validation_steps=<span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="保存权重"><a href="#保存权重" class="headerlink" title="保存权重"></a>保存权重</h1><p>尽量不要直接使用保存全网络的函数，保存权重即可。<br>测试可以在本地构建一个 CPU 模型导入权重来进行测试。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classifier.save_weights(<span class="string">'weights.h5'</span>, overwrite=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>专用硬件训练网络体验真的很棒！只是现在外部软件支持还没有做的很好，但是足以让人期待之后的表现的。<br>深度学习从几年前的实装困难，到现在简单几句就能开始训练，确确实实从学术界普及到了日常生活之中。很多初学者手上没有足够的硬件导致学习效率低下，相信随着芯片技术的发展，这个问题将不复存在。</p>
 
     </div>
-
-    
-    
-    
-        
-      
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>Zhou Fang</li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://fang2hou.com/use-tpu-to-train-cnn/" title="使用 Google Colab 提供的免费 TPU 进行训练">https://fang2hou.com/use-tpu-to-train-cnn/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC</span> 许可协议。转载请注明出处！</li>
-</ul>
-</div>
-
-      
-
-      <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/CNN/" rel="tag"><i class="fa fa-tag"></i> CNN</a>
-            
-              <a href="/tags/Deep-Learning/" rel="tag"><i class="fa fa-tag"></i> Deep Learning</a>
-            
-              <a href="/tags/TPU/" rel="tag"><i class="fa fa-tag"></i> TPU</a>
-            
-          </div>
-        
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/install-padavan-on-xiaomi-router-mini/" rel="next" title="在小米路由器 Mini 上安装 Pandavan 固件">
-                  <i class="fa fa-chevron-left"></i> 在小米路由器 Mini 上安装 Pandavan 固件
-                </a>
-              
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-            </div>
-          </div>
-        
-      </footer>
-    
-  </article>
-  
-  
-  
-
   </div>
 
-
-          </div>
-          
-
-        </div>
-          
+</div>
+        
   
   <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
 
   <aside class="sidebar">
-    <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -501,143 +211,381 @@
       </ul>
 
       <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-Colab-环境"><span class="nav-number">2.</span> <span class="nav-text">配置 Colab 环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下载数据集"><span class="nav-number">3.</span> <span class="nav-text">下载数据集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导入库"><span class="nav-number">4.</span> <span class="nav-text">导入库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据集预处理"><span class="nav-number">5.</span> <span class="nav-text">数据集预处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构建网络"><span class="nav-number">6.</span> <span class="nav-text">构建网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化-TPU-环境"><span class="nav-number">7.</span> <span class="nav-text">初始化 TPU 环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#训练前的准备"><span class="nav-number">8.</span> <span class="nav-text">训练前的准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#训练，咖啡时间"><span class="nav-number">9.</span> <span class="nav-text">训练，咖啡时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#保存权重"><span class="nav-number">10.</span> <span class="nav-text">保存权重</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">11.</span> <span class="nav-text">结论</span></a></li></ol></div>
-        
-      </div>
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Colab-%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">配置 Colab 环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">3.</span> <span class="nav-text">下载数据集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">导入库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">数据集预处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E7%BD%91%E7%BB%9C"><span class="nav-number">6.</span> <span class="nav-text">构建网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-TPU-%E7%8E%AF%E5%A2%83"><span class="nav-number">7.</span> <span class="nav-text">初始化 TPU 环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87"><span class="nav-number">8.</span> <span class="nav-text">训练前的准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%EF%BC%8C%E5%92%96%E5%95%A1%E6%97%B6%E9%97%B4"><span class="nav-number">9.</span> <span class="nav-text">训练，咖啡时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E6%9D%83%E9%87%8D"><span class="nav-number">10.</span> <span class="nav-text">保存权重</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">11.</span> <span class="nav-text">结论</span></a></li></ol></div>
+      </section>
       <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.jpg"
-      alt="Zhou Fang">
-  <p class="site-author-name" itemprop="name">Zhou Fang</p>
-  <div class="site-description" itemprop="description">分享自己的知识</div>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="方舟"
+      src="/assets/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">方舟</p>
+  <div class="site-description" itemprop="description">研1 @ 筑波大学</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives">
-        
           <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
-          
-        
         <span class="site-state-item-count">40</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9mYW5nMmhvdQ==" title="Twitter &rarr; https://twitter.com/fang2hou"><i class="fa fa-fw fa-twitter"></i></span>
+        <a href="https://github.com/fang2hou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fang2hou" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhbmcyaG91" title="GitHub &rarr; https://github.com/fang2hou"><i class="fa fa-fw fa-github"></i></span>
+        <a href="mailto:iszhoufang@gmail.com" title="E-Mail → mailto:iszhoufang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="bWFpbHRvOmlzMDM4NXJ4QGVkLnJpdHN1bWVpLmFjLmpw" title="E-Mail &rarr; mailto:is0385rx@ed.ritsumei.ac.jp"><i class="fa fa-fw fa-envelope"></i></span>
+        <a href="https://twitter.com/fang2hou" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;fang2hou" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cDovL3d3dy5saW5rZWRpbi5jb20vaW4vemhvdS1mYW5nLWNu" title="Linkedin &rarr; http://www.linkedin.com/in/zhou-fang-cn"><i class="fa fa-fw fa-linkedin"></i></span>
+        <a href="http://www.linkedin.com/in/zhou-fang-cn" title="Linkedin → http:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;zhou-fang-cn" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i></a>
       </span>
-    
   </div>
-  <div class="cc-license motion-element" itemprop="license">
-    
-  
-    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><img src="/images/cc-by-nc.svg" alt="Creative Commons"></span>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc.svg" alt="Creative Commons"></a>
   </div>
 
 
 
-      </div>
-
+      </section>
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-dimmer"></div>
 
 
-      </div>
-    </main>
+    </header>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Zhou Fang</span>
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fang2hou.com/use-tpu-to-train-cnn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.jpg">
+      <meta itemprop="name" content="方舟">
+      <meta itemprop="description" content="研1 @ 筑波大学">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fang2hou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用 Google Colab 提供的免费 TPU 进行训练
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-09 20:28:51" itemprop="dateCreated datePublished" datetime="2019-10-09T20:28:51+09:00">2019-10-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2019-10-10 12:25:14" itemprop="dateModified" datetime="2019-10-10T12:25:14+09:00">2019-10-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="firestore-visitors-count"></span>
+    </span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>比起深度学习最初的 CPU 计算，现在普遍使用 GPU 来进行训练，效率提升已然是相当明显。但是像是 Google 和阿里巴巴这些科技巨头还是不满足这些，直接让日常使用介入芯片研发，Google 提出 TPU 方案，阿里也成立了平头哥独立品牌来发布新品。官方说法是对于目前顶尖 GPU 都有 20 倍以上的算力提升。<br>阿里和 Google 的芯片技术都已经实装运用在了自家的云服务上，不过有幸的是，Google 在自家推出的 Colab 机器学习平台之中提供了免费试用 TPU 的机会。这篇文章将会介绍一下当下，快速使用 Keras 进行训练的一个实例。<br>在看下面的文字的之前，最好回忆一下简单的 CNN 构造。如果你有一些 Keras 或是 TensorFlow 相关的使用经验，那么应该能够非常快速的理解。</p>
+<a id="more"></a>
+<h1 id="配置-Colab-环境"><a href="#配置-Colab-环境" class="headerlink" title="配置 Colab 环境"></a>配置 Colab 环境</h1><p>打开 <a target="_blank" rel="noopener" href="https://colab.research.google.com/">https://colab.research.google.com</a>，登陆谷歌账户就可以直接启动一个全新的运行实例。<br>由于是要使用 TPU，所以还要在菜单栏中的 <code>Runtime</code> -&gt; <code>Change runtime type</code> 手动设定环境为 Python 3，硬件加速为 TPU。</p>
+
+
+<p>Colab 不但可以承担 Jupyter Notebook 的工作，其实 Google 还为你准备了一个虚拟机。</p>
+<p>在撰写本文时，TensorFlow 的正式版本为 1.14，但是我们需要执行的 Keras 支持训练命令(<code>model.fit_generator</code>)目前只适配到 1.13，所以先进行降级。<br>在第一个 Code cell 里填入下面的代码来实现降级，由于要先卸载掉 1.14，得稍微等待一下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Downgrade tf to 1.13.1</span></span><br><span class="line">!pip install tensorflow==1.13.1</span><br></pre></td></tr></table></figure>
+<p>在降级成功后，Colab 会在输出之中会提示让你进行一次运行实例重启，点击 <code>RESTART RUNTIME</code> 即可。<br>有时候没有提示的话，就通过 <code>Runtime</code> -&gt; <code>Restart runtime...</code> 重启。</p>
+<h1 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h1><p>在第二个 Code cell 里填入下面的代码来下载公开的测试数据集（猫狗大战，猫狗各 4000 训练集 + 1000 测试集）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Download and unzip dataset</span></span><br><span class="line">!wget https://sds-platform-private.s3-us-east-2.amazonaws.com/uploads/P16-Convolutional-Neural-Networks.zip</span><br><span class="line">!unzip -qq P16-Convolutional-Neural-Networks.zip <span class="string">&quot;Convolutional_Neural_Networks/dataset/*&quot;</span></span><br><span class="line">!mv Convolutional_Neural_Networks/dataset dataset</span><br><span class="line">!rm -rf Convolutional_Neural_Networks</span><br></pre></td></tr></table></figure>
+
+<h1 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h1><p>这里导入 <code>os</code> 库用于 TPU 支持相关语句。<br><strong>注意：虽然我们是写 Keras 代码，但这里不能直接使用 <code>keras</code> 库中的模型，而是要使用 <code>tensorflow.keras</code>。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.contrib.tpu.python.tpu <span class="keyword">import</span> keras_support</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Conv2D, MaxPooling2D, Flatten, Dense, Dropout</span><br><span class="line"><span class="keyword">from</span> keras.preprocessing.image <span class="keyword">import</span> ImageDataGenerator</span><br></pre></td></tr></table></figure>
+
+<h1 id="数据集预处理"><a href="#数据集预处理" class="headerlink" title="数据集预处理"></a>数据集预处理</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Image processing</span></span><br><span class="line">train_datagen = ImageDataGenerator(rescale=<span class="number">1.</span> /<span class="number">255</span>,</span><br><span class="line">                                   shear_range=<span class="number">0.2</span>,</span><br><span class="line">                                   zoom_range=<span class="number">0.2</span>,</span><br><span class="line">                                   horizontal_flip=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">test_datagen = ImageDataGenerator(rescale=<span class="number">1.</span> / <span class="number">255</span>)</span><br><span class="line"></span><br><span class="line">train_data = train_datagen.flow_from_directory(<span class="string">&#x27;dataset/training_set&#x27;</span>,</span><br><span class="line">                                               target_size=(<span class="number">128</span>, <span class="number">128</span>),</span><br><span class="line">                                               batch_size=<span class="number">32</span>,</span><br><span class="line">                                               class_mode=<span class="string">&#x27;binary&#x27;</span>)</span><br><span class="line"></span><br><span class="line">validation_data = test_datagen.flow_from_directory(<span class="string">&#x27;dataset/test_set&#x27;</span>,</span><br><span class="line">                                                   target_size=(<span class="number">128</span>, <span class="number">128</span>),</span><br><span class="line">                                                   batch_size=<span class="number">32</span>,</span><br><span class="line">                                                   class_mode=<span class="string">&#x27;binary&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>很容易理解吧，这里的代码主要来自于 Keras 的官方文档。<br>我打算采用 (128, 128, 3) 的格式输入学习数据，每批个数为 32。你可以根据自己的想法进行调整。<br>如果一切顺利，你可以看到下面的输出。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Found <span class="number">8000</span> images belonging to <span class="number">2</span> classes.</span><br><span class="line">Found <span class="number">2000</span> images belonging to <span class="number">2</span> classes.</span><br></pre></td></tr></table></figure>
+
+<h1 id="构建网络"><a href="#构建网络" class="headerlink" title="构建网络"></a>构建网络</h1><p>一个简单的卷积网络<br>3 个卷积层，每次都进行池化，全连接层习惯性用2个。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_nn</span>():</span></span><br><span class="line">    <span class="comment"># Build the CNN</span></span><br><span class="line">    model = Sequential()</span><br><span class="line"></span><br><span class="line">    model.add(Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&#x27;same&#x27;</span>, activation=<span class="string">&#x27;relu&#x27;</span>, kernel_initializer=<span class="string">&#x27;he_uniform&#x27;</span>, input_shape=(<span class="number">128</span>, <span class="number">128</span>, <span class="number">3</span>)))</span><br><span class="line">    model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">    model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&#x27;same&#x27;</span>, activation=<span class="string">&#x27;relu&#x27;</span>, kernel_initializer=<span class="string">&#x27;he_uniform&#x27;</span>))</span><br><span class="line">    model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">    model.add(Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&#x27;same&#x27;</span>, activation=<span class="string">&#x27;relu&#x27;</span>, kernel_initializer=<span class="string">&#x27;he_uniform&#x27;</span>))</span><br><span class="line">    model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">    model.add(Flatten())</span><br><span class="line"></span><br><span class="line">    model.add(Dense(<span class="number">256</span>, activation=<span class="string">&#x27;relu&#x27;</span>))</span><br><span class="line">    model.add(Dropout(<span class="number">0.2</span>))</span><br><span class="line"></span><br><span class="line">    model.add(Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>))</span><br><span class="line">    model.add(Dropout(<span class="number">0.2</span>))</span><br><span class="line"></span><br><span class="line">    model.add(Dense(<span class="number">1</span>, activation=<span class="string">&#x27;sigmoid&#x27;</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
+
+<h1 id="初始化-TPU-环境"><a href="#初始化-TPU-环境" class="headerlink" title="初始化 TPU 环境"></a>初始化 TPU 环境</h1><p>先取得 TPU 的位置，这套用法基本上是固定的，每次要用的时候 copy-paste 就行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Initialize TPU</span></span><br><span class="line">tpu_grpc_url = <span class="string">&quot;grpc://&quot;</span>+os.environ[<span class="string">&quot;COLAB_TPU_ADDR&quot;</span>]</span><br><span class="line">tpu_cluster_resolver = tf.contrib.cluster_resolver.TPUClusterResolver(tpu_grpc_url)</span><br><span class="line">strategy = keras_support.TPUDistributionStrategy(tpu_cluster_resolver)</span><br></pre></td></tr></table></figure>
+
+<p>成功运行的话，可以看到，显示返回到了地址，然后从地址去获取设备信息，1 Worker 8 Core 的 TPU。注意这个数字，因为这意味之后测试集需要组成 batch 为 8 的倍数才能传入。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>Querying Tensorflow master (<span class="attr">grpc:</span><span class="comment">//10.110.24.138:8470) for TPU system metadata.</span></span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>Found TPU <span class="attr">system:</span></span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Num TPU <span class="attr">Cores:</span> <span class="number">8</span></span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Num TPU <span class="attr">Workers:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Num TPU Cores Per <span class="attr">Worker:</span> <span class="number">8</span></span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">CPU:</span><span class="number">0</span>, CPU, <span class="number">-1</span>, <span class="number">14991867850935745303</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">XLA_CPU:</span><span class="number">0</span>, XLA_CPU, <span class="number">17179869184</span>, <span class="number">4977701856257024240</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">0</span>, TPU, <span class="number">17179869184</span>, <span class="number">799391477980569210</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">1</span>, TPU, <span class="number">17179869184</span>, <span class="number">7413645770321013063</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">2</span>, TPU, <span class="number">17179869184</span>, <span class="number">12127959108352401067</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">3</span>, TPU, <span class="number">17179869184</span>, <span class="number">9301267841357501458</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">4</span>, TPU, <span class="number">17179869184</span>, <span class="number">2329118821990200537</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">5</span>, TPU, <span class="number">17179869184</span>, <span class="number">6102181154716035854</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">6</span>, TPU, <span class="number">17179869184</span>, <span class="number">6202014608559033004</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU:</span><span class="number">7</span>, TPU, <span class="number">17179869184</span>, <span class="number">7250002334323814010</span>)</span><br><span class="line"><span class="attr">INFO:</span><span class="attr">tensorflow:</span>*** Available <span class="attr">Device:</span> _DeviceAttributes(<span class="regexp">/job:worker/</span><span class="attr">replica:</span><span class="number">0</span><span class="regexp">/task:0/</span><span class="attr">device:</span><span class="attr">TPU_SYSTEM:</span><span class="number">0</span>, TPU_SYSTEM, <span class="number">8589934592</span>, <span class="number">16188795321964965491</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="训练前的准备"><a href="#训练前的准备" class="headerlink" title="训练前的准备"></a>训练前的准备</h1><p>终于到了要训练的时候，不过注意，TPU 的模型不同于 GPU 和 CPU 的模型关系，TPU 模型需要特殊的转换才能跑，而且模型也会损失掉部分方法，之前我们降级实际上就是为了使用在 1.14 中目前不支持的函数。相信之后 TPU 的时候会越来越方便，毕竟现在还处于发展初期。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Convert cpu model to tpu model</span></span><br><span class="line">myOptimizer = tf.keras.optimizers.SGD(lr=<span class="number">0.01</span>, momentum=<span class="number">0.7</span>)</span><br><span class="line">my_cnn = build_nn()</span><br><span class="line">my_cnn.compile(optimizer=myOptimizer, loss=<span class="string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line">my_cnn = tf.contrib.tpu.keras_to_tpu_model(my_cnn, strategy=strategy)</span><br></pre></td></tr></table></figure>
+
+<p>这段代码中有个非常容易被忽视的点，那就是optimizer必须使用到 TensorFlow 的，而不是 Keras 的，否则就会报错哦！我这里使用的是 <code>Adam</code> 算法，这里特别说下，常用的随机梯度下降（SGD）目前在 TensorFlow 中映射到 keras 支持模块，不能直接拿来用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Convert CPU model to TPU model</span></span><br><span class="line">myOptimizer = tf.train.AdamOptimizer()</span><br><span class="line">my_cnn = build_nn()</span><br><span class="line">my_cnn.compile(optimizer=myOptimizer, loss=<span class="string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line">my_cnn = tf.contrib.tpu.keras_to_tpu_model(my_cnn, strategy=strategy)</span><br></pre></td></tr></table></figure>
+
+<p>执行成功的话就会看到下面的文字：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">WARNING</span><span class="selector-pseudo">:tensorflow</span><span class="selector-pseudo">:tpu_model</span> (<span class="selector-tag">from</span> <span class="selector-tag">tensorflow</span><span class="selector-class">.contrib</span><span class="selector-class">.tpu</span><span class="selector-class">.python</span><span class="selector-class">.tpu</span><span class="selector-class">.keras_support</span>) <span class="selector-tag">is</span> <span class="selector-tag">experimental</span> <span class="selector-tag">and</span> <span class="selector-tag">may</span> <span class="selector-tag">change</span> <span class="selector-tag">or</span> <span class="selector-tag">be</span> <span class="selector-tag">removed</span> <span class="selector-tag">at</span> <span class="selector-tag">any</span> <span class="selector-tag">time</span>, <span class="selector-tag">and</span> <span class="selector-tag">without</span> <span class="selector-tag">warning</span>.</span><br></pre></td></tr></table></figure>
+
+<h1 id="训练，咖啡时间"><a href="#训练，咖啡时间" class="headerlink" title="训练，咖啡时间"></a>训练，咖啡时间</h1><p><code>epoch</code> 要多少自己看着设定，第一轮训练其实是较慢的，第二次开始时，速度比起传统 GPU 训练可以说是非常之快速了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Train!</span></span><br><span class="line">my_cnn.fit_generator(train_data,</span><br><span class="line">                     steps_per_epoch=<span class="number">8000</span>,</span><br><span class="line">                     epochs=<span class="number">10</span>,</span><br><span class="line">                     validation_data=validation_data,</span><br><span class="line">                     validation_steps=<span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="保存权重"><a href="#保存权重" class="headerlink" title="保存权重"></a>保存权重</h1><p>尽量不要直接使用保存全网络的函数，保存权重即可。<br>测试可以在本地构建一个 CPU 模型导入权重来进行测试。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classifier.save_weights(<span class="string">&#x27;weights.h5&#x27;</span>, overwrite=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>专用硬件训练网络体验真的很棒！只是现在外部软件支持还没有做的很好，但是足以让人期待之后的表现的。<br>深度学习从几年前的实装困难，到现在简单几句就能开始训练，确确实实从学术界普及到了日常生活之中。很多初学者手上没有足够的硬件导致学习效率低下，相信随着芯片技术的发展，这个问题将不复存在。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>方舟
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://fang2hou.com/use-tpu-to-train-cnn/" title="使用 Google Colab 提供的免费 TPU 进行训练">https://fang2hou.com/use-tpu-to-train-cnn/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/CNN/" rel="tag"># CNN</a>
+              <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+              <a href="/tags/TPU/" rel="tag"># TPU</a>
+          </div>
 
         
 
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/install-padavan-on-xiaomi-router-mini/" rel="prev" title="在小米路由器 Mini 上安装 Pandavan 固件">
+                  <i class="fa fa-chevron-left"></i> 在小米路由器 Mini 上安装 Pandavan 固件
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
 
 
 
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">方舟</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/firebase@7.21.1/firebase-app.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/firebase@7.21.1/firebase-firestore.js"></script>
   <script>
     firebase.initializeApp({
-      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      apiKey   : 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
       projectId: 'calcium-anagram-255411'
     });
 
     function getCount(doc, increaseCount) {
       // IncreaseCount will be false when not in article page
-
       return doc.get().then(d => {
-        var count = 0;
+        let count = 0;
         if (!d.exists) { // Has no data, initialize count
           if (increaseCount) {
             doc.set({
@@ -666,15 +614,17 @@
       }
     }
   </script>
-  <script pjax>
+  <script data-pjax>
     (function() {
-      var db = firebase.firestore();
-      var articles = db.collection('articles');
+      const db = firebase.firestore();
+      const articles = db.collection('articles');
 
-      if (CONFIG.page.isPost) { // Is article page
-        var title = document.querySelector('.post-title').innerText.trim();
-        var doc = articles.doc(title);
-        var increaseCount = true;
+      if (CONFIG.page.isPost) {
+        // Fix issue #118
+        // https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
+        const title = document.querySelector('.post-title').textContent.trim();
+        const doc = articles.doc(title);
+        let increaseCount = CONFIG.hostname === location.hostname;
         if (localStorage.getItem(title)) {
           increaseCount = false;
         } else {
@@ -682,14 +632,14 @@
           localStorage.setItem(title, true);
         }
         getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
-      } else if (CONFIG.page.isHome) { // Is index page
-        var promises = [...document.querySelectorAll('.post-title')].map(element => {
-          var title = element.innerText.trim();
-          var doc = articles.doc(title);
+      } else if (CONFIG.page.isHome) {
+        const promises = [...document.querySelectorAll('.post-title')].map(element => {
+          const title = element.textContent.trim();
+          const doc = articles.doc(title);
           return getCount(doc);
         });
         Promise.all(promises).then(counts => {
-          var metas = document.querySelectorAll('.firestore-visitors-count');
+          const metas = document.querySelectorAll('.firestore-visitors-count');
           counts.forEach((val, idx) => {
             appendCountTo(metas[idx])(val);
           });
@@ -701,110 +651,33 @@
 
 
 
-
-
-
-
-        
-      </div>
-    </footer>
-  </div>
+    <div class="pjax">
+  
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
-  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
+      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+  <script src="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/copy-tex.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/copy-tex.min.css">
 
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
-    var id = element.id || '';
-    var src = element.src || '';
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (id !=='') {
-      script.id = element.id;
-    }
-    if (src !== '') {
-      script.src = src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments('#disqus_thread', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : 'lmtKiOlv0fSZoy1nJMLyuVEcdZKaZuKKJu10a5ku1ezeYttpEA5IdrhpT01ULcue',
+      shortname : 'fang2hou-blog',
+      url       : "https://fang2hou.com/use-tpu-to-train-cnn/",
+      identifier: "use-tpu-to-train-cnn/",
+      title     : "使用 Google Colab 提供的免费 TPU 进行训练",
+    });
+  }, window.DisqusJS);
 });
 </script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-  
 
     </div>
 </body>

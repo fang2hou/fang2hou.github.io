@@ -1,92 +1,57 @@
 <!DOCTYPE html>
-
-
-
-
-
-<html lang="zh-CN">
+<html lang="zh-CN,en,ja,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.4.1',
-    exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
-    copycode: {"enable":"enable","show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: true,
-    lazyload: true,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"搜索文章","hits_empty":"无法检索到关于 ${query} 的文章。","hits_stats":"找到了 ${hits} 个结果，耗时 ${time} 毫秒。"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fang2hou.com","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":14},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
+  </script>
 
   <meta name="description" content="初识树莓派树莓派的元件都在表面，没有什么好特殊介绍的，自己上手翻着看一会应该就能对它熟悉了。这里想花点笔墨说下树莓派的针脚。树莓派的针脚排布是有点混乱的，要辨识针脚，首先，请你按照下图的方向可以举起你手中的树莓派。">
-<meta name="keywords" content="Raspberry Pi,LED">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派搞机日记（二）">
 <meta property="og:url" content="https://fang2hou.com/raspberry-pi-guide-02/index.html">
-<meta property="og:site_name" content="Fang2hou">
+<meta property="og:site_name" content="fang2hou">
 <meta property="og:description" content="初识树莓派树莓派的元件都在表面，没有什么好特殊介绍的，自己上手翻着看一会应该就能对它熟悉了。这里想花点笔墨说下树莓派的针脚。树莓派的针脚排布是有点混乱的，要辨识针脚，首先，请你按照下图的方向可以举起你手中的树莓派。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-11T11:54:32.000Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-02-11T00:52:02.000Z">
+<meta property="article:modified_time" content="2019-02-11T11:54:32.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Raspberry Pi">
+<meta property="article:tag" content="LED">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树莓派搞机日记（二）">
-<meta name="twitter:description" content="初识树莓派树莓派的元件都在表面，没有什么好特殊介绍的，自己上手翻着看一会应该就能对它熟悉了。这里想花点笔墨说下树莓派的针脚。树莓派的针脚排布是有点混乱的，要辨识针脚，首先，请你按照下图的方向可以举起你手中的树莓派。">
-  <link rel="canonical" href="https://fang2hou.com/raspberry-pi-guide-02/">
 
 
-<script id="page-configurations">
+<link rel="canonical" href="https://fang2hou.com/raspberry-pi-guide-02/">
+
+
+<script data-pjax class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-  <title>树莓派搞机日记（二） | Fang2hou</title>
+  <title>树莓派搞机日记（二） | fang2hou</title>
   
-
-
 
 
 
@@ -95,397 +60,147 @@
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
 
-  .use-motion .logo,
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Fang2hou</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <h1 class="site-subtitle" itemprop="description">前途路漫漫，我心仍执着</h1>
-      
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">fang2hou</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">千里之行，始于足下</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-文章分类">
-      
-    
+        <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>文章分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-程序项目">
-      
-    
+        <li class="menu-item menu-item-projects">
 
-    <a href="/projects/" rel="section"><i class="fa fa-fw fa-code-fork"></i>程序项目</a>
+    <a href="/projects/" rel="section"><i class="fa fa-code-branch fa-fw"></i>项目</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-课程笔记">
-      
-    
+        <li class="menu-item menu-item-notes">
 
-    <a href="//github.com/fang2hou/notes" rel="section"><i class="fa fa-fw fa-sticky-note"></i>课程笔记</a>
+    <a target="_blank" href="//github.com/fang2hou/notes" rel="section noopener"><i class="fa fa-sticky-note fa-fw"></i>笔记</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-私人网盘">
-      
-    
+        <li class="menu-item menu-item-about">
 
-    <a href="//file.fang2hou.com" rel="section"><i class="fa fa-fw fa-cloud-download"></i>私人网盘</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-立命馆相关">
-      
-    
-
-    <a href="/ritsumei/" rel="section"><i class="fa fa-fw fa-registered"></i>立命馆相关</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-关于我">
-      
-    
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于我</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>搜索</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-            
-
-          <div id="content" class="content">
-            
-
-  <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://fang2hou.com/raspberry-pi-guide-02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhou Fang">
-      <meta itemprop="description" content="分享自己的知识">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fang2hou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">树莓派搞机日记（二）
-
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-11 09:52:02 / 修改时间：20:54:32" itemprop="dateCreated datePublished" datetime="2019-02-11T09:52:02+09:00">2019-02-11</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/树莓派/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            <span class="post-meta-item" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-users"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="firestore-visitors-count"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h1 id="初识树莓派"><a href="#初识树莓派" class="headerlink" title="初识树莓派"></a>初识树莓派</h1><p>树莓派的元件都在表面，没有什么好特殊介绍的，自己上手翻着看一会应该就能对它熟悉了。这里想花点笔墨说下树莓派的针脚。<br>树莓派的针脚排布是有点混乱的，要辨识针脚，首先，请你按照下图的方向可以举起你手中的树莓派。</p>
-<img title="USB 向下放置树莓派" data-src="/raspberry-pi-guide-02/pi.png">
-<a id="more"></a>
-<p>然后我们打开 <span class="exturl" data-url="aHR0cHM6Ly9waW5vdXQueHl6" title="https://pinout.xyz">Raspberry Pi Pinout<i class="fa fa-external-link"></i></span>，在这个页面上，你可以清晰的看到各个针脚代表的编码。<br>而树莓派有 3 种不同的模式来约束针脚的使用：</p>
-<ol>
-<li><strong>RPi.GPIO.BOARD</strong> 完全按照 <code>1, 2, 3, ...</code> 这样顺序排列的。</li>
-<li><strong>RPi.GPIO.BCM</strong> 针脚图上写着 <code>BCM 1</code>，<code>BCM 2</code> 这样的。</li>
-<li><strong>WiringPi</strong>（类 Arduino）<span class="exturl" data-url="aHR0cHM6Ly9waW5vdXQueHl6L3Bpbm91dC93aXJpbmdwaQ==" title="https://pinout.xyz/pinout/wiringpi">专用针脚图<i class="fa fa-external-link"></i></span></li>
-</ol>
-<p>使用上全凭使用者的喜好，个人喜欢 BCM 一点。</p>
-<p><code>RPi.GPIO</code> 库可以通过下面的命令来安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install RPi.GPIO</span><br></pre></td></tr></table></figure>
-
-<p><code>WiringPi</code> 库可以通过下面的命令来安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install WiringPi</span><br></pre></td></tr></table></figure>
-
-<p><code>WiringPi</code> 的 Python 使用者应该读一下 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dpcmluZ1BpL1dpcmluZ1BpLVB5dGhvbg==" title="https://github.com/WiringPi/WiringPi-Python">项目的 Github 主页<i class="fa fa-external-link"></i></span>。<br>其实不光是针脚的使用方式了，就连函数调用都和 Arduino 非常相似。<del>高仿</del></p>
-<p>如果像我一样比较懒，可以去购买一块带有标识板子，插在面包板上也方便连接。</p>
-<img title="懒人面包板" data-src="/raspberry-pi-guide-02/myboard.png">
-
-<h1 id="推荐库"><a href="#推荐库" class="headerlink" title="推荐库"></a>推荐库</h1><p><strong>GPIO Zero</strong>，一个 GPIO 增强库，包含了非常多的预设功能，如 LED，按钮，电机控制等等。<br>在带有桌面环境的 <code>Raspbian</code> 已经自带，如果是使用命令行版本的用户，可以通过下面命令安装。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install gpiozero</span><br></pre></td></tr></table></figure>
-
-<p>安装后在命令行输入 <code>pinout</code>，你就会发现一个命令行版本的针脚图。<br>关于此库更多的功能我将会在之后的搞机日记中展开。</p>
-<h1 id="双色-LED-实验"><a href="#双色-LED-实验" class="headerlink" title="双色 LED 实验"></a>双色 LED 实验</h1><h2 id="元件介绍"><a href="#元件介绍" class="headerlink" title="元件介绍"></a>元件介绍</h2><p>LED 是非常简单的电子元件，适合我们用于第一次进行正式的树莓派学习。</p>
-<p>首先，我先介绍一下我的双色 LED 元件，支持发出红色和绿色光。</p>
-<img title="双色 LED 元件" data-src="/raspberry-pi-guide-02/rg.png">
-
-<p>从图中可以看到，该元件有三个针脚。最接近 <code>-</code> 的针脚代表该针脚接地。右边两个针脚分别对应 R，G，属于 Singal 针脚，缩写为 <code>S</code>。</p>
-<h2 id="连接方式："><a href="#连接方式：" class="headerlink" title="连接方式："></a>连接方式：</h2><p>采用比较简单的连接方式：</p>
-<ol>
-<li>橙色线代表 <code>R</code> 针脚，接入 <code>BCM 17</code></li>
-<li>绿色线代表 <code>G</code> 针脚，接入 <code>BCM 18</code></li>
-<li>白色线代表 <code>GND</code> 针脚， 接入 <code>GND</code></li>
-</ol>
-<img title="双色 LED 连接" data-src="/raspberry-pi-guide-02/rg_connection.png">
-
-<h2 id="范例代码-01"><a href="#范例代码-01" class="headerlink" title="范例代码 01"></a>范例代码 01</h2><p>首先我们得让我们的 LED 亮起来，原理非常简单，只要给相应针脚一个高电压即可。<br>这是第一次代码范例，注释会尽量详细一点。如果对 Python 不熟悉的话，通过下面的代码注释应该有一些启发，只要能理解这次的流程，那么后面就不是很难了。毕竟，Python 封装了非常多的实用库，主要还是流程细节的设计。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入 GPIO 库</span></span><br><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义用于 LED 的针脚 BCM 编号</span></span><br><span class="line">LED_R = <span class="number">17</span></span><br><span class="line">LED_G = <span class="number">18</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设定针脚编号为 BCM 模式</span></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设定 LED 针脚可用于输出</span></span><br><span class="line">GPIO.setup(LED_R, GPIO.OUT)</span><br><span class="line">GPIO.setup(LED_G, GPIO.OUT)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关于 __name__ == "__main__"：</span></span><br><span class="line"><span class="comment"># 如果是直接运行本代码，而不是其他 Python 代码调用本文件的话，则会执行</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="comment"># 给两个针脚电压</span></span><br><span class="line">            GPIO.output(LED_R, GPIO.HIGH)</span><br><span class="line">            GPIO.output(LED_G, GPIO.HIGH)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="comment"># 检测到中断信号后，关闭 GPIO 通道以供下次使用</span></span><br><span class="line">        GPIO.cleanup()</span><br><span class="line">        <span class="comment"># 退出返回状态代码 6</span></span><br><span class="line">        exit(<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="范例代码-02"><a href="#范例代码-02" class="headerlink" title="范例代码 02"></a>范例代码 02</h2><p>通过上一节，我们已经可以通过常规的方式进行点灯了，但如果只是这样的话太单调了，接下来我们尝试让双色 LED 进行颜色渐变。<br>这里，我打算用 <code>PWM</code>（脉宽调制，Pulse Width Modulation）方法来控制两个 LED 的明暗。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">LED_R = <span class="number">17</span></span><br><span class="line">LED_G = <span class="number">18</span></span><br><span class="line"></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br><span class="line"></span><br><span class="line">GPIO.setup(LED_R, GPIO.OUT)</span><br><span class="line">GPIO.setup(LED_G, GPIO.OUT)</span><br><span class="line"></span><br><span class="line">pwm_r = GPIO.PWM(LED_R, <span class="number">2000</span>)</span><br><span class="line">pwm_g = GPIO.PWM(LED_G, <span class="number">2000</span>)</span><br><span class="line"></span><br><span class="line">GPIO.output(LED_R, GPIO.LOW)</span><br><span class="line">GPIO.output(LED_G, GPIO.LOW)</span><br><span class="line"></span><br><span class="line">pwm_r.start(<span class="number">0</span>)</span><br><span class="line">pwm_g.start(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">                pwm_r.ChangeDutyCycle(i)</span><br><span class="line">                pwm_g.ChangeDutyCycle(<span class="number">100</span> - i)</span><br><span class="line">                time.sleep(<span class="number">.25</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">                pwm_r.ChangeDutyCycle(<span class="number">100</span> - i)</span><br><span class="line">                pwm_g.ChangeDutyCycle(i)</span><br><span class="line">                time.sleep(<span class="number">.25</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        pwm_r.stop()</span><br><span class="line">        pwm_g.stop()</span><br><span class="line">        GPIO.cleanup()</span><br><span class="line">        exit(<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><img title="双色 LED 实际效果" data-src="/raspberry-pi-guide-02/rg_led.png">
-
-<p>通过运行代码实例不难看出，双色 LED 在混色上效果其实并不好，但是纯红色或是纯绿色的表现很好，这也是这类双色 LED 多用作状态指示灯的原因之一。关于混色，其实还得靠 RGB 三色 LED 来实现。关于 RGB 三色 LED 的简单实验，我将在下一篇日记之中继续介绍。</p>
 
     </div>
-
-    
-    
-    
-        
-      
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>Zhou Fang</li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://fang2hou.com/raspberry-pi-guide-02/" title="树莓派搞机日记（二）">https://fang2hou.com/raspberry-pi-guide-02/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC</span> 许可协议。转载请注明出处！</li>
-</ul>
-</div>
-
-      
-
-      <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/Raspberry-Pi/" rel="tag"><i class="fa fa-tag"></i> Raspberry Pi</a>
-            
-              <a href="/tags/LED/" rel="tag"><i class="fa fa-tag"></i> LED</a>
-            
-          </div>
-        
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/raspberry-pi-guide-01/" rel="next" title="树莓派搞机日记（一）">
-                  <i class="fa fa-chevron-left"></i> 树莓派搞机日记（一）
-                </a>
-              
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/install-padavan-on-xiaomi-router-mini/" rel="prev" title="在小米路由器 Mini 上安装 Pandavan 固件">
-                  在小米路由器 Mini 上安装 Pandavan 固件 <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
-        
-      </footer>
-    
-  </article>
-  
-  
-  
-
   </div>
 
-
-          </div>
-          
-
-        </div>
-          
+</div>
+        
   
   <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
 
   <aside class="sidebar">
-    <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -495,143 +210,377 @@
       </ul>
 
       <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初识树莓派"><span class="nav-number">1.</span> <span class="nav-text">初识树莓派</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推荐库"><span class="nav-number">2.</span> <span class="nav-text">推荐库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#双色-LED-实验"><span class="nav-number">3.</span> <span class="nav-text">双色 LED 实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#元件介绍"><span class="nav-number">3.1.</span> <span class="nav-text">元件介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接方式："><span class="nav-number">3.2.</span> <span class="nav-text">连接方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范例代码-01"><span class="nav-number">3.3.</span> <span class="nav-text">范例代码 01</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范例代码-02"><span class="nav-number">3.4.</span> <span class="nav-text">范例代码 02</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
-        
-      </div>
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E8%AF%86%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="nav-number">1.</span> <span class="nav-text">初识树莓派</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">推荐库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8C%E8%89%B2-LED-%E5%AE%9E%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">双色 LED 实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="nav-number">3.1.</span> <span class="nav-text">元件介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="nav-number">3.2.</span> <span class="nav-text">连接方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8C%83%E4%BE%8B%E4%BB%A3%E7%A0%81-01"><span class="nav-number">3.3.</span> <span class="nav-text">范例代码 01</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8C%83%E4%BE%8B%E4%BB%A3%E7%A0%81-02"><span class="nav-number">3.4.</span> <span class="nav-text">范例代码 02</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </section>
       <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.jpg"
-      alt="Zhou Fang">
-  <p class="site-author-name" itemprop="name">Zhou Fang</p>
-  <div class="site-description" itemprop="description">分享自己的知识</div>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="方舟"
+      src="/assets/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">方舟</p>
+  <div class="site-description" itemprop="description">研1 @ 筑波大学</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives">
-        
           <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
-          
-        
         <span class="site-state-item-count">40</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9mYW5nMmhvdQ==" title="Twitter &rarr; https://twitter.com/fang2hou"><i class="fa fa-fw fa-twitter"></i></span>
+        <a href="https://github.com/fang2hou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fang2hou" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhbmcyaG91" title="GitHub &rarr; https://github.com/fang2hou"><i class="fa fa-fw fa-github"></i></span>
+        <a href="mailto:iszhoufang@gmail.com" title="E-Mail → mailto:iszhoufang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="bWFpbHRvOmlzMDM4NXJ4QGVkLnJpdHN1bWVpLmFjLmpw" title="E-Mail &rarr; mailto:is0385rx@ed.ritsumei.ac.jp"><i class="fa fa-fw fa-envelope"></i></span>
+        <a href="https://twitter.com/fang2hou" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;fang2hou" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cDovL3d3dy5saW5rZWRpbi5jb20vaW4vemhvdS1mYW5nLWNu" title="Linkedin &rarr; http://www.linkedin.com/in/zhou-fang-cn"><i class="fa fa-fw fa-linkedin"></i></span>
+        <a href="http://www.linkedin.com/in/zhou-fang-cn" title="Linkedin → http:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;zhou-fang-cn" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i></a>
       </span>
-    
   </div>
-  <div class="cc-license motion-element" itemprop="license">
-    
-  
-    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><img src="/images/cc-by-nc.svg" alt="Creative Commons"></span>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc.svg" alt="Creative Commons"></a>
   </div>
 
 
 
-      </div>
-
+      </section>
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-dimmer"></div>
 
 
-      </div>
-    </main>
+    </header>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Zhou Fang</span>
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fang2hou.com/raspberry-pi-guide-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.jpg">
+      <meta itemprop="name" content="方舟">
+      <meta itemprop="description" content="研1 @ 筑波大学">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fang2hou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          树莓派搞机日记（二）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2019-02-11 09:52:02 / 修改时间：20:54:32" itemprop="dateCreated datePublished" datetime="2019-02-11T09:52:02+09:00">2019-02-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="firestore-visitors-count"></span>
+    </span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="初识树莓派"><a href="#初识树莓派" class="headerlink" title="初识树莓派"></a>初识树莓派</h1><p>树莓派的元件都在表面，没有什么好特殊介绍的，自己上手翻着看一会应该就能对它熟悉了。这里想花点笔墨说下树莓派的针脚。<br>树莓派的针脚排布是有点混乱的，要辨识针脚，首先，请你按照下图的方向可以举起你手中的树莓派。</p>
+
+<a id="more"></a>
+<p>然后我们打开 <a target="_blank" rel="noopener" href="https://pinout.xyz/">Raspberry Pi Pinout</a>，在这个页面上，你可以清晰的看到各个针脚代表的编码。<br>而树莓派有 3 种不同的模式来约束针脚的使用：</p>
+<ol>
+<li><strong>RPi.GPIO.BOARD</strong> 完全按照 <code>1, 2, 3, ...</code> 这样顺序排列的。</li>
+<li><strong>RPi.GPIO.BCM</strong> 针脚图上写着 <code>BCM 1</code>，<code>BCM 2</code> 这样的。</li>
+<li><strong>WiringPi</strong>（类 Arduino）<a target="_blank" rel="noopener" href="https://pinout.xyz/pinout/wiringpi">专用针脚图</a></li>
+</ol>
+<p>使用上全凭使用者的喜好，个人喜欢 BCM 一点。</p>
+<p><code>RPi.GPIO</code> 库可以通过下面的命令来安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install RPi.GPIO</span><br></pre></td></tr></table></figure>
+
+<p><code>WiringPi</code> 库可以通过下面的命令来安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install WiringPi</span><br></pre></td></tr></table></figure>
+<p><code>WiringPi</code> 的 Python 使用者应该读一下 <a target="_blank" rel="noopener" href="https://github.com/WiringPi/WiringPi-Python">项目的 Github 主页</a>。<br>其实不光是针脚的使用方式了，就连函数调用都和 Arduino 非常相似。<del>高仿</del></p>
+<p>如果像我一样比较懒，可以去购买一块带有标识板子，插在面包板上也方便连接。</p>
+
+
+<h1 id="推荐库"><a href="#推荐库" class="headerlink" title="推荐库"></a>推荐库</h1><p><strong>GPIO Zero</strong>，一个 GPIO 增强库，包含了非常多的预设功能，如 LED，按钮，电机控制等等。<br>在带有桌面环境的 <code>Raspbian</code> 已经自带，如果是使用命令行版本的用户，可以通过下面命令安装。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install gpiozero</span><br></pre></td></tr></table></figure>
+
+<p>安装后在命令行输入 <code>pinout</code>，你就会发现一个命令行版本的针脚图。<br>关于此库更多的功能我将会在之后的搞机日记中展开。</p>
+<h1 id="双色-LED-实验"><a href="#双色-LED-实验" class="headerlink" title="双色 LED 实验"></a>双色 LED 实验</h1><h2 id="元件介绍"><a href="#元件介绍" class="headerlink" title="元件介绍"></a>元件介绍</h2><p>LED 是非常简单的电子元件，适合我们用于第一次进行正式的树莓派学习。</p>
+<p>首先，我先介绍一下我的双色 LED 元件，支持发出红色和绿色光。</p>
+
+
+<p>从图中可以看到，该元件有三个针脚。最接近 <code>-</code> 的针脚代表该针脚接地。右边两个针脚分别对应 R，G，属于 Singal 针脚，缩写为 <code>S</code>。</p>
+<h2 id="连接方式："><a href="#连接方式：" class="headerlink" title="连接方式："></a>连接方式：</h2><p>采用比较简单的连接方式：</p>
+<ol>
+<li>橙色线代表 <code>R</code> 针脚，接入 <code>BCM 17</code></li>
+<li>绿色线代表 <code>G</code> 针脚，接入 <code>BCM 18</code></li>
+<li>白色线代表 <code>GND</code> 针脚， 接入 <code>GND</code></li>
+</ol>
+
+
+<h2 id="范例代码-01"><a href="#范例代码-01" class="headerlink" title="范例代码 01"></a>范例代码 01</h2><p>首先我们得让我们的 LED 亮起来，原理非常简单，只要给相应针脚一个高电压即可。<br>这是第一次代码范例，注释会尽量详细一点。如果对 Python 不熟悉的话，通过下面的代码注释应该有一些启发，只要能理解这次的流程，那么后面就不是很难了。毕竟，Python 封装了非常多的实用库，主要还是流程细节的设计。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入 GPIO 库</span></span><br><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义用于 LED 的针脚 BCM 编号</span></span><br><span class="line">LED_R = <span class="number">17</span></span><br><span class="line">LED_G = <span class="number">18</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设定针脚编号为 BCM 模式</span></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设定 LED 针脚可用于输出</span></span><br><span class="line">GPIO.setup(LED_R, GPIO.OUT)</span><br><span class="line">GPIO.setup(LED_G, GPIO.OUT)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关于 __name__ == &quot;__main__&quot;：</span></span><br><span class="line"><span class="comment"># 如果是直接运行本代码，而不是其他 Python 代码调用本文件的话，则会执行</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="comment"># 给两个针脚电压</span></span><br><span class="line">            GPIO.output(LED_R, GPIO.HIGH)</span><br><span class="line">            GPIO.output(LED_G, GPIO.HIGH)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="comment"># 检测到中断信号后，关闭 GPIO 通道以供下次使用</span></span><br><span class="line">        GPIO.cleanup()</span><br><span class="line">        <span class="comment"># 退出返回状态代码 6</span></span><br><span class="line">        exit(<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="范例代码-02"><a href="#范例代码-02" class="headerlink" title="范例代码 02"></a>范例代码 02</h2><p>通过上一节，我们已经可以通过常规的方式进行点灯了，但如果只是这样的话太单调了，接下来我们尝试让双色 LED 进行颜色渐变。<br>这里，我打算用 <code>PWM</code>（脉宽调制，Pulse Width Modulation）方法来控制两个 LED 的明暗。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">LED_R = <span class="number">17</span></span><br><span class="line">LED_G = <span class="number">18</span></span><br><span class="line"></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br><span class="line"></span><br><span class="line">GPIO.setup(LED_R, GPIO.OUT)</span><br><span class="line">GPIO.setup(LED_G, GPIO.OUT)</span><br><span class="line"></span><br><span class="line">pwm_r = GPIO.PWM(LED_R, <span class="number">2000</span>)</span><br><span class="line">pwm_g = GPIO.PWM(LED_G, <span class="number">2000</span>)</span><br><span class="line"></span><br><span class="line">GPIO.output(LED_R, GPIO.LOW)</span><br><span class="line">GPIO.output(LED_G, GPIO.LOW)</span><br><span class="line"></span><br><span class="line">pwm_r.start(<span class="number">0</span>)</span><br><span class="line">pwm_g.start(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">                pwm_r.ChangeDutyCycle(i)</span><br><span class="line">                pwm_g.ChangeDutyCycle(<span class="number">100</span> - i)</span><br><span class="line">                time.sleep(<span class="number">.25</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">                pwm_r.ChangeDutyCycle(<span class="number">100</span> - i)</span><br><span class="line">                pwm_g.ChangeDutyCycle(i)</span><br><span class="line">                time.sleep(<span class="number">.25</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        pwm_r.stop()</span><br><span class="line">        pwm_g.stop()</span><br><span class="line">        GPIO.cleanup()</span><br><span class="line">        exit(<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+
+<p>通过运行代码实例不难看出，双色 LED 在混色上效果其实并不好，但是纯红色或是纯绿色的表现很好，这也是这类双色 LED 多用作状态指示灯的原因之一。关于混色，其实还得靠 RGB 三色 LED 来实现。关于 RGB 三色 LED 的简单实验，我将在下一篇日记之中继续介绍。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>方舟
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://fang2hou.com/raspberry-pi-guide-02/" title="树莓派搞机日记（二）">https://fang2hou.com/raspberry-pi-guide-02/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Raspberry-Pi/" rel="tag"># Raspberry Pi</a>
+              <a href="/tags/LED/" rel="tag"># LED</a>
+          </div>
 
         
 
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/raspberry-pi-guide-01/" rel="prev" title="树莓派搞机日记（一）">
+                  <i class="fa fa-chevron-left"></i> 树莓派搞机日记（一）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/install-padavan-on-xiaomi-router-mini/" rel="next" title="在小米路由器 Mini 上安装 Pandavan 固件">
+                  在小米路由器 Mini 上安装 Pandavan 固件 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
 
 
 
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">方舟</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/firebase@7.21.1/firebase-app.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/firebase@7.21.1/firebase-firestore.js"></script>
   <script>
     firebase.initializeApp({
-      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      apiKey   : 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
       projectId: 'calcium-anagram-255411'
     });
 
     function getCount(doc, increaseCount) {
       // IncreaseCount will be false when not in article page
-
       return doc.get().then(d => {
-        var count = 0;
+        let count = 0;
         if (!d.exists) { // Has no data, initialize count
           if (increaseCount) {
             doc.set({
@@ -660,15 +609,17 @@
       }
     }
   </script>
-  <script pjax>
+  <script data-pjax>
     (function() {
-      var db = firebase.firestore();
-      var articles = db.collection('articles');
+      const db = firebase.firestore();
+      const articles = db.collection('articles');
 
-      if (CONFIG.page.isPost) { // Is article page
-        var title = document.querySelector('.post-title').innerText.trim();
-        var doc = articles.doc(title);
-        var increaseCount = true;
+      if (CONFIG.page.isPost) {
+        // Fix issue #118
+        // https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
+        const title = document.querySelector('.post-title').textContent.trim();
+        const doc = articles.doc(title);
+        let increaseCount = CONFIG.hostname === location.hostname;
         if (localStorage.getItem(title)) {
           increaseCount = false;
         } else {
@@ -676,14 +627,14 @@
           localStorage.setItem(title, true);
         }
         getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
-      } else if (CONFIG.page.isHome) { // Is index page
-        var promises = [...document.querySelectorAll('.post-title')].map(element => {
-          var title = element.innerText.trim();
-          var doc = articles.doc(title);
+      } else if (CONFIG.page.isHome) {
+        const promises = [...document.querySelectorAll('.post-title')].map(element => {
+          const title = element.textContent.trim();
+          const doc = articles.doc(title);
           return getCount(doc);
         });
         Promise.all(promises).then(counts => {
-          var metas = document.querySelectorAll('.firestore-visitors-count');
+          const metas = document.querySelectorAll('.firestore-visitors-count');
           counts.forEach((val, idx) => {
             appendCountTo(metas[idx])(val);
           });
@@ -695,110 +646,33 @@
 
 
 
-
-
-
-
-        
-      </div>
-    </footer>
-  </div>
+    <div class="pjax">
+  
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
-  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
+      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+  <script src="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/copy-tex.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/copy-tex.min.css">
 
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
-    var id = element.id || '';
-    var src = element.src || '';
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (id !=='') {
-      script.id = element.id;
-    }
-    if (src !== '') {
-      script.src = src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments('#disqus_thread', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : 'lmtKiOlv0fSZoy1nJMLyuVEcdZKaZuKKJu10a5ku1ezeYttpEA5IdrhpT01ULcue',
+      shortname : 'fang2hou-blog',
+      url       : "https://fang2hou.com/raspberry-pi-guide-02/",
+      identifier: "raspberry-pi-guide-02/",
+      title     : "树莓派搞机日记（二）",
+    });
+  }, window.DisqusJS);
 });
 </script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-  
 
     </div>
 </body>

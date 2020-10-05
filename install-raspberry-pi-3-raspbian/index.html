@@ -1,92 +1,56 @@
 <!DOCTYPE html>
-
-
-
-
-
-<html lang="zh-CN">
+<html lang="zh-CN,en,ja,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.4.1',
-    exturl: true,
-    sidebar: {"position":"right","width":250,"display":"post","offset":14,"onmobile":false},
-    copycode: {"enable":"enable","show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: true,
-    lazyload: true,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"搜索文章","hits_empty":"无法检索到关于 ${query} 的文章。","hits_stats":"找到了 ${hits} 个结果，耗时 ${time} 毫秒。"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fang2hou.com","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":14},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
+  </script>
 
   <meta name="description" content="简介Raspbian —— 一个专门用于树莓派的 Debian 分支，且唯一获得树莓派官方支持的系统。本文将介绍在不同的主流操作系统中安装 Raspbian 的多种方法，你可以选择最适合自己的方式进行安装。 准备 树莓派 (Raspberry Pi) SD 卡及读卡器 控制工具（选一个即可，也可无线） 网线 HDMI 线 + 显示屏 + 键盘">
-<meta name="keywords" content="Raspberry Pi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在树莓派上安装配置 Raspbian">
 <meta property="og:url" content="https://fang2hou.com/install-raspberry-pi-3-raspbian/index.html">
-<meta property="og:site_name" content="Fang2hou">
+<meta property="og:site_name" content="fang2hou">
 <meta property="og:description" content="简介Raspbian —— 一个专门用于树莓派的 Debian 分支，且唯一获得树莓派官方支持的系统。本文将介绍在不同的主流操作系统中安装 Raspbian 的多种方法，你可以选择最适合自己的方式进行安装。 准备 树莓派 (Raspberry Pi) SD 卡及读卡器 控制工具（选一个即可，也可无线） 网线 HDMI 线 + 显示屏 + 键盘">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-10T06:21:46.000Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-12T04:14:33.000Z">
+<meta property="article:modified_time" content="2019-02-10T06:21:46.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Raspberry Pi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在树莓派上安装配置 Raspbian">
-<meta name="twitter:description" content="简介Raspbian —— 一个专门用于树莓派的 Debian 分支，且唯一获得树莓派官方支持的系统。本文将介绍在不同的主流操作系统中安装 Raspbian 的多种方法，你可以选择最适合自己的方式进行安装。 准备 树莓派 (Raspberry Pi) SD 卡及读卡器 控制工具（选一个即可，也可无线） 网线 HDMI 线 + 显示屏 + 键盘">
-  <link rel="canonical" href="https://fang2hou.com/install-raspberry-pi-3-raspbian/">
 
 
-<script id="page-configurations">
+<link rel="canonical" href="https://fang2hou.com/install-raspberry-pi-3-raspbian/">
+
+
+<script data-pjax class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-  <title>在树莓派上安装配置 Raspbian | Fang2hou</title>
+  <title>在树莓派上安装配置 Raspbian | fang2hou</title>
   
-
-
 
 
 
@@ -95,170 +59,215 @@
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
 
-  .use-motion .logo,
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Fang2hou</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <h1 class="site-subtitle" itemprop="description">前途路漫漫，我心仍执着</h1>
-      
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">fang2hou</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">千里之行，始于足下</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-文章分类">
-      
-    
+        <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>文章分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-程序项目">
-      
-    
+        <li class="menu-item menu-item-projects">
 
-    <a href="/projects/" rel="section"><i class="fa fa-fw fa-code-fork"></i>程序项目</a>
+    <a href="/projects/" rel="section"><i class="fa fa-code-branch fa-fw"></i>项目</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-课程笔记">
-      
-    
+        <li class="menu-item menu-item-notes">
 
-    <a href="//github.com/fang2hou/notes" rel="section"><i class="fa fa-fw fa-sticky-note"></i>课程笔记</a>
+    <a target="_blank" href="//github.com/fang2hou/notes" rel="section noopener"><i class="fa fa-sticky-note fa-fw"></i>笔记</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-私人网盘">
-      
-    
+        <li class="menu-item menu-item-about">
 
-    <a href="//file.fang2hou.com" rel="section"><i class="fa fa-fw fa-cloud-download"></i>私人网盘</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-立命馆相关">
-      
-    
-
-    <a href="/ritsumei/" rel="section"><i class="fa fa-fw fa-registered"></i>立命馆相关</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-关于我">
-      
-    
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于我</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>搜索</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F"><span class="nav-number">3.1.</span> <span class="nav-text">下载镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%83%A7%E5%BD%95"><span class="nav-number">3.2.</span> <span class="nav-text">烧录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-%E7%AF%87"><span class="nav-number">3.2.1.</span> <span class="nav-text">Windows 篇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#macOS-%E7%AF%87"><span class="nav-number">3.2.2.</span> <span class="nav-text">macOS 篇</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-%E9%85%8D%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">SSH 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E5%88%B0%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="nav-number">4.2.</span> <span class="nav-text">连接到树莓派</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BA%BF%E8%BF%9E%E6%8E%A5%E7%AF%87"><span class="nav-number">4.2.1.</span> <span class="nav-text">网线连接篇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDMI-%E8%BF%9E%E6%8E%A5%E7%AF%87"><span class="nav-number">4.2.2.</span> <span class="nav-text">HDMI 连接篇</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%A4%B4%E6%A8%A1%E5%BC%8F%E8%AE%BE%E5%AE%9A%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="nav-number">4.3.</span> <span class="nav-text">无头模式设定树莓派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VNC-%E9%85%8D%E7%BD%AE"><span class="nav-number">4.4.</span> <span class="nav-text">VNC 配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">常用软件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-3"><span class="nav-number">5.1.</span> <span class="nav-text">Python 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go"><span class="nav-number">5.2.</span> <span class="nav-text">Go</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git"><span class="nav-number">5.3.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim"><span class="nav-number">5.4.</span> <span class="nav-text">Vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zsh"><span class="nav-number">5.5.</span> <span class="nav-text">Zsh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Xfce4"><span class="nav-number">5.6.</span> <span class="nav-text">Xfce4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="方舟"
+      src="/assets/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">方舟</p>
+  <div class="site-description" itemprop="description">研1 @ 筑波大学</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fang2hou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fang2hou" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:iszhoufang@gmail.com" title="E-Mail → mailto:iszhoufang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/fang2hou" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;fang2hou" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://www.linkedin.com/in/zhou-fang-cn" title="Linkedin → http:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;zhou-fang-cn" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
     
@@ -266,87 +275,78 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-            
-
-          <div id="content" class="content">
-            
-
-  <div class="posts-expand">
+    <div class="main-inner post posts-expand">
       
+
+      
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://fang2hou.com/install-raspberry-pi-3-raspbian/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhou Fang">
-      <meta itemprop="description" content="分享自己的知识">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/assets/images/avatar.jpg">
+      <meta itemprop="name" content="方舟">
+      <meta itemprop="description" content="研1 @ 筑波大学">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fang2hou">
+      <meta itemprop="name" content="fang2hou">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">在树莓派上安装配置 Raspbian
+        <h1 class="post-title" itemprop="name headline">
+          在树莓派上安装配置 Raspbian
+        </h1>
 
-          
-        </h2>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+      <time title="创建时间：2018-11-12 13:14:33" itemprop="dateCreated datePublished" datetime="2018-11-12T13:14:33+09:00">2018-11-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2019-02-10 15:21:46" itemprop="dateModified" datetime="2019-02-10T15:21:46+09:00">2019-02-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
+        </span>
+    </span>
 
-              
-                
-              
-
-              <time title="创建时间：2018-11-12 13:14:33" itemprop="dateCreated datePublished" datetime="2018-11-12T13:14:33+09:00">2018-11-12</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-10 15:21:46" itemprop="dateModified" datetime="2019-02-10T15:21:46+09:00">2019-02-10</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/树莓派/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            <span class="post-meta-item" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-users"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="firestore-visitors-count"></span>
-            </span>
-          
+  
+    <span class="post-meta-item" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -355,8 +355,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><code>Raspbian</code> —— 一个专门用于树莓派的 Debian 分支，且唯一获得树莓派官方支持的系统。<br>本文将介绍在不同的主流操作系统中安装 <code>Raspbian</code> 的多种方法，你可以选择最适合自己的方式进行安装。</p>
 <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ol>
 <li>树莓派 (Raspberry Pi)</li>
@@ -368,7 +366,7 @@
 </li>
 </ol>
 <a id="more"></a>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h2><p>首先，从 <strong><span class="exturl" data-url="aHR0cHM6Ly93d3cucmFzcGJlcnJ5cGkub3JnL2Rvd25sb2Fkcy9yYXNwYmlhbi8=" title="https://www.raspberrypi.org/downloads/raspbian/">官方镜像网站<i class="fa fa-external-link"></i></span></strong> 下载最新的 Raspbian 操作系统。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h2><p>首先，从 <strong><a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/raspbian/">官方镜像网站</a></strong> 下载最新的 Raspbian 操作系统。</p>
 <p>其中，</p>
 <ol>
 <li><code>Raspbian Stretch with desktop and recommended software</code> 是自带了 LXDE，我的世界等一系列软件的开箱即用版本。</li>
@@ -380,8 +378,8 @@
 <h2 id="烧录"><a href="#烧录" class="headerlink" title="烧录"></a>烧录</h2><p>请根据操作系统来选择性的阅读本节。</p>
 <h3 id="Windows-篇"><a href="#Windows-篇" class="headerlink" title="Windows 篇"></a>Windows 篇</h3><p>Windows 下使用需要使用以下 2 个免费软件：</p>
 <ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2RjYXJkLm9yZy9jaHMvZG93bmxvYWRzL2Zvcm1hdHRlcl80L2V1bGFfd2luZG93cy9pbmRleC5odG1s" title="https://www.sdcard.org/chs/downloads/formatter_4/eula_windows/index.html">SD 卡格式化工具<i class="fa fa-external-link"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly96aC5vc2RuLm5ldC9wcm9qZWN0cy9zZm5ldF93aW4zMmRpc2tpbWFnZXIvZG93bmxvYWRzL0FyY2hpdmUvV2luMzJEaXNrSW1hZ2VyLTEuMC4wLWJpbmFyeS56aXAv" title="https://zh.osdn.net/projects/sfnet_win32diskimager/downloads/Archive/Win32DiskImager-1.0.0-binary.zip/">Win32 Disk Imager<i class="fa fa-external-link"></i></span></li>
+<li><a target="_blank" rel="noopener" href="https://www.sdcard.org/chs/downloads/formatter_4/eula_windows/index.html">SD 卡格式化工具</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.osdn.net/projects/sfnet_win32diskimager/downloads/Archive/Win32DiskImager-1.0.0-binary.zip/">Win32 Disk Imager</a></li>
 </ol>
 <p>在安装/解压软件后，我们就可以开始实际的烧录工作了。</p>
 <ol>
@@ -391,21 +389,12 @@
 </ol>
 <h3 id="macOS-篇"><a href="#macOS-篇" class="headerlink" title="macOS 篇"></a>macOS 篇</h3><p>macOS 下不需要安装任何工具即可烧录。</p>
 <ol>
-<li><p>解压 Zip 压缩包，得到镜像文件(.img)。<br><code>unzip</code> 命令，或是其他解压工具。</p>
-</li>
-<li><p>打开 <code>终端</code>，执行命令来获取各磁盘的信息。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>找到打算用作树莓派系统的 SD 卡，比如我的是 <code>/dev/disk2</code>。</p>
-</li>
-<li><p>执行命令，来格式化 SD 卡。<br>语法为 <code>diskutil eraseDisk &lt;文件系统&gt; &lt;新磁盘名&gt; &lt;磁盘&gt;</code><br>下方是我的例子：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo diskutil eraseDisk FAT32 RPIBOOT /dev/disk2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行命令，来卸载磁盘用于后续烧录。<br>语法为 <code>diskutil unmountDisk &lt;磁盘&gt;</code><br>下方是我的例子：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo diskutil unmountDisk /dev/disk2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行命令，烧录镜像。建议在镜像所在的文件夹执行，比较方便。<br>语法为 <code>dd bs=1m if=&lt;.img 镜像文件&gt; of=&lt;磁盘路径&gt; conv=sync</code><br>下方是我的例子：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd bs=1m if=2018-10-09-raspbian-stretch-lite.img of=/dev/rdisk2 conv=sync</span><br></pre></td></tr></table></figure>
+<li>解压 Zip 压缩包，得到镜像文件(.img)。<br><code>unzip</code> 命令，或是其他解压工具。</li>
+<li>打开 <code>终端</code>，执行命令来获取各磁盘的信息。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil list</span><br></pre></td></tr></table></figure></li>
+<li>找到打算用作树莓派系统的 SD 卡，比如我的是 <code>/dev/disk2</code>。</li>
+<li>执行命令，来格式化 SD 卡。<br>语法为 <code>diskutil eraseDisk &lt;文件系统&gt; &lt;新磁盘名&gt; &lt;磁盘&gt;</code><br>下方是我的例子：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo diskutil eraseDisk FAT32 RPIBOOT /dev/disk2</span><br></pre></td></tr></table></figure></li>
+<li>执行命令，来卸载磁盘用于后续烧录。<br>语法为 <code>diskutil unmountDisk &lt;磁盘&gt;</code><br>下方是我的例子：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo diskutil unmountDisk /dev/disk2</span><br></pre></td></tr></table></figure></li>
+<li>执行命令，烧录镜像。建议在镜像所在的文件夹执行，比较方便。<br>语法为 <code>dd bs=1m if=&lt;.img 镜像文件&gt; of=&lt;磁盘路径&gt; conv=sync</code><br>下方是我的例子：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd bs=1m if=2018-10-09-raspbian-stretch-lite.img of=/dev/rdisk2 conv=sync</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -419,63 +408,34 @@
 <p>下面我就 3 种方式分别来介绍下连入方式。</p>
 <p><strong>切记：Raspbian 默认账户为 <code>pi</code>，对应的密码是 <code>raspberry</code>。</strong></p>
 <h3 id="网线连接篇"><a href="#网线连接篇" class="headerlink" title="网线连接篇"></a>网线连接篇</h3><ol>
-<li><p>使用网线连接的其实也有很多种，但是不论你是通过路由器连接，还是直接接入电脑，我相信你都可以通过下面的命令来找到你的树莓派网络地址/主机名：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp -a</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>因为我们刚才已经配置了 SSH 远程连接，所以，我们可以直接用下面的命令来连接到树莓派。</p>
-<ul>
-<li><p>Windows</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@respberrypi</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>macOS</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@respberrypi.lan</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果网络设备名都不能获取到，用 IP 地址连接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@&lt;树莓派 IP&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>使用网线连接的其实也有很多种，但是不论你是通过路由器连接，还是直接接入电脑，我相信你都可以通过下面的命令来找到你的树莓派网络地址/主机名：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp -a</span><br></pre></td></tr></table></figure></li>
+<li>因为我们刚才已经配置了 SSH 远程连接，所以，我们可以直接用下面的命令来连接到树莓派。<ul>
+<li>Windows<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@respberrypi</span><br></pre></td></tr></table></figure></li>
+<li>macOS<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@respberrypi.lan</span><br></pre></td></tr></table></figure></li>
+<li>如果网络设备名都不能获取到，用 IP 地址连接<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@&lt;树莓派 IP&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>登入 Raspbian 之后，用下面的命令运行树莓派自带的设置工具</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>选择 <code>Network Options</code>-<code>Wi-Fi</code>，添加无线网络的 SSID 及密码。</p>
-</li>
-<li><p>记得同时设定时区（Timezone）。</p>
-</li>
-<li><p>退出树莓派设定工具，用 <code>reboot</code> 重启机器，拔掉网线。</p>
-</li>
+<li>登入 Raspbian 之后，用下面的命令运行树莓派自带的设置工具<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure></li>
+<li>选择 <code>Network Options</code>-<code>Wi-Fi</code>，添加无线网络的 SSID 及密码。</li>
+<li>记得同时设定时区（Timezone）。</li>
+<li>退出树莓派设定工具，用 <code>reboot</code> 重启机器，拔掉网线。</li>
 </ol>
 <h3 id="HDMI-连接篇"><a href="#HDMI-连接篇" class="headerlink" title="HDMI 连接篇"></a>HDMI 连接篇</h3><blockquote><p>如果你是桌面版本的 Raspbian，直接通过左上菜单中的 <code>Menu</code>-<code>Preferences</code>-<code>Raspberry Pi Configuration</code>设定更加简便。</p>
 </blockquote>
 <ol>
-<li><p>登入 Raspbian 之后，用下面的命令运行树莓派自带的设置工具。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>选择 <code>Network Options</code>-<code>Wi-Fi</code>，添加无线网络的 SSID 及密码。</p>
-</li>
-<li><p>记得同时设定时区（Timezone）。</p>
-</li>
-<li><p>退出树莓派设定工具，用 <code>reboot</code> 重启机器，拔掉网线。</p>
-</li>
+<li>登入 Raspbian 之后，用下面的命令运行树莓派自带的设置工具。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure></li>
+<li>选择 <code>Network Options</code>-<code>Wi-Fi</code>，添加无线网络的 SSID 及密码。</li>
+<li>记得同时设定时区（Timezone）。</li>
+<li>退出树莓派设定工具，用 <code>reboot</code> 重启机器，拔掉网线。</li>
 </ol>
 <h2 id="无头模式设定树莓派"><a href="#无头模式设定树莓派" class="headerlink" title="无头模式设定树莓派"></a>无头模式设定树莓派</h2><p><strong>如果你无任一连接线，可以选择通过这个方法直接设定 Wifi。</strong></p>
 <ol>
-<li><p>在 SD 卡根目录下建立一个 <code>wpa_supplicant.conf</code> 文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">country=JP</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line">network=&#123;</span><br><span class="line">    ssid="&lt;Wi-Fi 名&gt;"</span><br><span class="line">    psk="&lt;Wi-Fi 密码&gt;"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用网线连接的其实也有很多种，但是不论你是通过路由器连接，还是直接接入电脑，我相信你都可以通过下面的命令来找到你的树莓派网络地址/主机名：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp -a</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>因为我们刚才已经配置了 SSH 远程连接，所以，我们可以直接用下面的命令来连接到树莓派。</p>
-<ul>
-<li><p>Windows</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@respberrypi</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>macOS</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@respberrypi.lan</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果网络设备名都不能获取到，用 IP 地址连接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@&lt;树莓派 IP&gt;</span><br></pre></td></tr></table></figure>
+<li>在 SD 卡根目录下建立一个 <code>wpa_supplicant.conf</code> 文件：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">country=JP</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line">network=&#123;</span><br><span class="line">    ssid=&quot;&lt;Wi-Fi 名&gt;&quot;</span><br><span class="line">    psk=&quot;&lt;Wi-Fi 密码&gt;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>使用网线连接的其实也有很多种，但是不论你是通过路由器连接，还是直接接入电脑，我相信你都可以通过下面的命令来找到你的树莓派网络地址/主机名：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp -a</span><br></pre></td></tr></table></figure></li>
+<li>因为我们刚才已经配置了 SSH 远程连接，所以，我们可以直接用下面的命令来连接到树莓派。<ul>
+<li>Windows<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@respberrypi</span><br></pre></td></tr></table></figure></li>
+<li>macOS<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@respberrypi.lan</span><br></pre></td></tr></table></figure></li>
+<li>如果网络设备名都不能获取到，用 IP 地址连接<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@&lt;树莓派 IP&gt;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -486,17 +446,10 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br><span class="line">pip3 install RPi.GPIO</span><br></pre></td></tr></table></figure>
 
 <h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><ol>
-<li><p>下载编译后的 Go 包<br>在 <span class="exturl" data-url="aHR0cHM6Ly9nb2xhbmcub3JnL2RsLw==" title="https://golang.org/dl/">Go 官方下载页面<i class="fa fa-external-link"></i></span> 中找到 ARMv6 平台的 Linux 版本下载地址。<br>更新此文时，适用于ARMv6的 Go 版本号为 1.11.5，我们可以用 <code>wget</code> 快速下载</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/go/go1.11.5.linux-armv6l.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解包到 <code>/usr/local</code>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -C /usr/local -xzf go1.11.5.linux-armv6l.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加 Go 二进制文件目录到环境变量<br>如果在上一步放置 Go 到了其他地方，别忘了下面命令的目录地址要跟着改。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "export PATH=$PATH:/usr/local/go/bin" &gt;&gt; ~/.profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重新读取 Shell 配置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .profile</span><br></pre></td></tr></table></figure>
+<li>下载编译后的 Go 包<br>在 <a target="_blank" rel="noopener" href="https://golang.org/dl/">Go 官方下载页面</a> 中找到 ARMv6 平台的 Linux 版本下载地址。<br>更新此文时，适用于ARMv6的 Go 版本号为 1.11.5，我们可以用 <code>wget</code> 快速下载<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/go/go1.11.5.linux-armv6l.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li>解包到 <code>/usr/local</code>。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -C /usr/local -xzf go1.11.5.linux-armv6l.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li>添加 Go 二进制文件目录到环境变量<br>如果在上一步放置 Go 到了其他地方，别忘了下面命令的目录地址要跟着改。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;export PATH=$PATH:/usr/local/go/bin&quot; &gt;&gt; ~/.profile</span><br></pre></td></tr></table></figure></li>
+<li>重新读取 Shell 配置<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .profile</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -507,15 +460,15 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure>
 
 <h2 id="Zsh"><a href="#Zsh" class="headerlink" title="Zsh"></a>Zsh</h2><p>通过 Aptitude 安装，且添加 <code>Oh-my-zsh</code> 项目</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zsh git</span><br><span class="line">sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zsh git</span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Xfce4"><a href="#Xfce4" class="headerlink" title="Xfce4"></a>Xfce4</h2><p>如果你是 Lite 版本的用户，且同时想要一个桌面，我这里推荐安装 Xfce4，占用低，效果也不错。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install xfce4</span><br></pre></td></tr></table></figure>
 
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly9oaXJhemFrdXJhLmhhdGVuYWJsb2cuY29tL2VudHJ5L3Jhc3BiZXJyeXBpL3NldHVwL2ZpcnN0" title="https://hirazakura.hatenablog.com/entry/raspberrypi/setup/first">Raspberry Pi 3（RASPBIAN JESSIE）OSインストールから初期設定【セットアップ前編 】<i class="fa fa-external-link"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1raVhvdHpLNWVTUQ==" title="https://www.youtube.com/watch?v=kiXotzK5eSQ">2. How to configure Raspberry-Pi using sudo raspi-config - Youtube<i class="fa fa-external-link"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9nb2xhbmcub3JnL2RvYy9pbnN0YWxs" title="https://golang.org/doc/install">Getting Started - The Go Programming Language<i class="fa fa-external-link"></i></span></li>
+<li><a target="_blank" rel="noopener" href="https://hirazakura.hatenablog.com/entry/raspberrypi/setup/first">Raspberry Pi 3（RASPBIAN JESSIE）OSインストールから初期設定【セットアップ前編 】</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kiXotzK5eSQ">2. How to configure Raspberry-Pi using sudo raspi-config - Youtube</a></li>
+<li><a target="_blank" rel="noopener" href="https://golang.org/doc/install">Getting Started - The Go Programming Language</a></li>
 </ol>
 
     </div>
@@ -523,235 +476,185 @@
     
     
     
-        
-      
-        
 
-<div>
-<ul class="post-copyright">
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Zhou Fang</li>
+      <strong>本文作者： </strong>方舟
+  </li>
   <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://fang2hou.com/install-raspberry-pi-3-raspbian/" title="在树莓派上安装配置 Raspbian">https://fang2hou.com/install-raspberry-pi-3-raspbian/</a>
+      <strong>本文链接：</strong>
+      <a href="https://fang2hou.com/install-raspberry-pi-3-raspbian/" title="在树莓派上安装配置 Raspbian">https://fang2hou.com/install-raspberry-pi-3-raspbian/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC</span> 许可协议。转载请注明出处！</li>
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC</a> 许可协议。转载请注明出处！
+  </li>
 </ul>
 </div>
 
-      
-
-      <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
-              <a href="/tags/Raspberry-Pi/" rel="tag"><i class="fa fa-tag"></i> Raspberry Pi</a>
-            
+              <a href="/tags/Raspberry-Pi/" rel="tag"># Raspberry Pi</a>
           </div>
-        
 
         
 
           <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/reasons-why-i-use-golang/" rel="next" title="我选择使用 Go 语言的几大理由">
+            <div class="post-nav-item">
+                <a href="/reasons-why-i-use-golang/" rel="prev" title="我选择使用 Go 语言的几大理由">
                   <i class="fa fa-chevron-left"></i> 我选择使用 Go 语言的几大理由
                 </a>
-              
             </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/review-of-fushenliuji/" rel="prev" title="简评『浮生六记』">
+            <div class="post-nav-item">
+                <a href="/review-of-fushenliuji/" rel="next" title="简评『浮生六记』">
                   简评『浮生六记』 <i class="fa fa-chevron-right"></i>
                 </a>
-              
             </div>
           </div>
-        
-      </footer>
-    
+    </footer>
   </article>
-  
-  
-  
-
-  </div>
-
-
-          </div>
-          
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-        
-        
-        
-        
-      
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载镜像"><span class="nav-number">3.1.</span> <span class="nav-text">下载镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#烧录"><span class="nav-number">3.2.</span> <span class="nav-text">烧录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-篇"><span class="nav-number">3.2.1.</span> <span class="nav-text">Windows 篇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#macOS-篇"><span class="nav-number">3.2.2.</span> <span class="nav-text">macOS 篇</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-配置"><span class="nav-number">4.1.</span> <span class="nav-text">SSH 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接到树莓派"><span class="nav-number">4.2.</span> <span class="nav-text">连接到树莓派</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网线连接篇"><span class="nav-number">4.2.1.</span> <span class="nav-text">网线连接篇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDMI-连接篇"><span class="nav-number">4.2.2.</span> <span class="nav-text">HDMI 连接篇</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无头模式设定树莓派"><span class="nav-number">4.3.</span> <span class="nav-text">无头模式设定树莓派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VNC-配置"><span class="nav-number">4.4.</span> <span class="nav-text">VNC 配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用软件"><span class="nav-number">5.</span> <span class="nav-text">常用软件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-3"><span class="nav-number">5.1.</span> <span class="nav-text">Python 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go"><span class="nav-number">5.2.</span> <span class="nav-text">Go</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git"><span class="nav-number">5.3.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim"><span class="nav-number">5.4.</span> <span class="nav-text">Vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zsh"><span class="nav-number">5.5.</span> <span class="nav-text">Zsh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Xfce4"><span class="nav-number">5.6.</span> <span class="nav-text">Xfce4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
-        
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.jpg"
-      alt="Zhou Fang">
-  <p class="site-author-name" itemprop="name">Zhou Fang</p>
-  <div class="site-description" itemprop="description">分享自己的知识</div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives">
-        
-          <span class="site-state-item-count">31</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
+
+
+
+
+
+
+      
     
-      
-      
-      <div class="site-state-item site-state-categories">
-        
-          
-            <a href="/categories/">
-          
-        
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        <span class="site-state-item-count">40</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
-      </div>
-    
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9mYW5nMmhvdQ==" title="Twitter &rarr; https://twitter.com/fang2hou"><i class="fa fa-fw fa-twitter"></i></span>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhbmcyaG91" title="GitHub &rarr; https://github.com/fang2hou"><i class="fa fa-fw fa-github"></i></span>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="bWFpbHRvOmlzMDM4NXJ4QGVkLnJpdHN1bWVpLmFjLmpw" title="E-Mail &rarr; mailto:is0385rx@ed.ritsumei.ac.jp"><i class="fa fa-fw fa-envelope"></i></span>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cDovL3d3dy5saW5rZWRpbi5jb20vaW4vemhvdS1mYW5nLWNu" title="Linkedin &rarr; http://www.linkedin.com/in/zhou-fang-cn"><i class="fa fa-fw fa-linkedin"></i></span>
-      </span>
-    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
   </div>
-  <div class="cc-license motion-element" itemprop="license">
-    
   
-    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLzQuMC8="><img src="/images/cc-by-nc.svg" alt="Creative Commons"></span>
-  </div>
 
-
-
-      </div>
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      
 
-      </div>
-    </main>
+      
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Zhou Fang</span>
+  <span class="author" itemprop="copyrightHolder">方舟</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动</div>
 
-        
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
 
 
 
 
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/firebase@7.21.1/firebase-app.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/firebase@7.21.1/firebase-firestore.js"></script>
   <script>
     firebase.initializeApp({
-      apiKey: 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
+      apiKey   : 'AIzaSyALOHj4mgdhegUVX-fP704IEfr1B_xHLjc',
       projectId: 'calcium-anagram-255411'
     });
 
     function getCount(doc, increaseCount) {
       // IncreaseCount will be false when not in article page
-
       return doc.get().then(d => {
-        var count = 0;
+        let count = 0;
         if (!d.exists) { // Has no data, initialize count
           if (increaseCount) {
             doc.set({
@@ -780,15 +683,17 @@
       }
     }
   </script>
-  <script pjax>
+  <script data-pjax>
     (function() {
-      var db = firebase.firestore();
-      var articles = db.collection('articles');
+      const db = firebase.firestore();
+      const articles = db.collection('articles');
 
-      if (CONFIG.page.isPost) { // Is article page
-        var title = document.querySelector('.post-title').innerText.trim();
-        var doc = articles.doc(title);
-        var increaseCount = true;
+      if (CONFIG.page.isPost) {
+        // Fix issue #118
+        // https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
+        const title = document.querySelector('.post-title').textContent.trim();
+        const doc = articles.doc(title);
+        let increaseCount = CONFIG.hostname === location.hostname;
         if (localStorage.getItem(title)) {
           increaseCount = false;
         } else {
@@ -796,14 +701,14 @@
           localStorage.setItem(title, true);
         }
         getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
-      } else if (CONFIG.page.isHome) { // Is index page
-        var promises = [...document.querySelectorAll('.post-title')].map(element => {
-          var title = element.innerText.trim();
-          var doc = articles.doc(title);
+      } else if (CONFIG.page.isHome) {
+        const promises = [...document.querySelectorAll('.post-title')].map(element => {
+          const title = element.textContent.trim();
+          const doc = articles.doc(title);
           return getCount(doc);
         });
         Promise.all(promises).then(counts => {
-          var metas = document.querySelectorAll('.firestore-visitors-count');
+          const metas = document.querySelectorAll('.firestore-visitors-count');
           counts.forEach((val, idx) => {
             appendCountTo(metas[idx])(val);
           });
@@ -815,110 +720,33 @@
 
 
 
-
-
-
-
-        
-      </div>
-    </footer>
-  </div>
+    <div class="pjax">
+  
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
-  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
+      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+  <script src="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/copy-tex.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/copy-tex.min.css">
 
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
-    var id = element.id || '';
-    var src = element.src || '';
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (id !=='') {
-      script.id = element.id;
-    }
-    if (src !== '') {
-      script.src = src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments('#disqus_thread', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : 'lmtKiOlv0fSZoy1nJMLyuVEcdZKaZuKKJu10a5ku1ezeYttpEA5IdrhpT01ULcue',
+      shortname : 'fang2hou-blog',
+      url       : "https://fang2hou.com/install-raspberry-pi-3-raspbian/",
+      identifier: "install-raspberry-pi-3-raspbian/",
+      title     : "在树莓派上安装配置 Raspbian",
+    });
+  }, window.DisqusJS);
 });
 </script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-  
 
     </div>
 </body>
