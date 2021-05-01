@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 方舟</title><link>https://fang2hou.com/post/</link><description>Recent content in Posts on 方舟</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 01 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fang2hou.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>博客新征程</title><link>https://fang2hou.com/post/new-blog-in-hugo/</link><pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/new-blog-in-hugo/</guid><description>&lt;h1 id="再见-hexo">再见 Hexo!&lt;/h1>
+&lt;p>自 2017 年春假期间使用 Hexo + Github Pages 以来，已然度过了 4 个春秋。&lt;br>
+一开始仿佛有写不完的内容，到后面热情退去，1 年多都没有更新博客。&lt;br>
+但是不管怎么说，这几年 Hexo 和 NeXT 是我用的时间最长，也最省心的博客方案了。虽然整天和别人撞主题，但是用户量大也意味着确实不需要太操心。&lt;/p></description></item><item><title>使用 Google Colab 提供的免费 TPU 进行训练</title><link>https://fang2hou.com/post/use-tpu-to-train-cnn/</link><pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/use-tpu-to-train-cnn/</guid><description>&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>比起深度学习最初的 CPU 计算，现在普遍使用 GPU 来进行训练，效率提升已然是相当明显。但是像是 Google 和阿里巴巴这些科技巨头还是不满足这些，直接让日常使用介入芯片研发，Google 提出 TPU 方案，阿里也成立了平头哥独立品牌来发布新品。官方说法是对于目前顶尖 GPU 都有 20 倍以上的算力提升。&lt;br>
+阿里和 Google 的芯片技术都已经实装运用在了自家的云服务上，不过有幸的是，Google 在自家推出的 Colab 机器学习平台之中提供了免费试用 TPU 的机会。这篇文章将会介绍一下当下，快速使用 Keras 进行训练的一个实例。&lt;br>
+在看下面的文字的之前，最好回忆一下简单的 CNN 构造。如果你有一些 Keras 或是 TensorFlow 相关的使用经验，那么应该能够非常快速的理解。&lt;/p></description></item><item><title>在小米路由器 Mini 上安装 Pandavan 固件</title><link>https://fang2hou.com/post/install-padavan-on-xiaomi-router-mini/</link><pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/install-padavan-on-xiaomi-router-mini/</guid><description>为什么要折腾这一下 现在中国大陆的网站对于海外的访问限制力度非常之大，传统的突破封锁的方法很多都无法奏效。事已至此，还是和国内爱国上网一样，借由 Shadowsocks 回国吧。手上虽然有一台腾讯云的云服务器，但是带宽就 1M，日本连过去的线路还很善变，速度及其不稳定，丢包率奇高无比。上次在 V2EX 问了一些网友，在国内家里用路由器搭建一个 Shadowsocks 服务端却是一个可以价格低廉且稳定的方案。
+想配置家里这个路由器已经第 3 年了，每次回国都忘记，今天总算被我想了起来。</description></item><item><title>树莓派搞机日记（二）</title><link>https://fang2hou.com/post/raspberry-pi-guide-02/</link><pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/raspberry-pi-guide-02/</guid><description>初识树莓派 树莓派的元件都在表面，没有什么好特殊介绍的，自己上手翻着看一会应该就能对它熟悉了。这里想花点笔墨说下树莓派的针脚。
+树莓派的针脚排布是有点混乱的，要辨识针脚，首先，请你按照下图的方向可以举起你手中的树莓派。
+然后我们打开 Raspberry Pi Pinout，在这个页面上，你可以清晰的看到各个针脚代表的编码。
+而树莓派有 3 种不同的模式来约束针脚的使用：</description></item><item><title>树莓派搞机日记（一）</title><link>https://fang2hou.com/post/raspberry-pi-guide-01/</link><pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/raspberry-pi-guide-01/</guid><description>关于搞机日记 今天开始，我将在这里更新我对于树莓派应用的一些心得。既是我的一个备忘，也希望能成为看到本文的朋友的一个参考手册。
+至于阅读难度，我想应该不会很高的。我本身对物理并不是特别的擅长，对于每个部件也仅仅是知道大概的原理，如果让我详细解释部件内部构成，我是一定说不出来的。搞机日记将主要从涵盖部件的选择，硬件连接，软件控制方面来展开，侧重于应用。
+硬件选择 虽然搞机日记是针对树莓派撰写的，但还是想在这里给有兴趣的朋友讲一些开发板的选择。树莓派（Raspberry Pi）是一款用于学习的开发板，现在社会上已经有非常多面向少儿的兴趣班就是用树莓派进行教学。我在树莓派 3B 型号刚出的时候在日亚购入过一块，作为微型服务器使用，主要特点还是功耗较低。此外，其他厂商也有树莓派的兼容开发板，如华硕的 Tinker，但基本上就是简单的硬件堆叠，入门的话简单便宜的板子更好。
+我在本科三年的下学期修了 Arduino 开发的入门课程，可谓是打开了我 IoT 设备研究开发的大门。如果刚开始研究 IoT 设备入门，或是自己想结合一些部件来搭建自己的硬件平台，很多人就会在树莓派及 Arduino 这两款主流设备间踱步。诚然，两款设备都是非常适合初学者入门的，下面我将列举一些不同点供大家参考选择自己最适合的硬件。</description></item><item><title>简评『浮生六记』</title><link>https://fang2hou.com/post/review-of-fushenliuji/</link><pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/review-of-fushenliuji/</guid><description>&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>从来我就对文言的小品文比较抵触，感觉自己无法融到古人的生活中，很难理解他们的情趣。最近看到很多『浮生六记』相关的书评和推荐，其中不乏夸其细致文笔的，就打算有空的时候再试着看看。正巧表姐和朋友前几日来了关西，约定今日到大阪陪她们游玩。这一来一回乘坐列车有几个小时的空暇，我便在 Kindle 放了『浮生六记』作消遣之用。&lt;/p></description></item><item><title>在树莓派上安装配置 Raspbian</title><link>https://fang2hou.com/post/install-raspberry-pi-3-raspbian/</link><pubDate>Mon, 12 Nov 2018 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/install-raspberry-pi-3-raspbian/</guid><description>&lt;h1 id="简介">简介&lt;/h1>
+&lt;p>&lt;code>Raspbian&lt;/code> —— 一个专门用于树莓派的 Debian 分支，且唯一获得树莓派官方支持的系统。&lt;br>
+本文将介绍在不同的主流操作系统中安装 &lt;code>Raspbian&lt;/code> 的多种方法，你可以选择最适合自己的方式进行安装。&lt;/p>
+&lt;h1 id="准备">准备&lt;/h1>
+&lt;ol>
+&lt;li>树莓派 (Raspberry Pi)&lt;/li>
+&lt;li>SD 卡及读卡器&lt;/li>
+&lt;li>控制工具（选一个即可，也可无线）
+&lt;ul>
+&lt;li>网线&lt;/li>
+&lt;li>HDMI 线 + 显示屏 + 键盘&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol></description></item><item><title>我选择使用 Go 语言的几大理由</title><link>https://fang2hou.com/post/reasons-why-i-use-golang/</link><pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/reasons-why-i-use-golang/</guid><description>&lt;p>自暑假彻底宅在家中，就没在更新博客了。倒不是变懒了，只是生活平淡的和老年人一般，是真没什么值得写出来让大家看的。最近家里灯坏了，一到晚上 6 点就已然漆黑一片。这种黑夜时间变长的感觉，只属于秋冬。时间可过得真快，我还没从暑假缓过神来，这就又遇到了秋天。&lt;/p>
+&lt;p>从当初高二拿了一个 10 吋上网本窝在宿舍里学写一些简单的 Python 小代码，到现在维护几个库。今年，已经是我使用 Python 也已经第 6 个年头了。其实也没有这么喜欢 Python，当初使用的契机也仅仅是上手简单，能够快速实现自己的想法罢了。Python 的出现让大家缩短了开发周期，就我逛 V2EX 的感觉来说，写 Python 的同学自由时间好像可以比别人多一倍。&lt;/p></description></item><item><title>在日生活之维他柠檬茶冲调攻略</title><link>https://fang2hou.com/post/diy-vita-lemon-tea-in-japan/</link><pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/diy-vita-lemon-tea-in-japan/</guid><description>&lt;p>日本生活多年，忘不了国内维他柠檬茶的同学相信有不少。&lt;br>
+但是无论是国内转运还是人肉带货价格都非常的高昂，所以就萌生了自己冲调的想法。&lt;br>
+这周算是 fork 了许同学的冲调法，自己进行了冲调比例的多次尝试，以求尽量接近维他的口感。&lt;/p></description></item><item><title>在 macOS 上为树莓派安装 Ubuntu Mate</title><link>https://fang2hou.com/post/install-raspberry-pi-3-ubuntu-mate-on-mac/install-raspberry-pi-3-ubuntu-mate-on-mac/</link><pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/install-raspberry-pi-3-ubuntu-mate-on-mac/install-raspberry-pi-3-ubuntu-mate-on-mac/</guid><description>&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>树莓派官方系统 Raspbian 加了一些不必要的东西，作为系统洁癖，肯定还是想搞个比较纯净的环境。我这里推荐 Ubuntu Core 和 Ubuntu Mate。&lt;/p>
+&lt;p>鉴于 Ubuntu Mate 官方并没有提供在 macOS 上进行安装的教程。以下是我成功安装的简单步骤。&lt;/p></description></item><item><title>用 GAE 搭建简易 API</title><link>https://fang2hou.com/post/deploy-api-with-gae/</link><pubDate>Wed, 14 Feb 2018 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/deploy-api-with-gae/</guid><description>&lt;h1 id="注册-google-cloud-platform">注册 Google Cloud Platform&lt;/h1>
+&lt;p>Google Cloud Platform，即&lt;strong>谷歌云平台&lt;/strong>，提供了大量的云服务以及为期一年的 300 美金体验费用。&lt;br>
+Google App Engine 是云平台上的一种服务，其实在很早以前就有了。但是随着基于这个服务的某个代理项目成熟，中国大陆对其进行了屏蔽。&lt;br>
+不过也有好处，GAE 现在的使用门槛提高后，GAE 的滥用情况减少了很多。绑定自己的域名后还是可以解决大陆的访问问题。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;a href="https://console.cloud.google.com">Google Cloud Platform 主页&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>注册 GCP 需要你拥有一张信用卡 / 借记卡（JCB, 银联不可以），一个谷歌账户，和一个能上谷歌的网络环境。&lt;/p></description></item><item><title>nobo 开发日记（一）</title><link>https://fang2hou.com/post/nobo-development-log-1/</link><pubDate>Sat, 03 Feb 2018 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/nobo-development-log-1/</guid><description>&lt;h1 id="开篇">开篇&lt;/h1>
+&lt;p>立命馆现在能用的校内 App 只有一个用 ionic 开发的版本，速度慢，界面卡，实在是用不下去了。&lt;br>
+计划中的 RitsFun 是一个适用于立命馆大学的校内 App，作为个人练手项目，将使用 Swift 4.0 开发。&lt;br>
+在开发过程中，我会将开发的详细步骤和代码放在日记之中，供各位参考。&lt;/p>
+&lt;p>而「nobo」则是该软件的后端部分，将负责数据的获取，转储。&lt;/p></description></item><item><title>巧用 CSS 遮罩层暗示点击继续阅读</title><link>https://fang2hou.com/post/read-more-mask-with-css/</link><pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/read-more-mask-with-css/</guid><description>&lt;p>&lt;strong>注&lt;/strong>: 文章是在之前用 WordPress 作为博客程序的时候写的。&lt;/p>
+&lt;h1 id="起因">起因&lt;/h1>
+&lt;p>前几日，当我将博客分享给朋友时，被问道「你的文章怎么都只有一段的啊？」。&lt;br>
+没错，在设计时尽量缩小了「继续阅读」按钮，就是为了不影响整体版面的美观。但往往，事与愿违，用户真正在阅读网站时可能并不会注意到不起眼的阅读按钮。&lt;br>
+我这里也就抛砖引玉，提供一个我的思路来提示用户这并不是全文。&lt;/p></description></item><item><title>LaTeX + Sublime Text 日文环境配置 Windows 篇</title><link>https://fang2hou.com/post/japanese-latex-with-sublime-text-on-windows/</link><pubDate>Mon, 25 Dec 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/japanese-latex-with-sublime-text-on-windows/</guid><description>&lt;p>本文适用于采用 Windows 操作系统的用户，如果你是 macOS 用户，请参考『&lt;a href="https://fang2hou.com/post/japanese-latex-with-sublime-text-on-macos/">这篇文章&lt;/a>』。&lt;/p>
+&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。上次写了一篇 macOS 下配置 LaTeX 的文章，考虑到 Windows 用户的基数庞大，就借此文向大家介绍一下在 Windows 系统下快速配置 LaTeX 的心得。&lt;br>
+本文旨在帮助无电脑基础的读者在 Windows 上快速建立起日文 LaTeX 书写环境，并和 Sublime Text 3 及 Sumatra PDF 阅读器进行配合，进一步提升书写的舒适度。&lt;/p></description></item><item><title>从校外快速连接到立命馆</title><link>https://fang2hou.com/post/connect-to-ritsumei/</link><pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/connect-to-ritsumei/</guid><description>&lt;h1 id="背景">背景&lt;/h1>
+&lt;p>很多人都喜欢在家里写作业，但是碍于部分开发环境的配置过于繁琐，大家都想通过校内的 Rainbow 环境下的预配置 CentOS 来完成。同时，身处日本国外时，若想利用学校的证书去访问付费论文数据库，也需要利用到立命馆提供的网络服务。&lt;br>
+在这里，就从&lt;strong>立命馆 VPN&lt;/strong>，&lt;strong>RAINBOW Linux&lt;/strong>，&lt;strong>校内文件传输&lt;/strong>三个方面来介绍一下立命馆的网络服务。&lt;/p>
+&lt;h1 id="立命馆服务管理">立命馆服务管理&lt;/h1>
+&lt;p>考虑到安全性，立命馆所有高级网络功能均要求手动开启。&lt;br>
+请登入学校的 &lt;a href="https://idminfo.ritsumei.ac.jp/webmtn/sso-joint">服务管理页面&lt;/a> 开启 SSH 及 VPN 服务。&lt;/p>
+&lt;p>&lt;strong>小提示&lt;/strong> 点击左侧「ユーザ設定 (User Settings)」即可切换到服务开关页面。&lt;/p></description></item><item><title>在 Windows 中使用 Linux 子系统</title><link>https://fang2hou.com/post/use-linux-subsystem-on-windows/</link><pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/use-linux-subsystem-on-windows/</guid><description>&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>众所周知，Linux 在程序开发时是非常易用的环境。特别对于在日的理工科学生来说，自打从学 C 语言起就是在 Linux 中开发。同时，Mac 对于程序员来说是非常易用的，这得益于 macOS 脱胎于 Unix 系统，大部分 Linux 中常用操作都可以在 macOS 中实现。现在，随着 Windows 系统的进一步发展，在 Windows 10 的周年更新版之后，新增了 Linux 子系统功能。借助子系统，我们可以快速构建一个开发环境，和 Windows 紧密结合在一起。&lt;/p>
+&lt;blockquote>
+&lt;p>注：我的 PC 搭载的是英文版本的 Windows 10，中文翻译可能不是很准确，请尽量参考截图来操作。&lt;/p>
+&lt;/blockquote></description></item><item><title>LaTeX + Sublime Text 日文环境配置 macOS 篇</title><link>https://fang2hou.com/post/japanese-latex-with-sublime-text-on-macos/</link><pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/japanese-latex-with-sublime-text-on-macos/</guid><description>&lt;p>本文适用于采用 macOS 操作系统的用户，如果你是 Windows 用户，请参考『&lt;a href="https://fang2hou.com/post/japanese-latex-with-sublime-text-on-windows/">这篇文章&lt;/a>』。&lt;/p>
+&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>LaTeX 是理工系同学在写日常报告和论文时不可或缺的伙伴，相比于传统的文字处理软件，可以更加方便的排版和书写公式。在日本的大学之中，使用 LaTeX 书写也是一门必备的技巧。随着 MacTeX 的更新，日文环境已经足够完善，但是为了更加快速的书写及编译 LaTeX 文档，我们可以对相关软件进行设置来提升使用体验。&lt;br>
+本文旨在帮助无电脑基础的读者在 Mac 上快速建立起日文 LaTeX 书写环境，并和 Sublime Text 3 进行配合，进一步提升书写的舒适度。&lt;br>
+强烈推荐 Skim 阅读器，能够动态读取 PDF 文档，并对刚刚作出修改的地方进行同步标示。&lt;/p></description></item><item><title>OwnCloud 报 502 错误的处理</title><link>https://fang2hou.com/post/solution-for-owncloud-502-error/</link><pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/solution-for-owncloud-502-error/</guid><description>&lt;h1 id="背景">背景&lt;/h1>
+&lt;p>出于偷懒的目的，我总是采用 LNMP 一键安装包来部署 Nginx，MySQL 及 PHP。&lt;br>
+但是在 OwnCloud 安装后，进入后台会报 502 错误，网上许多使用者都在这上面栽了一头。OwnCloud 对 Apache 的支持很不错，Nginx 仅仅提供了一个 Rewrite 文件。经过一段时间的摸索，其实也是有很简单的解决方案的。&lt;/p></description></item><item><title>chattr 命令</title><link>https://fang2hou.com/post/chattr-command/</link><pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/chattr-command/</guid><description>&lt;h1 id="一个经常被忽视的命令">一个经常被忽视的命令&lt;/h1>
+&lt;p>对于我个人来说，这个命令其实也不是特意去找来用的。&lt;br>
+前段日子，在尝试使用 ss-panel 来搭建 FzVPN 的前端的时候，发现在用&lt;code>mv&lt;/code>命令将 git clone 的文件夹文件转移到 vhost 文件夹的时候，总是没法将配置文件转移。&lt;br>
+这让我觉得很奇怪，而且还无法通过&lt;code>rm -rf&lt;/code>来删除。即使处于 root 权限之下，也会提示操作权限不够的错误。经过几番查找，最后尝试使用 chattr 命令去除了 i 属性成功转移。学习命令的同时，将查到的一些资料写下来备忘。&lt;/p></description></item><item><title>快速删除 Xcode 中的 Components</title><link>https://fang2hou.com/post/remove-xcode-components/</link><pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/remove-xcode-components/</guid><description>&lt;h1 id="更人性化的-xcode">更人性化的 Xcode&lt;/h1>
+&lt;p>在 Xcode 中，有时候会特意下载一些 Component 比如 iOS 9.2 的 SDK 来测试是否能在不同系统版本上面运行。&lt;br>
+但是，随着系统版本的不断更新，一些旧版本已经无需测试，但是 Apple 并没有提供一个删除的按钮。&lt;br>
+好在 Xcode 在更新到最新版本之后，Components 保存地址十分的固定且打包程度极高。&lt;/p></description></item><item><title>2017 年 2 月书单</title><link>https://fang2hou.com/post/book-lists-2017-2/</link><pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/book-lists-2017-2/</guid><description>&lt;h1 id="本月看的书">本月看的书&lt;/h1>
+&lt;ol>
+&lt;li>&lt;strong>『自控力』&lt;/strong>&lt;br>
+&lt;img src="zikongli.jpg" alt="自控力">&lt;/li>
+&lt;/ol>
+&lt;p>一本很实用的书，这本书彻底改了我一个多年的坏习惯。并且，现在在面对各种诱惑时，自我感觉能够更加科学的去自控了。&lt;br>
+作者用了很多科学研究的结论，从多方面来分析失控的原因，对于自控这件事，确实是有极大的帮助的。比如「道德许可」及「那有如何」心理现象，深有感触。书中甚至对于商业上的心理失控也有触及。由于引用了非常多的实例，读起来也算饶有趣味。&lt;/p></description></item><item><title>手动去除有道词典 7 的广告</title><link>https://fang2hou.com/post/remove-youdao-dict-ads/</link><pubDate>Mon, 27 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/remove-youdao-dict-ads/</guid><description>&lt;h1 id="有道的优势">有道的优势&lt;/h1>
+&lt;p>有道词典发布也已多年，还记得初中的时候，有道几乎是班上同学必装的学习软件之一。&lt;br>
+虽然这篇文章是要对有道下手了，但还是先看看有道的优点吧。&lt;/p>
+&lt;ol>
+&lt;li>收录了朗文，柯林斯及 21 世纪大英汉 3 部权威词典。&lt;/li>
+&lt;li>在线查词速度非常之快，国内国外都挺快。&lt;/li>
+&lt;li>支持了比较多的语言，非常适合多外语学习者。&lt;/li>
+&lt;li>客户端非常小巧，且界面都可以自己编辑成喜欢的样式。&lt;/li>
+&lt;/ol></description></item><item><title>如何整理自己的手机桌面</title><link>https://fang2hou.com/post/how-to-place-app/</link><pubDate>Wed, 08 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/how-to-place-app/</guid><description>&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>随着手机硬件的不断发展，现在在手机上几乎能完成原先在电脑上全部的工作了。我自己也经常通过手机的终端应用连接到学校的云上，非常方便。&lt;br>
+同时，像支付宝，滴滴打车这样的工具应用的普及，原先鲜有人使用的手机 App 从新鲜事物逐渐演变成了生活的必需品。可是，App数量的爆炸也带来了很多问题。如常用和不常用的软件的界定，摆放的位置等等。&lt;br>
+关于如何让自己更加高效地使用手机，是我一直在研究的问题，借着此文，分享一下我对手机桌面整理的心得。&lt;/p></description></item><item><title>使用 Javascript 来做多语言页面的转向</title><link>https://fang2hou.com/post/use-javascript-to-redirect-multi-languages-page/</link><pubDate>Mon, 06 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/use-javascript-to-redirect-multi-languages-page/</guid><description>&lt;h1 id="契机">契机&lt;/h1>
+&lt;p>今天，我的一个项目更新了多语言的说明文档，为了更快的帮助用户，我觉得有必要做一个自动的语言转向功能。&lt;br>
+经过一番查询，当前很多浏览器对「navigator.language」变量有很好的支持。&lt;br>
+藉此，我们可以使用 Javascript 来做一个语言识别并转向。&lt;/p></description></item><item><title>Linux 及 Mac 上的文件链接</title><link>https://fang2hou.com/post/link-on-linux-and-macos/</link><pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/link-on-linux-and-macos/</guid><description>&lt;h1 id="何谓文件链接">何谓文件链接&lt;/h1>
+&lt;p>某一个文件或某一个文件夹在另外一个位置存在的一个同步链接。&lt;br>
+那么文件链接有何优势呢？简单来说，文件链接可以帮助我们更容易的管理一些散落在系统各个层级的文件。&lt;br>
+在游戏插件，或是库开发的时候极其方便，编译文件夹直接链接到实际调用的地方，程序/游戏就能自动读取开发中的资源了。&lt;/p></description></item><item><title>在 macOS 上使用 Shadowsocks</title><link>https://fang2hou.com/post/shadowsocks-on-macos/</link><pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/shadowsocks-on-macos/</guid><description>&lt;h1 id="写在教程之前">写在教程之前&lt;/h1>
+&lt;p>本教程是通用的 Shadowsocks 在 macOS 上的使用教程。&lt;/p></description></item><item><title>在 Windows 上使用 Shadowsocks</title><link>https://fang2hou.com/post/shadowsocks-on-windows/</link><pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/shadowsocks-on-windows/</guid><description>&lt;h1 id="写在教程之前">写在教程之前&lt;/h1>
+&lt;p>本教程是通用的 Shadowsocks 在 Windows 上的使用教程。&lt;br>
+&lt;strong>下文图片可以点击放大的！&lt;/strong>&lt;/p></description></item><item><title>网址操作及页面转向的几种方式</title><link>https://fang2hou.com/post/url-operation/</link><pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/url-operation/</guid><description>&lt;h1 id="浅谈页面转向">浅谈页面转向&lt;/h1>
+&lt;p>先来讲讲页面转向的问题。&lt;br>
+「页面转向」常规来讲是一种对网址重写的过程。&lt;br>
+所以，Ngnix 及 Apache 的 Rewrite 规则是非常常用的手段。&lt;/p></description></item><item><title>在 iOS 上使用 Shadowsocks</title><link>https://fang2hou.com/post/shadowsocks-on-ios/</link><pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/shadowsocks-on-ios/</guid><description>&lt;h1 id="写在教程之前">写在教程之前&lt;/h1>
+&lt;p>本教程是通用的 Shadowsocks 在 iOS 上的使用教程。&lt;br>
+您可以随时通过访问 &lt;a href="http://ip111.cn">IP111&lt;/a> 来检测您是否成功出国成功。&lt;/p></description></item><item><title>自定义 SSH 的服务端口</title><link>https://fang2hou.com/post/set-ssh-port/</link><pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/set-ssh-port/</guid><description>&lt;h2 id="契机">契机&lt;/h2>
+&lt;p>每次在维护服务器的时候，总会在登录时收到许多其他 IP 尝试登陆 SSH 的失败信息。为了提高服务器的安全性，修改 SSH 默认的 &lt;code>22&lt;/code> 端口可能会帮助屏蔽一些恶意扫描。&lt;/p></description></item></channel></rss>

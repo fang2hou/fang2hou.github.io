@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>立命馆 on 方舟</title><link>https://fang2hou.com/tags/%E7%AB%8B%E5%91%BD%E9%A6%86/</link><description>Recent content in 立命馆 on 方舟</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 15 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://fang2hou.com/tags/%E7%AB%8B%E5%91%BD%E9%A6%86/index.xml" rel="self" type="application/rss+xml"/><item><title>从校外快速连接到立命馆</title><link>https://fang2hou.com/post/connect-to-ritsumei/</link><pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/connect-to-ritsumei/</guid><description>&lt;h1 id="背景">背景&lt;/h1>
+&lt;p>很多人都喜欢在家里写作业，但是碍于部分开发环境的配置过于繁琐，大家都想通过校内的 Rainbow 环境下的预配置 CentOS 来完成。同时，身处日本国外时，若想利用学校的证书去访问付费论文数据库，也需要利用到立命馆提供的网络服务。&lt;br>
+在这里，就从&lt;strong>立命馆 VPN&lt;/strong>，&lt;strong>RAINBOW Linux&lt;/strong>，&lt;strong>校内文件传输&lt;/strong>三个方面来介绍一下立命馆的网络服务。&lt;/p>
+&lt;h1 id="立命馆服务管理">立命馆服务管理&lt;/h1>
+&lt;p>考虑到安全性，立命馆所有高级网络功能均要求手动开启。&lt;br>
+请登入学校的 &lt;a href="https://idminfo.ritsumei.ac.jp/webmtn/sso-joint">服务管理页面&lt;/a> 开启 SSH 及 VPN 服务。&lt;/p>
+&lt;p>&lt;strong>小提示&lt;/strong> 点击左侧「ユーザ設定 (User Settings)」即可切换到服务开关页面。&lt;/p></description></item></channel></rss>

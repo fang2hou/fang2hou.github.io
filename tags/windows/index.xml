@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on 方舟</title><link>https://fang2hou.com/tags/windows/</link><description>Recent content in Windows on 方舟</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 15 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://fang2hou.com/tags/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>在 Windows 中使用 Linux 子系统</title><link>https://fang2hou.com/post/use-linux-subsystem-on-windows/</link><pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/use-linux-subsystem-on-windows/</guid><description>&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>众所周知，Linux 在程序开发时是非常易用的环境。特别对于在日的理工科学生来说，自打从学 C 语言起就是在 Linux 中开发。同时，Mac 对于程序员来说是非常易用的，这得益于 macOS 脱胎于 Unix 系统，大部分 Linux 中常用操作都可以在 macOS 中实现。现在，随着 Windows 系统的进一步发展，在 Windows 10 的周年更新版之后，新增了 Linux 子系统功能。借助子系统，我们可以快速构建一个开发环境，和 Windows 紧密结合在一起。&lt;/p>
+&lt;blockquote>
+&lt;p>注：我的 PC 搭载的是英文版本的 Windows 10，中文翻译可能不是很准确，请尽量参考截图来操作。&lt;/p>
+&lt;/blockquote></description></item><item><title>在 Windows 上使用 Shadowsocks</title><link>https://fang2hou.com/post/shadowsocks-on-windows/</link><pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/shadowsocks-on-windows/</guid><description>&lt;h1 id="写在教程之前">写在教程之前&lt;/h1>
+&lt;p>本教程是通用的 Shadowsocks 在 Windows 上的使用教程。&lt;br>
+&lt;strong>下文图片可以点击放大的！&lt;/strong>&lt;/p></description></item></channel></rss>
