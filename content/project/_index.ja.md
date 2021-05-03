@@ -4,12 +4,16 @@ date = "2021-05-01"
 author = "Zhou Fang"
 layout = "page"
 +++
+# 🌟 貢献したプロジェクト
+* [Gnome](https://www.gnome.org/) - Linux で一番良いデスクトップ環境かもしれません
+* [Deep Graph Library](https://www.dgl.ai/) - トップレベルのグラフニューラルネットワークライブラリ
+* [ElvUI](https://www.tukui.org/download.php?ui=elvui) - _World of Warcraft_で最も使われている UI プラグイン
+* [anatole](https://github.com/lxndrblz/anatole) - 非常に人気高い Hugo テーマ 
 
 # 🚀 進行中のプロジェクト
-
 **ゲームツール**
 * [ElvUI WindTools](https://bbs.ngacn.cc/read.php?tid=12142815) - [World of Warcraft] ゲーム機能を充実させるツール
-* [Wind ダンジョンヘルパー](https://www.curseforge.com/wow/addons/wind-dungeon-helper) - [World of Warcraft]　ダンジョンでのバトルを記録・ミス分析ツール
+* [Wind ダンジョンヘルパー](https://www.curseforge.com/wow/addons/wind-dungeon-helper) - [World of Warcraft] ダンジョンでのバトルを記録・ミス分析ツール
 
 **IoT**
 * [Raspberry Pi サンプルコード](https://github.com/fang2hou/raspberry-pi-examples) - GPIO でロボットを駆動するコード
@@ -29,6 +33,9 @@ layout = "page"
 * [RitsWiFi](https://github.com/fang2hou/RitsWifi) - 構内 Wi-Fi ツール for macOS（Python）
 * [RitsuShare](https://github.com/fang2hou/RitsuShare) - 学生個人サイトジェネレーター
 * [AnoteDownloader](https://github.com/fang2hou/AnoteDownloader) - Anote ダウンロードツール
+
+**筑波大学に関わるもの**
+* [TsukubaScripts](https://github.com/fang2hou/TsukubaScripts) - 学内サイト自動ログインなど、自作のスクリプトコレクション
 
 # 💀 中止されたプロジェクト
 * ~~FzCloud - クラウドサービス~~

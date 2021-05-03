@@ -5,11 +5,17 @@ author = "Zhou Fang"
 layout = "page"
 +++
 
+# 🌟 Contributed Projects
+* [Gnome](https://www.gnome.org/) - Maybe the best desktop environments in Linux.
+* [Deep Graph Library](https://www.dgl.ai/) - Top-level Graph Neural Network library
+* [ElvUI](https://www.tukui.org/download.php?ui=elvui) - Most used UI addon in _World of Warcraft_
+* [anatole](https://github.com/lxndrblz/anatole) - A widely used Hugo theme
+
 # 🚀 Running projects
 
 **Game Tools**
-* [ElvUI WindTools](https://bbs.ngacn.cc/read.php?tid=12142815) - [World of Warcraft] Customizable features for ElvUI users
-* [Wind Deungeon Helper](https://www.curseforge.com/wow/addons/wind-dungeon-helper) - [World of Warcraft]　Record and analysis your battle in dungeons
+* [ElvUI WindTools](https://bbs.ngacn.cc/read.php?tid=12142815) - [_World of Warcraft_] Customizable features for ElvUI users
+* [Wind Deungeon Helper](https://www.curseforge.com/wow/addons/wind-dungeon-helper) - [_World of Warcraft_] Record and analysis your battle in dungeons
 
 **IoT**
 * [Raspberry Pi Sample Codes](https://github.com/fang2hou/raspberry-pi-examples) - Robot code w/ GPIO (not yet)
@@ -29,6 +35,9 @@ layout = "page"
 * [RitsWiFi](https://github.com/fang2hou/RitsWifi) - Compus Wi-Fi tool for macOS（Python）
 * [RitsuShare](https://github.com/fang2hou/RitsuShare) - Student site generator
 * [AnoteDownloader](https://github.com/fang2hou/AnoteDownloader) - Anote content downloader
+
+**Life at University of Tsukuba**
+* [TsukubaScripts](https://github.com/fang2hou/TsukubaScripts) - Some scripts for increasing QoL
 
 # 💀 Stopped projects
 * ~~FzCloud - Private cloud service~~

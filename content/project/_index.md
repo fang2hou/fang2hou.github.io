@@ -4,6 +4,11 @@ date = "2021-05-01"
 author = "Zhou Fang"
 layout = "page"
 +++
+# 🌟 贡献过的项目
+* [Gnome](https://www.gnome.org/) - 或许是世界上最好的 Linux 桌面环境
+* [Deep Graph Library](https://www.dgl.ai/) - 顶级的图神经网络库
+* [ElvUI](https://www.tukui.org/download.php?ui=elvui) - _魔兽世界_最受欢迎的 UI 插件
+* [anatole](https://github.com/lxndrblz/anatole) - 相当受欢迎的 Hugo 主题 
 
 # 🚀 运行中的项目
 
@@ -24,12 +29,15 @@ layout = "page"
 * [FzActive](fzactive/) - 适用于多种软件的试用激活服务
 * [FzFilter](fzfilter/) - 基于 JavaScript 的在线滤镜
 
-**立命馆相关**
+**立命馆大学相关**
 * [nobo](https://github.com/fang2hou/nobo) - 立命馆个人信息爬虫
 * [RitsAssistant](https://github.com/fang2hou/RitsAssistant) - 立命馆 WiFi 助手 for macOS（纯 Swift）
 * [RitsWiFi](https://github.com/fang2hou/RitsWifi) - 立命馆 WiFi 助手 for macOS（Python 调用 ObjC）
 * [RitsuShare](https://github.com/fang2hou/RitsuShare) - 立命馆个人主页自动生成工具
 * [AnoteDownloader](https://github.com/fang2hou/AnoteDownloader) - 立命馆 Anote 下载工具
+
+**筑波大学相关**
+* [TsukubaScripts](https://github.com/fang2hou/TsukubaScripts) - 一些便利脚本，比如校内网站自动登陆等
 
 # 💀 已终止的项目
 * ~~FzCloud - 私有云~~
