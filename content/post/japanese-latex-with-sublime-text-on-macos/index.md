@@ -105,10 +105,10 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/loca
 ```
 
 打开 Skim，在左上角苹果系统图标旁可以找到 Skim，点开，找到首选项（Preferences）进入。
-{% asset_img skimmenu.png %}
+![](skimmenu.png)
   
 将 Sync 选项卡中将 Skim 设定为自动重载，且同步于 Sublime Text。
-{% asset_img skimsync.png %}
+![](skimsync.png)
 大功告成，现在你可以用 Sublime Text 3 打开 tex 文件来编辑 LaTeX 了。
 由于我们已经导入了最新版本的转换功能，可直接在 Tex 文书中插入大部分常见格式的图片而无需转换 eps 格式。
 在 Tex 文书写完之后，按住 **Command+Shift+B** 组合键即可编译。

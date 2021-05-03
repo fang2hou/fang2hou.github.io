@@ -12,8 +12,8 @@ enableRobotsTXT = true
 #googleAnalytics = "UA-123-45"
 
 # Syntax highlighting
-pygmentsUseClasses = true
-pygmentsCodeFences = true
+pygmentsUseClasses = false
+pygmentsCodeFences = false
 pygmentsCodefencesGuessSyntax = true
 
 [markup.goldmark.renderer]

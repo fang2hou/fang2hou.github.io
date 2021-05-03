@@ -8,6 +8,13 @@ html[data-theme='dark'] {
 
 code {
     font-family: 'JetBrains Mono', 'Sarasa Mono', consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei';
+    border: 1px solid rgba(161,161,161,.3);
+    font-size: .9em;
+    margin: 0 .25em;
+    padding: .25em .65em;
+    overflow-x: auto;
+    color: var(--body-color);
+    background-color: var(--secondary-bg-color);
 }
 
 .sidebar .logo-title .title h3 {
@@ -174,4 +181,27 @@ print {
 
 .post .post-title h3 {
     text-transform: none;
+}
+
+pre {
+    background-color: unset;
+    padding: 5px;
+    display: block;
+    overflow-x: auto;
+}
+
+.hljs {
+    padding: 2em 3em;
+}
+
+.info {
+    margin: 1em 0 2em 0;
+}
+
+.post {
+    margin-top: 60px;
+}
+
+.author {
+    font-size: 10px;
 }

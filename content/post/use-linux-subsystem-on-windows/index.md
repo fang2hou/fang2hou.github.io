@@ -100,7 +100,7 @@ sudo apt-get install zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 出现 Oh-my-zsh 的字符画或者出现了箭头提示，即为安装成功。
-{% asset_img success-oh-my-zsh.png Oh-my-zsh 安装成功 %}
+![Oh-my-zsh 安装成功](success-oh-my-zsh.png)
 
 如果你在安装时用了中文输入法，权限认证可能会出错，你可以通过下面的命令来删除，然后重新用上面的安装命令试一次。
 ```shell

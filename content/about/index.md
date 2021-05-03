@@ -7,7 +7,7 @@ layout = "page"
 +++
 # 👋 你好
 我叫方舟，目前在筑波大学攻读硕士研究生。
-现在是 [知识获得系统研究室](https://kasys.slis.tsukuba.ac.jp/) 的一员，主要研究方向为机器学习，推荐算法及图网络。
+现在是 [知识获得系统研究室](https://kasys.slis.tsukuba.ac.jp/en/) 的一员，主要研究方向为机器学习，推荐算法及图网络。
 
 # 💻 编程
 平常较多使用 Python、Lua、C++ 和 Go。

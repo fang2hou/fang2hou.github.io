@@ -7,8 +7,8 @@ layout = "page"
 +++
 
 # 👋 Hi
-I am Zhou Fang, a master's candidate from [Knowledge Acquisition System Laboratory](https://kasys.slis.tsukuba.ac.jp/), University of Tsukuba.
-My research focuses on developing machine learning algorithms, recommender systems, and graph networks.
+I am Zhou Fang, a master's candidate from [Knowledge Acquisition System Laboratory](https://kasys.slis.tsukuba.ac.jp/en/), University of Tsukuba.
+My research focuses on developing machine learning algorithms, recommender systems, and graph neural networks.
 
 # 💻 Programming
 I mainly use Python, Lua, C++, and Go in daily development and research.

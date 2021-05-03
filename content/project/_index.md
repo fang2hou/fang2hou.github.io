@@ -7,7 +7,7 @@ layout = "page"
 # 🌟 贡献过的项目
 * [Gnome](https://www.gnome.org/) - 或许是世界上最好的 Linux 桌面环境
 * [Deep Graph Library](https://www.dgl.ai/) - 顶级的图神经网络库
-* [ElvUI](https://www.tukui.org/download.php?ui=elvui) - _魔兽世界_最受欢迎的 UI 插件
+* [ElvUI](https://www.tukui.org/download.php?ui=elvui) - _魔兽世界_ 最受欢迎的 UI 插件
 * [anatole](https://github.com/lxndrblz/anatole) - 相当受欢迎的 Hugo 主题 
 
 # 🚀 运行中的项目

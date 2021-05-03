@@ -74,13 +74,11 @@ Sublime Text 3 有安装版本也有绿色版本（Portable）。可以根据自
 
 ### 安装
 ![](windows-latex-installer1.png)
-{% asset_img windows-latex-iso-ins1.png %}
+![](windows-latex-iso-ins1.png)
 接着，可以选择安装的位置，请记下这个地址，等下要使用。
 ![](windows-latex-installer5.png)
-{% asset_img windows-latex-installer5.png %}
 「TexWorks」这个软件可以按照自己需求去安装，见仁见智。
 ![](windows-latex-installer6.png)
-{% asset_img windows-latex-installer6.png %}
 等待网络安装器自动安装。时间较长，建议放在一边，先去喝杯咖啡。
 ![](windows-latex-installer7.png)
 
@@ -103,7 +101,7 @@ Sumatra PDF 作为一个绿色软件，通过解压就可以使用。考虑到�
 
 ## 部署 LaTeXTools
 1. 参考下图，打开菜单栏中的 「Preference」-「Package Settings」-「LaTeXTools」-「Setting - User」
-{% asset_img windows-latex-usersetting.png %}
+![](windows-latex-usersetting.png)
 第一次点击的话，会询问是否要拷贝默认配置，在这里你可以随意选择。
 2. 将配置内容全部清空，并复制如下代码。
 ```python

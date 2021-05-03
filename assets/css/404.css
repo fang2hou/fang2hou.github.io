@@ -27,12 +27,6 @@ body {
     margin: 40px auto;
 }
 
-.container > .lang-switcher {
-    position: absolute;
-    bottom: 20px;
-    text-align: center;
-}
-
 .container > .return-btn {
     border: 1px solid;
     border-radius: 5px;
@@ -60,4 +54,16 @@ body {
 
 .container > .return-btn > a {
     color: unset;
+}
+
+.container > .lang-switcher {
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.container > .lang-switcher > p {
+    position: absolute;
+    width: 100%;
+    margin-top: -20px;
 }

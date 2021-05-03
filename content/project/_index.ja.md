@@ -7,7 +7,7 @@ layout = "page"
 # 🌟 貢献したプロジェクト
 * [Gnome](https://www.gnome.org/) - Linux で一番良いデスクトップ環境かもしれません
 * [Deep Graph Library](https://www.dgl.ai/) - トップレベルのグラフニューラルネットワークライブラリ
-* [ElvUI](https://www.tukui.org/download.php?ui=elvui) - _World of Warcraft_で最も使われている UI プラグイン
+* [ElvUI](https://www.tukui.org/download.php?ui=elvui) - _World of Warcraft_ で最も使われている UI プラグイン
 * [anatole](https://github.com/lxndrblz/anatole) - 非常に人気高い Hugo テーマ 
 
 # 🚀 進行中のプロジェクト

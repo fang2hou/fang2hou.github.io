@@ -5,10 +5,12 @@ copyright = "2012-2021"
 #profilePicture = "images/avatar.svg"
 keywords = ""
 favicon = "favicons/"
-# example ["css/custom.css"]
 customCss = ["css/fang2hou.css"]
-# example ["js/custom.js"]
-customJs = ["js/fang2hou.js", "js/languageController.js"]
+customJs = [
+    "js/languageController.js",
+    "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js",
+    "js/fang2hou.js"
+]
 mainSections = ["post"]
 images = []
 doNotLoadAnimations = false
