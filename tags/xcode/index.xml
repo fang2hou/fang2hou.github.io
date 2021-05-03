@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Xcode on 方舟</title><link>https://fang2hou.com/tags/xcode/</link><description>Recent content in Xcode on 方舟</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 19 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://fang2hou.com/tags/xcode/index.xml" rel="self" type="application/rss+xml"/><item><title>快速删除 Xcode 中的 Components</title><link>https://fang2hou.com/post/remove-xcode-components/</link><pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/remove-xcode-components/</guid><description>&lt;h1 id="更人性化的-xcode">更人性化的 Xcode&lt;/h1>
+&lt;p>在 Xcode 中，有时候会特意下载一些 Component 比如 iOS 9.2 的 SDK 来测试是否能在不同系统版本上面运行。&lt;br>
+但是，随着系统版本的不断更新，一些旧版本已经无需测试，但是 Apple 并没有提供一个删除的按钮。&lt;br>
+好在 Xcode 在更新到最新版本之后，Components 保存地址十分的固定且打包程度极高。&lt;/p></description></item></channel></rss>

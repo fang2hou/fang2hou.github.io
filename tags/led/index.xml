@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LED on 方舟</title><link>https://fang2hou.com/tags/led/</link><description>Recent content in LED on 方舟</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 11 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://fang2hou.com/tags/led/index.xml" rel="self" type="application/rss+xml"/><item><title>树莓派搞机日记（二）</title><link>https://fang2hou.com/post/raspberry-pi-guide-02/</link><pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/raspberry-pi-guide-02/</guid><description>初识树莓派 树莓派的元件都在表面，没有什么好特殊介绍的，自己上手翻着看一会应该就能对它熟悉了。这里想花点笔墨说下树莓派的针脚。
+树莓派的针脚排布是有点混乱的，要辨识针脚，首先，请你按照下图的方向可以举起你手中的树莓派。
+然后我们打开 Raspberry Pi Pinout，在这个页面上，你可以清晰的看到各个针脚代表的编码。
+而树莓派有 3 种不同的模式来约束针脚的使用：</description></item></channel></rss>
