@@ -1,9 +1,9 @@
-name: Deployment
+name: generation
 
 on:
   push:
     branches:
-      - master  # Set a branch to deploy
+      - hugo-source  # Set a branch to deploy
 
 jobs:
   deploy:
@@ -17,7 +17,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.81.0'
           # extended: true
 
       - name: Build
