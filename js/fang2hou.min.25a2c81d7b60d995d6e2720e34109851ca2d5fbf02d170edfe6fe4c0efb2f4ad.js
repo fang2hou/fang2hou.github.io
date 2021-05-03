@@ -1,1 +1,0 @@
-let languageNotify=a=>{document.getElementById("lang-notification").innerText=a}
