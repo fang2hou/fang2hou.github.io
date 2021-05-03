@@ -145,4 +145,29 @@ print {
     .page-top .nav li.lang-switcher-nav {
         display: block;
     }
+
+    .page-top .nav li {
+        text-transform: none;
+    }
+
+    .guide-button-title {
+        font-size: 1.3em;
+    }
+
+}
+
+.sidebar .logo-title .title h3 {
+    text-transform: none;
+}
+
+.post .post-title h1 {
+    text-transform: none;
+}
+
+.post .post-title h2 {
+    text-transform: none;
+}
+
+.post .post-title h3 {
+    text-transform: none;
 }

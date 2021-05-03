@@ -24,9 +24,9 @@
         <div class="lang-switcher">
             <p id="lang-notification"></p>
             <ul>
-                {{ range $.Site.Home.AllTranslations }} {{ $flag := resources.Get (printf "images/flags/%s.svg" (.Language)) }}
+                {{ range $.Site.Home.AllTranslations }} {{ $flag := resources.Get (printf "images/flags/%s.svg" (.Language.Lang)) }}
                 <li>
-                    <a href="{{ .Permalink }}" onmouseover="languageNotify({{ .Language.LanguageName }})" onmouseleave="languageNotify(null)">
+                    <a href="{{ .Permalink }}" onmouseover="languageNotify({{ .Language.LanguageName }})" onmouseleave="languageNotify(null)" onclick="setLanguage({{ .Language.Lang }})">
                         <img class="flag" src="{{$flag.RelPermalink}}" />
                     </a>
                 </li>
