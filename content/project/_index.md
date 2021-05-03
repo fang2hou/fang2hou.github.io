@@ -8,7 +8,7 @@ layout = "page"
 # 🚀 运行中的项目
 
 **游戏插件**
-* [ElvUI Wind工具箱](https://bbs.ngacn.cc/read.php?tid=12142815) - 魔兽世界 ElvUI 界面功能补全
+* [ElvUI Wind 工具箱](https://bbs.ngacn.cc/read.php?tid=12142815) - 魔兽世界 ElvUI 界面功能补全
 * [Wind 地下城助手](https://www.curseforge.com/wow/addons/wind-dungeon-helper) - 魔兽世界地下城战斗辅助工具
 
 **IoT 项目**

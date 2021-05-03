@@ -6,7 +6,7 @@
         {{ range .Site.Menus.main }}
             {{ if eq .KeyName "posts" }}
             <a href="{{ .URL }}">
-                <div class="guide-button-title"><i class="fas fa-align-left"></i> {{ .Name }}</div>
+                <div class="guide-button-title"><i class="fas fa-align-left"></i>&nbsp;{{ .Name }}</div>
                 <div class="guide-button-arrow"><svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M41.9999 24H5.99992" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 12L42 24L30 36" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             </a>
             {{ end }}
@@ -16,7 +16,7 @@
         {{ range .Site.Menus.main }}
             {{ if eq .KeyName "projects" }}
             <a href="{{ .URL }}">
-                <div class="guide-button-title"><i class="fas fa-code-branch"></i> {{ .Name }}</div>
+                <div class="guide-button-title"><i class="fas fa-code-branch"></i>&nbsp;{{ .Name }}</div>
                 <div class="guide-button-arrow"><svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M41.9999 24H5.99992" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 12L42 24L30 36" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             </a>
             {{ end }}
