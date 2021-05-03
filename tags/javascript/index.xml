@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Javascript on 方舟</title><link>https://fang2hou.com/tags/javascript/</link><description>Recent content in Javascript on 方舟</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 06 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://fang2hou.com/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 Javascript 来做多语言页面的转向</title><link>https://fang2hou.com/post/use-javascript-to-redirect-multi-languages-page/</link><pubDate>Mon, 06 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/use-javascript-to-redirect-multi-languages-page/</guid><description>&lt;h1 id="契机">契机&lt;/h1>
-&lt;p>今天，我的一个项目更新了多语言的说明文档，为了更快的帮助用户，我觉得有必要做一个自动的语言转向功能。&lt;br>
-经过一番查询，当前很多浏览器对「navigator.language」变量有很好的支持。&lt;br>
-藉此，我们可以使用 Javascript 来做一个语言识别并转向。&lt;/p></description></item><item><title>网址操作及页面转向的几种方式</title><link>https://fang2hou.com/post/url-operation/</link><pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/url-operation/</guid><description>&lt;h1 id="浅谈页面转向">浅谈页面转向&lt;/h1>
-&lt;p>先来讲讲页面转向的问题。&lt;br>
-「页面转向」常规来讲是一种对网址重写的过程。&lt;br>
-所以，Ngnix 及 Apache 的 Rewrite 规则是非常常用的手段。&lt;/p></description></item></channel></rss>

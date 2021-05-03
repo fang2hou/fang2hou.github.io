@@ -1,0 +1,40 @@
+<center>
+    <input type="file" class="filter-btn" accpet="image/*" multiple="false" id="imageUpload" onchange="setImage()">
+</center>
+<canvas id="previewArea"></canvas>
+<center>
+    <input class="filter-btn" type="button" value="{{ .Get 0 }}" onclick="filterRed()">
+    <input class="filter-btn" type="button" value="{{ .Get 1 }}" onclick="filterGray()">
+    <input class="filter-btn" type="button" value="{{ .Get 2 }}" onclick="filterRainbow()">
+    <input class="filter-btn" type="button" value="{{ .Get 3 }}" onclick="filterFrance()">
+</center>
+<center>
+    <input class="filter-btn" style="display: inline-block;" type="button" value="{{ .Get 4 }}" onclick="clearImage()">
+    <input class="filter-btn" style="display: inline-block;" type="button" value="{{ .Get 5 }}" onclick="setImage()">
+</center>
+<style>
+
+.filter-btn {
+    background-color: var(--bg-color);
+    border: none;
+    color: var(--heading-color);
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    border: 2px solid #555555;
+    border-radius: 10px;
+}
+
+.filter-btn:hover {
+  background-color: var(--heading-color);
+  color: var(--bg-color);
+}
+
+</style>
+<script type="text/javascript" src="SimpleImage.js"></script>
+<script type="text/javascript" src="index.js"></script>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Flask on 方舟</title><link>https://fang2hou.com/tags/flask/</link><description>Recent content in Flask on 方舟</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 14 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://fang2hou.com/tags/flask/index.xml" rel="self" type="application/rss+xml"/><item><title>用 GAE 搭建简易 API</title><link>https://fang2hou.com/post/deploy-api-with-gae/</link><pubDate>Wed, 14 Feb 2018 00:00:00 +0000</pubDate><guid>https://fang2hou.com/post/deploy-api-with-gae/</guid><description>&lt;h1 id="注册-google-cloud-platform">注册 Google Cloud Platform&lt;/h1>
-&lt;p>Google Cloud Platform，即&lt;strong>谷歌云平台&lt;/strong>，提供了大量的云服务以及为期一年的 300 美金体验费用。&lt;br>
-Google App Engine 是云平台上的一种服务，其实在很早以前就有了。但是随着基于这个服务的某个代理项目成熟，中国大陆对其进行了屏蔽。&lt;br>
-不过也有好处，GAE 现在的使用门槛提高后，GAE 的滥用情况减少了很多。绑定自己的域名后还是可以解决大陆的访问问题。&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;a href="https://console.cloud.google.com">Google Cloud Platform 主页&lt;/a>&lt;/p>
-&lt;/blockquote>
-&lt;p>注册 GCP 需要你拥有一张信用卡 / 借记卡（JCB, 银联不可以），一个谷歌账户，和一个能上谷歌的网络环境。&lt;/p></description></item></channel></rss>

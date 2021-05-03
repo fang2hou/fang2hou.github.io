@@ -1,0 +1,23 @@
+[[main]]
+name = "关于"
+weight = 100
+identifier = "about"
+url = "/"
+
+[[main]]
+name = "文章"
+weight = 200
+identifier = "posts"
+url = "/post/"
+
+# [[main]]
+# name = "归档"
+# weight = 300
+# identifier = "archives"
+# url = "/archives/"
+
+[[main]]
+name = "项目"
+weight = 400
+identifier = "projects"
+url = "/project/"

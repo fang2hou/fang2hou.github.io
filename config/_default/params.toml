@@ -1,0 +1,58 @@
+title = "fang2hou"
+author = "Zhou Fang"
+description = "Master Candidate @ University of Tsukuba"
+copyright = "2012-2021"
+#profilePicture = "images/avatar.svg"
+keywords = ""
+favicon = "favicons/"
+# example ["css/custom.css"]
+customCss = ["css/fang2hou.css"]
+# example ["js/custom.js"]
+customJs = ["js/fang2hou.js"]
+mainSections = ["post"]
+images = []
+doNotLoadAnimations = false
+# Form Spree Contact Form
+#contactFormAction = "https://formspree.io/f/your-form-hash-here"
+# Google Site Verify
+#googleSiteVerify = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+singleDateFormat = "2/1/2006"
+indexDateFormat = "2/1/2006"
+listDateFormat = "2/1/2006"
+# Commento Comments
+# CommentoURL = "https://commento.example.com/js/commento.js"
+# Read More links for truncated summaries
+# readMore = true
+# postSectionName = "blog"
+
+
+[simpleAnalytics]
+# enable = true
+# customurl = "https://analytics.example.com"
+
+## Math settings
+[math]
+enable = false  # options: true, false. Enable math support globally, default: false. You can always enable math on per page.
+use = "katex"  # options: "katex", "mathjax". default is "katex".
+
+## Social links
+# use 'fab' when brand icons, use 'fas' when standard solid icons.
+[[socialIcons]]
+icon = "fab fa-linkedin"
+title = "Linkedin"
+url = "https://www.linkedin.com/in/zhou-fang-cn/"
+
+[[socialIcons]]
+icon = "fab fa-github"
+title = "GitHub"
+url = "https://github.com/fang2hou/"
+
+[[socialIcons]]
+icon = "fab fa-twitter"
+title = "twitter"
+url = "https://twitter.com/fang2hou"
+
+[[socialIcons]]
+icon = "fas fa-envelope"
+title = "e-mail"
+url = "mailto:iszhoufang@gmail.com"

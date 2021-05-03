@@ -1,0 +1,23 @@
+[[main]]
+name = "プロファイル"
+weight = 100
+identifier = "about"
+url = "/ja/"
+
+[[main]]
+name = "記事一覧"
+weight = 200
+identifier = "posts"
+url = "/ja/post/"
+
+# [[main]]
+# name = "アーカイブ"
+# weight = 300
+# identifier = "archives"
+# url = "/ja/archives/"
+
+[[main]]
+name = "プロジェクト"
+weight = 400
+identifier = "projects"
+url = "/ja/project/"

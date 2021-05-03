@@ -1,0 +1,23 @@
+[[main]]
+name = "About"
+weight = 100
+identifier = "about"
+url = "/en/"
+
+[[main]]
+name = "Posts"
+weight = 200
+identifier = "posts"
+url = "/en/post/"
+
+# [[main]]
+# name = "Archives"
+# weight = 300
+# identifier = "archives"
+# url = "/en/archives/"
+
+[[main]]
+name = "Projects"
+weight = 400
+identifier = "projects"
+url = "/en/project/"
