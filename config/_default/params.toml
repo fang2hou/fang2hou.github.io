@@ -8,7 +8,7 @@ favicon = "favicons/"
 customCss = ["css/fang2hou.css"]
 customJs = [
     "js/languageController.js",
-    "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js",
+    "js/highlight.pack.js",
     "js/fang2hou.js"
 ]
 mainSections = ["post"]

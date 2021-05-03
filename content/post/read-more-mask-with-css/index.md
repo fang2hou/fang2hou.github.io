@@ -28,18 +28,20 @@ __注__: 文章是在之前用 WordPress 作为博客程序的时候写的。
 首先必然是在 HTML 文件里建立一个 div 了，一般来说是在文字的下面。
 ```html
 <div class="my-mask"></div>
-{% endcodeblock %}
+```
+
 然后我们将这个设定一下 CSS 部分的代码。
 为了适配主流浏览器，background 需要设定 3 次。
-{% codeblock lang:css %}
+
+```css
 .my-mask {
-	position: relative;
-	background: -moz-linear-gradient(bottom,rgba(255,255,255,.1),rgba(255,255,255,0));
-	background: -webkit-gradient(linear,0 top,0 bottom,from(rgba(255,255,255,0)),to(#fff));
-	background: -o-linear-gradient(bottom,rgba(255,255,255,.1),rgba(255,255,255,0));
-	width: auto;
-	height: 200px;
-	margin-top: -200px;
+  position: relative;
+  background: -moz-linear-gradient(bottom,rgba(255,255,255,.1),rgba(255,255,255,0));
+  background: -webkit-gradient(linear,0 top,0 bottom,from(rgba(255,255,255,0)),to(#fff));
+  background: -o-linear-gradient(bottom,rgba(255,255,255,.1),rgba(255,255,255,0));
+  width: auto;
+  height: 200px;
+  margin-top: -200px;
 }
 ```
 

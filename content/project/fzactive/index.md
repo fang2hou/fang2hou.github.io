@@ -28,12 +28,12 @@ FzActive 是一个用来免费试激活软件的研究项目。
 
 你可以经由以下命令来将 KMS 服务器切换到 `active.fang2hou.com`。
 一般来说可以用于替换本地 KMS 服务器，或者替换别的失效在线 KMS 服务器。
-```dos
+```cmd
 slmgr.vbs -skms active.fang2hou.com
 ```
 
 这是从头开始激活 Windows 10 专业版的步骤。
-```dos
+```cmd
 slmgr.vbs -ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
 slmgr.vbs -skms active.fang2hou.com
 slmgr.vbs -ato

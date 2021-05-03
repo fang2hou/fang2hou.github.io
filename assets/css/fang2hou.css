@@ -185,9 +185,13 @@ print {
 
 pre {
     background-color: unset;
-    padding: 5px;
+    padding: 0px;
+    margin: 0px -30px 0px -30px;
     display: block;
     overflow-x: auto;
+}
+pre > code {
+    margin: unset;
 }
 
 .hljs {
@@ -204,4 +208,14 @@ pre {
 
 .author {
     font-size: 10px;
+}
+
+blockquote {
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.post img {
+    margin: auto;
+    display: block;
 }
