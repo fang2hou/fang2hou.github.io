@@ -155,6 +155,9 @@ print {
         font-size: 1.2em;
     }
 
+    .guide-button.log {
+        margin-right: 20px;
+    }
 }
 
 .sidebar .logo-title .title h3 {
