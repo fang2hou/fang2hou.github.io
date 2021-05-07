@@ -39,8 +39,8 @@ I also used PHP, HTML, CSS, Javascript, Java, Swift, and more in multiple extrac
 1. Towards an Angry-Birds-Like Game System for Promoting Mental Well-Being of Players using Art-Therapy-Embedded Procedural Content Generation
    _IEEE 8th Global Conference on Consumer Electronics (GCCE), pp. 947-948. IEEE, 2019._
    **Fang Zhou**, Pujana Paliyawan, Ruck Thawonmas, and Tomohiro Harada.
-   [arXiv](https://arxiv.org/abs/1911.02695) | [IEEE Xplore](https://ieeexplore.ieee.org/abstract/document/9015247/)
+   {{< faicon "" "link" >}} &nbsp;[arXiv](https://arxiv.org/abs/1911.02695) | [IEEE Xplore](https://ieeexplore.ieee.org/abstract/document/9015247/)
 2. 健康促進のためのプレイヤー適応型モーションゲーミング AI
    _ゲームプログラミングワークショップ 2019_
    許俊傑, 問馬樹, **方舟**, パリヤワンプージャナー, 原田智広 & ターウォンマットラック
-   [情報処理学会](https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=199999&item_no=1&page_id=13&block_id=8) | [Researchgate](https://www.researchgate.net/profile/Pujana_Paliyawan/publication/336564847_Player_Adaptive_Motion_Gaming_AI_for_Health_Promotion/links/5da5ef8aa6fdccdad545f62b/Player-Adaptive-Motion-Gaming-AI-for-Health-Promotion.pdf)
+   {{< faicon "" "link" >}} &nbsp;[情報処理学会](https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=199999&item_no=1&page_id=13&block_id=8) | [Researchgate](https://www.researchgate.net/profile/Pujana_Paliyawan/publication/336564847_Player_Adaptive_Motion_Gaming_AI_for_Health_Promotion/links/5da5ef8aa6fdccdad545f62b/Player-Adaptive-Motion-Gaming-AI-for-Health-Promotion.pdf)
