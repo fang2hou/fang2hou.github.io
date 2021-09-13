@@ -1,6 +1,6 @@
 +++
 author = "Zhou Fang"
-title = "由 C++ 入门 Rust 01（函数变量篇）"
+title = "由 C++ 入门 Rust 01（函数变量）"
 date = 2021-05-25T13:19:20+09:00
 updated = "2018-02-16"
 category = "开发手札"
