@@ -29,7 +29,7 @@ fn first_word(s: &amp;String) -&gt; usize {
 let str1 = &amp;s[0..2];
 let str2 = &amp;s[2..3];
 let str3 = &amp;s[2..=3];
-</code></pre><blockquote><p>注：这里字符串对象 <code>String</code> 的切片是栈上的 <code>&str</code> 形式。<br>顺带一提，常规的字符串其实就是 <code>&str</code> 格式保存的。</p></blockquote><p>在其他语言进行范围指定的时候，我们见过非常多次了，一般默认都是左闭右开的，即<code>[start, end)</code> 但这样有时候会显得不直观，比如要从 1 数到 100, 得写 <code>1..101</code>, Rust 提供了更加直观的 <code>..=</code> 写法，只要写作 <code>1..=100</code> 效果相同，但是可读性大大增强。</p><p>改写一下函数，我们得到了下面的代码。</p><h2 id=代码-2>代码 2</h2><pre><code class=language-rust>fn main() {
+</code></pre><blockquote><p>注：这里字符串对象 <code>String</code> 的切片是栈上的 <code>&str</code> 形式。<br>顺带一提，常规的字符串其实就是 <code>&str</code> 格式保存的。</p></blockquote><p>在其他语言进行范围指定的时候，我们见过非常多次了，一般默认都是左闭右开的，即<code>[start, end)</code> 但这样有时候会显得不直观，比如要从 1 数到 100, 得写 <code>1..101</code>, Rust 提供了更加直观的 <code>..=</code> 写法，只要写作 <code>1..=100</code> ，可读性大大增强。</p><p>改写一下函数，我们得到了下面的代码。</p><h2 id=代码-2>代码 2</h2><pre><code class=language-rust>fn main() {
     let mut s = String::from(&quot;hello world&quot;);
     let word = first_word(&amp;s);
     println!(&quot;{}&quot;, word);
@@ -66,4 +66,4 @@ fn first_word(s: &amp;String) -&gt; &amp;str {
 
     s
 }
-</code></pre><p>锵锵，这里就会发生编译不通过的问题了，报错为 <code>mutable borrow occurs here</code>。原因就在于 <code>word</code> 究其根本还是一个切片，是<strong>借用</strong>了 <code>s</code> 的一部分数据做成的。如果变了 <code>s</code>, <code>word</code> 就无法获取到底层数据了。</p><h1 id=总结>总结</h1><p>切片是非常方便的数据使用方式，在 Rust 中，对于所有权系统是一个简单的绕过，但是依旧内存安全的手法。</p><blockquote><p>参考资料：https://doc.rust-lang.org/book/ch04-03-slices.html</p></blockquote></div><div class=post-footer><div class=info><span class=separator><a class=tag href=/tags/rust/>Rust</a><a class=tag href=/tags/c++/>C++</a></span></div></div></div></div></div></div><script type=text/javascript src=/js/medium-zoom.min.83cb1dd5fea8d42d87d1e601a07faa73089ad0ef9ccfe5daf6041289ebcc4e46.js integrity="sha256-g8sd1f6o1C2H0eYBoH+qcwia0O+cz+Xa9gQSievMTkY=" crossorigin=anonymous></script></body></html>
+</code></pre><p>锵锵，这里就会发生编译不通过的问题了，报错为 <code>mutable borrow occurs here</code>。原因就在于 <code>word</code> 究其根本还是一个切片，是<strong>借用</strong>了 <code>s</code> 的一部分数据做成的。如果变了 <code>s</code>, <code>word</code> 就无法获取到底层数据了。</p><p>在 Rust 代码中，如果后面依旧要使用 <code>word</code> 这个切片，那么 <code>s</code> 是不能被修改的，只有在 <code>word</code> 最后一次访问之后的代码中才能对 <code>s</code> 进行修改。这个检查将会由 Rust Language Server 完成。</p><h1 id=总结>总结</h1><p>切片是非常方便的数据使用方式，在 Rust 中，对于所有权系统是一个简单的绕过，但是依旧内存安全的手法。</p><blockquote><p>参考资料：https://doc.rust-lang.org/book/ch04-03-slices.html</p></blockquote></div><div class=post-footer><div class=info><span class=separator><a class=tag href=/tags/rust/>Rust</a><a class=tag href=/tags/c++/>C++</a></span></div></div></div></div></div></div><script type=text/javascript src=/js/medium-zoom.min.83cb1dd5fea8d42d87d1e601a07faa73089ad0ef9ccfe5daf6041289ebcc4e46.js integrity="sha256-g8sd1f6o1C2H0eYBoH+qcwia0O+cz+Xa9gQSievMTkY=" crossorigin=anonymous></script></body></html>
