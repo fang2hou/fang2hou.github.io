@@ -1,18 +1,20 @@
 +++
 title = "About"
 description = "Information about myself."
-date = "2021-04-30"
+date = "2022-05-18"
 author = "Zhou Fang"
 layout = "page"
 +++
 
 # 👋 Hi
-I am Zhou Fang, a master's candidate from [Knowledge Acquisition System Laboratory](https://kasys.slis.tsukuba.ac.jp/en/), University of Tsukuba.
+I am Zhou Fang, curretly a application & platform engineer at Yahoo Japan Corporation.  
+I graduated from [Knowledge Acquisition System Laboratory](https://kasys.slis.tsukuba.ac.jp/en/), University of Tsukuba.
 My research focuses on developing machine learning algorithms, recommender systems, and graph neural networks.
 
 # 💻 Programming
+Java stands as main language in my work.
 I mainly use Python, Lua, C++, and Go in daily development and research.
-I also used PHP, HTML, CSS, Javascript, Java, Swift, and more in multiple extracurricular projects, but not mastered them.
+I also used PHP, HTML, CSS, Javascript, Swift, and more in multiple extracurricular projects, but not mastered them.
 
 # 😻 Hobbies
 1. **Reading**
@@ -30,8 +32,9 @@ I also used PHP, HTML, CSS, Javascript, Java, Swift, and more in multiple extrac
 
 ||||
 | ---- | :---- | ----: |
-| 2020.04 ~ | University of Tsukuba | 🌱 NOW |
-| 2016.04 ~ 2020.03 | Ritsumeikan University | 🌻 Graduated (Engineering) |
+| 2022.04 ~ | Application & Platform Engineer @ Yahoo Japan Corporation | 🌱 NOW |
+| 2020.04 ~ 2022.03 | University of Tsukuba | 🌻 Master (Engineering) |
+| 2016.04 ~ 2020.03 | Ritsumeikan University | 🌻 Bachelor (Engineering) |
 | 2011.09 ~ 2014.07 | Hangzhou Foriegn Language School | 🌻 Graduated  |
 | 2008.09 ~ 2011.07 | Hangzhou Foriegn Language School | 🌻 Graduated  |
 
