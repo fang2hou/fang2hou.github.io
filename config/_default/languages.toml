@@ -4,8 +4,8 @@ weight = 1
 title = "方舟"
 author = "fang2hou"
 description = """
-硕士研究生 @ 筑波大学
-全栈工程师
+应用平台工程师
+雅虎日本
 """
 singleDateFormat = "2006 年 1 月 2 日"
 indexDateFormat = "2006 年 1 月 2 日"
@@ -17,8 +17,8 @@ weight = 2
 title = "方 舟"
 author = "fang2hou"
 description = """
-博士前期 @ 筑波大学
-フルスタックエンジニア
+エンジニア
+Yahoo! JAPAN
 """
 customCss = ["css/fang2hou.css", "css/japanese.css"]
 singleDateFormat = "2006 年 1 月 2 日"
@@ -31,7 +31,7 @@ weight = 3
 title = "Zhou Fang"
 author = "fang2hou"
 description = """
-Master's Candidate @ University of Tsukuba
-Full Stack Developer
+Engineer
+Yahoo Japan Corporation
 """
 customCss = ["css/fang2hou.css", "css/english.css"]

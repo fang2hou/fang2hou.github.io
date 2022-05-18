@@ -28,7 +28,7 @@ I also used PHP, HTML, CSS, Javascript, Swift, and more in multiple extracurricu
 5. **Cooking**
    - I would cook Chinese foods and make mixed drinks if I have time.
 
-# 🏫 Education
+# 🏫 Education & Career
 
 ||||
 | ---- | :---- | ----: |
